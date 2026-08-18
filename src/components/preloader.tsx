@@ -21,7 +21,7 @@ export function Preloader() {
 
   useEffect(() => {
     if (!mounted) return;
-    const timer = setTimeout(() => setVisible(false), reduce ? 300 : 2000);
+    const timer = setTimeout(() => setVisible(false), reduce ? 300 : 3200);
     return () => clearTimeout(timer);
   }, [mounted, reduce]);
 
@@ -50,8 +50,8 @@ export function Preloader() {
                 reduce
                   ? { duration: 0.15 }
                   : {
-                      pathLength: { duration: 1.3, ease: EASE_IN_OUT },
-                      fillOpacity: { duration: 0.4, delay: 1.2, ease: EASE_OUT },
+                      pathLength: { duration: 2.2, ease: EASE_IN_OUT },
+                      fillOpacity: { duration: 0.5, delay: 2.1, ease: EASE_OUT },
                     }
               }
             />
