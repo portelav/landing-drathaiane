@@ -3,7 +3,6 @@
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 
-const EASE_OUT = [0.23, 1, 0.32, 1] as const;
 const EASE_IN_OUT = [0.77, 0, 0.175, 1] as const;
 
 const MONOGRAM_PATH =
@@ -34,28 +33,41 @@ export function Preloader() {
           exit={{ opacity: 0 }}
           transition={{ duration: reduce ? 0.15 : 0.5, ease: EASE_IN_OUT }}
         >
-          <svg viewBox="0 0 480 530" width={150} height={166} aria-label="Dra. Thaiane Lessa">
-            <motion.path
-              d={MONOGRAM_PATH}
-              fillRule="evenodd"
-              stroke="#ffffff"
-              strokeWidth={6}
-              style={{ fill: "#ffffff" }}
-              initial={{ pathLength: 0, fillOpacity: 0 }}
-              animate={{
-                pathLength: 1,
-                fillOpacity: 1,
-              }}
+          <div className="relative" style={{ width: 150, height: 166 }}>
+            <svg
+              viewBox="0 0 480 530"
+              width={150}
+              height={166}
+              className="absolute inset-0"
+              aria-label="Dra. Thaiane Lessa"
+            >
+              <motion.path
+                d={MONOGRAM_PATH}
+                fillRule="evenodd"
+                fill="none"
+                stroke="#ffffff"
+                strokeWidth={6}
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: reduce ? 0.15 : 2.2, ease: EASE_IN_OUT }}
+              />
+            </svg>
+
+            <motion.div
+              className="absolute inset-0"
+              initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
+              animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
               transition={
                 reduce
                   ? { duration: 0.15 }
-                  : {
-                      pathLength: { duration: 2.2, ease: EASE_IN_OUT },
-                      fillOpacity: { duration: 0.5, delay: 2.1, ease: EASE_OUT },
-                    }
+                  : { duration: 0.7, delay: 2.1, ease: EASE_IN_OUT }
               }
-            />
-          </svg>
+            >
+              <svg viewBox="0 0 480 530" width={150} height={166}>
+                <path d={MONOGRAM_PATH} fillRule="evenodd" fill="#ffffff" stroke="none" />
+              </svg>
+            </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
