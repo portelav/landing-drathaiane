@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "motion/react";
 import { useState } from "react";
 
 const NAV_LINKS = [
@@ -18,12 +19,14 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-black/10 bg-white">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-3">
-          <Image
-            src="/logos/monograma-escuro.png"
-            alt="Dra. Thaiane Lessa"
-            width={32}
-            height={35}
-          />
+          <motion.div layoutId="brand-mark" style={{ width: 32, height: 35 }}>
+            <Image
+              src="/logos/monograma-escuro.png"
+              alt="Dra. Thaiane Lessa"
+              width={32}
+              height={35}
+            />
+          </motion.div>
           <span className="hidden flex-col leading-tight sm:flex">
             <span className="text-sm tracking-[0.15em]">DRA. THAIANE LESSA</span>
             <span className="text-[10px] tracking-[0.2em] text-black/60">

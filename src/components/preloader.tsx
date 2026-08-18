@@ -20,7 +20,7 @@ export function Preloader() {
 
   useEffect(() => {
     if (!mounted) return;
-    const timer = setTimeout(() => setVisible(false), reduce ? 300 : 3200);
+    const timer = setTimeout(() => setVisible(false), reduce ? 300 : 3000);
     return () => clearTimeout(timer);
   }, [mounted, reduce]);
 
@@ -31,9 +31,14 @@ export function Preloader() {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: reduce ? 0.15 : 0.5, ease: EASE_IN_OUT }}
+          transition={{ duration: reduce ? 0.15 : 0.8, ease: EASE_IN_OUT }}
         >
-          <div className="relative" style={{ width: 150, height: 166 }}>
+          <motion.div
+            layoutId="brand-mark"
+            className="relative"
+            style={{ width: 150, height: 166 }}
+            transition={{ duration: reduce ? 0.15 : 0.8, ease: EASE_IN_OUT }}
+          >
             <svg
               viewBox="0 0 480 530"
               width={150}
@@ -67,7 +72,7 @@ export function Preloader() {
                 <path d={MONOGRAM_PATH} fillRule="evenodd" fill="#ffffff" stroke="none" />
               </svg>
             </motion.div>
-          </div>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
