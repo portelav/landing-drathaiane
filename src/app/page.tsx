@@ -1,4 +1,5 @@
 import { About } from "@/components/about";
+import { AboutText } from "@/components/about-text";
 import { Hero } from "@/components/hero";
 import { Preloader } from "@/components/preloader";
 
@@ -9,6 +10,7 @@ export default function Home() {
       <main className="flex min-h-screen flex-1 flex-col">
         <Hero />
         <About />
+        <AboutText />
       </main>
     </>
   );
