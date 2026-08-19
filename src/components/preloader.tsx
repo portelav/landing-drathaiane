@@ -26,19 +26,14 @@ const LINE_LIT = "rgba(244, 242, 238, 0.78)";
 
 export function Preloader() {
   const [visible, setVisible] = useState(true);
-  const [mounted, setMounted] = useState(false);
-  const reducedMotion = useReducedMotion();
-  const reduce = mounted && !!reducedMotion;
+  // Server-side this reads null, client-side the real media query. It only ever
+  // feeds transition timings, never markup, so the two renders still match.
+  const reduce = !!useReducedMotion();
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
     const timer = setTimeout(() => setVisible(false), reduce ? 300 : HOLD_MS);
     return () => clearTimeout(timer);
-  }, [mounted, reduce]);
+  }, [reduce]);
 
   return (
     <AnimatePresence>
