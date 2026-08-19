@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
-import { MONOGRAM_PATH } from "./brand-mark";
+import { MARK_FLIGHT, MONOGRAM_PATH } from "./brand-mark";
 
 const EASE_IN_OUT = [0.77, 0, 0.175, 1] as const;
 
@@ -18,7 +18,8 @@ const MARK_FILL = 1.3;
 const LINE_IN_AT = 0.7;
 const LINE_FILL_AT = 1.8;
 const LINE_FILL = 2;
-const HOLD_MS = 4400;
+/** Both fills land at 3.8s, so hold no longer than that or the screen freezes. */
+const HOLD_MS = 3800;
 
 /** Faint enough to be a whisper, bright enough to be read once filled. */
 const LINE_DIM = "rgba(244, 242, 238, 0.2)";
@@ -42,13 +43,13 @@ export function Preloader() {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: reduce ? 0.15 : 0.8, ease: EASE_IN_OUT }}
+          transition={{ duration: reduce ? 0.15 : MARK_FLIGHT, ease: EASE_IN_OUT }}
         >
           <motion.div
             layoutId="brand-mark"
             className="relative"
             style={{ width: 150, height: 166 }}
-            transition={{ duration: reduce ? 0.15 : 0.8, ease: EASE_IN_OUT }}
+            transition={{ duration: reduce ? 0.15 : MARK_FLIGHT, ease: EASE_IN_OUT }}
           >
             <svg
               viewBox="0 0 480 530"

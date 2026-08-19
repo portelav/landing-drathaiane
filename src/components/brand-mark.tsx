@@ -19,3 +19,9 @@ export function BrandMark({ height = 34 }: { height?: number }) {
     </svg>
   );
 }
+
+/**
+ * How long the monogram takes to fly from the preloader into the header. Both
+ * ends of the `brand-mark` layoutId must agree, or the handoff tears.
+ */
+export const MARK_FLIGHT = 0.6;

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { BrandMark } from "./brand-mark";
+import { BrandMark, MARK_FLIGHT } from "./brand-mark";
 
 const NAV_LINKS = [
   { label: "Sobre", href: "#sobre" },
@@ -140,7 +140,7 @@ export function Header() {
           <motion.span
             layoutId="brand-mark"
             className="block"
-            transition={{ duration: reducedMotion ? 0 : 0.8, ease: [0.77, 0, 0.175, 1] }}
+            transition={{ duration: reducedMotion ? 0 : MARK_FLIGHT, ease: [0.77, 0, 0.175, 1] }}
           >
             <BrandMark height={34} />
           </motion.span>
