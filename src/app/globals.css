@@ -1,19 +1,83 @@
 @import "tailwindcss";
 
 :root {
+  /* Neutrals */
+  --c-light-base: #f4f2ee;
+  --c-light-40: rgba(244, 242, 238, 0.4);
+  --c-light-15: rgba(244, 242, 238, 0.15);
+  --c-dark-base: #1a1a18;
+  --c-dark-55: rgba(26, 26, 24, 0.55);
+  --c-dark-40: rgba(26, 26, 24, 0.4);
+  --c-dark-10: rgba(26, 26, 24, 0.1);
+
+  /* Brand greens, darkest is the original brand green */
+  --c-forest-300: #5a7440;
+  --c-forest-500: #4a6330;
+  --c-forest-700: #2e4718;
+  --c-forest-900: #163000;
+
+  /* Brand wine accent */
+  --c-wine-300: #b02b58;
+  --c-wine-500: #8e1a3c;
+  --c-wine-700: #661028;
+
   --background: #ffffff;
-  --foreground: #000000;
-  --brand-green: #163000;
+  --foreground: var(--c-dark-base);
+
+  /* Motion */
+  --default-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-menu: cubic-bezier(0.6, 0.14, 0, 1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brand-green: var(--brand-green);
-  --font-sans: Helvetica, Arial, sans-serif;
+
+  --color-light-base: var(--c-light-base);
+  --color-light-40: var(--c-light-40);
+  --color-light-15: var(--c-light-15);
+  --color-dark-base: var(--c-dark-base);
+  --color-dark-55: var(--c-dark-55);
+  --color-dark-40: var(--c-dark-40);
+  --color-dark-10: var(--c-dark-10);
+
+  --color-forest-300: var(--c-forest-300);
+  --color-forest-500: var(--c-forest-500);
+  --color-forest-700: var(--c-forest-700);
+  --color-forest-900: var(--c-forest-900);
+
+  --color-wine-300: var(--c-wine-300);
+  --color-wine-500: var(--c-wine-500);
+  --color-wine-700: var(--c-wine-700);
+
+  /* Inter Tight for UI, Instrument Serif for display — the same pairing the
+     reference site runs. */
+  --font-sans: var(--font-inter-tight), "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-instrument-serif), Georgia, serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* Lenis drives scrolling itself, so the document must not be height-clamped
+   and the browser must not add its own smoothing on top. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Letter-spaced small caps used by the wordmark and nav labels. */
+.tracking-brand {
+  letter-spacing: 0.18em;
 }
