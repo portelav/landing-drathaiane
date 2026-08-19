@@ -180,13 +180,18 @@ Pendências conhecidas e não tratadas: `Depoimentos` não pode existir de forma
 honesta sem depoimento real, e `Serviços` não tem prova visual sem foto de
 caso. Nenhum dos dois materiais existe hoje.
 
-## Bug conhecido, não corrigido
+## Bug corrigido
 
-A band do Tempo 1 troca para o layout lado a lado em 1024px, medida em pixels.
-A foto ocupa `0,75 x altura`, então num iPad Pro retrato (1024x1366) ela pede
-1024px e sobra zero para o texto. É a mesma classe de erro que o hero tinha e
-que foi corrigida em `fix: open the hero by ratio rather than by pixel width` —
-um limite de pixel usado para uma pergunta que é de proporção. A diferença é
-que aqui a condição não é uma proporção pura: depende da largura mínima que a
-coluna de texto precisa. Merece ser resolvido junto com o Tempo 2, que altera
-essa mesma área.
+A band do Tempo 1 trocava para o layout lado a lado em 1024px, medida em
+pixels. Como a foto ocupa `0,75 x altura`, num iPad Pro retrato (1024x1366) ela
+pedia 1025px — a tela inteira — e o texto era posicionado a partir de x=1025,
+fora da viewport. As credenciais e a frase simplesmente não estavam na página.
+
+Corrigido pela variante `beside:`, que exige proporção mínima de 6/5 além do
+piso de largura. Abaixo disso a band empilha, que é o que uma tela alta pede de
+qualquer forma. Era a mesma classe de erro que o hero largou em `fbb9de7`, e a
+última ocorrência conhecida dela.
+
+Quem for construir o Tempo 2 e o Tempo 3 deve usar `beside:` para o layout de
+duas colunas, nunca `lg:` — o breakpoint de pixel não responde a pergunta certa
+nesta seção.
