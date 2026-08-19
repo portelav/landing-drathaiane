@@ -30,14 +30,6 @@ const HEIGHT_TO = 1;
  */
 const OPENS_BESIDE = "(min-width: 64rem) and (min-aspect-ratio: 6/5)";
 
-const CREDENTIALS = [
-  ["Formação", "Cirurgiã-dentista pela Universidade Federal de Alagoas"],
-  ["Especialização", "Especialista e mestranda em Dentística"],
-  ["Atuação", "Dentística estética e restauradora"],
-  ["Clínica", "Innovare Odontologia — Maceió/AL"],
-  ["Registro", "CRO/AL-6418"],
-];
-
 const clamp = (value: number) => Math.min(1, Math.max(0, value));
 const lerp = (from: number, to: number, t: number) => from + (to - from) * t;
 const stage = (progress: number, from: number, to: number) =>
@@ -199,17 +191,6 @@ export function About() {
               Entre técnicas, detalhes e planejamentos… Existe sempre o mais
               importante: o cuidado com quem está na cadeira.
             </p>
-
-            <dl className="flex flex-col gap-2.5 border-t border-dark-10 pt-6 text-[0.8125rem] leading-snug beside:border-light-15">
-              {CREDENTIALS.map(([label, value]) => (
-                <div key={label} className="flex flex-col gap-0.5 sm:flex-row sm:gap-3">
-                  <dt className="tracking-brand shrink-0 text-[0.625rem] uppercase text-dark-55 sm:w-32 sm:pt-0.5">
-                    {label}
-                  </dt>
-                  <dd className="m-0 beside:text-light-base">{value}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
         </div>
       </div>

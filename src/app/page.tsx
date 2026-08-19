@@ -1,5 +1,6 @@
 import { About } from "@/components/about";
 import { AboutText } from "@/components/about-text";
+import { AboutTimeline } from "@/components/about-timeline";
 import { Hero } from "@/components/hero";
 import { Preloader } from "@/components/preloader";
 
@@ -11,6 +12,7 @@ export default function Home() {
         <Hero />
         <About />
         <AboutText />
+        <AboutTimeline />
       </main>
     </>
   );
