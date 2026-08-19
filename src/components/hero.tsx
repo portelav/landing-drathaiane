@@ -82,20 +82,34 @@ export function Hero() {
     if (!video) return;
 
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let attempts = 0;
+
+    const attempt = () => {
+      if (media.matches) return;
+      video.play().catch(() => {
+        // Some browsers refuse until enough data has arrived. Try again once
+        // it has, a couple of times; past that the refusal is a real policy
+        // (low power mode, data saver) and the poster is the right answer.
+        if (attempts++ < 3) video.addEventListener("canplay", attempt, { once: true });
+      });
+    };
 
     const sync = () => {
       if (media.matches) {
         video.pause();
         video.currentTime = 0;
       } else {
-        // Autoplay can still be refused (low power mode); the poster stays.
-        void video.play().catch(() => {});
+        attempts = 0;
+        attempt();
       }
     };
 
     sync();
     media.addEventListener("change", sync);
-    return () => media.removeEventListener("change", sync);
+    return () => {
+      media.removeEventListener("change", sync);
+      video.removeEventListener("canplay", attempt);
+    };
   }, []);
 
   // Scroll-driven reveal. Everything animated here is absolutely positioned, so
@@ -258,16 +272,22 @@ export function Hero() {
           ref={frameRef}
           className="relative h-[100svh] w-full overflow-hidden lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[59.31svh]"
         >
+          {/* Decorative: the browser otherwise offers picture-in-picture and
+              hover playback controls over any video this size, which is not a
+              choice this footage should present. */}
           <video
             ref={videoRef}
             muted
             loop
             playsInline
-            preload="none"
+            preload="metadata"
             poster={POSTER}
             aria-hidden
             tabIndex={-1}
-            className="absolute inset-0 h-full w-full object-cover"
+            disablePictureInPicture
+            disableRemotePlayback
+            controlsList="nodownload noplaybackrate noremoteplayback"
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover"
           >
             {SOURCES.map((source) => (
               <source key={source.src} src={source.src} type={source.type} />

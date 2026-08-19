@@ -21,6 +21,10 @@ const interTight = Inter_Tight({
 export const metadata: Metadata = {
   title: "Dra. Thaiane Lessa | Cirurgiã-Dentista",
   description: "Dra. Thaiane Lessa, cirurgiã-dentista.",
+  // Preview only. The page still carries placeholder contact details, so it
+  // must not be indexed under her professional name yet — drop this once the
+  // real content lands.
+  robots: { index: false, follow: false },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
