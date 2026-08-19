@@ -48,7 +48,7 @@ const skin = PALETTE[TONE];
  * height frames exactly the centre panel — so the reveal starts on one panel
  * and widens onto the other two instead of landing on an arbitrary crop.
  */
-const PANEL_WIDTH = 854 / 2560;
+const PANEL_WIDTH = 1 / 3;
 const FRAME_ASPECT = 16 / 9;
 const WINDOW_START = PANEL_WIDTH * FRAME_ASPECT;
 
@@ -57,8 +57,13 @@ const WINDOW_START = PANEL_WIDTH * FRAME_ASPECT;
  * `0.5931 × height`, which on a phone is wider than the screen itself. There
  * is nothing left to reveal, so narrow screens get the full frame from the
  * start and keep only the line crossing it.
+ *
+ * The test is the ratio itself, never a pixel count — a 900×700 window has
+ * room to spare while a tall phone never does, however many pixels across it
+ * is. 427/720 is WINDOW_START as an exact fraction; the `wide:` variant in
+ * `globals.css` carries the same number for the layout that follows it.
  */
-const PINNED_FROM = 1024;
+const OPENS_ABOVE = "(min-aspect-ratio: 427/720)";
 
 const clamp = (value: number) => Math.min(1, Math.max(0, value));
 const lerp = (from: number, to: number, t: number) => from + (to - from) * t;
@@ -125,7 +130,7 @@ export function Hero() {
     const video = videoRef.current;
     if (!wrap || !frame || !intro || !banner || !mobileBanner || !veil || !video) return;
 
-    const pinned = window.matchMedia(`(min-width: ${PINNED_FROM}px)`);
+    const pinned = window.matchMedia(OPENS_ABOVE);
     const stillness = window.matchMedia("(prefers-reduced-motion: reduce)");
     let queued = 0;
 
@@ -152,7 +157,15 @@ export function Hero() {
       const progress = runway > 0 ? clamp(-rect.top / runway) : 0;
 
       const opening = stage(progress, 0, 0.72);
-      frame.style.width = `${lerp(viewportHeight * WINDOW_START, viewportWidth, opening)}px`;
+
+      // One panel is `0.5931 × height` wide, which on a squarer screen is most
+      // of it — the opening text would have to start on top of the footage.
+      // Ceding half the width keeps the two apart; the frame then starts inside
+      // the centre panel rather than exactly on it, which costs the precise
+      // framing and saves the headline. Above a 1.186 ratio the panel is the
+      // smaller of the two and nothing changes.
+      const start = Math.min(viewportHeight * WINDOW_START, viewportWidth / 2);
+      frame.style.width = `${lerp(start, viewportWidth, opening)}px`;
 
       // Full bleed puts pale walls behind the display line, so the frame earns
       // a little more shade the wider it gets.
@@ -239,12 +252,12 @@ export function Hero() {
     <section
       ref={wrapRef}
       data-header-theme={skin.headerTheme}
-      className={`relative ${skin.section} lg:h-[300svh] motion-reduce:lg:h-auto`}
+      className={`relative ${skin.section} wide:h-[300svh] motion-reduce:wide:h-auto`}
     >
-      <div className="sticky top-0 flex min-h-[100svh] flex-col overflow-hidden lg:block lg:h-[100svh]">
+      <div className="sticky top-0 flex min-h-[100svh] flex-col overflow-hidden wide:block wide:h-[100svh]">
         <div
           ref={introRef}
-          className="relative z-10 flex flex-col justify-end gap-7 px-6 pb-10 pt-28 sm:gap-10 sm:px-10 sm:pb-14 sm:pt-32 lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/2 lg:pb-16 lg:pt-40"
+          className="relative z-10 flex flex-col justify-end gap-7 px-6 pb-10 pt-28 sm:gap-10 sm:px-10 sm:pb-14 sm:pt-32 wide:absolute wide:inset-y-0 wide:left-0 wide:w-1/2 wide:pb-16 wide:pt-40"
         >
           <p className={`tracking-brand text-[0.6875rem] uppercase ${skin.muted}`}>
             Odontologia estética e restauradora
@@ -256,7 +269,7 @@ export function Hero() {
           </h1>
 
           <div
-            className={`flex flex-col gap-8 border-t ${skin.rule} pt-8 sm:flex-row sm:items-end sm:justify-between lg:flex-col lg:items-start`}
+            className={`flex flex-col gap-8 border-t ${skin.rule} pt-8 sm:flex-row sm:items-end sm:justify-between wide:flex-col wide:items-start`}
           >
             <p className={`max-w-[34ch] text-[0.9375rem] leading-relaxed ${skin.muted}`}>
               Cada plano de tratamento começa pela leitura do seu rosto —
@@ -271,7 +284,7 @@ export function Hero() {
         {/* Opens from one panel of the triptych to the full frame. */}
         <div
           ref={frameRef}
-          className="relative h-[100svh] w-full overflow-hidden lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[59.31svh]"
+          className="relative h-[100svh] w-full overflow-hidden wide:absolute wide:inset-y-0 wide:right-0 wide:h-auto wide:w-[min(59.31svh,50vw)]"
         >
           {/* Decorative: the browser otherwise offers picture-in-picture and
               hover playback controls over any video this size, which is not a
@@ -298,7 +311,7 @@ export function Hero() {
           <div
             ref={veilRef}
             aria-hidden
-            className={`absolute inset-0 ${skin.veil} opacity-30 lg:opacity-0`}
+            className={`absolute inset-0 ${skin.veil} opacity-30 wide:opacity-0`}
           />
 
           {/* Keeps the header legible wherever the frame reaches under it. */}
@@ -310,13 +323,13 @@ export function Hero() {
 
           <span
             ref={mobileBannerRef}
-            className={`pointer-events-none absolute left-0 top-1/2 block whitespace-nowrap font-display text-[clamp(2.5rem,13vw,4.5rem)] italic leading-none ${skin.banner} lg:hidden`}
+            className={`pointer-events-none absolute left-0 top-1/2 block whitespace-nowrap font-display text-[clamp(2.5rem,13vw,4.5rem)] italic leading-none ${skin.banner} wide:hidden`}
           >
             seu sorriso, no seu tempo
           </span>
         </div>
 
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-20 hidden items-center lg:flex">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-20 hidden items-center wide:flex">
           <span
             ref={bannerRef}
             className={`block whitespace-nowrap font-display text-[clamp(3rem,9vw,8rem)] italic leading-none opacity-0 ${skin.banner}`}

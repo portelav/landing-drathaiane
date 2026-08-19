@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/**
+ * The hero opens from one panel of its triptych, and framing one panel needs a
+ * window of `0.5931 × height`. Whether there is anything left to reveal is
+ * therefore a question of ratio, not of pixel count: a 900×700 window has room
+ * to spare, while a tall phone never does however many pixels across it is.
+ * 427/720 is that ratio exactly — see WINDOW_START in `hero.tsx`.
+ */
+@custom-variant wide (@media (min-aspect-ratio: 427/720));
+
 :root {
   /* Neutrals */
   --c-light-base: #f4f2ee;
