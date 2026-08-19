@@ -1,15 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState, type RefObject } from "react";
+import { useEffect, useRef } from "react";
 
 const POSTER = "/video/hero-poster.webp";
-/**
- * H.264 only, deliberately. VP9 saved 11% of the file but made the browser
- * choose, and Safari from iOS 17.4 answers that it can play WebM while
- * decoding VP9 in software — which a phone does not sustain at 1080p. One
- * file every device decodes in hardware beats a smaller one it might not.
- */
-const VIDEO = "/video/hero.mp4";
+/** VP9 for browsers that decode it, H.264 at level 4.0 for everything else. */
+const SOURCES = [
+  { src: "/video/hero.webm", type: "video/webm" },
+  { src: "/video/hero.mp4", type: "video/mp4" },
+];
 
 /** Flip this to compare the two grounds. Everything else follows. */
 const TONE: "light" | "dark" = "light";
@@ -68,45 +66,6 @@ const lerp = (from: number, to: number, t: number) => from + (to - from) * t;
 /** Maps scroll progress to a stage's own 0..1 range. */
 const stage = (progress: number, from: number, to: number) =>
   clamp((progress - from) / (to - from));
-
-/**
- * Temporary. Reading a phone's media state from here is guesswork, so
- * `?debug=video` prints what the element actually reports on the device.
- * Remove once the iOS playback question is settled.
- */
-function VideoReadout({ videoRef }: { videoRef: RefObject<HTMLVideoElement | null> }) {
-  const [lines, setLines] = useState<string[] | null>(null);
-
-  useEffect(() => {
-    if (!new URLSearchParams(window.location.search).has("debug")) return;
-
-    const read = () => {
-      const v = videoRef.current;
-      if (!v) return;
-      setLines([
-        `src ${(v.currentSrc || "—").split("/").pop()}`,
-        `ready ${v.readyState}  net ${v.networkState}`,
-        `paused ${v.paused}  time ${v.currentTime.toFixed(1)}`,
-        `size ${v.videoWidth}x${v.videoHeight}`,
-        `erro ${v.error ? v.error.code + " " + v.error.message : "nenhum"}`,
-        `mp4 ${v.canPlayType('video/mp4; codecs="avc1.640028"') || "não"}`,
-        `webm ${v.canPlayType('video/webm; codecs="vp9"') || "não"}`,
-      ]);
-    };
-
-    read();
-    const timer = setInterval(read, 700);
-    return () => clearInterval(timer);
-  }, [videoRef]);
-
-  if (!lines) return null;
-
-  return (
-    <pre className="absolute left-3 top-24 z-50 max-w-[92vw] whitespace-pre-wrap rounded bg-black/80 p-3 text-[11px] leading-relaxed text-white">
-      {lines.join("\n")}
-    </pre>
-  );
-}
 
 export function Hero() {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -331,10 +290,10 @@ export function Hero() {
             controlsList="nodownload noplaybackrate noremoteplayback"
             className="pointer-events-none absolute inset-0 h-full w-full object-cover"
           >
-            <source src={VIDEO} type="video/mp4" />
+            {SOURCES.map((source) => (
+              <source key={source.src} src={source.src} type={source.type} />
+            ))}
           </video>
-
-          <VideoReadout videoRef={videoRef} />
 
           <div
             ref={veilRef}
