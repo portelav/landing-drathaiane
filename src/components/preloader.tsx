@@ -2,11 +2,27 @@
 
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
+import { MONOGRAM_PATH } from "./brand-mark";
 
 const EASE_IN_OUT = [0.77, 0, 0.175, 1] as const;
 
-const MONOGRAM_PATH =
-  "M 39 51.500 C 39 58.375, 39.230 64, 39.511 64 C 39.792 64, 45.080 62.468, 51.261 60.596 C 81.982 51.292, 129.683 45.472, 169.305 46.194 L 186.109 46.500 172.305 57.619 C 138.170 85.115, 114.464 110.074, 95.471 138.515 C 70.975 175.195, 60.459 212.340, 63.100 252.849 C 65.458 289.002, 76.850 316.729, 98.061 337.939 C 110.826 350.705, 125.694 359.732, 145.053 366.470 C 161.431 372.171, 174.442 374.622, 193.832 375.658 L 206.164 376.317 205.752 424.408 C 205.305 476.633, 204.989 479.829, 199.442 488.250 L 196.972 492 318.486 492 L 440 492 440 479.536 L 440 467.071 435.250 469.123 C 428.111 472.208, 401.743 478.709, 387.283 480.950 C 358.709 485.379, 344.726 486.162, 284.242 486.722 L 225.983 487.261 226.242 430.893 L 226.500 374.524 231.081 373.869 C 245.211 371.848, 264.236 364.354, 277.296 355.665 C 318.160 328.474, 336.448 280.835, 319.847 244.819 C 313.704 231.491, 301.909 224.364, 290.083 226.833 C 284.832 227.930, 280 231.132, 280 233.516 C 280 234.158, 281.744 235.206, 283.875 235.844 C 291.851 238.234, 299.449 249.861, 302.409 264.208 C 306.080 281.995, 302.442 304.667, 292.816 324 C 288.327 333.016, 286.310 335.783, 278.544 343.573 C 269.290 352.856, 261.641 357.942, 249.556 362.848 C 243.148 365.449, 230.689 368.954, 227.750 368.983 C 226.096 368.999, 226.001 363.954, 226.017 276.750 C 226.036 176.632, 226.085 175.650, 231.514 166.386 L 234.084 162 215.572 162 L 197.060 162 199.516 165.618 C 205.726 174.770, 206.097 181.718, 205.776 283 L 205.500 370.500 197 370.240 C 176.427 369.611, 153.811 362.358, 136.896 350.965 C 128.074 345.022, 115.019 332.113, 108.942 323.322 C 102.330 313.758, 94.772 297.790, 91.519 286.512 C 86.942 270.644, 85.621 260.120, 85.615 239.500 C 85.611 222.738, 85.923 219.025, 88.264 207.979 C 97.991 162.097, 124.801 115.015, 164.487 74.122 C 171.094 67.314, 180.775 58.156, 186 53.772 L 195.500 45.801 210.500 46.443 C 253.494 48.283, 295.254 54.616, 319.407 62.960 C 322.655 64.082, 325.468 65, 325.657 65 C 325.845 65, 326 59.150, 326 52 L 326 39 182.500 39 L 39 39 39 51.500";
+const SPECIALTY_LINE = "Dentística Estética & Restauradora";
+
+/**
+ * One timeline, in seconds. The monogram draws, then fills top-down; the line
+ * fills left-to-right on the same beat, so both finish together.
+ */
+const DRAW = 2.6;
+const MARK_FILL_AT = 2.5;
+const MARK_FILL = 1.3;
+const LINE_IN_AT = 0.7;
+const LINE_FILL_AT = 1.8;
+const LINE_FILL = 2;
+const HOLD_MS = 4400;
+
+/** Faint enough to be a whisper, bright enough to be read once filled. */
+const LINE_DIM = "rgba(244, 242, 238, 0.2)";
+const LINE_LIT = "rgba(244, 242, 238, 0.78)";
 
 export function Preloader() {
   const [visible, setVisible] = useState(true);
@@ -20,7 +36,7 @@ export function Preloader() {
 
   useEffect(() => {
     if (!mounted) return;
-    const timer = setTimeout(() => setVisible(false), reduce ? 300 : 3000);
+    const timer = setTimeout(() => setVisible(false), reduce ? 300 : HOLD_MS);
     return () => clearTimeout(timer);
   }, [mounted, reduce]);
 
@@ -54,7 +70,7 @@ export function Preloader() {
                 strokeWidth={6}
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
-                transition={{ duration: reduce ? 0.15 : 2.2, ease: EASE_IN_OUT }}
+                transition={{ duration: reduce ? 0.15 : DRAW, ease: EASE_IN_OUT }}
               />
             </svg>
 
@@ -65,7 +81,7 @@ export function Preloader() {
               transition={
                 reduce
                   ? { duration: 0.15 }
-                  : { duration: 0.7, delay: 2.1, ease: EASE_IN_OUT }
+                  : { duration: MARK_FILL, delay: MARK_FILL_AT, ease: EASE_IN_OUT }
               }
             >
               <svg viewBox="0 0 480 530" width={150} height={166}>
@@ -73,6 +89,35 @@ export function Preloader() {
               </svg>
             </motion.div>
           </motion.div>
+
+          <motion.p
+            className="tracking-brand absolute bottom-7 left-1/2 -translate-x-1/2 whitespace-nowrap text-center text-[0.5625rem] uppercase sm:bottom-9 sm:text-[0.6875rem]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={
+              reduce
+                ? { duration: 0.15 }
+                : { duration: 0.8, delay: LINE_IN_AT, ease: EASE_IN_OUT }
+            }
+          >
+            <span style={{ color: LINE_DIM }}>{SPECIALTY_LINE}</span>
+
+            {/* Same words, brighter, wiped in from the left. */}
+            <motion.span
+              aria-hidden
+              className="absolute inset-0 whitespace-nowrap"
+              style={{ color: LINE_LIT }}
+              initial={{ clipPath: "inset(0% 100% 0% 0%)" }}
+              animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
+              transition={
+                reduce
+                  ? { duration: 0.15 }
+                  : { duration: LINE_FILL, delay: LINE_FILL_AT, ease: EASE_IN_OUT }
+              }
+            >
+              {SPECIALTY_LINE}
+            </motion.span>
+          </motion.p>
         </motion.div>
       )}
     </AnimatePresence>
