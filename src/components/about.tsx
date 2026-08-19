@@ -130,7 +130,7 @@ export function About() {
       ref={wrapRef}
       id="sobre"
       data-header-theme="light"
-      className="relative bg-light-base text-dark-base lg:h-[250svh]"
+      className="relative bg-light-base text-dark-base lg:h-[250svh] motion-reduce:lg:h-auto"
     >
       <div className="sticky top-0 flex min-h-[100svh] items-center justify-center overflow-hidden px-6 py-24 sm:px-10 lg:h-[100svh] lg:px-0 lg:py-0">
         <div
