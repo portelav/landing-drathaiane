@@ -12,14 +12,14 @@ const SPECIALTY_LINE = "Dentística Estética & Restauradora";
  * One timeline, in seconds. The monogram draws, then fills top-down; the line
  * fills left-to-right on the same beat, so both finish together.
  */
-const DRAW = 2.6;
-const MARK_FILL_AT = 2.5;
-const MARK_FILL = 1.3;
-const LINE_IN_AT = 0.7;
-const LINE_FILL_AT = 1.8;
-const LINE_FILL = 2;
-/** Both fills land at 3.8s, so hold no longer than that or the screen freezes. */
-const HOLD_MS = 3800;
+const DRAW = 2;
+const MARK_FILL_AT = 1.9;
+const MARK_FILL = 1;
+const LINE_IN_AT = 0.55;
+const LINE_FILL_AT = 1.35;
+const LINE_FILL = 1.55;
+/** Both fills land at 2.9s, so hold no longer than that or the screen freezes. */
+const HOLD_MS = 2900;
 
 /** Faint enough to be a whisper, bright enough to be read once filled. */
 const LINE_DIM = "rgba(244, 242, 238, 0.2)";
@@ -93,7 +93,7 @@ export function Preloader() {
             transition={
               reduce
                 ? { duration: 0.15 }
-                : { duration: 0.8, delay: LINE_IN_AT, ease: EASE_IN_OUT }
+                : { duration: 0.6, delay: LINE_IN_AT, ease: EASE_IN_OUT }
             }
           >
             <span style={{ color: LINE_DIM }}>{SPECIALTY_LINE}</span>
