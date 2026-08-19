@@ -161,10 +161,12 @@ export function About() {
 
             {/* Her shadow falls across the backdrop and would stop dead at the
                 seam. This dissolves it into the exact colour the extension
-                starts from, so the light reads as continuous. */}
+                starts from, so the light reads as continuous. Stacked on a
+                phone there is no seam to hide, and the same gradient would
+                just flatten the shadow the photo already carries. */}
             <div
               aria-hidden
-              className="absolute inset-y-0 right-0 w-[11%]"
+              className="absolute inset-y-0 right-0 hidden w-[11%] lg:block"
               style={{
                 background: BACKDROP,
                 maskImage: "linear-gradient(90deg, transparent, #000)",
