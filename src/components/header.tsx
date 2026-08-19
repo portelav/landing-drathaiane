@@ -12,8 +12,8 @@ const NAV_LINKS = [
   { label: "Contato", href: "#contato" },
 ];
 
-const PHONE_DISPLAY = "(00) 00000-0000";
-const PHONE_HREF = "tel:+5500000000000";
+const PHONE_DISPLAY = "(82) 99387-1990";
+const PHONE_HREF = "tel:+5582993871990";
 
 /** Vertical point the header samples to decide which section sits behind it. */
 const PROBE_Y = 40;
