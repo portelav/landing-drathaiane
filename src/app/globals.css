@@ -9,6 +9,16 @@
  */
 @custom-variant wide (@media (min-aspect-ratio: 427/720));
 
+/**
+ * The about band sets the photo beside the copy, and the photo is 3:4 — its
+ * width follows its height. On a tall screen a full-height photo is the whole
+ * width and the copy has nowhere to stand, so the room for two columns is a
+ * question of ratio as much as of pixels. Below 6/5 the band stacks instead;
+ * the width floor keeps a small landscape window from splitting into two
+ * columns too cramped to read.
+ */
+@custom-variant beside (@media (min-width: 64rem) and (min-aspect-ratio: 6/5));
+
 :root {
   /* Neutrals */
   --c-light-base: #f4f2ee;

@@ -18,8 +18,17 @@ const HEIGHT_FROM = 0.36;
 const HEIGHT_TO = 1;
 
 
-/** Below this the section is a plain stacked block — no pinning, no opening. */
-const PINNED_FROM = 1024;
+/**
+ * Below this the section is a plain stacked block — no pinning, no opening.
+ *
+ * The photo is 3:4, so its width follows its height: at full height it wants
+ * `0.75 × viewport height`, which on a tall screen is the whole width and
+ * leaves the copy standing outside it. Room for two columns is therefore a
+ * question of ratio, not of width alone — the floor only keeps a small
+ * landscape window from splitting into two columns too cramped to read. The
+ * `beside:` variant in `globals.css` carries the same test for the layout.
+ */
+const OPENS_BESIDE = "(min-width: 64rem) and (min-aspect-ratio: 6/5)";
 
 const CREDENTIALS = [
   ["Formação", "Cirurgiã-dentista pela Universidade Federal de Alagoas"],
@@ -47,7 +56,7 @@ export function About() {
     const copy = copyRef.current;
     if (!wrap || !band || !photo || !copy) return;
 
-    const pinned = window.matchMedia(`(min-width: ${PINNED_FROM}px)`);
+    const pinned = window.matchMedia(OPENS_BESIDE);
     const stillness = window.matchMedia("(prefers-reduced-motion: reduce)");
     let queued = 0;
 
@@ -130,12 +139,12 @@ export function About() {
       ref={wrapRef}
       id="sobre"
       data-header-theme="light"
-      className="relative bg-light-base text-dark-base lg:h-[250svh] motion-reduce:lg:h-auto"
+      className="relative bg-light-base text-dark-base beside:h-[250svh] motion-reduce:beside:h-auto"
     >
-      <div className="sticky top-0 flex min-h-[100svh] items-center justify-center overflow-hidden px-6 py-24 sm:px-10 lg:h-[100svh] lg:px-0 lg:py-0">
+      <div className="sticky top-0 flex min-h-[100svh] items-center justify-center overflow-hidden px-6 py-24 sm:px-10 beside:h-[100svh] beside:px-0 beside:py-0">
         <div
           ref={bandRef}
-          className="relative flex w-full flex-col overflow-hidden lg:block lg:w-auto"
+          className="relative flex w-full flex-col overflow-hidden beside:block beside:w-auto"
         >
           {/* The extended backdrop only exists where the band opens sideways.
               Stacked on a phone there is no panorama to continue, and carrying
@@ -143,19 +152,19 @@ export function About() {
               falloff. */}
           <div
             aria-hidden
-            className="absolute inset-0 hidden lg:block"
+            className="absolute inset-0 hidden beside:block"
             style={{ background: BACKDROP }}
           />
 
           <div
             ref={photoRef}
-            className="relative aspect-[3/4] w-full shrink-0 lg:absolute lg:inset-y-0 lg:left-0 lg:aspect-auto lg:w-auto"
+            className="relative aspect-[3/4] w-full shrink-0 beside:absolute beside:inset-y-0 beside:left-0 beside:aspect-auto beside:w-auto"
           >
             <Image
               src="/images/dra-thaiane.webp"
               alt="Dra. Thaiane Lessa"
               fill
-              sizes="(max-width: 1024px) 100vw, 40vw"
+              sizes="(min-width: 64rem) and (min-aspect-ratio: 6/5) 40vw, 100vw"
               className="object-cover"
             />
 
@@ -166,7 +175,7 @@ export function About() {
                 just flatten the shadow the photo already carries. */}
             <div
               aria-hidden
-              className="absolute inset-y-0 right-0 hidden w-[11%] lg:block"
+              className="absolute inset-y-0 right-0 hidden w-[11%] beside:block"
               style={{
                 background: BACKDROP,
                 maskImage: "linear-gradient(90deg, transparent, #000)",
@@ -177,7 +186,7 @@ export function About() {
 
           <div
             ref={copyRef}
-            className="flex flex-col justify-center gap-8 pt-9 lg:absolute lg:inset-y-0 lg:right-0 lg:gap-10 lg:px-12 lg:pt-0"
+            className="flex flex-col justify-center gap-8 pt-9 beside:absolute beside:inset-y-0 beside:right-0 beside:gap-10 beside:px-12 beside:pt-0"
           >
             <p className="tracking-brand text-[0.6875rem] uppercase text-dark-55">
               A dentista
@@ -186,18 +195,18 @@ export function About() {
             {/* Light type only exists where the backdrop is behind it. Stacked
                 on a phone the copy sits on the page's cream, where the same
                 colour would vanish. */}
-            <p className="max-w-[26ch] font-display text-[clamp(1.75rem,2.6vw,2.75rem)] leading-[1.12] lg:text-light-base">
+            <p className="max-w-[26ch] font-display text-[clamp(1.75rem,2.6vw,2.75rem)] leading-[1.12] beside:text-light-base">
               Entre técnicas, detalhes e planejamentos… Existe sempre o mais
               importante: o cuidado com quem está na cadeira.
             </p>
 
-            <dl className="flex flex-col gap-2.5 border-t border-dark-10 pt-6 text-[0.8125rem] leading-snug lg:border-light-15">
+            <dl className="flex flex-col gap-2.5 border-t border-dark-10 pt-6 text-[0.8125rem] leading-snug beside:border-light-15">
               {CREDENTIALS.map(([label, value]) => (
                 <div key={label} className="flex flex-col gap-0.5 sm:flex-row sm:gap-3">
                   <dt className="tracking-brand shrink-0 text-[0.625rem] uppercase text-dark-55 sm:w-32 sm:pt-0.5">
                     {label}
                   </dt>
-                  <dd className="m-0 lg:text-light-base">{value}</dd>
+                  <dd className="m-0 beside:text-light-base">{value}</dd>
                 </div>
               ))}
             </dl>
