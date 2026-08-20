@@ -74,9 +74,8 @@ export function AboutTimeline() {
   const slots = useRef<(HTMLDivElement | null)[]>([]);
 
   /**
-   * Plays once on arrival and freezes on its last frame. A loop of someone
-   * performing a task turns into a conveyor belt: the action has a beginning
-   * and an end, and repeated, the eye finds the splice.
+   * Loops for as long as it is on screen, and only while it is on screen —
+   * a forever loop scrolled past is spent battery.
    */
   useEffect(() => {
     const video = videoRef.current;
@@ -85,8 +84,10 @@ export function AboutTimeline() {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting) return;
-        observer.disconnect();
+        if (!entry.isIntersecting) {
+          video.pause();
+          return;
+        }
         video.play().catch(() => {
           // Refused by a data saver or low power mode. The poster is the right
           // answer then, and it is already on screen.
@@ -315,6 +316,7 @@ export function AboutTimeline() {
           <video
             ref={videoRef}
             muted
+            loop
             playsInline
             preload="metadata"
             poster={POSTER}
