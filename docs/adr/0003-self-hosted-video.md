@@ -18,8 +18,8 @@ O hero e o Sobre usam vídeo gravado no consultório. O material bruto vem do ce
 ## Alternativas consideradas
 
 - YouTube ou Vimeo embutidos: interface do player, marca de terceiro, peso de script e cookies, num vídeo que é decorativo.
-- Só H.264: um arquivo a menos, mas o VP9 é 11% menor para quem decodifica. Foi tentado em 8856b6a e revertido em 851c602, quando ficou claro que a falha no iPhone era o modo de economia de energia, não o WebM.
-- H.264 no nível que o ffmpeg escolhe: saiu nível 5.0, que o iOS não decodifica (87df56e).
+- Só H.264: um arquivo a menos, mas o VP9 é 11% menor para quem decodifica. Foi tentado em 4c1af61 e revertido em 485cc60, quando ficou claro que a falha no iPhone era o modo de economia de energia, não o WebM.
+- H.264 no nível que o ffmpeg escolhe: saiu nível 5.0, que o iOS não decodifica (b341e38).
 
 ## Consequências
 

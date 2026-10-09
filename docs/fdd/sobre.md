@@ -160,7 +160,7 @@ letterbox.
 mesma regra do Tempo 2. Loop de pessoa executando tarefa vira esteira: a ação
 tem começo e fim, e repetida o olho acha o ponto de emenda.
 
-> Nota de 2026-10-09: decisão revertida em 05ded3f (2026-08-20). O vídeo agora roda em loop e pausa ao sair da tela: um quadro congelado ao lado de uma roda que ainda gira parecia falha de carregamento. Como se repete por mais de 5 s, falta um controle de pausa (WCAG 2.2.2), item no ROADMAP. A doutora acha que este vídeo pertence a uma seção de primeira visita, que ainda não existe.
+> Nota de 2026-10-09: decisão revertida em 6068291 (2026-08-20). O vídeo agora roda em loop e pausa ao sair da tela: um quadro congelado ao lado de uma roda que ainda gira parecia falha de carregamento. Como se repete por mais de 5 s, falta um controle de pausa (WCAG 2.2.2), item no ROADMAP. A doutora acha que este vídeo pertence a uma seção de primeira visita, que ainda não existe.
 
 **Dimensionado pelo tamanho de exibição.** O hero pesa 4,2MB porque é tela
 cheia; este painel cabe em 300–500KB.
@@ -238,7 +238,7 @@ viewport. As credenciais e a frase simplesmente não estavam na página.
 
 Corrigido pela variante `beside:`, que exige proporção mínima de 6/5 além do
 piso de largura. Abaixo disso a band empilha, que é o que uma tela alta pede de
-qualquer forma. Era a mesma classe de erro que o hero largou em `fbb9de7`, e a
+qualquer forma. Era a mesma classe de erro que o hero largou em `10c5e79`, e a
 última ocorrência conhecida dela.
 
 O Tempo 3 usa `beside:` pelo mesmo motivo — e não só para as duas colunas: é
