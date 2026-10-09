@@ -30,7 +30,7 @@ Não reproduziu? **Parar** e reportar.
 ### 4. Loop até verde
 1. Correção mínima.
 2. Rodar a reprodução. Tem que passar.
-3. `npm run lint`, `npx tsc --noEmit` e `npm run build`.
+3. `npm run lint`, `npx next typegen && npx tsc --noEmit` e `npm run build`.
 4. Algo vermelho: voltar ao 1.
 
 ### 5. Entregar

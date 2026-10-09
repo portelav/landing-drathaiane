@@ -46,7 +46,7 @@ Você é o **Walkthrough Agent** do landing-drathaiane. Audita uma implementaç�
 - [ ] Desempenho: mídia otimizada, espaço reservado, nada pesado no primeiro carregamento sem motivo
 
 ### 6. Higiene
-- [ ] `npm run lint`, `npx tsc --noEmit` e `npm run build` verdes
+- [ ] `npm run lint`, `npx next typegen && npx tsc --noEmit` e `npm run build` verdes
 - [ ] Commits pequenos, Conventional Commits; nenhuma atribuição de IA (sem Co-Authored-By, sem "Generated with", sem menção a Claude ou agente) (`git log --format=%B main..HEAD | grep -i -E "co-authored|generated with"` volta vazio)
 - [ ] Docs atualizados: FDD, PRD, ROADMAP, `CLAUDE.md`
 

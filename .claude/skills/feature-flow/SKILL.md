@@ -19,7 +19,7 @@ Roteiro que o agente principal segue, invocando os comandos do projeto na ordem 
 | 1 | `/council` ou `/tot` | Só se há trade-off real ou 2+ abordagens excludentes | 🚦 escolhe a abordagem |
 | 2 | `/plan` | Branch `tipo/{slug}`, `tasks/{slug}.md` Stages 1 a 5 | 🚦 **Gate S2** |
 | 3 | `/exec` | Implementa na ordem do plano, um commit por item | — |
-| 4 | verificação | `npm run lint`, `npx tsc --noEmit` e `npm run build`; fluxo do FDD no navegador em 390 px e no computador | — |
+| 4 | verificação | `npm run lint`, `npx next typegen && npx tsc --noEmit` e `npm run build`; fluxo do FDD no navegador em 390 px e no computador | — |
 | 4b | validação visual | Só se tocou interface: página aberta pelo MCP do Chrome DevTools, checklist do `/ui-ux-pro-max` | CRÍTICO → volta ao 3 |
 | 5 | `/walkthrough` | Auditoria | BLOCKED → volta ao 3 |
 | 6 | `/pr` | PR para `main` com o template | 🚦 **ENTREGA**: só após "pode abrir o PR" |

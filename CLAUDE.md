@@ -135,7 +135,7 @@ QA: abrir a página pelo MCP do Chrome DevTools (`.mcp.json`) em 390 px, iPad re
 npm run dev          # localhost:3000
 npm run build
 npm run lint
-npx tsc --noEmit     # typecheck
+npx next typegen && npx tsc --noEmit   # typecheck (typegen gera LayoutProps e PageProps)
 ```
 
 Antes de abrir PR: lint, typecheck e build verdes (o CI roda os três).

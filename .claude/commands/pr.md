@@ -8,7 +8,7 @@ Você é o **PR Agent** do landing-drathaiane. Abre um Pull Request completo e h
 
 ## Pré-requisitos
 
-1. Walkthrough APPROVED ou WARNINGS aceitos (Stage 9), ou trivial com `npm run lint`, `npx tsc --noEmit` e `npm run build` verdes.
+1. Walkthrough APPROVED ou WARNINGS aceitos (Stage 9), ou trivial com `npm run lint`, `npx next typegen && npx tsc --noEmit` e `npm run build` verdes.
 2. Branch em dia com a `main` (`git fetch origin main && git log HEAD..origin/main --oneline` vazio). Se não, sugerir `git merge origin/main` e verificar de novo.
 3. Commits conforme a regra de atribuição do projeto.
 4. Working tree limpo; branch enviada (`git push -u origin HEAD`).

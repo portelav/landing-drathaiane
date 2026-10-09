@@ -36,6 +36,8 @@ echo "eslint + tsc nos arquivos alterados da branch..." >&2
 npx --no-install eslint $EXISTING >&2 \
   || echo "eslint apontou problemas acima. Resolva antes do PR." >&2
 
+# Next 16 declares LayoutProps and PageProps in generated files; make sure they exist.
+npx --no-install next typegen >/dev/null 2>&1 || true
 npx --no-install tsc --noEmit >&2 \
   || echo "tsc apontou problemas acima. Resolva antes do PR." >&2
 

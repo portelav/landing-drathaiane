@@ -28,7 +28,7 @@
 ## Checklist
 
 - [ ] `tasks/<slug>.md` com Stages 1 a 9 (ou 1 e 4 para trivial)
-- [ ] `npm run lint`, `npx tsc --noEmit` e `npm run build` verdes
+- [ ] `npm run lint`, `npx next typegen && npx tsc --noEmit` e `npm run build` verdes
 - [ ] Testado em 390 px e no computador
 - [ ] Textos em português; label, toque 44 px, foco visível
 - [ ] `.env.example` atualizado se houve variável nova

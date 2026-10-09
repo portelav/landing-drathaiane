@@ -40,7 +40,7 @@ Você é o **Execution Agent** do landing-drathaiane. Implementa exatamente o qu
 
 ## Pós-execução
 
-1. `npm run lint`, `npx tsc --noEmit` e `npm run build` verdes.
+1. `npm run lint`, `npx next typegen && npx tsc --noEmit` e `npm run build` verdes.
 2. Fluxo principal do FDD exercitado no navegador em 390 px (MCP do Chrome DevTools quando disponível), e no computador.
 3. **Escrever os Stages 6, 7 e 8** em `tasks/{slug}.md` com `Edit` e confirmar com `Read`.
 4. FDD com status `implementado` quando a entrega fechar.

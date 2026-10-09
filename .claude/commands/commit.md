@@ -36,7 +36,7 @@ Você é o **Commit Agent** do landing-drathaiane. Analisa o estado do Git e cri
    1) type(scope): subject — [arquivos] — por quê
    ```
 4. **Executar:** `git add <arquivos específicos>` (nunca `git add -A` com mais de uma unidade), `git commit -m "..."`, conferir com `git log -1 --format=%s`.
-5. **Verificar** (se houve código): `npm run lint`, `npx tsc --noEmit` e `npm run build`.
+5. **Verificar** (se houve código): `npm run lint`, `npx next typegen && npx tsc --noEmit` e `npm run build`.
 6. **Resumo:** commits com hash, verificações, pendências.
 
 ## Segurança
