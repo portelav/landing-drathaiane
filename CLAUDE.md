@@ -27,6 +27,7 @@ Onde está cada coisa:
 | Por que cada decisão técnica foi tomada | `docs/adr/` |
 | Como cada seção se comporta | `docs/fdd/<nome>.md` |
 | O que vem agora e depois | `docs/ROADMAP.md` |
+| O que falta pedir ou perguntar à doutora | `docs/ROADMAP.md`, "Pauta com a Dra. Thaiane" |
 | Cor, tipografia, forma, movimento, tom de voz | `docs/design/DESIGN.md` |
 | Pesquisa que embasa decisão | `docs/research/` |
 

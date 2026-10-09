@@ -29,6 +29,6 @@ Forma leve: projeto solo. Escopo, meta e prazo do MVP saem da revisão do site c
 - Faixa estreita com a foto `IMG_9049` (sacolinha do kit) entre o texto e a linha do tempo do Sobre.
 - Analytics de cliques no WhatsApp (exige política de privacidade e novo `/kickoff`).
 
-## Aberto (depende de alguém)
+## Pauta com a Dra. Thaiane
 
 Fica nas notas privadas.
