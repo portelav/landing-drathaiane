@@ -70,7 +70,11 @@ Fonte secundária. Publicada no DOU em 24/06/2025, após decisão do CADE (proce
 - **Res. CFO-230/2020:** veda anunciar procedimentos não odontológicos (micropigmentação, design de sobrancelhas, remoção de tatuagem, rejuvenescimento de colo e mãos, tratamento capilar).
 - **Consultoria gratuita:** o DEF/CRO-AL revisa peças de divulgação, inclusive publicações online, antes de serem publicadas. Contato: fiscalizacao@croal.org.br, (82) 3223-5125 ou 3221-1726 (opção 3), (82) 99138-9001.
 
-**Ambiguidade:** na página 6 da cartilha, "Fotos no estilo antes/depois" aparece entre colunas de "permitido" e "proibido", e a extração do texto não deixa claro em qual delas. A página oficial do CFO é clara em permitir, com as condições acima.
+**Página 6, lida pela posição de cada texto** (a diagramação em colunas embaralha a extração simples). Bloco da Res. 196/2019 em duas faixas:
+- **Permitido divulgar:** selfies mediante TCLE; imagens do diagnóstico e do resultado final de tratamentos; fotos no estilo "antes/depois".
+- **Proibido:** transcurso ou realização de procedimentos; diagnóstico e conclusão publicados por pessoa jurídica (clínicas); bastidores, ambiente clínico, procedimentos, tratamentos; equipamentos, instrumentais, materiais e tecidos biológicos.
+
+Ou seja, antes e depois é permitido, com as condições da página 8 e da página oficial do CFO. A cartilha cita "Resolução CFO-198/2019" na introdução da 230/2020; é erro de digitação, a resolução é a 196/2019.
 
 ## Depoimentos
 
