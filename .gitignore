@@ -43,3 +43,6 @@ next-env.d.ts
 # Raw video masters — transcoded output lives in public/video/
 /media/
 
+
+# Private notes: separate private repo (portelav/landing-drathaiane-notes), cloned here
+/private/
