@@ -120,3 +120,9 @@ Decisões que já estavam no código e no plano do Sobre.
 - **D15.** Fluxo de agentes: núcleo (`/plan`, `/exec`, `/walkthrough`, `/pr`) com `/feature-flow`, `/cot`, `/tot` e `/council` (leve por padrão).
 - **D16.** O plano do Sobre vira o primeiro FDD (`docs/fdd/sobre.md`).
 - **D17.** Critério de pronto, meta e prazo do MVP: definidos numa sessão de revisão do site com o Lucas, logo depois do kickoff.
+
+### Rodada 1b (2026-10-09): repositório público
+
+- **D18.** A doutora deu o aval para o repositório ficar público, com as fotos e os dados dela que estão no site. Substitui a parte de D11 que mantinha o repositório privado.
+- **D19.** Abertura por repositório novo, com histórico limpo (sem as notas internas, sem metadado nas mídias, e-mail noreply nos commits). O repositório anterior fica privado e arquivado. Dúvida aberta, pendência dela, dado de paciente ou de terceiro e opinião sobre empresa ficam nas notas privadas (`portelav/landing-drathaiane-notes`, clonado em `private/`); os docs públicos registram só regra e decisão.
+- **D20.** Código com todos os direitos reservados, sem licença aberta. Fotos, vídeos, logos e textos são da Dra. Thaiane Lessa.
