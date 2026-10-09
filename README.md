@@ -4,7 +4,7 @@ Landing page de uma cirurgiã-dentista em Maceió: uma página editorial, com mo
 
 Em construção. Prévia (fora dos buscadores): https://drathaianelessa.vercel.app
 
-> Versão provisória. A versão final, com prints e o relato do projeto, sai junto com o MVP e com o aval da cliente para tornar o repositório público.
+> Versão provisória. A versão final, com prints e o relato do projeto, sai junto com o MVP.
 
 ## Stack
 
@@ -40,4 +40,6 @@ npm run build
 
 ## Licença
 
-> TODO: definir antes de tornar o repositório público. O código pode ganhar uma licença aberta; fotos, vídeos, logos e textos são da cliente e ficam fora dela.
+Todos os direitos reservados. O código está aberto para leitura, como portfólio, sem licença de uso, cópia ou redistribuição.
+
+Fotos, vídeos, logos, marca e textos da página são da Dra. Thaiane Lessa e aparecem aqui com a autorização dela. Não podem ser reutilizados.
