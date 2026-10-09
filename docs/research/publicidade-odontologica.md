@@ -91,4 +91,4 @@ Hoje o site não coleta dado nenhum: não tem formulário nem analytics, as font
 
 ## Aplicado ao site em 2026-10-09
 
-Fica nas notas privadas.
+A leitura ponto a ponto das peças do site contra estas regras fica nas notas privadas (`private/contexto-interno.md`). O que virou regra do produto está no PRD ("Regras de fora") e no `CLAUDE.md`.

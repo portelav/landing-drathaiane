@@ -17,9 +17,9 @@ Forma leve: projeto solo. Escopo, meta e prazo do MVP saem da revisão do site c
 - Seção Serviços (`docs/fdd/servicos.md`), quando o conteúdo chegar.
 - Seção Contato (`docs/fdd/contato.md`), quando o conteúdo chegar.
 - Seção Depoimentos ou substituto (`docs/fdd/depoimentos.md`), depois da resposta do CRO-AL.
-- Revisão do DEF/CRO-AL (consultoria gratuita) antes de tirar o `noindex`.
+- Revisão do DEF/CRO-AL (consultoria gratuita) antes de tirar o `noindex`, e os ajustes que ela pedir.
 - Tirar o `noindex`, completar metadados e prévia de link (Open Graph).
-- README final com prints e link, e repositório público, com o aval dela.
+- README final com prints e link.
 - Rever o ignore `.claude/**` do `eslint.config.mjs` (comentário diz "vendored agent tooling"): as skills de terceiros saíram no kickoff, e o que sobrou em `.claude/hooks/` é código do projeto.
 - Domínio próprio.
 
@@ -31,4 +31,4 @@ Forma leve: projeto solo. Escopo, meta e prazo do MVP saem da revisão do site c
 
 ## Pauta com a Dra. Thaiane
 
-Fica nas notas privadas.
+O que pedir ou perguntar à doutora, e o que ela leva ao DEF/CRO-AL, fica nas notas privadas: `private/pauta.md`, clone do repositório privado `portelav/landing-drathaiane-notes` (fora deste). Resposta recebida vira decisão no PRD (seção 12, com data), e o que virou trabalho entra nesta lista.
