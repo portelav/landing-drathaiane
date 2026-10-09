@@ -20,7 +20,7 @@ Forma leve: projeto solo. Escopo, meta e prazo do MVP saem da revisão do site c
 - Revisão do DEF/CRO-AL (consultoria gratuita) antes de tirar o `noindex`.
 - Tirar o `noindex`, completar metadados e prévia de link (Open Graph).
 - README final com prints e link, e repositório público, com o aval dela.
-- Remover `.claude/skills/**` dos ignores do `eslint.config.mjs`: as skills saíram do repositório no kickoff.
+- Rever o ignore `.claude/**` do `eslint.config.mjs` (comentário diz "vendored agent tooling"): as skills de terceiros saíram no kickoff, e o que sobrou em `.claude/hooks/` é código do projeto.
 - Domínio próprio.
 
 ## Talvez
