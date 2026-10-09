@@ -13,7 +13,7 @@ A Dra. Thaiane aprova todo conteúdo e todo visual. Fotos e dados dela só ficam
 
 Lucas Portela (`portelav`), sozinho. Ele faz o merge.
 
-Repositório: `portelav/landing-drathaiane` (privado; vira público no fim, com o aval dela). Deploy: Vercel, produção a partir da `main`, preview por branch.
+Repositório: `portelav/landing-drathaiane`, público desde 2026-10-09, com o aval dela (PRD, D18 e D19). Notas internas: `portelav/landing-drathaiane-notes` (privado), clonado em `private/`. Deploy: Vercel, produção a partir da `main`, preview por branch.
 
 ## Marco atual
 
@@ -27,7 +27,8 @@ Onde está cada coisa:
 | Por que cada decisão técnica foi tomada | `docs/adr/` |
 | Como cada seção se comporta | `docs/fdd/<nome>.md` |
 | O que vem agora e depois | `docs/ROADMAP.md` |
-| O que falta pedir ou perguntar à doutora | `docs/ROADMAP.md`, "Pauta com a Dra. Thaiane" |
+| O que falta pedir ou perguntar à doutora | `private/pauta.md` (notas privadas) |
+| Caso clínico, material de paciente, leitura de risco sobre peças do site | `private/contexto-interno.md` (notas privadas) |
 | Cor, tipografia, forma, movimento, tom de voz | `docs/design/DESIGN.md` |
 | Pesquisa que embasa decisão | `docs/research/` |
 
@@ -73,7 +74,7 @@ O site é publicidade odontológica. Todo texto, foto e vídeo segue o Código d
 - Sem imagem de procedimento em andamento, instrumental, material ou tecido biológico.
 - Antes e depois só da própria doutora, com TCLE assinado e nome + CRO na imagem.
 - Paciente ou terceiro identificável só com autorização escrita.
-- Dúvida sobre uma peça: não publicar, registrar no PRD e perguntar à doutora.
+- Dúvida sobre uma peça: não publicar, registrar em `private/pauta.md` e perguntar à doutora.
 
 ## Fluxo com agentes
 
@@ -119,6 +120,17 @@ QA: abrir a página pelo MCP do Chrome DevTools (`.mcp.json`) em 390 px, iPad re
 - Branch `tipo/nome` a partir da `main` atualizada, PR para `main`, merge sem squash. PR nunca em rascunho, e só aberto depois de confirmar.
 - Nunca `git push --force` em `main`. Nunca commitar `.env`, segredos ou credenciais.
 
+## Repositório público
+
+Tudo que entra no git fica visível para sempre, inclusive no histórico e nos diffs de PR. Antes de cada commit:
+
+- **Segredo nunca.** Chave, token, senha e `.env` só na Vercel ou em `.env.local`. O CI roda `gitleaks` e barra.
+- **Dado de terceiro nunca:** paciente, pessoa que aparece em foto ou vídeo, telefone pessoal, CPF, endereço de casa. Foto de paciente só entra se for para a página (antes e depois com TCLE, sem identificar); material de paciente que não vai para a página fica fora do git.
+- **Documento interno fica em `private/`** (repositório privado `portelav/landing-drathaiane-notes`, ignorado aqui): dúvida aberta, pendência da doutora, caso clínico, leitura de risco sobre peça do site, estratégia, opinião sobre terceiro, nome de outra empresa fora do que o site já mostra. O doc público registra só decisão tomada e regra.
+- **Mídia sem metadado.** Foto e vídeo novos entram limpos (`exiftool -all=`, `magick -strip`, `ffmpeg -map_metadata -1 -c copy`): GPS, aparelho, autor, conta e id do documento no Canva ou no Adobe saem. Logo exportado do Canva traz XMP com o nome dela e o id da conta.
+- **Commit com o e-mail noreply** do GitHub (`198817785+portelav@users.noreply.github.com`, em `git config user.email` de cada clone). O CI barra PR com commit de outro e-mail.
+- **Direitos:** todos os direitos reservados (PRD, D20). Fotos, vídeos, logos e textos da Dra. Thaiane Lessa nunca entram em licença aberta.
+
 ## Idioma
 
 - Documentação: português do Brasil.
@@ -152,13 +164,14 @@ public/
 docs/           PRD, ADRs, FDDs, ROADMAP, DESIGN, research
 tasks/          um arquivo por entrega (/plan, /exec, /walkthrough)
 media/          material bruto, fora do git
+private/        notas internas, repositório privado à parte, fora do git
 ```
 
 ## Kit
 
 Organizado pelo `/kickoff` do `claude-kit` em 2026-10-09 (kit cee6f0b).
 
-- **Adotado:** CLAUDE.md, PRD leve, ADRs, FDDs por seção, DESIGN.md, ROADMAP leve, `tasks/{slug}.md`, README, `docs/research/`; `/plan`, `/exec`, `/walkthrough`, `/pr`, `/commit`, `/refine`, `/fix-loop`, `/feature-flow`, `/cot`, `/tot`, `/council` (leve), `/ui`, `/ui-ux-pro-max`; subagentes dos comandos do núcleo; hooks de frontmatter e de lint/typecheck; CI; MCP do Chrome DevTools.
+- **Adotado:** CLAUDE.md, PRD leve, ADRs, FDDs por seção, DESIGN.md, ROADMAP leve, `tasks/{slug}.md`, README, `docs/research/`; `/plan`, `/exec`, `/walkthrough`, `/pr`, `/commit`, `/refine`, `/fix-loop`, `/feature-flow`, `/cot`, `/tot`, `/council` (leve), `/ui`, `/ui-ux-pro-max`; subagentes dos comandos do núcleo; hooks de frontmatter e de lint/typecheck; CI; MCP do Chrome DevTools; regras de repositório público (receita `public-repo`, 2026-10-09).
 - **Fora, e quando entra:** ADD (entra se surgir banco, formulário que grava, agendamento ou analytics); security-threat-model (mesmo gatilho); `/db-architect`, `/index-generator`, testes de RLS, migração no merge (entram com banco); `/good-morning` (entra se houver mais gente ou várias branches ao mesmo tempo).
 
 Rodar `/kickoff` de novo revisa esta lista.
