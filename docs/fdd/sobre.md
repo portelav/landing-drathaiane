@@ -208,7 +208,8 @@ outras existirem. Não construída.
 **`IMG_8682`, `IMG_9039`** — outros enquadramentos das mesmas sacolinhas.
 Nenhum melhor que o `IMG_9049`.
 
-**Vídeos de atendimento** — fora de uso. Fica nas notas privadas.
+**Vídeos de atendimento** — fora de uso (PRD, "Regras de fora"). Detalhes nas
+notas privadas.
 
 ---
 
@@ -217,11 +218,12 @@ Nenhum melhor que o `IMG_9049`.
 O menu do header declara `Sobre`, `Serviços`, `Depoimentos` e `Contato`, mas só
 `#sobre` existe — as outras três âncoras continuam quebradas.
 
-Público decidido: mistura de estética de alto valor (o alvo) com restauradora. O texto e os serviços precisam falar com as duas
-sem parecer confusos.
+Público decidido: mistura de estética de alto valor (o alvo) com restauradora.
+O texto e os serviços precisam falar com as duas sem parecer confusos.
 
 O caso clínico mais forte que ela contou ficou de fora do Tempo 2 de propósito:
-é material de `Serviços`, com foto de antes/depois se ela tiver.
+é grande demais para um parágrafo de "sobre" e é material de `Serviços`, com
+foto de antes/depois se ela tiver (PRD, D5).
 
 Pendências conhecidas e não tratadas: `Depoimentos` não pode existir de forma
 honesta sem depoimento real, e `Serviços` não tem prova visual sem foto de caso.

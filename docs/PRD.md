@@ -11,7 +11,7 @@ Uma página que apresenta a Dra. Thaiane Lessa, cirurgiã-dentista em Maceió, c
 ## 3. Público
 
 - **Paciente de estética** (o alvo): adulto que pesquisa facetas, resina, clareamento. Quer confiar no olhar estético e no planejamento antes de marcar. O que impede: não conhece a profissional e desconfia de promessa fácil.
-- **Paciente restauradora**: precisa resolver um problema, quer alguém cuidadoso e acessível pelo WhatsApp. O que impede: site que pareça só de estética e caro.
+- **Paciente restauradora:** precisa resolver um problema, quer alguém cuidadoso e acessível pelo WhatsApp. O que impede: site que pareça só de estética e caro.
 - **Quem avalia o portfólio do Lucas:** recrutador ou cliente em potencial. Quer ver decisão de design justificada, movimento bem feito, código limpo e repositório organizado.
 
 Os textos precisam falar com os dois públicos de paciente sem parecer confusos (decisão já registrada em `docs/fdd/sobre.md`).
@@ -36,7 +36,7 @@ Seções em ordem na página.
 
 ### Conteúdo pendente
 
-A doutora já tem o conteúdo das seções que faltam e ainda não mandou. Fica nas notas privadas.
+A doutora já tem o conteúdo das seções que faltam e ainda não mandou (D9). O acompanhamento fica nas notas privadas (ROADMAP, ["Pauta com a Dra. Thaiane"](ROADMAP.md#pauta-com-a-dra-thaiane)).
 
 ## 7. Fora de escopo
 
@@ -74,7 +74,9 @@ Consulta em 2026-10-09. Detalhe, citações e grau de certeza em [`docs/research
 
 ### Perguntas em aberto
 
-Fica nas notas privadas.
+As perguntas à doutora e ao DEF/CRO-AL ficam nas notas privadas (ROADMAP, ["Pauta com a Dra. Thaiane"](ROADMAP.md#pauta-com-a-dra-thaiane)). Este documento registra só a regra e a decisão: resposta recebida vira decisão na seção 12, com data.
+
+Sobre depoimentos: nenhuma norma primária lida os proíbe de forma explícita; fontes secundárias dizem que são vedados. Por isso a pergunta vai ao CRO-AL.
 
 ## 9. Riscos e premissas
 
@@ -83,12 +85,12 @@ Fica nas notas privadas.
 | Conteúdo das seções depende dela e não tem data | MVP parado | Construir estrutura e movimento com `> TODO` no FDD, nunca com texto inventado na página |
 | Uma peça do site ser considerada infração ética | Processo ético contra ela (advertência a suspensão) | Regras de fora no `/walkthrough`; revisão do DEF/CRO-AL antes de indexar |
 | Depoimentos vetados | Seção do menu sem conteúdo | Decidir substituto (ex.: o caso de reabilitação contado por ela, sem paciente identificável) na revisão |
-| Repositório público expõe fotos e dados dela | Exposição sem consentimento | Aval explícito dela antes de tornar público |
+| Repositório público expõe fotos e dados dela, ou dúvida aberta sobre ela | Exposição sem consentimento | Aval dado em 2026-10-09 (D18). Dúvida, pendência e dado de terceiro só nas notas privadas (D19) |
 | Dependência de uma pessoa (ela aprova tudo) | Retrabalho se a aprovação vier depois | Mostrar o preview da Vercel a cada seção, antes do merge |
 
 ## 10. Critérios de pronto
 
-> TODO: definir na revisão do site (sessão logo após o kickoff). Ponto de partida que o Lucas quis ajustar: Serviços, Depoimentos (ou substituto) e Contato com conteúdo real; CRO no site; aval dela; revisão do DEF/CRO-AL; `noindex` fora; README real; repositório público com aval dela. Domínio pago opcional.
+> TODO: definir na revisão do site (sessão logo após o kickoff). Ponto de partida que o Lucas quis ajustar: Serviços, Depoimentos (ou substituto) e Contato com conteúdo real; CRO no site; aval dela; revisão do DEF/CRO-AL; `noindex` fora; README real; repositório público com aval dela (feito em 2026-10-09). Domínio pago opcional.
 
 ## 12. Registro de decisões
 
@@ -102,7 +104,7 @@ Decisões que já estavam no código e no plano do Sobre.
 - **D2.** Referência visual: aventuradentalarts.com (estrutura editorial do header, linha do tempo).
 - **D3.** Contato principal pelo WhatsApp, com o número real do consultório; Instagram ao lado.
 - **D4.** `noindex` até o conteúdo real chegar.
-- **D5.** O caso de reabilitação em resina é material de Serviços, não do Sobre.
+- **D5.** Caso clínico é material de Serviços, não do Sobre, contado sem identificar o paciente.
 - **D6.** Depoimentos não existem de forma honesta sem depoimento real; Serviços não tem prova visual sem foto de caso.
 
 ### Rodada 1 (2026-10-09): kickoff
@@ -118,3 +120,9 @@ Decisões que já estavam no código e no plano do Sobre.
 - **D15.** Fluxo de agentes: núcleo (`/plan`, `/exec`, `/walkthrough`, `/pr`) com `/feature-flow`, `/cot`, `/tot` e `/council` (leve por padrão).
 - **D16.** O plano do Sobre vira o primeiro FDD (`docs/fdd/sobre.md`).
 - **D17.** Critério de pronto, meta e prazo do MVP: definidos numa sessão de revisão do site com o Lucas, logo depois do kickoff.
+
+### Rodada 1b (2026-10-09): repositório público
+
+- **D18.** A doutora deu o aval para o repositório ficar público, com as fotos e os dados dela que estão no site. Substitui a parte de D11 que mantinha o repositório privado.
+- **D19.** Abertura por repositório novo, com histórico limpo (sem as notas internas, sem metadado nas mídias, e-mail noreply nos commits). O repositório anterior fica privado e arquivado. Dúvida aberta, pendência dela, dado de paciente ou de terceiro e opinião sobre empresa ficam nas notas privadas (`portelav/landing-drathaiane-notes`, clonado em `private/`); os docs públicos registram só regra e decisão.
+- **D20.** Código com todos os direitos reservados, sem licença aberta. Fotos, vídeos, logos e textos são da Dra. Thaiane Lessa.

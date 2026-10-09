@@ -15,7 +15,7 @@ O visitante entende o que a doutora trata, se reconhece em pelo menos um dos cas
 
 Material já guardado (`media/sobre/`, fora do git):
 - `DSC09749.jpg`: close dela paramentada, olhos na câmera, clínica desfocada atrás. A melhor foto do lote, reservada para esta seção ou para uma revisão do hero. Conferir com a regra de "ambiente clínico" do CRO-AL.
-- O caso de reabilitação total em resina é material desta seção (PRD, D5), contado sem identificar o paciente.
+- Um caso clínico que ela contou é material desta seção (PRD, D5), contado sem identificar o paciente. Detalhes nas notas privadas.
 
 ## Comportamento
 

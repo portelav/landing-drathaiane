@@ -34,3 +34,52 @@ jobs:
       - run: npx tsc --noEmit
 
       - run: npm run build
+
+  public-repo:
+    name: Public repo hygiene
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    # gitleaks-action lists the PR's commits through the API.
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Secrets (gitleaks)
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Commits must carry the GitHub noreply address, never a personal e-mail.
+      # noreply@github.com is the committer of merges made on the website.
+      - name: Commit e-mails
+        env:
+          BASE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          allowed='^(198817785\+portelav@users\.noreply\.github\.com|noreply@github\.com)$'
+          if [ -z "$BASE" ] || [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
+            range=HEAD
+          else
+            range="$BASE..HEAD"
+          fi
+          bad=$(git log --format='%h %ae%n%h %ce' "$range" | grep -vE " ${allowed#^}" || true)
+          if [ -n "$bad" ]; then
+            echo "Commits with an e-mail other than the noreply address:"
+            echo "$bad"
+            exit 1
+          fi
+
+      # Images and videos go in without editor or camera metadata (XMP, EXIF, PNG text chunks).
+      - name: Media metadata
+        run: |
+          bad=$(git ls-files 'public/*' | while read -r f; do
+            LC_ALL=C grep -l -a -E 'xmpmeta|XML:com\.adobe\.xmp|Canva|DREAMINA|Exif|eXIf|iTXt|tEXt|zTXt|GPS' "$f" || true
+          done)
+          if [ -n "$bad" ]; then
+            echo "Media with metadata (strip with exiftool -all=, magick -strip or ffmpeg -map_metadata -1 -c copy):"
+            echo "$bad"
+            exit 1
+          fi
