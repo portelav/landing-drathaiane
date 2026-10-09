@@ -43,5 +43,3 @@ next-env.d.ts
 # Raw video masters — transcoded output lives in public/video/
 /media/
 
-.vercel
-.env*

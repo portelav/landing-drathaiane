@@ -1,4 +1,11 @@
-# Seção "Sobre" — plano dos três tempos
+# FDD: Seção Sobre
+
+Status: implementado
+PRD: seção 6, item Sobre
+
+Escrito como plano da seção antes do kit; mantido no formato original. Regras de fora que tocam esta seção: PRD, "Regras de fora".
+
+## Plano dos três tempos
 
 Estado em 19/08/2026. Os três tempos estão construídos. Este documento agora
 serve para explicar por que cada um é como é, e para registrar o que ficou
@@ -152,6 +159,8 @@ letterbox.
 **Não em loop.** Toca uma vez ao entrar em vista e congela no último frame —
 mesma regra do Tempo 2. Loop de pessoa executando tarefa vira esteira: a ação
 tem começo e fim, e repetida o olho acha o ponto de emenda.
+
+> Nota de 2026-10-09: decisão revertida em 05ded3f (2026-08-20). O vídeo agora roda em loop e pausa ao sair da tela: um quadro congelado ao lado de uma roda que ainda gira parecia falha de carregamento. Como se repete por mais de 5 s, falta um controle de pausa (WCAG 2.2.2), item no ROADMAP. A doutora acha que este vídeo pertence a uma seção de primeira visita, que ainda não existe.
 
 **Dimensionado pelo tamanho de exibição.** O hero pesa 4,2MB porque é tela
 cheia; este painel cabe em 300–500KB.
