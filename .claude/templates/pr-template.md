@@ -11,9 +11,8 @@
 
 <!-- Por camada. Apagar as que não se aplicam. -->
 
-- **Dados:** …
-- **Regras:** …
 - **Interface:** …
+- **Conteúdo e mídia:** …
 - **Docs:** …
 
 ## Como testar no local
@@ -29,11 +28,11 @@
 
 - [ ] `tasks/<slug>.md` com Stages 1 a 9 (ou 1 e 4 para trivial)
 - [ ] `npm run lint`, `npx next typegen && npx tsc --noEmit` e `npm run build` verdes
-- [ ] Testado em 390 px e no computador
-- [ ] Textos em português; label, toque 44 px, foco visível
-- [ ] `.env.example` atualizado se houve variável nova
+- [ ] Testado em 390 px, iPad retrato e computador, e com movimento reduzido
+- [ ] Textos em português; toque 44 px, foco visível, contraste AA
+- [ ] Regras de fora (CFO e CRO-AL) conferidas em texto e mídia novos
 - [ ] Docs atualizados (FDD, PRD, ROADMAP conforme o caso)
-- [ ] nenhuma atribuição de IA (sem Co-Authored-By, sem "Generated with", sem menção a Claude ou agente)
+- [ ] Nenhuma atribuição de IA (sem Co-Authored-By, sem "Generated with", sem menção a Claude ou agente)
 
 ## Issues
 
