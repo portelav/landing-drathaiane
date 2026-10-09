@@ -64,8 +64,9 @@ Consulta em 2026-10-09. Detalhe, citações e grau de certeza em [`docs/research
 | "Especialista" só com especialidade registrada no CRO-AL; senão, "área de atuação" | Sobre e Serviços dizem "especialista" só com o registro confirmado | CEO art. 44, II; cartilha CRO-AL |
 | Mestrado e doutorado podem ser divulgados | Linha do tempo pode manter o mestrado | CEO art. 43, § 1º, III |
 | Proibida promessa de resultado, sensacionalismo, superlativo, crítica a colega | Tom de voz no DESIGN.md; revisão de todo texto no `/walkthrough` | CEO art. 44, I e IV; [CFO Esclarece](https://website.cfo.org.br/redes-sociais-na-odontologia-fique-atento-as-normas-eticas-e-acerte-na-publicacao-dos-conteudos/) |
-| Proibida imagem do transcurso de procedimento, de instrumental, material, equipamento ou tecido biológico | Nenhum vídeo de atendimento; marca de material nunca em destaque | Res. CFO-196/2019 art. 3º; cartilha CRO-AL |
-| Cartilha do CRO-AL lista "bastidores, ambiente clínico" como proibido | Hero (recepção) e vídeo do kit precisam do aval do CRO-AL | Cartilha CRO-AL p. 8 |
+| Proibida imagem do transcurso de procedimento, de instrumental, material, equipamento ou tecido biológico | Nenhum vídeo de atendimento; marca de material nunca em destaque | [Res. CFO-196/2019](https://sistemas.cfo.org.br/visualizar/atos/RESOLU%C3%87%C3%83O/SEC/2019/196) arts. 1º § 1º e 3º |
+| Cartilha do CRO-AL lista "bastidores, ambiente clínico" como proibido (termo que não está na norma; é a leitura do conselho que fiscaliza) | Imagem do consultório passa pela revisão do DEF/CRO-AL antes de indexar | Cartilha CRO-AL p. 8 |
+| Toda publicação de imagem ou vídeo leva nome e CRO | Confirmar com o CRO-AL se o rodapé basta ou se cada foto e vídeo precisa de legenda com nome e CRO | Res. CFO-196/2019 art. 4º |
 | Antes e depois só da própria doutora, com TCLE e nome + CRO na imagem; nunca em nome de clínica | Serviços pode ter casos, se ela tiver TCLE | Res. CFO-196/2019; CFO Esclarece |
 | Paciente ou terceiro identificável só com consentimento escrito, e nunca para autopromoção | Ninguém identificável na página sem autorização escrita | CEO art. 44, VI |
 | Proibido anunciar procedimento não odontológico (micropigmentação, design de sobrancelha etc.) | Serviços só com procedimentos odontológicos | Res. CFO-230/2020; cartilha CRO-AL |

@@ -10,7 +10,8 @@ O agente não é advogado. O que estiver marcado como incerto deve ser confirmad
 |---|---|---|
 | [Código de Ética Odontológica, Res. CFO-118/2012](https://website.cfo.org.br/wp-content/uploads/2018/03/codigo_etica.pdf) | Norma federal. Capítulo XVI (arts. 41 a 46) trata de anúncio, propaganda e publicidade | Primária. Lida no texto do PDF oficial |
 | [Cartilha de Publicidade na Odontologia, DEF/CRO-AL, 2022](https://croal.org.br/wp-content/uploads/2025/04/Cartilha-de-publicidade-na-odontologia.pdf) | Interpretação do conselho de Alagoas, com base no CEO e nas Res. 196/2019 e 230/2020 | Primária para Alagoas. Diagramação em colunas deixa alguns itens ambíguos (ver abaixo) |
-| [CFO Esclarece: redes sociais na Odontologia (11/06/2025, atualizado 14/07/2025)](https://website.cfo.org.br/redes-sociais-na-odontologia-fique-atento-as-normas-eticas-e-acerte-na-publicacao-dos-conteudos/) | Explicação oficial do CFO sobre a Res. 196/2019 | Primária (interpretação oficial). O texto da resolução no `sistemas.cfo.org.br` não pôde ser lido (certificado inválido no servidor) |
+| [Res. CFO-196/2019](https://sistemas.cfo.org.br/visualizar/atos/RESOLU%C3%87%C3%83O/SEC/2019/196) | Texto oficial: selfies, diagnóstico e resultado final, transcurso, identificação | Primária. Lida no PDF oficial (o servidor tem certificado inválido; baixado sem verificação) |
+| [CFO Esclarece: redes sociais na Odontologia (11/06/2025, atualizado 14/07/2025)](https://website.cfo.org.br/redes-sociais-na-odontologia-fique-atento-as-normas-eticas-e-acerte-na-publicacao-dos-conteudos/) | Explicação oficial do CFO sobre a Res. 196/2019 | Primária (interpretação oficial) |
 | [Sorriai: CFO-271/2025, o que mudou](https://sorriai.com.br/blog/cfo-271-2025-o-que-mudou-e-o-que-continua-proibido) | Análise da Res. CFO-271/2025, que respondeu a uma decisão do CADE | Secundária |
 
 ## O que o Código de Ética diz (CFO-118/2012)
@@ -44,13 +45,17 @@ O agente não é advogado. O que estiver marcado como incerto deve ser confirmad
 
 ## O que a Res. CFO-196/2019 acrescenta
 
-Segundo a página oficial do CFO:
+Texto oficial, de 29/01/2019:
 
-- Permite selfies. Com paciente na foto, só com autorização prévia por TCLE.
-- Permite imagens de diagnóstico e de resultado final ("antes e depois"), com três condições: publicadas pelo próprio profissional que executou; com nome e número do CRO na imagem; com TCLE do paciente.
-- Proíbe imagem ou vídeo do transcurso do procedimento (exceto publicação científica) e imagem que identifique equipamento, instrumental, material ou tecido biológico.
-- Clínicas e consultórios (pessoa jurídica) não podem publicar esse tipo de conteúdo.
-- Continuam vedados sensacionalismo, autopromoção, mercantilização e promessa de resultado.
+- **Art. 1º:** autoriza selfies de cirurgiões-dentistas, "acompanhados de pacientes ou não, desde que com autorização prévia do paciente ou de seu representante legal, através de Termo de Consentimento Livre e Esclarecido – TCLE".
+- **Art. 1º, § 1º:** "Ficam proibidas imagens que permitam a identificação de equipamentos, instrumentais, materiais e tecidos biológicos."
+- **Art. 2º:** autoriza "imagens relativas ao diagnóstico e à conclusão dos tratamentos odontológicos quando realizada por cirurgião-dentista responsável pela execução do procedimento", com TCLE. É o "antes e depois". A página oficial do CFO acrescenta que clínicas e consultórios (pessoa jurídica) não podem publicar esse conteúdo.
+- **Art. 2º, § 1º:** continua proibido o que caracterize "sensacionalismo, a autopromoção, a concorrência desleal, a mercantilização da Odontologia ou a promessa de resultado".
+- **Art. 3º:** "Fica expressamente proibida a divulgação de vídeos e/ou imagens com conteúdo relativo ao transcurso e/ou à realização dos procedimentos, exceto em publicações científicas."
+- **Art. 4º:** "Em todas as publicações de imagens e/ou vídeos deverão constar o nome do profissional e o seu número de inscrição, sendo vedada a divulgação de casos clínicos de autoria de terceiros."
+- **Art. 5º:** imagem, áudio ou vídeo de paciente em desacordo com a norma é infração ética "de manifesta gravidade".
+
+A resolução não usa as palavras "ambiente clínico" nem "bastidores". O Código de Ética (cap. XVI) também não.
 
 Há quem sustente que a 196/2019 conflita com os incisos I e XII do art. 44, que ela não revogou. O CFO a trata como complementar.
 
@@ -65,7 +70,7 @@ Fonte secundária. Publicada no DOU em 24/06/2025, após decisão do CADE (proce
 - **Facultativo:** técnicas de tratamento ou procedimentos, convênios, ícones de redes sociais, logomarca.
 - **Não permitido:** valores, bandeiras de cartão, e as palavras "popular", "oferta", "grátis", "descontos", "promoção", "indicação de amigos", "sorteios", "brindes", "pacotes promocionais", "cupom de desconto".
 - **Especialidade:** "especialista" (por exemplo, "especialista em dentística") só com registro no CRO-AL. Sem registro, anuncia-se a área de atuação ("dentística"). Mestrado e doutorado podem ser divulgados.
-- **Proibido (p. 8, sem ambiguidade):** "Imagens ou vídeos de: bastidores, ambiente clínico, procedimentos, tratamentos"; transcurso de procedimentos; equipamentos, instrumentais, materiais e tecidos biológicos; imagem de conclusão sem TCLE.
+- **Proibido (p. 8):** "Imagens ou vídeos de: bastidores, ambiente clínico, procedimentos, tratamentos"; transcurso de procedimentos; equipamentos, instrumentais, materiais e tecidos biológicos; imagem de conclusão sem TCLE. O quadro de "bastidores, ambiente clínico" vem sozinho, sem artigo citado. É a leitura do CRO-AL sobre os arts. 1º, § 1º, e 3º da Res. 196/2019, mais ampla que o texto deles. O alvo provável é o vídeo do consultório em atendimento (cadeira, equipamento, procedimento). Como é o CRO-AL que fiscaliza em Alagoas, é a leitura dele que vale na prática.
 - **Influenciadores:** tratamento em troca de divulgação pode ser infração (art. 44, IX).
 - **Res. CFO-230/2020:** veda anunciar procedimentos não odontológicos (micropigmentação, design de sobrancelhas, remoção de tatuagem, rejuvenescimento de colo e mãos, tratamento capilar).
 - **Consultoria gratuita:** o DEF/CRO-AL revisa peças de divulgação, inclusive publicações online, antes de serem publicadas. Contato: fiscalizacao@croal.org.br, (82) 3223-5125 ou 3221-1726 (opção 3), (82) 99138-9001.
