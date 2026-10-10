@@ -1,6 +1,6 @@
 # FDD: Seção Hero
 
-Status: aprovado
+Status: implementado
 PRD: seção 6, item Hero; D31
 Plano: `tasks/video-pause-control.md` (o hero foi construído antes da regra dos FDDs; este documento registra o que existe e acrescenta a pausa do vídeo)
 
@@ -90,8 +90,8 @@ Só `transform`, `opacity`, `width` do quadro (que está em posição absoluta e
 
 Verificáveis em 390 px, iPad retrato e computador.
 
-- [ ] O vídeo toca em loop na tela e pausa fora dela.
-- [ ] O botão fica no canto inferior direito do quadro, com 44 × 44 px de toque, e alterna pausar e reproduzir por clique, toque, Enter e Espaço.
-- [ ] Pausado pelo botão, o vídeo não volta a tocar sozinho depois de rolar para longe e voltar.
-- [ ] Com movimento reduzido, fica o poster, sem botão e sem palco travado.
-- [ ] A abertura pelo scroll e a linha de exibição continuam como descritas em "Movimento", e o botão não cobre texto, linha de exibição nem header.
+- [x] O vídeo toca em loop na tela e pausa fora dela.
+- [x] O botão fica no canto inferior direito do quadro, com 44 × 44 px de toque, e alterna pausar e reproduzir por clique, toque, Enter e Espaço.
+- [x] Pausado pelo botão, o vídeo não volta a tocar sozinho depois de rolar para longe e voltar.
+- [ ] Com movimento reduzido, fica o poster, sem botão e sem palco travado. Conferido no código; falta o teste num aparelho com "reduzir movimento" ligado.
+- [x] A abertura pelo scroll e a linha de exibição continuam como descritas em "Movimento", e o botão não cobre texto, linha de exibição nem header.

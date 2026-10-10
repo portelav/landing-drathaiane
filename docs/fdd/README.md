@@ -9,7 +9,7 @@ Regra: seção sem FDD não entra em desenvolvimento. Preloader e header foram c
 
 | Seção | Status | Plano |
 |---|---|---|
-| [Hero](hero.md) | aprovado | `tasks/video-pause-control.md` |
+| [Hero](hero.md) | implementado | `tasks/video-pause-control.md` |
 | [Sobre](sobre.md) | implementado | (anterior ao kit) |
 | [Serviços](servicos.md) | rascunho (conteúdo pendente) | — |
 | [Depoimentos](depoimentos.md) | fora por enquanto (PRD, D25) | — |
