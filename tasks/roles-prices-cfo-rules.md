@@ -188,6 +188,18 @@ Conferências do item 6, feitas no texto oficial em 2026-10-10:
 - **Item de paciente** no `CLAUDE.md` e no `walkthrough.md`: além do art. 44, VI, mantém o efeito do PRD ("na página, ninguém identificável sem autorização escrita"), para não perder a proteção de terceiro identificável que a lista antiga tinha.
 - **Tabela do PRD** passou de 12 para 17 linhas: preço, brinde e sorteio, "popular", palavras da cartilha e crítica a colega viraram linhas próprias, cada uma com a sua fonte.
 
+### Correções depois do walkthrough (2026-10-10)
+
+O Lucas pediu para corrigir os avisos da primeira passada nesta branch, inclusive o que estava fora do escopo.
+
+| # | Camada | Arquivo | Status |
+|---|---|---|---|
+| A | Docs e comandos | `CLAUDE.md`, `docs/PRD.md`, `docs/fdd/servicos.md`, `.claude/commands/walkthrough.md`: regra de área de atuação com a condição do art. 43, § 1º, I | Done (`e3078d7`) |
+| B | Design e FDD | `docs/design/DESIGN.md` (seção 8), `docs/fdd/servicos.md` ("Regras"): cada palavra vetada com o artigo; o que é tom de voz ou interpretação vem marcado | Done (`a14518b`) |
+| C | PRD e ROADMAP | `docs/PRD.md` (D30, critério da Fase 2, risco), `docs/ROADMAP.md` (Fase 2): revisão do site inteiro contra as regras de fora antes de tirar o `noindex` | Done (`df24207`) |
+
+Decisões do Lucas, em 2026-10-10: o efeito do art. 1º, § 1º, da Res. 196/2019 fica para depois; ele conversa com a doutora e pesquisa. As peças do site ficam como estão até a revisão do D30. A lista do que conferir está nas notas privadas.
+
 ---
 
 ## Stage 7 — Tests
@@ -222,46 +234,48 @@ Entrega só de docs: não há teste automatizado. Cada critério foi conferido c
 
 ## Stage 9 — Walkthrough
 
-> Data: 2026-10-10
+> Data: 2026-10-10. Segunda passada, depois das correções do Stage 6 ("Correções depois do walkthrough").
 
 ### Resumo
-- **Veredito:** WARNINGS
-- **Arquivos analisados:** 10
-- **Findings:** 0 críticos, 3 avisos
+- **Veredito:** APPROVED
+- **Arquivos analisados:** 12
+- **Findings:** 0 críticos, 0 avisos
 
 ### Checklist
 | Item | Status | Observação |
 |---|---|---|
-| 1. Escopo | Pass | Só os arquivos do Stage 4. A seção sobre a Res. 230/2020 na pesquisa é desvio registrado no Stage 6 |
-| 2. Regras de fora | Pass | Nenhum texto, foto ou vídeo do site mudou. Os docs conferidos citam o artigo de cada regra; ressalva no aviso 1 |
+| 1. Escopo | Pass | Os arquivos do Stage 4, mais as correções que o Lucas pediu depois da primeira passada (Stage 6). A seção sobre a Res. 230/2020 na pesquisa é desvio registrado no Stage 6 |
+| 2. Regras de fora | Pass | Nenhum texto, foto ou vídeo do site mudou. As quatro cópias da regra de "especialista" trazem a condição do art. 43, § 1º, I. A conferência das peças do site fica para a revisão do D30 |
 | 3. Stack | n/a | Nenhum arquivo em `src/` |
-| 4. Produto | Pass | D28 e D29 batem com o escopo combinado; D7 intacto; olhar final antes do `noindex` (D22) preservado. A decisão do art. 1º, § 1º, ficou com o Lucas (aviso 2) |
+| 4. Produto | Pass | D28, D29 e D30 registrados; D7 intacto; olhar final dela antes do `noindex` (D22) preservado |
 | 5. Interface | n/a | Só docs |
-| 6. Higiene | Pass | Lint, typecheck e build verdes; 11 commits, títulos até 72 caracteres, e-mail noreply, sem atribuição de IA; PRD, `CLAUDE.md`, DESIGN.md e pesquisa atualizados; ROADMAP sem item, como previsto |
+| 6. Higiene | Pass | Lint e typecheck verdes; build verde na primeira passada, e depois dela só mudou Markdown; 16 commits, títulos até 72 caracteres, e-mail noreply, sem atribuição de IA |
 
 ### Findings
 #### Critical
 - Nenhum.
 
 #### Warnings
-- **O art. 43, § 1º, I, tem uma condição que a regra de "área de atuação" não traz.** O inciso permite anunciar áreas de atuação "desde que precedidos do título da especialidade registrada no Conselho Regional ou qualificação profissional de clínico geral". A tabela e a lista curta dizem só "senão, 'área de atuação'". O defeito vem da `main`; esta branch passou a citar o inciso, o que o deixou visível. — `docs/PRD.md:78`, `CLAUDE.md:78` — Completar a regra com "precedida de 'clínico geral' (art. 43, § 1º, I)".
-- **Decisão pendente sobre o art. 1º, § 1º, da Res. 196/2019.** O efeito no produto vale só para selfie, como o plano previa, e saiu "marca de material nunca em destaque". O "CFO Esclarece" e a cartilha do CRO-AL leem a proibição para qualquer imagem (interpretação). — `docs/PRD.md:83` — O Lucas decide se mantém assim ou se volta a evitar marca de material em destaque (uma linha no PRD e outra no DESIGN.md).
-- **Regras de seção fora da lista curta.** `docs/fdd/servicos.md:34` ("nem superlativo") e `docs/design/DESIGN.md:134` ("palavras vetadas (CFO e CRO-AL)") ainda dão ao CFO palavras que são escolha de voz, como "superlativo", "o melhor" e "sem dor". Fora do escopo, como previsto. — Quando sair o `/plan` de Serviços, separar o que é regra do CFO do que é tom de voz.
+- Nenhum. Os três avisos da primeira passada:
+  - A regra de área de atuação não trazia a condição do art. 43, § 1º, I. Corrigido em `e3078d7`.
+  - O efeito do art. 1º, § 1º, da Res. 196/2019 estava pendente. O Lucas deixou para depois (2026-10-10). A tabela do PRD continua com o texto literal e a interpretação lado a lado, e a decisão entra na revisão do D30.
+  - O DESIGN.md e o FDD de Serviços tratavam escolha de tom como regra do CFO. Corrigido em `a14518b`.
 
 #### Positive
 - Nenhuma frase de aprovação dela ficou nos docs e comandos. D28 substitui D7 sem editá-lo, e o olhar final antes do `noindex` continua em todos os lugares.
-- Toda linha da tabela do PRD cita artigo do texto oficial ou vem marcada como "(interpretação)". A fonte secundária saiu da pesquisa.
+- Toda linha da tabela do PRD cita artigo do texto oficial ou vem marcada como "(interpretação)". O DESIGN.md e o FDD de Serviços seguem a mesma regra.
 - Ler o texto oficial corrigiu dois erros da pesquisa: o "erro de digitação" da cartilha sobre a Res. 198/2019, que não era erro, e o "superlativo", que o "CFO Esclarece" não menciona.
 - `plan.md` e `exec.md` apontam para o `CLAUDE.md` em vez de copiar a lista, então a regra fica num lugar só.
-- Nada privado entrou no repositório público: nenhum dado pessoal, nenhuma dúvida aberta sobre ela, e a pauta continua nas notas privadas.
+- Nada privado entrou no repositório público: nenhuma dúvida aberta sobre ela ou sobre peças do site; a lista do que conferir fica nas notas privadas, como manda o `CLAUDE.md`.
 
 ### Verificações executadas
-- `git diff --name-only main...HEAD`: 10 arquivos (`.claude/commands/` 4, `CLAUDE.md`, `docs/` 3, `tasks/` 2)
+- `git diff --name-only main...HEAD`: 12 arquivos (`.claude/commands/` 4, `CLAUDE.md`, `docs/` 5, `tasks/` 2)
 - `npm run lint`: exit 0
 - `npx next typegen && npx tsc --noEmit`: exit 0
-- `npm run build`: exit 0
-- `git log --format=%B main..HEAD | grep -i -E "co-authored|generated with|claude"`: vazio
+- `npm run build`: exit 0 na primeira passada
+- `grep` por "senão, área" em `CLAUDE.md`, `docs/` e `.claude/`: nada
+- `grep` por "superlativo" nas regras: só no DESIGN.md e no FDD de Serviços, marcado como tom de voz
+- `git log --format=%B main..HEAD | grep -i -E "co-authored|generated with"`: vazio
 - `git log --format=%ae main..HEAD`: só `198817785+portelav@users.noreply.github.com`
-- `grep` dos critérios 1, 3 e 8 do Stage 1: sem ocorrência
 
-**Gate S9 — WARNINGS**
+**Gate S9 — APPROVED**
