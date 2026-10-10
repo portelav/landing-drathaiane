@@ -3,7 +3,7 @@
 **Slug:** `technical-bar`
 **Branch:** `perf/technical-bar`
 **Área:** hero, Sobre (linha do tempo e vídeo do kit), layout · **Dono:** Lucas
-**Status:** Walkthrough (LCP no celular a medir na produção depois do merge, D35; opção escolhida pelo Lucas em 2026-10-10)
+**Status:** Done (PR #8 mergeado em 2026-10-10; meta revista na D37, ver "Medição na produção")
 **Gate S2:** Livre (pergunta 1 respondida em 2026-10-10: opção A)
 
 ---
@@ -277,3 +277,34 @@ Medição local, `npm run build && npm start`, Lighthouse 13.4.1, mediana de 3, 
 - Ficam abertos os dois primeiros avisos: a medição na produção, depois do merge, e o teste no iPhone com movimento reduzido.
 
 **Gate S9 — WARNINGS**
+
+---
+
+## Medição na produção (2026-10-10, depois do merge do PR #8)
+
+Lighthouse 13.4.1, mediana de 3:
+
+| Tamanho | LCP | Nota de desempenho | Acessibilidade |
+|---|---|---|---|
+| Celular, simulado | 2,91 s (2,51, 2,92 e 2,91; era 3,2) | 88, 88 e 88 | 100 |
+| iPad retrato, simulado | 2,27 s | 93, 89 e 92 | 100 |
+| Computador | 0,69 s | 94, 94 e 100 | 100 |
+| Celular, throttling real | 3,37 s (era 4,3) | — | — |
+
+O PageSpeed Insights deu 2,9 s no celular.
+
+**Investigação do atraso no celular** (experimentos locais, revertidos; nenhum commit de código). No Lighthouse do celular, a primeira tela só aparece em cerca de 2,33 s, embora o `load` saia em 0,7 s. O filmstrip fica branco até lá. Reproduzido no build local com 150 ms de latência. Resultados da bisseção (primeira pintura, local):
+
+| Teste | Primeira pintura |
+|---|---|
+| Sem o preloader | 2,38 s |
+| Página sem seções (header, rodapé e preloader) | 1,32 s |
+| Vídeos bloqueados | 2,34 s |
+| Fontes bloqueadas | 2,33 s |
+| Poster do hero bloqueado | 1,36 s |
+| Poster como `<img>` comum em vez do atributo `poster` | 2,32 s |
+| Poster 4× menor (960 × 540, 25 KB) | 2,33 s |
+
+**Conclusão:** a presença da imagem do hero segura a apresentação em cerca de 1 s, qualquer que seja o tamanho ou a forma de exibir, o que aponta para o compositor do Chrome e não para o código do site. Com a primeira pintura cedo (uma das execuções em produção), o LCP simulado deu 2,51 s. Sem nenhum JS, 2,3 s. A meta de 2,5 s não cabe sem diminuir o JS da primeira tela.
+
+**Decisão do Lucas:** trocar a meta pela nota de desempenho (D37). O LCP de 2,5 s foi para o ROADMAP, em "Depois".
