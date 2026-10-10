@@ -66,7 +66,7 @@ A doutora já tem o conteúdo das seções que faltam e ainda não mandou (D9). 
 
 ## Regras de fora
 
-Consulta em 2026-10-09. Detalhe, citações e grau de certeza em [`docs/research/publicidade-odontologica.md`](research/publicidade-odontologica.md). Tirar o `noindex` depende só do aval da Dra. Thaiane (D22). Dúvida pontual sobre uma regra vai ao DEF/CRO-AL, o setor de fiscalização do Conselho Regional de Odontologia de Alagoas, que revisa peças de graça (fiscalizacao@croal.org.br).
+Consulta em 2026-10-09. Detalhe, citações e grau de certeza em [`docs/research/publicidade-odontologica.md`](research/publicidade-odontologica.md). Tirar o `noindex` depende do aval da Dra. Thaiane (D22). O DEF/CRO-AL, setor de fiscalização do Conselho Regional de Odontologia de Alagoas, revisa peças de graça (fiscalizacao@croal.org.br).
 
 | Regra | Efeito no produto | Fonte |
 |---|---|---|
@@ -76,7 +76,7 @@ Consulta em 2026-10-09. Detalhe, citações e grau de certeza em [`docs/research
 | Mestrado e doutorado podem ser divulgados | Linha do tempo pode manter o mestrado | CEO art. 43, § 1º, III |
 | Proibida promessa de resultado, sensacionalismo, superlativo, crítica a colega | Tom de voz no DESIGN.md; revisão de todo texto no `/walkthrough` | CEO art. 44, I e IV; [CFO Esclarece](https://website.cfo.org.br/redes-sociais-na-odontologia-fique-atento-as-normas-eticas-e-acerte-na-publicacao-dos-conteudos/) |
 | Proibida imagem do transcurso de procedimento, de instrumental, material, equipamento ou tecido biológico | Nenhum vídeo de atendimento; marca de material nunca em destaque | [Res. CFO-196/2019](https://sistemas.cfo.org.br/visualizar/atos/RESOLU%C3%87%C3%83O/SEC/2019/196) arts. 1º § 1º e 3º |
-| Cartilha do CRO-AL lista "bastidores, ambiente clínico" como proibido (termo que não está na norma; é a leitura do conselho que fiscaliza) | Dúvida sobre imagem do consultório vai ao DEF/CRO-AL; indexar depende do aval dela (D22) | Cartilha CRO-AL p. 8 |
+| Cartilha do CRO-AL lista "bastidores, ambiente clínico" como proibido (termo que não está na norma; é a leitura do conselho que fiscaliza) | Imagem do consultório conferida contra a cartilha antes de indexar (D22) | Cartilha CRO-AL p. 8 |
 | Toda publicação de imagem ou vídeo leva nome e CRO | Confirmar com o CRO-AL se o rodapé basta ou se cada foto e vídeo precisa de legenda com nome e CRO | Res. CFO-196/2019 art. 4º |
 | Antes e depois só da própria doutora, com TCLE e nome + CRO na imagem; nunca em nome de clínica | Serviços pode ter casos, se ela tiver TCLE | Res. CFO-196/2019; CFO Esclarece |
 | Paciente ou terceiro identificável só com consentimento escrito, e nunca para autopromoção | Ninguém identificável na página sem autorização escrita | CEO art. 44, VI |
@@ -166,7 +166,7 @@ Decisões que já estavam no código e no plano do Sobre.
 Cumpre D17.
 
 - **D21.** O MVP sai em duas fases. Fase 1: o que só depende do Lucas (rodapé com CRO, menu, contraste, pausa dos vídeos, barra técnica, README); serve ao portfólio e ao currículo com o `noindex`. Fase 2: a versão pública, com o conteúdo e o aval dela. Critérios na seção 10.
-- **D22.** Tirar o `noindex` depende só do aval dela. A revisão do DEF/CRO-AL deixa de ser condição para indexar; o conselho recebe só dúvidas pontuais.
+- **D22.** Tirar o `noindex` depende do aval dela. O DEF/CRO-AL é consultado quando uma regra não for clara.
 - **D23.** Meta: entrar no portfólio e no currículo, cumprir a barra técnica medida e ficar indexado com o aval dela (seção 5). Cliques no WhatsApp ficam fora, por exigir analytics.
-- **D24.** Prazo: Fase 1 até 2026-10-23. Fase 2 sem data; o conteúdo é cobrado pela pauta nas notas privadas.
+- **D24.** Prazo: Fase 1 até 2026-10-23. Fase 2 sem data; o conteúdo é acompanhado nas notas privadas.
 - **D25.** Depoimentos sai do site e do menu por enquanto. A seção fica para decisão futura e não entra em nenhuma das duas fases.
