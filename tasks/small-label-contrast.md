@@ -206,4 +206,51 @@ Medida no navegador pelo MCP do Chrome DevTools, com `npm run dev`. Viewports: 3
 
 ## Stage 9 — Walkthrough
 
-*(Preenchido pelo walkthrough.)*
+> Data: 2026-10-10
+
+### Resumo
+- **Veredito:** WARNINGS
+- **Arquivos analisados:** 12 (6 de código, 6 de docs)
+- **Findings:** 0 críticos, 3 avisos
+
+### Checklist
+| Item | Status | Observação |
+|---|---|---|
+| 1. Escopo | OK | Os 12 arquivos são os do Stage 4. No código, só classes de cor, a opacidade do header, a remoção de 4 linhas de token e um comentário |
+| 2. Regras de fora | OK | Nenhum texto, foto ou vídeo mudou. "Cirurgiã-Dentista" no header ficou mais legível (art. 43); o rodapé continua igual |
+| 3. Stack | OK | Só classes do Tailwind 4 sobre tokens existentes. A band usa a variante `beside:` que já existia. Nenhuma API do Next e nenhum `"use client"` novo |
+| 4. Produto | OK | Critério da seção 10 do PRD cumprido. O visual da citação da band virou item para o Lucas, não suposição |
+| 5. Interface: tokens | OK | `dark-base/70`, `light-base/70` e `dark-base`, sem hex solto. Os tokens removidos não têm mais uso em `src/` |
+| 5. Interface: viewports e contraste | OK | Medido em 390 px, iPad retrato e computador: de 6,10 a 7,08 (Stage 7) |
+| 5. Interface: movimento e `prefers-reduced-motion` | OK, com ressalva | Nenhum movimento mudou. Movimento reduzido conferido no código, não emulado (Stage 6, desvios) |
+| 6. Higiene: verificações | OK | Lint, typecheck e build com saída 0 |
+| 6. Higiene: commits | OK | 10 commits em Conventional Commits, títulos até 72 caracteres, todos com o e-mail noreply. Busca por atribuição de IA no corpo vazia |
+| 6. Higiene: docs | OK, com aviso | DESIGN.md, PRD, ROADMAP, `contato.md` e `ui.md` atualizados. `CLAUDE.md` não precisa mudar. Ver aviso 1 |
+
+### Findings
+#### Critical
+- Nenhum.
+
+#### Warnings
+1. **A regra "nenhum texto abaixo de 70%" é mais absoluta que o código.** Na roleta, os anos fora de foco ficam entre 14% e 100% de opacidade durante o scroll (`about-timeline.tsx:164`), e isso é intencional. Do jeito que está escrita, a regra nova contradiz uma peça aprovada. — `docs/design/DESIGN.md:53`, `.claude/commands/ui.md:23` — Sugestão: "Nenhum texto em repouso abaixo de 70%" e citar a roleta como exceção de trânsito (no estado final com movimento reduzido, ela já fica em cor cheia).
+2. **O DESIGN.md generaliza onde cada par foi medido.** Diz que os pares de texto secundário e da band foram medidos em 390 px, iPad retrato e computador. Mas a band aberta e a pele escura do hero só foram medidas em 1440×900 (a band aberta só existe no computador; a pele escura não muda com a largura). — `docs/design/DESIGN.md:59` — Sugestão: "nos três viewports; a band aberta e a pele escura, só no computador".
+3. **A citação da band falha 3:1, de 2,52 a 3,00.** Não foi causada por esta branch: só foi medida e registrada aqui (DESIGN.md e ROADMAP, Fase 1). Fica pendente antes da barra técnica. — `src/components/about.tsx:193` — Decisão de visual do Lucas, já no ROADMAP.
+
+#### Positive
+- Uma convenção só para texto secundário, a do rodapé, já medida e aprovada. Os dois tokens que falhavam saíram, então não sobra atalho para repetir o erro.
+- O caso da band foi tratado à parte, e com medida: 70% sobre a parede daria cerca de 3,6, e o `dark-base` cheio dá 6,34.
+- A pele escura do hero foi corrigida e medida (7,08), embora esteja fora de uso. Trocar o `TONE` não traz a falha de volta.
+- A ordem dos commits deixa todos os estados intermediários válidos: a remoção dos tokens veio depois de trocar todos os usos.
+- O plano foi honesto sobre o que é conta e o que é medida, e o Stage 7 registra o método.
+
+### Verificações executadas
+- `git diff --name-only main...HEAD`: 12 arquivos, todos previstos no plano.
+- `git diff main...HEAD -- src/`: só as mudanças do Stage 4.
+- `git log --format=%B main..HEAD | grep -i -E "co-authored|generated with|claude|agent"`: vazio.
+- `git log --format='%ae'`: todos com `198817785+portelav@users.noreply.github.com`.
+- `npm run lint`: saída 0.
+- `npx next typegen && npx tsc --noEmit`: saída 0.
+- `npm run build`: saída 0, `/` estático.
+- `grep -n opacity src/components/about-timeline.tsx`: origem do aviso 1.
+
+**Gate S9 — WARNINGS**
