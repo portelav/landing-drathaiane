@@ -75,7 +75,7 @@ O site é publicidade odontológica. Vale o Código de Ética Odontológica (Res
 - Nome, "Cirurgiã-Dentista" e CRO/AL-6418 visíveis no site, no rodapé no mínimo (art. 43).
 - Nenhum preço, forma de pagamento ou serviço gratuito (art. 44, I; PRD, D29).
 - Nenhuma promessa de resultado, sensacionalismo ou autopromoção no texto (Res. 196/2019, art. 2º, § 1º).
-- "Especialista" só com a especialidade registrada no CRO-AL; senão, "área de atuação" (art. 44, II).
+- "Especialista" só com a especialidade registrada no CRO-AL (art. 44, II). Área de atuação, procedimento e técnica só depois do título dessa especialidade ou de "clínico geral" (art. 43, § 1º, I).
 - Nenhuma imagem de procedimento em andamento (Res. 196/2019, art. 3º).
 - Paciente identificável só com consentimento (art. 44, VI); na página, ninguém identificável sem autorização escrita (PRD).
 - Antes e depois só de casos dela, com TCLE (Termo de Consentimento Livre e Esclarecido), nome e CRO na imagem (Res. 196/2019, arts. 2º e 4º).

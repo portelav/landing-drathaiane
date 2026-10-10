@@ -30,7 +30,7 @@ Material já guardado (`media/sobre/`, fora do git):
 ## Regras
 
 1. Nenhum preço, forma de pagamento, "grátis", "promoção", "desconto", "oferta" ou "popular".
-2. "Especialista" só se a especialidade estiver registrada no CRO-AL; senão, área de atuação.
+2. "Especialista" só se a especialidade estiver registrada no CRO-AL (Código de Ética, art. 44, II). Área de atuação, procedimento e técnica só depois do título dessa especialidade ou de "clínico geral" (art. 43, § 1º, I).
 3. Nenhuma promessa de resultado nem superlativo.
 4. Só procedimentos odontológicos (Res. CFO-230/2020).
 5. Antes e depois só com TCLE, publicados em nome dela (nunca da clínica), com nome e CRO na imagem.
