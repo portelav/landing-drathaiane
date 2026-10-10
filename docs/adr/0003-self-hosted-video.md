@@ -1,7 +1,9 @@
 # ADR 0003: Vídeo próprio em `public/video/`, VP9 e H.264 nível 4.0 com poster
 
-Status: aceito
+Status: aceito; o carregamento (`preload="metadata"`) foi substituído pela [ADR 0004](0004-deferred-video-loading.md)
 Data: 2026-08-18 (registrado em 2026-10-09)
+
+> Nota de 2026-10-10: os vídeos agora começam com `preload="none"` e só carregam depois da primeira tela, e o poster do kit vai por `next/image` preguiçoso (ADR 0004). O resto desta decisão continua.
 
 ## Contexto
 

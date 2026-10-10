@@ -55,7 +55,7 @@ Prontos: preloader com o monograma, header (WhatsApp e Instagram), hero com víd
 | Framework e hospedagem | Next.js 16 (App Router), React 19, Vercel | [0001](docs/adr/0001-nextjs-on-vercel.md) |
 | Estilo | Tailwind CSS 4, tokens em `src/app/globals.css` | [0001](docs/adr/0001-nextjs-on-vercel.md) |
 | Movimento | Motion 13, Lenis, `requestAnimationFrame` próprio nas peças de scroll | [0002](docs/adr/0002-motion-lenis-scroll.md) |
-| Vídeo | Arquivos próprios em `public/video/`, VP9 + H.264 com poster | [0003](docs/adr/0003-self-hosted-video.md) |
+| Vídeo | Arquivos próprios em `public/video/`, VP9 + H.264 com poster; carregam depois da primeira tela | [0003](docs/adr/0003-self-hosted-video.md), [0004](docs/adr/0004-deferred-video-loading.md) |
 
 Sem banco, sem backend, sem formulário, sem analytics.
 
