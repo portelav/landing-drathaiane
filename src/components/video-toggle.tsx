@@ -44,6 +44,10 @@ export function useLoopWhileVisible(videoRef: RefObject<HTMLVideoElement | null>
         video.pause();
         video.currentTime = 0;
         setPlayable(false);
+        // The button leaves with the motion. A pause kept past this point
+        // would outlive its own control once the preference is lifted.
+        pausedRef.current = false;
+        setPaused(false);
       } else if (!visible || pausedRef.current) {
         video.pause();
       } else {
