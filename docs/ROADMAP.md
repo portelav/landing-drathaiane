@@ -11,7 +11,7 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 | Contraste dos rótulos de 11 px | Texto secundário pequeno passa em 4,5:1, medido (DESIGN.md, seção 3) | `tasks/small-label-contrast.md` |
 | Contraste da citação da band | Na band aberta, a citação do Sobre passa em 3:1 (texto grande) sobre o gradiente; hoje mede de 2,52 a 3,00 (DESIGN.md, seção 3). Muda o visual da band: decisão do Lucas | — |
 | Pausa dos vídeos em loop | Hero e kit com controle de pausa acessível (WCAG 2.2.2) | `tasks/video-pause-control.md` |
-| Barra técnica | Lighthouse no celular: LCP abaixo de 2,5 s no 4G, acessibilidade sem falha AA, em 390 px, iPad e computador. Acessibilidade resolvida (D36); LCP no celular a medir na produção depois do merge (D35): era 3,2 s | `tasks/technical-bar.md` |
+| Barra técnica | Nota de desempenho do Lighthouse de 85 ou mais no celular e de 90 ou mais no computador, e acessibilidade sem falha AA (D37). Feito: 88 no celular, 94 a 100 no computador, acessibilidade 100 | `tasks/technical-bar.md` |
 | README final | Prints e link do site | — |
 | Portfólio e currículo | Link do site nos dois | fora do repositório |
 
@@ -27,6 +27,7 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 
 - Rever o ignore `.claude/**` do `eslint.config.mjs` (comentário diz "vendored agent tooling"): as skills de terceiros saíram no kickoff, e o que sobrou em `.claude/hooks/` é código do projeto.
 - Domínio próprio (D10).
+- LCP no celular abaixo de 2,5 s; hoje dá 2,9 s (D37). Caminho: diminuir o JS da primeira tela (ADR 0002) e entender o atraso do Chrome em torno da imagem do hero (`tasks/technical-bar.md`, "Medição na produção").
 - Rever o visual do rodapé: o colofão claro (`tasks/footer-colophon.md`) melhorou o primeiro rodapé, mas ainda não convence o Lucas.
 - Nome do header quebrando em quatro linhas em 390 px quando o header ganha fundo.
 
