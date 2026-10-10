@@ -3,7 +3,7 @@
 **Slug:** `footer-and-menu-anchors`
 **Branch:** `feat/footer-and-menu-anchors`
 **Área:** rodapé e header · **Dono:** Lucas
-**Status:** Walkthrough
+**Status:** Done (PR #2 mergeado em 2026-10-10)
 **Gate S2:** Livre
 
 ---
