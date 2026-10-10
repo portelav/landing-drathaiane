@@ -224,4 +224,50 @@ Medição local, `npm run build && npm start`, Lighthouse 13.4.1, mediana de 3, 
 
 ## Stage 9 — Walkthrough
 
-*(Preenchido pelo walkthrough.)*
+> Data: 2026-10-10
+
+### Resumo
+- **Veredito:** WARNINGS
+- **Arquivos analisados:** 16 (5 de código, 9 docs, 2 tasks)
+- **Findings:** 0 críticos, 5 avisos
+
+### Checklist
+| Item | Status | Observação |
+|---|---|---|
+| Escopo | OK, com ressalva | Tudo no plano, mais o fechamento de `tasks/contact-decisions.md` (trivial, prometido no PR #7) |
+| Regras de fora | OK | Nenhum texto, foto ou vídeo novo. Rodapé com nome, profissão e CRO intocado |
+| Stack | OK | `preload` do `react-dom` no Server Component, como na doc do Next 16 (`generate-metadata.md`, "link rel=preload"). `next/image` com `fill` e `sizes` no padrão de `about.tsx`. `"use client"` só onde já havia |
+| Produto | OK | Bate com a ADR 0004, os FDDs do hero e do Sobre e as decisões D35 e D36 |
+| Interface | OK, com ressalva | 390 px e computador conferidos no navegador. Movimento reduzido e iPhone não testados em aparelho |
+| Desempenho | Pendente | LCP no celular e no iPad não verificado em produção (ver avisos) |
+| Higiene | OK, com ressalva | Lint, typecheck e build verdes; e-mail noreply; nenhuma atribuição. `CLAUDE.md` sem o `media.ts` na estrutura |
+
+### Findings
+#### Critical
+- Nenhum.
+
+#### Warnings
+- **Critérios 1 e 2 (LCP abaixo de 2,5 s no celular e no iPad) não verificados.** O preview pede login, e o Lucas escolheu medir na produção depois do merge (D35). Local simulado: 3,21 s. A projeção para a produção é cerca de 2,8 s, ou seja, provavelmente ainda não passa. O item da barra técnica no ROADMAP fica aberto até a medição — `tasks/technical-bar.md`, Stage 6, "Pausa". Se não passar, o próximo plano é diminuir o JS antes da primeira pintura (ADR 0002).
+- **Movimento reduzido e Safari no iPhone não testados em aparelho.** Pelo código, `attempt()` continua barrado por `stillness.matches`. Falta confirmar no WebKit que o vídeo sem `poster` fica transparente sobre o `next/image` até o primeiro quadro — `src/components/about-timeline.tsx:304`. Sugestão: abrir o preview no iPhone, com e sem "reduzir movimento".
+- **`CLAUDE.md`, "Estrutura do código":** a linha de `lib/` cita só o `contact.ts` — `CLAUDE.md:170`. Acrescentar o `media.ts` (poster do hero).
+- **Falta a linha em branco** entre os imports e o comentário de `SOURCES` — `src/components/hero.tsx:5`.
+- **Item 5 do plano não feito.** Os testes mostraram que fontes e imagens não são a alavanca do LCP simulado. Está registrado no Stage 6, mas o item continua aberto no Stage 4.
+
+#### Positive
+- **Diagnóstico com evidência:** a causa do LCP foi provada por bloqueio de recursos (JS bloqueado: 2,3 s; fontes e imagens: sem efeito), não suposta. O PageSpeed sobre a `main` confirma a linha de base (3,2 s).
+- **ADR antes do código:** a 0004 substitui só o `preload` da 0003, com nota datada e índice atualizado.
+- **Decisão num lugar só:** o carregamento adiado vive no hook compartilhado (`useLoopWhileVisible`), sem duplicação entre o hero e o kit. A limpeza do listener de `load` está no retorno do efeito.
+- **Acessibilidade:** 100 nos três tamanhos, sem auditoria falhando. O piso de 60% vem com a conta (3,23:1) no código, no DESIGN.md e no FDD do Sobre.
+- **Comportamento:** conferido no navegador. O hero toca depois do `load`, com o botão de pausa (D31); o kit toca ao aparecer; o hero pausa fora da tela.
+- **Rede:** o kit não baixa nada na carga (nem vídeo, nem poster). O vídeo do hero, 2 MB, só começa depois do `load`. O poster do hero é o primeiro pedido de imagem.
+- **Honestidade:** o Stage 7 marca os critérios 1 e 2 como "Não verificado em produção", em vez de passar.
+
+### Verificações executadas
+- `npm run lint`: 0
+- `npx next typegen && npx tsc --noEmit`: ok
+- `npm run build`: 0
+- `git log --format=%B main..HEAD | grep -i -E "co-authored|generated with|claude"`: vazio. Autor: e-mail noreply em todos os commits
+- Lighthouse 13.4.1 local (Stage 7) e PageSpeed Insights sobre a `main` (LCP 3,2 s)
+- Navegador (Chrome DevTools MCP): 390 px (vídeos, poster do kit, botão) e 1440 × 900 (roleta)
+
+**Gate S9 — WARNINGS**
