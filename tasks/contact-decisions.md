@@ -48,7 +48,7 @@
 
 ## Stage 4 — Execution Planning
 
-1. [ ] `docs(prd)`: Rodada 5 (D32 a D34) e corpo do PRD.
-2. [ ] `docs(fdd)`: partes decididas, regras e desempenho da seção Contato.
-3. [ ] `docs(roadmap)`: item Contato da Fase 2 com as partes decididas.
-4. [ ] `docs(tasks)`: este arquivo.
+1. [x] `docs(prd)`: Rodada 5 (D32 a D34) e corpo do PRD.
+2. [x] `docs(fdd)`: partes decididas, regras e desempenho da seção Contato.
+3. [x] `docs(roadmap)`: item Contato da Fase 2 com as partes decididas.
+4. [x] `docs(tasks)`: este arquivo.
