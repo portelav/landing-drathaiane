@@ -180,7 +180,10 @@ export function About() {
             ref={copyRef}
             className="flex flex-col justify-center gap-8 pt-9 beside:absolute beside:inset-y-0 beside:right-0 beside:gap-10 beside:px-12 beside:pt-0"
           >
-            <p className="tracking-brand text-[0.6875rem] uppercase text-dark-55">
+            {/* Over the backdrop the label goes full strength: the wall's
+                mid-tones pull a 70% ink below AA, where on the cream it
+                passes with room to spare. */}
+            <p className="tracking-brand text-[0.6875rem] uppercase text-dark-base/70 beside:text-dark-base">
               A dentista
             </p>
 
