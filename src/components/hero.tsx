@@ -261,7 +261,7 @@ export function Hero() {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="none"
             poster={HERO_POSTER}
             aria-hidden
             tabIndex={-1}

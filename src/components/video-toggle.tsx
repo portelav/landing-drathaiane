@@ -14,6 +14,10 @@ const VISIBLE = 0.4;
  * Reduced motion keeps the poster, and so does a browser that refuses to play
  * (low power mode, data saver). `playable` stays false in both: a pause button
  * for something that never moved would only be noise.
+ *
+ * The videos are `preload="none"`, so `play()` is what fetches them, and it
+ * waits for the page's own load event: the first screen gets the line to
+ * itself, and the footage follows (ADR 0004).
  */
 export function useLoopWhileVisible(videoRef: RefObject<HTMLVideoElement | null>) {
   const [playable, setPlayable] = useState(false);
@@ -28,9 +32,10 @@ export function useLoopWhileVisible(videoRef: RefObject<HTMLVideoElement | null>
     const stillness = window.matchMedia("(prefers-reduced-motion: reduce)");
     let visible = false;
     let attempts = 0;
+    let loaded = document.readyState === "complete";
 
     const attempt = () => {
-      if (stillness.matches || !visible || pausedRef.current) return;
+      if (!loaded || stillness.matches || !visible || pausedRef.current) return;
       video.play().catch(() => {
         // Some browsers refuse until enough data has arrived. Try again once
         // it has, a couple of times; past that the refusal is a real policy
@@ -59,6 +64,11 @@ export function useLoopWhileVisible(videoRef: RefObject<HTMLVideoElement | null>
 
     const onPlaying = () => setPlayable(true);
 
+    const onLoad = () => {
+      loaded = true;
+      sync();
+    };
+
     // Both thresholds, because the ratio is what decides: an entry can still
     // be intersecting on its way out, with far less than the share on screen.
     const observer = new IntersectionObserver(
@@ -71,10 +81,12 @@ export function useLoopWhileVisible(videoRef: RefObject<HTMLVideoElement | null>
 
     video.addEventListener("playing", onPlaying);
     stillness.addEventListener("change", sync);
+    if (!loaded) window.addEventListener("load", onLoad, { once: true });
     observer.observe(video);
 
     return () => {
       observer.disconnect();
+      window.removeEventListener("load", onLoad);
       stillness.removeEventListener("change", sync);
       video.removeEventListener("playing", onPlaying);
       video.removeEventListener("canplay", attempt);
