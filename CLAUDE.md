@@ -70,15 +70,19 @@ Regras que decorrem da stack:
 
 ## Regras de fora (CFO e CRO-AL)
 
-O site é publicidade odontológica. Todo texto, foto e vídeo segue o Código de Ética Odontológica (Res. CFO-118/2012, cap. XVI) e a Res. CFO-196/2019. Tabela completa e fontes no PRD, seção "Regras de fora". Em resumo, para quem escreve ou revisa:
+O site é publicidade odontológica. Vale o Código de Ética Odontológica (Res. CFO-118/2012, alterado pela Res. CFO-SEC-271/2025) e a Res. CFO-196/2019, lidos no texto oficial. Tabela completa, com o artigo de cada regra, no PRD, seção "Regras de fora". A lista curta, para quem escreve ou revisa:
 
-- Nome, "Cirurgiã-Dentista" e CRO/AL-6418 visíveis no site (rodapé, no mínimo).
-- Nunca: preço, forma de pagamento, "grátis", "promoção", "desconto", "popular", sorteio, brinde, promessa de resultado, superlativo, crítica a colega.
-- "Especialista" só se a especialidade estiver registrada no CRO-AL; senão, "área de atuação".
-- Sem imagem de procedimento em andamento, instrumental, material ou tecido biológico.
-- Antes e depois só da própria doutora, com TCLE assinado e nome + CRO na imagem.
-- Paciente ou terceiro identificável só com autorização escrita.
-- Dúvida sobre uma peça: não publicar, registrar em `private/pauta.md` e perguntar à doutora.
+- Nome, "Cirurgiã-Dentista" e CRO/AL-6418 visíveis no site, no rodapé no mínimo (art. 43).
+- Nenhum preço, forma de pagamento ou serviço gratuito (art. 44, I; PRD, D29).
+- Nenhuma promessa de resultado, sensacionalismo ou autopromoção no texto (Res. 196/2019, art. 2º, § 1º).
+- "Especialista" só com a especialidade registrada no CRO-AL; senão, "área de atuação" (art. 44, II).
+- Nenhuma imagem de procedimento em andamento (Res. 196/2019, art. 3º).
+- Paciente identificável só com consentimento (art. 44, VI); na página, ninguém identificável sem autorização escrita (PRD).
+- Antes e depois só de casos dela, com TCLE (Termo de Consentimento Livre e Esclarecido), nome e CRO na imagem (Res. 196/2019, arts. 2º e 4º).
+
+Proporção: peça que passa na lista vai. Conflito claro com o texto literal se corrige, citando o artigo em uma linha. Leitura de borda não se levanta, e o DEF/CRO-AL não é consultado por pouca coisa. Regra vem do texto oficial, nunca de fonte de terceiros; leitura dos conselhos (cartilha do CRO-AL, "CFO Esclarece") é interpretação e se marca assim.
+
+Fora do CFO vale o princípio do topo: o que puder expor ou prejudicar a doutora fica fora, e a dúvida vai ao Lucas.
 
 ## Fluxo com agentes
 
