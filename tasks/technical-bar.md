@@ -3,7 +3,7 @@
 **Slug:** `technical-bar`
 **Branch:** `perf/technical-bar`
 **Área:** hero, Sobre (linha do tempo e vídeo do kit), layout · **Dono:** Lucas
-**Status:** Execution
+**Status:** Execution (pausada depois do item 6; ver Stage 6)
 **Gate S2:** Livre (pergunta 1 respondida em 2026-10-10: opção A)
 
 ---
@@ -155,22 +155,58 @@
 
 ## Stage 6 — Code Execution
 
-*(Preenchido pelo exec.)*
+Execução pausada em 2026-10-10 depois do item 6, para medir na Vercel (ver "Pausa").
 
 | # | Camada | Arquivo | Status |
 |---|---|---|---|
+| 1 | Docs | `docs/adr/0004-deferred-video-loading.md` (novo), `docs/adr/0003-self-hosted-video.md` (nota e status), `docs/adr/README.md`, `CLAUDE.md` (stack) | feito (`da27623`) |
+| 2 | Dados e página | `src/lib/media.ts` (novo), `src/app/page.tsx`, `src/components/hero.tsx` | feito (`9c9c4b5`) |
+| 3 | Componentes | `src/components/video-toggle.tsx`, `src/components/hero.tsx`, `src/components/about-timeline.tsx` | feito (`50a9749`) |
+| 4 | Diagnóstico | sem arquivo de código | feito: achado abaixo |
+| 5 | Mídia ou fontes | — | não feito; depende da medição na Vercel |
+| 6 | Componentes | `src/components/about-timeline.tsx` | feito (`010a56f`) |
+| 7 | Medição | — | local feita (Stage 7); oficial pendente |
+| 8 | Docs | FDDs, DESIGN.md, PRD, ROADMAP | pendente |
 
 ### Desvios do plano
-- Nenhum
+- **Item 3:** o poster do kit virou `next/image` preguiçoso atrás do vídeo, em vez de ser atribuído por JavaScript perto da tela. Assim funciona sem JS e entrega o tamanho de exibição. Registrado na ADR 0004.
+- **Item 4:** não há laço de renderização. No build local, o agendador do React roda 42 vezes na carga, contra cerca de 7.000 em produção. Em produção, a rajada coincide com dois scripts que chegaram em cerca de 1,4 s. Nada a corrigir no código por esse caminho.
+
+### Pausa: o que a medição mostrou
+- **Como o Lighthouse estima o LCP** (lantern, `LargestContentfulPaint.js`): entra na conta todo recurso que terminou de baixar antes da primeira pintura observada. Numa carga sem throttling, os scripts (cerca de 200 KB) chegam e rodam antes dessa pintura. O JS inteiro entra, e com 4G simulado o LCP fica em cerca de 3,2 s.
+- **Prova, no build local:**
+  - Com o JS bloqueado, o LCP simulado cai para 2,3 s.
+  - Bloquear as fontes ou as imagens não muda nada (3,2 s).
+  - Bloquear o poster dá 3,0 s, porque o LCP passa para o título.
+  - Sem o preloader, o LCP não muda.
+- **Produção:** o PageSpeed Insights do Google, sobre a `main` atual, dá LCP de 3,2 s, FCP de 1,2 s e Speed Index de 6,4 s. Bate com as medições locais.
+- **Preview:** o preview da Vercel pede login (SSO), então o Lighthouse não abre e as mudanças não foram medidas em condição de produção.
+- **Projeção:** o local caiu de 3,6 para 3,2 s, e a produção de partida era 0,4 s menor que o local. Se essa diferença se mantiver, a produção fica perto de 2,8 s, o que ainda não passa. É estimativa, não medição.
+- **Próximo passo, se não passar:** diminuir o JS que chega antes da primeira pintura, que é o que pesa. Isso muda a arquitetura de movimento (ADR 0002) e pede decisão do Lucas.
 
 ---
 
 ## Stage 7 — Tests
 
-*(Preenchido pelo exec.)*
+Medição local, `npm run build && npm start`, Lighthouse 13.4.1, mediana de 3, depois do item 6:
+
+| Tamanho | LCP | FCP | TBT | CLS |
+|---|---|---|---|---|
+| Celular, simulado | 3,21 s (era 3,6 local) | 0,76 s | 37 ms | 0 |
+| iPad retrato, simulado | 3,21 s | 0,76 s | 38 ms | 0 |
+| Computador | 0,70 s | 0,21 s | 0 | 0 |
+| Celular, throttling real (devtools) | 2,20 s (era 2,2 a 2,3 local) | 1,92 s | 195 ms | 0,014 |
 
 | Critério de aceite | Como foi verificado |
 |---|---|
+| 1. Celular, LCP abaixo de 2,5 s | **Não verificado em produção.** Local simulado: 3,21 s |
+| 2. iPad, LCP abaixo de 2,5 s | **Não verificado em produção.** Local simulado: 3,21 s |
+| 3. Computador abaixo de 2,5 s | Local: 0,70 s |
+| 4. Acessibilidade sem falha AA | Lighthouse local: 100 no celular, no iPad e no computador, sem nenhuma auditoria falhando |
+| 5. Poster como primeira pintura; vídeos tocam com o botão | Navegador (MCP), 390 px: o hero toca depois do `load`, com o botão; o kit toca ao aparecer, com o botão; o hero pausa fora da tela. O preload do poster sai no HTML com `fetchPriority="high"` |
+| 6. Movimento reduzido no poster | Pelo código: o `attempt()` continua barrado por `stillness.matches`, e o poster do kit é um `next/image` que não depende de movimento. Falta o teste num aparelho com a preferência ligada |
+| 7. Mudança visual só na roleta | Computador, 1440 × 900: anos fora de foco entre 0,6 e 1 de opacidade; o sumiço nas pontas continua pela máscara |
+| 8. Lint, typecheck e build | verdes depois de cada item |
 
 ---
 
@@ -178,11 +214,11 @@
 
 *(Preenchido pelo exec.)*
 
-- **lint:** —
-- **typecheck:** —
+- **lint:** Pass
+- **typecheck:** Pass
 - **test:** n/a
-- **build:** —
-- **Navegador (390 px e computador):** —
+- **build:** Pass
+- **Navegador (390 px e computador):** Pass para o comportamento (vídeos, poster do kit, roleta). O critério de LCP em produção está pendente
 
 ---
 
