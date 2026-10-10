@@ -3,7 +3,7 @@
 **Slug:** `contact-decisions`
 **Branch:** `docs/contact-decisions`
 **Área:** docs (PRD, FDD de Contato, ROADMAP) · **Dono:** Lucas
-**Status:** Execution
+**Status:** Done (PR #7 mergeado em 2026-10-10)
 **Gate S2:** Livre (entrega trivial: só docs, decisões tomadas pelo Lucas em 2026-10-10)
 
 ---

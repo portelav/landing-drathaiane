@@ -50,7 +50,7 @@ Tokens em `src/app/globals.css`, expostos ao Tailwind por `@theme inline`.
 
 ### Texto secundário
 
-Rótulos, parágrafo de apoio e canais do rodapé usam o token-base a 70%: `dark-base/70` sobre fundo claro, `light-base/70` sobre fundo escuro. No header, onde a cor vem do tom da seção, é `opacity-70`. Sobre foto, ou sobre gradiente tirado de foto, o texto vai em cor cheia: o rótulo "A dentista" na band aberta é `dark-base`. Nenhum texto em repouso abaixo de 70%. A exceção é a roleta da linha do tempo, que apaga os anos fora de foco durante o scroll; com movimento reduzido, ela fica toda em cor cheia.
+Rótulos, parágrafo de apoio e canais do rodapé usam o token-base a 70%: `dark-base/70` sobre fundo claro, `light-base/70` sobre fundo escuro. No header, onde a cor vem do tom da seção, é `opacity-70`. Sobre foto, ou sobre gradiente tirado de foto, o texto vai em cor cheia: o rótulo "A dentista" na band aberta é `dark-base`. Nenhum texto em repouso abaixo de 70%. A exceção é a roleta da linha do tempo, que apaga os anos fora de foco durante o scroll, mas nunca abaixo de 60% (PRD, D36), e com movimento reduzido fica toda em cor cheia.
 
 `dark-55` e `light-40` saíram em 2026-10-10: em texto pequeno não passavam no AA (3,79 e 3,52).
 
@@ -64,6 +64,7 @@ AA pede 4,5:1 para texto normal e 3:1 para texto grande (24 px, ou 18,66 px em n
 | `dark-base` sobre `light-base` | 15,59 | AA e AAA |
 | `forest-900` sobre `light-base` | 12,89 | AA e AAA |
 | `forest-700` sobre `light-base` | 9,25 | AA e AAA |
+| `forest-700` a 60% sobre `light-base` (anos fora de foco da roleta, texto grande) | 3,23 | AA (texto grande) |
 | `forest-500` sobre `light-base` | 6,02 | AA |
 | `forest-300` sobre `light-base` | 4,69 | AA (no limite) |
 | `wine-500` sobre `light-base` | 7,95 | AA e AAA |

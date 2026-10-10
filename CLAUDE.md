@@ -55,7 +55,7 @@ Prontos: preloader com o monograma, header (WhatsApp e Instagram), hero com víd
 | Framework e hospedagem | Next.js 16 (App Router), React 19, Vercel | [0001](docs/adr/0001-nextjs-on-vercel.md) |
 | Estilo | Tailwind CSS 4, tokens em `src/app/globals.css` | [0001](docs/adr/0001-nextjs-on-vercel.md) |
 | Movimento | Motion 13, Lenis, `requestAnimationFrame` próprio nas peças de scroll | [0002](docs/adr/0002-motion-lenis-scroll.md) |
-| Vídeo | Arquivos próprios em `public/video/`, VP9 + H.264 com poster | [0003](docs/adr/0003-self-hosted-video.md) |
+| Vídeo | Arquivos próprios em `public/video/`, VP9 + H.264 com poster; carregam depois da primeira tela | [0003](docs/adr/0003-self-hosted-video.md), [0004](docs/adr/0004-deferred-video-loading.md) |
 
 Sem banco, sem backend, sem formulário, sem analytics.
 
@@ -167,7 +167,7 @@ Antes de abrir PR: lint, typecheck e build verdes (o CI roda os três).
 src/
   app/          layout.tsx (metadados, fontes, noindex), page.tsx (ordem das seções), globals.css (tokens, variantes wide: e beside:)
   components/   uma seção ou peça por arquivo: preloader, header, hero, about, about-text, about-timeline, footer, brand-mark, smooth-scroll, video-toggle (pausa dos vídeos)
-  lib/          dados sem componente, compartilhados entre Server e Client Components: contact.ts (telefone, WhatsApp, Instagram)
+  lib/          dados sem componente, compartilhados entre Server e Client Components: contact.ts (telefone, WhatsApp, Instagram), media.ts (poster do hero)
 public/
   images/  logos/  video/   mídia já transcodificada
 docs/           PRD, ADRs, FDDs, ROADMAP, DESIGN, research

@@ -77,7 +77,8 @@ Só `transform`, `opacity`, `width` do quadro (que está em posição absoluta e
 
 ## Desempenho
 
-- O poster é a primeira pintura (LCP), e o vídeo só carrega os metadados (`preload="metadata"`).
+- O poster é a primeira pintura (LCP) e sai com preload de prioridade alta (`ReactDOM.preload` em `page.tsx`).
+- O vídeo começa com `preload="none"` e só baixa depois do evento `load` da página, para não disputar a banda da primeira tela (ADR 0004).
 - Duas fontes de vídeo, VP9 e H.264 nível 4.0 (ADR 0003).
 - Fora da tela o vídeo para, o que poupa bateria e processamento.
 

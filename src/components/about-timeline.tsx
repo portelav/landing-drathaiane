@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useLoopWhileVisible, VideoToggle } from "./video-toggle";
 
@@ -57,6 +58,13 @@ const STEP = 4.2;
 const PLATEAU = 0.22;
 /** How far from the seat it has gone completely. */
 const VANISH = 0.78;
+
+/**
+ * Years off the seat dim, but never below this. `forest-700` at 60% over
+ * `light-base` is 3.2:1, so every numeral still passes as large text (WCAG
+ * AA); the mask, not the opacity, is what makes the far ones vanish.
+ */
+const YEAR_FLOOR = 0.6;
 
 const clamp = (value: number, low: number, high: number) =>
   Math.min(high, Math.max(low, value));
@@ -137,7 +145,7 @@ export function AboutTimeline() {
         year.style.transform = `translate(${x}px, ${y}px) translateY(-50%) rotate(${angle}deg) scale(${
           0.6 + near * 0.4
         })`;
-        year.style.opacity = `${0.14 + near * 0.86}`;
+        year.style.opacity = `${YEAR_FLOOR + near * (1 - YEAR_FLOOR)}`;
 
         // The dot rides the rule itself, a little ahead of the numeral.
         seat.style.transform = `translate(${x - 24 * scale}px, ${y}px)`;
@@ -289,19 +297,30 @@ export function AboutTimeline() {
             the panel takes the format rather than letterboxing it. The wheel
             tells the trajectory; the hands anchor it in the present. */}
         <div className="relative mt-14 w-[82%] shrink-0 beside:mt-0 beside:w-[30%]">
+          {/* The poster sits behind the video instead of in its `poster`
+              attribute: an image can wait until it nears the screen, a poster
+              cannot, and this one is far below the fold (ADR 0004). Until its
+              first frame the video is transparent and lets it show. */}
+          <Image
+            src={POSTER}
+            alt=""
+            fill
+            sizes="(min-width: 64rem) and (min-aspect-ratio: 6/5) 30vw, 82vw"
+            className="object-cover"
+          />
+
           <video
             ref={videoRef}
             muted
             loop
             playsInline
-            preload="metadata"
-            poster={POSTER}
+            preload="none"
             aria-hidden
             tabIndex={-1}
             disablePictureInPicture
             disableRemotePlayback
             controlsList="nodownload noplaybackrate noremoteplayback"
-            className="pointer-events-none aspect-[9/16] w-full object-cover"
+            className="pointer-events-none relative aspect-[9/16] w-full object-cover"
           >
             {SOURCES.map((source) => (
               <source key={source.src} src={source.src} type={source.type} />
