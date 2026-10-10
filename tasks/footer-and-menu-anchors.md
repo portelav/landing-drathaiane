@@ -1,0 +1,224 @@
+# Rodapé com identificação e menu sem link quebrado
+
+**Slug:** `footer-and-menu-anchors`
+**Branch:** `feat/footer-and-menu-anchors`
+**Área:** rodapé e header · **Dono:** Lucas
+**Status:** Planning
+**Gate S2:** Livre
+
+---
+
+## Stage 1 — Scope Analysis
+
+### Documentos
+- **PRD:** `docs/PRD.md` seções 6 (item Contato e rodapé), 8 (acessibilidade), "Regras de fora" (CEO art. 43), 10 (Fase 1, dois primeiros itens), 12 (D3, D20, D21, D25)
+- **FDD:** `docs/fdd/contato.md` (existe, em rascunho; este plano escreve a parte do rodapé)
+- **ADR relacionado:** nenhum novo. Stack de [0001](../docs/adr/0001-nextjs-on-vercel.md), sem mudança
+
+### Objetivo
+- Cumprir os dois primeiros critérios da Fase 1: rodapé com "Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418" legível em toda tela, e um menu em que todo link leva a algum lugar.
+
+### Escopo e não-escopo
+- **Dentro:**
+  - Rodapé em fundo `forest-900` com a identificação, a linha de direitos e os canais de contato que o site já mostra no header (WhatsApp, telefone, Instagram).
+  - O rodapé é o destino de `#contato` nesta fase.
+  - Menu do header com Sobre e Contato; Serviços e Depoimentos saem.
+  - Dados de contato numa fonte única, usada pelo header e pelo rodapé.
+  - Docs: decisões no PRD, FDD do rodapé, DESIGN.md, ROADMAP, `CLAUDE.md`.
+- **Fora:**
+  - Seção Contato completa (endereço, horários, mapa, e-mail): Fase 2, depende do conteúdo dela.
+  - Serviços (Fase 2) e Depoimentos (D25).
+  - Contraste dos rótulos de 11 px já existentes e pausa dos vídeos: outros itens da Fase 1.
+  - Crédito do site no rodapé: o Lucas decidiu não pôr.
+
+### Conteúdo e regras de fora
+- Conteúdo da doutora necessário: só o que já está publicado no site (nome, profissão, CRO, telefone, WhatsApp, Instagram; D3). Nada novo. O texto do rodapé passa pelo aval dela na Fase 2 (PRD, seção 10).
+- Regras que tocam esta entrega:
+  - CEO art. 43: nome, profissão e CRO em toda divulgação.
+  - Nada de preço, pagamento, promoção, superlativo nem promessa no texto do rodapé.
+  - D20: todos os direitos reservados.
+  - A regra do art. 4º da Res. CFO-196/2019 (PRD, "Regras de fora") pode exigir nome e CRO também junto de cada mídia. Se exigir, é outra entrega.
+
+### Critérios de aceite (testáveis)
+1. O rodapé mostra, sem cortar, exatamente "Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418" em `light-base` sobre `forest-900`, em 390 px, iPad retrato e computador.
+2. O rodapé mostra "© 2026 Dra. Thaiane Lessa. Todos os direitos reservados."
+3. O rodapé tem três links:
+   - WhatsApp: `https://wa.me/5582993871990`, em nova aba.
+   - Telefone: `tel:+5582993871990`.
+   - Instagram: `https://instagram.com/thaiane_lessa`, em nova aba.
+   Cada link tem área de toque de pelo menos 44 px de altura, e o nome acessível contém o texto visível.
+4. Os dois menus (o que desdobra no computador e o compacto) listam só Sobre e Contato. Todo `href` do menu aponta para um `id` que existe na página: `document.querySelector(href)` não é nulo.
+5. Clicar em Contato leva ao rodapé no computador (com o Lenis) e no celular. Clicar em Sobre continua levando à band do Sobre.
+6. Todo texto do rodapé passa em 4,5:1, inclusive o secundário (medido, não estimado).
+7. Teclado: foco visível em cada link do rodapé. Ordem de leitura: rótulo "Contato", canais, identificação, direitos.
+8. O rodapé não tem nada que se mova. Com `prefers-reduced-motion` ele fica igual.
+9. O header continua com o mesmo telefone, WhatsApp e Instagram de antes, agora lidos da fonte única.
+10. Lint, typecheck e build verdes.
+
+### Perguntas bloqueadoras
+- Nenhuma. As três decisões abertas foram respondidas pelo Lucas em 2026-10-09:
+  - o rodapé é o destino de `#contato`;
+  - só a linha de direitos, sem crédito do site;
+  - fundo `forest-900`.
+
+### Premissas
+- Telefone, WhatsApp e Instagram já estão públicos no header com o aval dela (D3, D18). Repeti-los no rodapé não é conteúdo novo.
+- Quando a seção Contato da Fase 2 existir, ela assume `#contato`, e o rodapé fica só como rodapé. O FDD registra isso.
+- O ano da linha de direitos é fixo (2026, ano da publicação), não calculado no build.
+
+---
+
+## Stage 2 — Evidence Gathering
+
+| Arquivo | Evidência |
+|---|---|
+| `docs/PRD.md` | Seção 10, Fase 1: "Rodapé com 'Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418', legível" e "Serviços e Contato levam a uma seção ou saem do menu até ela existir". D25 tira Depoimentos do menu. D20: todos os direitos reservados. "Regras de fora", CEO art. 43: rodapé fixo com a identificação |
+| `docs/fdd/contato.md` | Rascunho. Identificação fixa já definida. Comportamento, movimento, acessibilidade e critérios estão como `> TODO: definir no /plan`. Regra 1: identificação visível em toda largura |
+| `src/components/header.tsx` | `NAV_LINKS` com quatro destinos (`#sobre`, `#servicos`, `#depoimentos`, `#contato`), usado nos dois menus. `PHONE_*`, `WHATSAPP_HREF` e `INSTAGRAM_HREF` declarados no próprio arquivo, que é `"use client"`. `useSectionTone` lê `data-header-theme` das seções |
+| `src/app/layout.tsx` | `<body className="min-h-full flex flex-col">` com `<Header />` e `{children}`. O header é peça do layout, não da página |
+| `src/app/page.tsx` | `main` com `flex-1`: Hero, About (`id="sobre"`), AboutText, AboutTimeline. Nenhum `id` além de `sobre` |
+| `src/app/globals.css` | Tokens `forest-900`, `light-base` e `light-15` já existem. Nenhum token novo é preciso |
+| `docs/design/DESIGN.md` | Seção 3: `light-base` sobre `forest-900` dá 12,89:1, mas `light-40` em texto pequeno não passa. Seção 6: o site já tem três momentos seguidos dirigidos por scroll. Seção 7: tabela de componentes |
+
+Guia do Next 16 lido: `01-app/01-getting-started/03-layouts-and-pages.md` e `05-server-and-client-components.md`. `"use client"` marca a fronteira entre os grafos de módulo do servidor e do cliente.
+
+### Fluxo atual
+- O menu abre e mostra quatro destinos. Só Sobre leva a algum lugar; Serviços, Depoimentos e Contato não fazem nada, porque os `id` não existem.
+- A página termina na linha do tempo do Sobre, sem rodapé. Nome e "Cirurgiã-Dentista" aparecem no header, mas o CRO não aparece em lugar nenhum.
+
+---
+
+## Stage 3 — Architecture Planning
+
+### Source of Truth (até 4 blocos)
+1. **Dados de contato:** `src/lib/contact.ts` (novo), módulo neutro, sem `"use client"`. É a única fonte de telefone (exibição e `tel:`), WhatsApp e Instagram, para o header e o rodapé.
+2. **Identificação e direitos:** texto fixo em `src/components/footer.tsx`, exatamente o do PRD ("Regras de fora") e o da decisão D27.
+3. **Destinos do menu:** `NAV_LINKS` em `header.tsx`. Cada `href` aponta para um `id` que existe: `#sobre` em `about.tsx`, `#contato` no rodapé.
+4. **Visual:** tokens existentes (`forest-900`, `light-base`, `light-15`). O DESIGN.md registra o par de contraste do texto secundário.
+
+### Decisão única
+- O rodapé é um Server Component em `src/components/footer.tsx`. Ele entra em `layout.tsx` depois de `{children}`, como par do `Header`. É um `<footer id="contato" data-header-theme="dark">` estático, sem JavaScript e sem movimento.
+- O menu fica com Sobre e Contato.
+- Os dados de contato saem do `header.tsx`, porque ele é `"use client"`: o rodapé importa de um módulo neutro em vez de atravessar a fronteira cliente/servidor.
+
+### Desenho do rodapé (vai para o FDD)
+- **Fundo e espaçamento:** `forest-900`, texto `light-base`. Espaçamento lateral do site (24 px, 40 px a partir de `sm`), respiro vertical generoso.
+- **Primeiro bloco:**
+  - `BrandMark` estático, com `aria-hidden`. Fecha a página com a mesma marca que o preloader abriu.
+  - Rótulo "Contato" (`h2`, `.tracking-brand`, caixa-alta).
+  - Os três canais como texto em Instrument Serif, como no menu compacto: "WhatsApp", "(82) 99387-1990", "@thaiane_lessa". Sem ícone: editorial, não institucional.
+- **Traço `light-15`** separando os dois blocos.
+- **Segundo bloco:**
+  - Identificação em `light-base` cheio, no mínimo 13 px.
+  - Direitos em texto secundário que passe em 4,5:1 (`light-base` a 70% sobre `forest-900` dá cerca de 7:1; o exec mede).
+  - Empilhados no celular, lado a lado a partir de `sm`. Breakpoint em pixel é permitido aqui: o rodapé não depende de mídia.
+- **Links externos:** `target="_blank"`, `rel="noopener noreferrer"` e "(abre em nova aba)" em `sr-only`.
+- **Hover:** só opacidade, como os links do header.
+
+### Checklist de arquitetura (até 10)
+- [x] Convenções da stack: Server Component por padrão. Nenhum breakpoint de mídia (`wide:` e `beside:` não se aplicam). Nenhuma API nova do Next.
+- [x] Interface: textos em português; toque de 44 px nos canais; foco visível; conferido em 390 px, iPad retrato e computador.
+- [x] Movimento: nenhum. O porquê vai no FDD: o rodapé é o ponto de repouso depois de três momentos dirigidos por scroll. Não é o quarto.
+- [x] Nada se mexe sozinho. `prefers-reduced-motion` não muda nada.
+- [x] Só `transform` e `opacity`: o hover é só opacidade.
+- [x] Regras de fora:
+  - Identificação exata.
+  - Nenhuma palavra vetada.
+  - Só dados que já estão publicados.
+  - Nenhuma imagem.
+- [x] Repositório público: nenhum dado novo. Telefone e Instagram já estão no código e na página.
+- [x] Header: `useSectionTone` reconhece o rodapé por `data-header-theme="dark"`, sem mudança no hook.
+- [x] Sem token novo: os pares de cor saem dos tokens existentes.
+
+---
+
+## Stage 4 — Execution Planning
+
+Até 10 itens, um commit cada, na ordem do `/exec`.
+
+1. [ ] **PRD, decisões** (`docs/PRD.md`, seção 12). Nova Rodada 3 (2026-10-09), plano do rodapé:
+   - **D26:** na Fase 1, o rodapé é o destino de `#contato`, com a identificação e os canais já públicos. Serviços sai do menu até a seção existir.
+   - **D27:** o rodapé leva "© 2026 Dra. Thaiane Lessa. Todos os direitos reservados." e não leva crédito do site.
+   A decisão é registrada antes da spec que a cita. `docs(prd)`
+2. [ ] **FDD do rodapé.** `docs(fdd)`
+   - `docs/fdd/contato.md`: divide em "Rodapé (Fase 1)", com objetivo, conteúdo, comportamento, movimento, regras, acessibilidade, desempenho e critérios completos, e "Seção Contato (Fase 2)", que segue com `> TODO`. Registra que a Fase 2 assume `#contato`.
+   - `docs/fdd/README.md`: estado no índice.
+   - `docs/fdd/servicos.md:24`: `#servicos` volta ao menu quando a seção existir.
+   - `docs/fdd/sobre.md:218`: tira a frase das três âncoras quebradas.
+3. [ ] **Fonte única dos contatos.** `src/lib/contact.ts` com `PHONE_DISPLAY`, `PHONE_HREF`, `WHATSAPP_HREF` e `INSTAGRAM_HREF`. O `header.tsx` passa a importar de lá, sem mudança visível. `refactor`
+4. [ ] **Componente do rodapé.** `src/components/footer.tsx`, conforme o desenho do Stage 3 e o FDD. `feat`
+5. [ ] **Composição.** `<Footer />` em `src/app/layout.tsx`, depois de `{children}`. `feat`
+6. [ ] **Menu.** `NAV_LINKS` só com Sobre e Contato. Os comentários sobre "four destinations" passam a falar dos destinos sem número. `fix`
+7. [ ] **DESIGN.md.** `docs(design)`
+   - Seção 3: `forest-900` também como fundo do rodapé, e o par medido do texto secundário.
+   - Seção 6: linha "Rodapé: nada anima".
+   - Seção 7: `Footer`.
+8. [ ] **Fechamento no PRD e no ROADMAP.** `docs`
+   - PRD seção 6: estado de "Contato e rodapé" (rodapé pronto, seção pendente).
+   - PRD seção 10: marca os dois primeiros itens da Fase 1, depois do QA.
+   - ROADMAP: coluna Plano das duas linhas com `tasks/footer-and-menu-anchors.md`.
+9. [ ] **`CLAUDE.md`.** "Estado atual" com rodapé e menu. Estrutura do código com `footer` e `src/lib/`. `docs(claude)`
+
+QA antes do item 8:
+- Chrome DevTools MCP em 390 px, iPad retrato e computador.
+- `querySelector` em cada `href` do menu.
+- Contraste medido.
+- Teclado.
+- Clique em Contato com o Lenis ligado.
+- Fechar o Chrome que o MCP abriu.
+
+---
+
+## Stage 5 — Plan Verification
+
+- [x] **Regras nas camadas certas:**
+  - Texto fixo de identificação no componente.
+  - Dados de contato num módulo neutro.
+  - Destinos no `NAV_LINKS`.
+  - Visual nos tokens.
+- [x] **FDD:** `docs/fdd/contato.md` existe e é atualizado no item 2, antes do código.
+- [x] **Decisão de produto:** o PRD cobre a regra (seção 10, D25). As três escolhas abertas foram respondidas pelo Lucas e entram como D26 e D27 no item 1; o fundo vai para o DESIGN.md no item 7.
+- [x] **Limites do plano:** checklist com 9 itens (até 10), SoT com 4 blocos (até 4), decisão única, 7 evidências (até 7).
+- [x] **Conteúdo:** nenhum conteúdo inventado. Só o que já está publicado e o texto exigido pelo CFO.
+- [x] **Roadmap:** os dois itens estão no ROADMAP, Fase 1.
+
+**Gate S2:** Livre
+
+---
+
+## Stage 6 — Code Execution
+
+*(Preenchido pelo exec.)*
+
+| # | Camada | Arquivo | Status |
+|---|---|---|---|
+
+### Desvios do plano
+- Nenhum | …
+
+---
+
+## Stage 7 — Tests
+
+*(Preenchido pelo exec.)*
+
+| Critério de aceite | Como foi verificado |
+|---|---|
+
+---
+
+## Stage 8 — Verification
+
+*(Preenchido pelo exec.)*
+
+- **lint:** Pass | Fail
+- **typecheck:** Pass | Fail
+- **test:** Pass | Fail | n/a
+- **build:** Pass | Fail
+- **Navegador (390 px e computador):** Pass | Fail
+
+---
+
+## Stage 9 — Walkthrough
+
+*(Preenchido pelo walkthrough.)*
