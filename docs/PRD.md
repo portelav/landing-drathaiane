@@ -18,7 +18,17 @@ Os textos precisam falar com os dois públicos de paciente sem parecer confusos 
 
 ## 5. Objetivos e métricas
 
-> TODO: definir na revisão do site com o Lucas (meta do MVP, prazo e como medir). Candidatas: site no ar e indexado com o aval dela; cliques no WhatsApp (precisaria de analytics, que hoje não existe); entrada no portfólio e no currículo.
+O MVP sai em duas fases (D21). A Fase 1 só depende do Lucas; a Fase 2 é a versão pública, com o conteúdo e o aval dela.
+
+| Meta | Como medir | Fase |
+|---|---|---|
+| Entrar no portfólio e no currículo do Lucas | Link do site no portfólio e no currículo | 1 |
+| Barra técnica | Lighthouse no celular: LCP abaixo de 2,5 s no 4G, acessibilidade sem falha AA. Conferido em 390 px, iPad retrato e computador | 1 |
+| Site indexado com o aval dela | `noindex` fora, página encontrada pelo nome dela no Google | 2 |
+
+Prazo (D24): Fase 1 até 2026-10-23. Fase 2 sem data; sai quando o conteúdo e o aval chegarem.
+
+Cliques no WhatsApp ficam fora da meta: medir exige analytics, que não existe (seção 7).
 
 ## 6. Escopo
 
@@ -31,7 +41,7 @@ Seções em ordem na página.
 | Hero | Primeira impressão: o consultório e o nome | (anterior ao kickoff) | pronto |
 | Sobre | Quem ela é, como trabalha, credenciais com datas | [`docs/fdd/sobre.md`](fdd/sobre.md) | pronto |
 | Serviços | O que ela trata, para os dois públicos | [`docs/fdd/servicos.md`](fdd/servicos.md) | falta (conteúdo pendente) |
-| Depoimentos | Prova social | [`docs/fdd/depoimentos.md`](fdd/depoimentos.md) | bloqueado (dúvida ética, ver Regras de fora) |
+| Depoimentos | Prova social | [`docs/fdd/depoimentos.md`](fdd/depoimentos.md) | fora por enquanto, sai do site e do menu (D25) |
 | Contato e rodapé | Como chegar, horários, WhatsApp; identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | falta (conteúdo pendente) |
 
 ### Conteúdo pendente
@@ -44,6 +54,7 @@ A doutora já tem o conteúdo das seções que faltam e ainda não mandou (D9). 
 - Blog e conteúdo educativo.
 - Versão em outro idioma.
 - Domínio pago: fica para o fim, depois do MVP.
+- Depoimentos, por enquanto: a seção sai do site e do menu e fica para decisão futura (D25).
 - Preços e condições de pagamento: vetados pelo CFO.
 
 ## 8. Requisitos não funcionais
@@ -51,11 +62,11 @@ A doutora já tem o conteúdo das seções que faltam e ainda não mandou (D9). 
 - Desempenho: LCP abaixo de 2,5 s no 4G no celular. Vídeo do hero com poster como primeira pintura.
 - Acessibilidade: WCAG 2.2 AA (contraste, foco, `prefers-reduced-motion`, pausa do que se mexe sozinho por mais de 5 s).
 - Dispositivos: celular (390 px), iPad retrato e computador. Layouts dependentes de mídia testados por proporção.
-- SEO e compartilhamento: `noindex` até o aval dela e a revisão do CRO-AL; depois, metadados completos, prévia de link (Open Graph) e indexação.
+- SEO e compartilhamento: `noindex` até o aval dela (D22); depois, metadados completos, prévia de link (Open Graph) e indexação.
 
 ## Regras de fora
 
-Consulta em 2026-10-09. Detalhe, citações e grau de certeza em [`docs/research/publicidade-odontologica.md`](research/publicidade-odontologica.md). Confirmar com a Dra. Thaiane, e com o DEF/CRO-AL (revisão gratuita de peças, fiscalizacao@croal.org.br), antes de tirar o `noindex`.
+Consulta em 2026-10-09. Detalhe, citações e grau de certeza em [`docs/research/publicidade-odontologica.md`](research/publicidade-odontologica.md). Tirar o `noindex` depende só do aval da Dra. Thaiane (D22). Dúvida pontual sobre uma regra vai ao DEF/CRO-AL, o setor de fiscalização do Conselho Regional de Odontologia de Alagoas, que revisa peças de graça (fiscalizacao@croal.org.br).
 
 | Regra | Efeito no produto | Fonte |
 |---|---|---|
@@ -65,7 +76,7 @@ Consulta em 2026-10-09. Detalhe, citações e grau de certeza em [`docs/research
 | Mestrado e doutorado podem ser divulgados | Linha do tempo pode manter o mestrado | CEO art. 43, § 1º, III |
 | Proibida promessa de resultado, sensacionalismo, superlativo, crítica a colega | Tom de voz no DESIGN.md; revisão de todo texto no `/walkthrough` | CEO art. 44, I e IV; [CFO Esclarece](https://website.cfo.org.br/redes-sociais-na-odontologia-fique-atento-as-normas-eticas-e-acerte-na-publicacao-dos-conteudos/) |
 | Proibida imagem do transcurso de procedimento, de instrumental, material, equipamento ou tecido biológico | Nenhum vídeo de atendimento; marca de material nunca em destaque | [Res. CFO-196/2019](https://sistemas.cfo.org.br/visualizar/atos/RESOLU%C3%87%C3%83O/SEC/2019/196) arts. 1º § 1º e 3º |
-| Cartilha do CRO-AL lista "bastidores, ambiente clínico" como proibido (termo que não está na norma; é a leitura do conselho que fiscaliza) | Imagem do consultório passa pela revisão do DEF/CRO-AL antes de indexar | Cartilha CRO-AL p. 8 |
+| Cartilha do CRO-AL lista "bastidores, ambiente clínico" como proibido (termo que não está na norma; é a leitura do conselho que fiscaliza) | Dúvida sobre imagem do consultório vai ao DEF/CRO-AL; indexar depende do aval dela (D22) | Cartilha CRO-AL p. 8 |
 | Toda publicação de imagem ou vídeo leva nome e CRO | Confirmar com o CRO-AL se o rodapé basta ou se cada foto e vídeo precisa de legenda com nome e CRO | Res. CFO-196/2019 art. 4º |
 | Antes e depois só da própria doutora, com TCLE e nome + CRO na imagem; nunca em nome de clínica | Serviços pode ter casos, se ela tiver TCLE | Res. CFO-196/2019; CFO Esclarece |
 | Paciente ou terceiro identificável só com consentimento escrito, e nunca para autopromoção | Ninguém identificável na página sem autorização escrita | CEO art. 44, VI |
@@ -76,21 +87,44 @@ Consulta em 2026-10-09. Detalhe, citações e grau de certeza em [`docs/research
 
 As perguntas à doutora e ao DEF/CRO-AL ficam nas notas privadas (ROADMAP, ["Pauta com a Dra. Thaiane"](ROADMAP.md#pauta-com-a-dra-thaiane)). Este documento registra só a regra e a decisão: resposta recebida vira decisão na seção 12, com data.
 
-Sobre depoimentos: nenhuma norma primária lida os proíbe de forma explícita; fontes secundárias dizem que são vedados. Por isso a pergunta vai ao CRO-AL.
+Sobre depoimentos: o Código de Ética não trata de depoimento de paciente. A regra que pesa é o art. 44, VI: paciente identificável só com consentimento, e nunca para autopromoção. A seção está fora por enquanto (D25).
 
 ## 9. Riscos e premissas
 
 | Risco ou premissa | Impacto | O que fazer |
 |---|---|---|
-| Conteúdo das seções depende dela e não tem data | MVP parado | Construir estrutura e movimento com `> TODO` no FDD, nunca com texto inventado na página |
-| Uma peça do site ser considerada infração ética | Processo ético contra ela (advertência a suspensão) | Regras de fora no `/walkthrough`; revisão do DEF/CRO-AL antes de indexar |
-| Depoimentos vetados | Seção do menu sem conteúdo | Decidir substituto (ex.: o caso de reabilitação contado por ela, sem paciente identificável) na revisão |
+| Conteúdo das seções depende dela e não tem data | Fase 2 parada | Fase 1 não depende dela (D21). Na Fase 2, estrutura e movimento com `> TODO` no FDD, nunca com texto inventado na página |
+| Uma peça do site ser considerada infração ética | Processo ético contra ela (advertência a suspensão) | Regras de fora no `/walkthrough`; aval dela antes de indexar (D22); dúvida pontual ao DEF/CRO-AL |
 | Repositório público expõe fotos e dados dela, ou dúvida aberta sobre ela | Exposição sem consentimento | Aval dado em 2026-10-09 (D18). Dúvida, pendência e dado de terceiro só nas notas privadas (D19) |
 | Dependência de uma pessoa (ela aprova tudo) | Retrabalho se a aprovação vier depois | Mostrar o preview da Vercel a cada seção, antes do merge |
 
 ## 10. Critérios de pronto
 
-> TODO: definir na revisão do site (sessão logo após o kickoff). Ponto de partida que o Lucas quis ajustar: Serviços, Depoimentos (ou substituto) e Contato com conteúdo real; CRO no site; aval dela; revisão do DEF/CRO-AL; `noindex` fora; README real; repositório público com aval dela (feito em 2026-10-09). Domínio pago opcional.
+Duas fases (D21). Cada item é verificável em 390 px, iPad retrato e computador.
+
+### Fase 1: portfólio (até 2026-10-23)
+
+Só depende do Lucas. O site continua com `noindex`.
+
+- [ ] Rodapé com "Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418", legível.
+- [ ] Menu sem link quebrado: Depoimentos sai (D25); Serviços e Contato levam a uma seção ou saem do menu até ela existir.
+- [ ] Rótulos de 11 px com contraste de 4,5:1 (DESIGN.md, seção 3).
+- [ ] Vídeos em loop (hero e kit) com controle de pausa acessível (WCAG 2.2.2).
+- [ ] Barra técnica da seção 5: Lighthouse no celular com LCP abaixo de 2,5 s no 4G e acessibilidade sem falha AA.
+- [ ] README final, com prints e link.
+- [ ] Link do site no portfólio e no currículo.
+- [x] Repositório público com o aval dela (D18).
+
+### Fase 2: site público (sem data)
+
+Depende do conteúdo e do aval dela (D24).
+
+- [ ] Serviços e Contato com o conteúdo real dela.
+- [ ] Aval dela no site completo, com o texto do rodapé.
+- [ ] `noindex` fora, metadados completos e prévia de link (Open Graph).
+- [ ] Barra técnica da Fase 1 conferida de novo com as seções novas.
+
+Fora dos critérios: Depoimentos (D25) e domínio pago (D10).
 
 ## 12. Registro de decisões
 
@@ -126,3 +160,13 @@ Decisões que já estavam no código e no plano do Sobre.
 - **D18.** A doutora deu o aval para o repositório ficar público, com as fotos e os dados dela que estão no site. Substitui a parte de D11 que mantinha o repositório privado.
 - **D19.** Abertura por repositório novo, com histórico limpo (sem as notas internas, sem metadado nas mídias, e-mail noreply nos commits). O repositório anterior fica privado e arquivado. Dúvida aberta, pendência dela, dado de paciente ou de terceiro e opinião sobre empresa ficam nas notas privadas (`portelav/landing-drathaiane-notes`, clonado em `private/`); os docs públicos registram só regra e decisão.
 - **D20.** Código com todos os direitos reservados, sem licença aberta. Fotos, vídeos, logos e textos são da Dra. Thaiane Lessa.
+
+### Rodada 2 (2026-10-09): revisão do site
+
+Cumpre D17.
+
+- **D21.** O MVP sai em duas fases. Fase 1: o que só depende do Lucas (rodapé com CRO, menu, contraste, pausa dos vídeos, barra técnica, README); serve ao portfólio e ao currículo com o `noindex`. Fase 2: a versão pública, com o conteúdo e o aval dela. Critérios na seção 10.
+- **D22.** Tirar o `noindex` depende só do aval dela. A revisão do DEF/CRO-AL deixa de ser condição para indexar; o conselho recebe só dúvidas pontuais.
+- **D23.** Meta: entrar no portfólio e no currículo, cumprir a barra técnica medida e ficar indexado com o aval dela (seção 5). Cliques no WhatsApp ficam fora, por exigir analytics.
+- **D24.** Prazo: Fase 1 até 2026-10-23. Fase 2 sem data; o conteúdo é cobrado pela pauta nas notas privadas.
+- **D25.** Depoimentos sai do site e do menu por enquanto. A seção fica para decisão futura e não entra em nenhuma das duas fases.
