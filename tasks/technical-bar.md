@@ -3,7 +3,7 @@
 **Slug:** `technical-bar`
 **Branch:** `perf/technical-bar`
 **Área:** hero, Sobre (linha do tempo e vídeo do kit), layout · **Dono:** Lucas
-**Status:** Execution (pausada depois do item 6; ver Stage 6)
+**Status:** Walkthrough (LCP no celular a medir na produção depois do merge, D35; opção escolhida pelo Lucas em 2026-10-10)
 **Gate S2:** Livre (pergunta 1 respondida em 2026-10-10: opção A)
 
 ---
@@ -127,14 +127,14 @@
 
 ## Stage 4 — Execution Planning
 
-1. [ ] `docs(adr)`: ADR 0004, carregamento adiado dos vídeos e prioridade do poster do hero; ADR 0003 com status atualizado.
-2. [ ] `perf(hero)`: preload do poster do hero com prioridade alta em `page.tsx`.
-3. [ ] `perf(video)`: `preload="none"` nos dois vídeos. O hook carrega o do hero depois do `load` da página, e o do kit perto da tela. O poster do kit é atribuído só ao chegar perto da tela. Medir.
-4. [ ] `perf`: diagnóstico das cerca de 7.000 fatias do agendador do React na carga, no build local com o profiler. Corrigir se for laço de renderização, com a causa na mensagem do commit. Medir. Se não for laço, registrar o achado e seguir.
+1. [x] `docs(adr)`: ADR 0004, carregamento adiado dos vídeos e prioridade do poster do hero; ADR 0003 com status atualizado.
+2. [x] `perf(hero)`: preload do poster do hero com prioridade alta em `page.tsx`.
+3. [x] `perf(video)`: `preload="none"` nos dois vídeos. O hook carrega o do hero depois do `load` da página, e o do kit perto da tela. O poster do kit é atribuído só ao chegar perto da tela. Medir.
+4. [x] `perf`: diagnóstico das cerca de 7.000 fatias do agendador do React na carga, no build local com o profiler. Corrigir se for laço de renderização, com a causa na mensagem do commit. Medir. Se não for laço, registrar o achado e seguir.
 5. [ ] `perf`, só se o LCP ainda não passar: poster do hero mais leve (mesma resolução, qualidade menor, sem metadado) ou `preload: false` na fonte que não está na primeira tela. Medir.
-6. [ ] `fix(a11y)`: piso de 60% de opacidade nos anos da roleta (opção A).
-7. [ ] Medição final: 3 execuções em cada tamanho (celular, iPad retrato, computador), mais a conferência manual de movimento reduzido. Números no Stage 7.
-8. [ ] `docs`:
+6. [x] `fix(a11y)`: piso de 60% de opacidade nos anos da roleta (opção A).
+7. [x] Medição final: 3 execuções em cada tamanho (celular, iPad retrato, computador), mais a conferência manual de movimento reduzido. Números no Stage 7.
+8. [x] `docs`:
    - FDD do hero e FDD do Sobre: seção Desempenho.
    - DESIGN.md: roleta (resposta A) ou exceção (resposta B).
    - PRD: premissa de medição na seção 5 e item da Fase 1 na seção 10.
@@ -155,7 +155,7 @@
 
 ## Stage 6 — Code Execution
 
-Execução pausada em 2026-10-10 depois do item 6, para medir na Vercel (ver "Pausa").
+Execução pausada em 2026-10-10 depois do item 6, para medir na Vercel (ver "Pausa"). O Lucas escolheu fazer o merge e medir na produção; o item 8 foi feito em seguida.
 
 | # | Camada | Arquivo | Status |
 |---|---|---|---|
@@ -163,10 +163,10 @@ Execução pausada em 2026-10-10 depois do item 6, para medir na Vercel (ver "Pa
 | 2 | Dados e página | `src/lib/media.ts` (novo), `src/app/page.tsx`, `src/components/hero.tsx` | feito (`9c9c4b5`) |
 | 3 | Componentes | `src/components/video-toggle.tsx`, `src/components/hero.tsx`, `src/components/about-timeline.tsx` | feito (`50a9749`) |
 | 4 | Diagnóstico | sem arquivo de código | feito: achado abaixo |
-| 5 | Mídia ou fontes | — | não feito; depende da medição na Vercel |
+| 5 | Mídia ou fontes | — | não feito: bloquear fontes ou imagens não muda o LCP simulado (ver "Pausa"), então não é a alavanca |
 | 6 | Componentes | `src/components/about-timeline.tsx` | feito (`010a56f`) |
-| 7 | Medição | — | local feita (Stage 7); oficial pendente |
-| 8 | Docs | FDDs, DESIGN.md, PRD, ROADMAP | pendente |
+| 7 | Medição | — | local feita (Stage 7); oficial na produção depois do merge |
+| 8 | Docs | `docs/fdd/hero.md`, `docs/fdd/sobre.md`, `docs/design/DESIGN.md`, `docs/PRD.md` (D35, D36, seções 5 e 8), `docs/ROADMAP.md` | feito (`69c312e`) |
 
 ### Desvios do plano
 - **Item 3:** o poster do kit virou `next/image` preguiçoso atrás do vídeo, em vez de ser atribuído por JavaScript perto da tela. Assim funciona sem JS e entrega o tamanho de exibição. Registrado na ADR 0004.
