@@ -28,6 +28,8 @@ O MVP sai em duas fases (D21). A Fase 1 só depende do Lucas; a Fase 2 é a vers
 
 Prazo (D24): Fase 1 até 2026-10-23. Fase 2 sem data; sai quando o conteúdo e o aval chegarem.
 
+Como se mede a barra técnica (D35): Lighthouse no modo padrão (simulado), o mesmo do PageSpeed Insights, na produção, mediana de 3 execuções; celular no padrão do Lighthouse, iPad retrato em 820 × 1180, computador no preset desktop. O modo com throttling real serve só de diagnóstico.
+
 Cliques no WhatsApp ficam fora da meta: medir exige analytics, que não existe (seção 7).
 
 ## 6. Escopo
@@ -60,7 +62,7 @@ A doutora já tem o conteúdo das seções que faltam e ainda não mandou (D9). 
 
 ## 8. Requisitos não funcionais
 
-- Desempenho: LCP abaixo de 2,5 s no 4G no celular. Vídeo do hero com poster como primeira pintura.
+- Desempenho: LCP abaixo de 2,5 s no 4G no celular. Vídeo do hero com poster como primeira pintura; os vídeos só baixam depois da primeira tela (ADR 0004).
 - Acessibilidade: WCAG 2.2 AA (contraste, foco, `prefers-reduced-motion`, pausa do que se mexe sozinho por mais de 5 s).
 - Dispositivos: celular (390 px), iPad retrato e computador. Layouts dependentes de mídia testados por proporção.
 - SEO e compartilhamento: `noindex` até o aval dela (D22); depois, metadados completos, prévia de link (Open Graph) e indexação.
@@ -203,3 +205,10 @@ Pesquisa com 24 sites de dentistas de estética e restauradora (Maceió, Nordest
 - **D32.** Entram uma parte "primeira consulta", com as etapas em poucas linhas, e perguntas frequentes curtas. As duas ficam na seção Contato; forma e lugar exato saem do plano da seção. O texto vem dela. Pergunta sobre valor só entra se ela quiser, e a resposta não tem número, faixa, "a partir de" nem forma de pagamento (D29).
 - **D33.** Contato leva um link discreto para as avaliações dela fora do site (perfil no Google). A página não reproduz avaliação, nome nem foto de paciente (CEO art. 44, VI). Depoimentos continua fora (D25). Depende de ela ter o perfil e querer o link.
 - **D34.** Contato mostra o endereço do consultório (CEO art. 43, § 1º, IV), com link de rota para o Maps. Sem mapa embutido: ele carrega script e cookies de terceiros, e o site não coleta dados (regras de fora, LGPD). Endereço de casa nunca. Endereço, horário e acesso vêm dela.
+
+### Rodada 6 (2026-10-10): barra técnica
+
+Plano em `tasks/technical-bar.md`.
+
+- **D35.** A barra técnica é medida com o Lighthouse no modo padrão (simulado), o mesmo do PageSpeed Insights, na produção, com a mediana de 3 execuções. O modo com throttling real serve só de diagnóstico.
+- **D36.** Na roleta da linha do tempo, os anos fora de foco apagam até 60% de opacidade, e não mais até 14%. Com isso passam em 3:1 como texto grande, e o sumiço nas pontas fica com a máscara. Foi considerado manter o apagado forte e registrar a exceção; ficou o piso.

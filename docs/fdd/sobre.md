@@ -107,6 +107,10 @@ continuam legíveis ao mesmo tempo. Uma roda com curva forte só mostra um ano
 por vez, e credencial que só aparece uma por vez é credencial que o visitante
 não confere de relance.
 
+Os anos fora do assento apagam, mas nunca abaixo de 60% de opacidade (PRD,
+D36): é o mínimo para `forest-700` sobre `light-base` passar em 3:1 como texto
+grande (3,2:1). O sumiço nas pontas fica com a máscara do palco.
+
 **A frase viaja com o ano.** Ela não troca num lugar fixo — pertence ao ano e
 anda com ele: chega por baixo, encosta no traço, sai por cima. A presença tem
 um platô em volta do assento (±0,22 assento), então existe uma janela em que a
@@ -140,6 +144,10 @@ usa, pelo mesmo motivo.
 
 `public/video/kit.webm` · `kit.mp4` · `kit-poster.webp`. Master bruto em
 `media/sobre/video/` (fora do repositório, `/media/` é ignorada).
+
+Carregamento (ADR 0004): o vídeo começa com `preload="none"` e só baixa depois
+do `load` da página, com o painel na tela. O poster é um `next/image`
+preguiçoso atrás do vídeo, no tamanho de exibição, e não o atributo `poster`.
 
 Recorte de 5,15s–9,02s de um clipe de 33s com 12 cortes — o único trecho contínuo
 que é close das mãos: ela montando o kit de higiene, com a fileira de cremes
