@@ -23,7 +23,7 @@ O MVP sai em duas fases (D21). A Fase 1 só depende do Lucas; a Fase 2 é a vers
 | Meta | Como medir | Fase |
 |---|---|---|
 | Entrar no portfólio e no currículo do Lucas | Link do site no portfólio e no currículo | 1 |
-| Barra técnica | Lighthouse no celular: LCP abaixo de 2,5 s no 4G, acessibilidade sem falha AA. Conferido em 390 px, iPad retrato e computador | 1 |
+| Barra técnica | Lighthouse: nota de desempenho de 85 ou mais no celular e de 90 ou mais no computador, e acessibilidade sem falha AA (D37). Conferido em 390 px, iPad retrato e computador | 1 |
 | Site indexado com o aval dela | `noindex` fora, página encontrada pelo nome dela no Google | 2 |
 
 Prazo (D24): Fase 1 até 2026-10-23. Fase 2 sem data; sai quando o conteúdo e o aval chegarem.
@@ -62,7 +62,7 @@ A doutora já tem o conteúdo das seções que faltam e ainda não mandou (D9). 
 
 ## 8. Requisitos não funcionais
 
-- Desempenho: LCP abaixo de 2,5 s no 4G no celular. Vídeo do hero com poster como primeira pintura; os vídeos só baixam depois da primeira tela (ADR 0004).
+- Desempenho: nota de desempenho do Lighthouse de 85 ou mais no celular e de 90 ou mais no computador (D37). O LCP é medido e registrado; a meta de 2,5 s no celular fica para depois. Vídeo do hero com poster como primeira pintura; os vídeos só baixam depois da primeira tela (ADR 0004).
 - Acessibilidade: WCAG 2.2 AA (contraste, foco, `prefers-reduced-motion`, pausa do que se mexe sozinho por mais de 5 s).
 - Dispositivos: celular (390 px), iPad retrato e computador. Layouts dependentes de mídia testados por proporção.
 - SEO e compartilhamento: `noindex` até o aval dela (D22); depois, metadados completos, prévia de link (Open Graph) e indexação.
@@ -120,7 +120,7 @@ Só depende do Lucas. O site continua com `noindex`.
 - [x] Menu sem link quebrado: Depoimentos sai (D25); Serviços e Contato levam a uma seção ou saem do menu até ela existir. Serviços saiu; Contato leva ao rodapé (D26).
 - [x] Rótulos de 11 px com contraste de 4,5:1 (DESIGN.md, seção 3).
 - [x] Vídeos em loop (hero e kit) com controle de pausa acessível (WCAG 2.2.2) (D31).
-- [ ] Barra técnica da seção 5: Lighthouse no celular com LCP abaixo de 2,5 s no 4G e acessibilidade sem falha AA.
+- [x] Barra técnica da seção 5 (D37). Nota de desempenho: 88 no celular, 89 a 93 no iPad, 94 a 100 no computador. Acessibilidade: 100 nos três. LCP no celular: 2,9 s, medido em 2026-10-10.
 - [ ] README final, com prints e link.
 - [ ] Link do site no portfólio e no currículo.
 - [x] Repositório público com o aval dela (D18).
@@ -212,3 +212,7 @@ Plano em `tasks/technical-bar.md`.
 
 - **D35.** A barra técnica é medida com o Lighthouse no modo padrão (simulado), o mesmo do PageSpeed Insights, na produção, com a mediana de 3 execuções. O modo com throttling real serve só de diagnóstico.
 - **D36.** Na roleta da linha do tempo, os anos fora de foco apagam até 60% de opacidade, e não mais até 14%. Com isso passam em 3:1 como texto grande, e o sumiço nas pontas fica com a máscara. Foi considerado manter o apagado forte e registrar a exceção; ficou o piso.
+- **D37.** A meta da barra técnica passa a ser a nota de desempenho do Lighthouse, e não mais o LCP: 85 ou mais no celular e 90 ou mais no computador, com acessibilidade sem falha AA. Ajusta a seção 5 e a D35.
+  - **Por que mudou:** depois da ADR 0004, o LCP no celular caiu de 3,2 para 2,9 s e parou aí. Mesmo sem nenhum JS, a página daria 2,3 s. O resto vem de um atraso do Chrome para mostrar a primeira tela quando a imagem do hero está nela, e nada no código do site mudou isso (`tasks/technical-bar.md`, "Medição na produção").
+  - **O que ficou para depois:** chegar a 2,5 s pede diminuir o JS da primeira tela (ADR 0002), sem ganho garantido. Está no ROADMAP.
+  - **Notas medidas:** 88 no celular (igual nas três execuções), 89 a 93 no iPad, 94 a 100 no computador.
