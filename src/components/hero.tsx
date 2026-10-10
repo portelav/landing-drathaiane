@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { HERO_POSTER } from "@/lib/media";
 import { useLoopWhileVisible, VideoToggle } from "./video-toggle";
-
-const POSTER = "/video/hero-poster.webp";
 /** VP9 for browsers that decode it, H.264 at level 4.0 for everything else. */
 const SOURCES = [
   { src: "/video/hero.webm", type: "video/webm" },
@@ -263,7 +262,7 @@ export function Hero() {
             loop
             playsInline
             preload="metadata"
-            poster={POSTER}
+            poster={HERO_POSTER}
             aria-hidden
             tabIndex={-1}
             disablePictureInPicture
