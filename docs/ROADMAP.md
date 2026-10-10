@@ -10,7 +10,7 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 | Menu sem link quebrado | Depoimentos sai do menu (D25); `#servicos` e `#contato` levam a uma seção, ou saem do menu até ela existir | `tasks/footer-and-menu-anchors.md` |
 | Contraste dos rótulos de 11 px | Texto secundário pequeno passa em 4,5:1, medido (DESIGN.md, seção 3) | `tasks/small-label-contrast.md` |
 | Contraste da citação da band | Na band aberta, a citação do Sobre passa em 3:1 (texto grande) sobre o gradiente; hoje mede de 2,52 a 3,00 (DESIGN.md, seção 3). Muda o visual da band: decisão do Lucas | — |
-| Pausa dos vídeos em loop | Hero e kit com controle de pausa acessível (WCAG 2.2.2) | — |
+| Pausa dos vídeos em loop | Hero e kit com controle de pausa acessível (WCAG 2.2.2) | `tasks/video-pause-control.md` |
 | Barra técnica | Lighthouse no celular: LCP abaixo de 2,5 s no 4G, acessibilidade sem falha AA, em 390 px, iPad e computador | — |
 | README final | Prints e link do site | — |
 | Portfólio e currículo | Link do site nos dois | fora do repositório |

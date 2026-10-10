@@ -38,7 +38,7 @@ Seções em ordem na página.
 |---|---|---|---|
 | Preloader | Abrir com a marca: monograma desenhado que voa para o header | (anterior ao kickoff) | pronto |
 | Header | Navegação e contato direto (WhatsApp, Instagram) sempre à mão | (anterior ao kickoff) | pronto |
-| Hero | Primeira impressão: o consultório e o nome | (anterior ao kickoff) | pronto |
+| Hero | Primeira impressão: o consultório e o nome | [`docs/fdd/hero.md`](fdd/hero.md) | pronto |
 | Sobre | Quem ela é, como trabalha, credenciais com datas | [`docs/fdd/sobre.md`](fdd/sobre.md) | pronto |
 | Serviços | O que ela trata, para os dois públicos | [`docs/fdd/servicos.md`](fdd/servicos.md) | falta (conteúdo pendente) |
 | Depoimentos | Prova social | [`docs/fdd/depoimentos.md`](fdd/depoimentos.md) | fora por enquanto, sai do site e do menu (D25) |
@@ -115,7 +115,7 @@ Só depende do Lucas. O site continua com `noindex`.
 - [x] Rodapé com "Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418", legível.
 - [x] Menu sem link quebrado: Depoimentos sai (D25); Serviços e Contato levam a uma seção ou saem do menu até ela existir. Serviços saiu; Contato leva ao rodapé (D26).
 - [x] Rótulos de 11 px com contraste de 4,5:1 (DESIGN.md, seção 3).
-- [ ] Vídeos em loop (hero e kit) com controle de pausa acessível (WCAG 2.2.2).
+- [x] Vídeos em loop (hero e kit) com controle de pausa acessível (WCAG 2.2.2) (D31).
 - [ ] Barra técnica da seção 5: Lighthouse no celular com LCP abaixo de 2,5 s no 4G e acessibilidade sem falha AA.
 - [ ] README final, com prints e link.
 - [ ] Link do site no portfólio e no currículo.
@@ -192,3 +192,4 @@ Plano em `tasks/roles-prices-cfo-rules.md`.
 - **D28.** Papéis. O Lucas confirma tudo: conteúdo, visual, técnica, segurança e git. A Dra. Thaiane opina sobre estética, design e seções, dando opções, sem aprovação formal. Fica o olhar final dela no site completo antes de tirar o `noindex` (D22). O conteúdo que só ela tem (texto, foto, endereço, horário) continua vindo dela e nunca é inventado. Pergunta técnica, de git ou de segurança não vai para ela. Substitui D7.
 - **D29.** O site nunca tem preço nem tabela de preços, a pedido dela. Vale também para faixa de preço, "a partir de", forma ou condição de pagamento. O Código de Ética veda o mesmo (art. 44, I).
 - **D30.** Antes de tirar o `noindex`, o site inteiro passa de novo pela tabela de regras de fora, com as respostas que tiverem chegado até lá. O que não passar muda ou sai antes de indexar. A lista do que conferir fica nas notas privadas.
+- **D31.** Pausa dos vídeos (2026-10-10). Os dois vídeos, o do consultório no hero e o do kit no Sobre, rodam em loop enquanto estão na tela e param quando saem dela. Cada um tem um botão de pausa discreto no canto inferior direito: ícone escuro num quadrado claro de 32 px, sem raio, com área de toque de 44 px. A pausa pedida pela pessoa vale até ela tocar em reproduzir, só durante a visita. Foi considerado tirar o botão do hero e assumir a falha no critério WCAG 2.2.2; ficou o botão nos dois.
