@@ -6,10 +6,9 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { INSTAGRAM_HREF, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_HREF } from "@/lib/contact";
 import { BrandMark, MARK_FLIGHT } from "./brand-mark";
 
+/** Only sections that exist on the page; one joins when its section lands. */
 const NAV_LINKS = [
   { label: "Sobre", href: "#sobre" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Depoimentos", href: "#depoimentos" },
   { label: "Contato", href: "#contato" },
 ];
 
@@ -243,7 +242,7 @@ export function Header() {
         </div>
       </div>
 
-      {/* Narrow screens have no middle to unfold into, so the same four
+      {/* Narrow screens have no middle to unfold into, so the same
           destinations drop just below the bar — a band, never the whole page. */}
       <AnimatePresence>
         {open && (
