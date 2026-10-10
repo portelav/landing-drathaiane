@@ -12,7 +12,7 @@ Regra: seção sem FDD não entra em desenvolvimento. Preloader, header e hero f
 | [Sobre](sobre.md) | implementado | (anterior ao kit) |
 | [Serviços](servicos.md) | rascunho (conteúdo pendente) | — |
 | [Depoimentos](depoimentos.md) | fora por enquanto (PRD, D25) | — |
-| [Contato e rodapé](contato.md) | rascunho (conteúdo pendente) | — |
+| [Contato e rodapé](contato.md) | rodapé aprovado; seção Contato em rascunho (conteúdo pendente) | `tasks/footer-and-menu-anchors.md` (rodapé) |
 
 ## Template (seção de site)
 
