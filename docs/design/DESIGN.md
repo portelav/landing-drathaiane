@@ -15,7 +15,7 @@ Referência visual. Regra de produto vem do PRD, e quem aprova o visual é a dou
 - **Cuidadosa:** detalhe acabado (o monograma desenhado traço a traço, a sombra que continua a parede atrás da foto).
 - **Calma:** ritmo lento, curvas suaves, texto que anima uma vez e para.
 - **Elegante sem ser fria:** verde-floresta e vinho da marca sobre neutros quentes, serifa itálica no lugar de caixa-alta gritada.
-- **Próxima:** o contato é o WhatsApp, sempre a um toque, no header.
+- **Próxima:** o contato é o WhatsApp, sempre a um toque, no header, e de novo no rodapé.
 
 Referência: [aventuradentalarts.com](https://aventuradentalarts.com) (estrutura editorial do header, par tipográfico, linha do tempo do "about").
 
@@ -43,7 +43,7 @@ Tokens em `src/app/globals.css`, expostos ao Tailwind por `@theme inline`.
 | `dark-55` | `#1a1a18` a 55% | Texto secundário, rótulos |
 | `dark-40`, `dark-10` | 40%, 10% | Traços, divisórias |
 | `light-40`, `light-15` | `#f4f2ee` a 40%, 15% | Texto secundário e traços sobre fundo escuro |
-| `forest-900` | `#163000` | Verde original da marca |
+| `forest-900` | `#163000` | Verde original da marca; fundo do rodapé |
 | `forest-700`, `500`, `300` | `#2e4718`, `#4a6330`, `#5a7440` | Anos da linha do tempo, fundos de destaque |
 | `wine-700`, `500`, `300` | `#661028`, `#8e1a3c`, `#b02b58` | Acento da marca |
 | `whatsapp`, `instagram` | valores oficiais | Só nos ícones dessas marcas |
@@ -67,6 +67,11 @@ Calculado em 2026-10-09 (WCAG 2.x). AA pede 4,5:1 para texto normal e 3:1 para t
 | `dark-55` sobre `light-base` | 3,79 | **Só texto grande** |
 | `light-40` sobre `dark-base` | 3,52 | **Só texto grande** |
 | `dark-40` sobre `light-base` | 2,46 | **Não passa**: só traço decorativo |
+| `light-base` sobre `forest-900` (identificação do rodapé) | 12,89 | AA e AAA |
+| `light-base` a 85% sobre `forest-900` (canais do rodapé) | 9,69 | AA e AAA |
+| `light-base` a 70% sobre `forest-900` (rótulo e direitos do rodapé) | 7,08 | AA e AAA |
+
+Os três pares do rodapé foram medidos no navegador em 2026-10-09. No rodapé, o texto secundário usa `light-base` a 70%, nunca `light-40`.
 
 `dark-55` e `light-40` hoje aparecem em rótulos de 11 px (hero, band do Sobre, texto do Sobre, linha do tempo). Isso não passa no AA; item no ROADMAP.
 
@@ -103,6 +108,7 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 | Sobre, texto: linhas sobem por máscara | entrada, uma vez | 70 ms entre linhas | Único momento que anima e para: o silêncio depois é o efeito |
 | Sobre, roleta de anos | scroll (rAF) | proporcional ao scroll | Eixo vertical, o contraste que hero e band não dão |
 | Vídeo do kit | entrada na tela | loop, pausa fora da tela | Um quadro parado ao lado da roda parecia falha |
+| Rodapé | nenhum | nada anima; hover dos canais só de opacidade, 300 ms | Ponto de repouso depois de três momentos seguidos dirigidos por scroll |
 
 - Animar `transform` e `opacity`. **Exceção registrada:** a roleta aplica `blur` de até 2,5 px nas frases em trânsito, para fundir a passagem entre duas linhas vizinhas. Nada de `mix-blend-mode` em elemento que se move.
 - O que se mexe sozinho por mais de 5 s tem como pausar (WCAG 2.2.2). Hoje o vídeo do hero e o do kit não têm controle; item no ROADMAP.
@@ -120,6 +126,7 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 | `Hero` | `src/components/hero.tsx` | `wide:` (abre por scroll) ou estreito (quadro inteiro); vídeo tocando ou poster |
 | `About`, `AboutText`, `AboutTimeline` | `src/components/about*.tsx` | `beside:` (lado a lado, por scroll) ou empilhado; movimento reduzido |
 | `SmoothScroll` | `src/components/smooth-scroll.tsx` | ligado no computador; desligado no toque e com movimento reduzido |
+| `Footer` | `src/components/footer.tsx` | estático; destino de `#contato` enquanto a seção Contato não existe (PRD, D26) |
 
 ## 8. Tom de voz
 
