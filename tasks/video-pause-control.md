@@ -281,3 +281,8 @@ Medido no navegador pelo MCP do Chrome DevTools, com `next dev`, em 390×844 (ce
 - Lint, typecheck e build: verdes no Stage 8, sem mudança de código depois.
 
 **Gate S9 — WARNINGS**
+
+### Correções depois do walkthrough
+- **Aviso 1 corrigido (`e449ae3`).** O FDD do hero diz que a linha de exibição fica centralizada no estreito e não aparece no `wide:` com movimento reduzido, e põe a linha na ordem de leitura conforme o DOM.
+- **Aviso 2 corrigido (`a436a22`).** No ramo de movimento reduzido, o `sync()` também desfaz a pausa da pessoa. Ao desligar a preferência, o vídeo volta ao loop e o botão reaparece. O FDD registra o comportamento.
+- Lint, typecheck e build verdes de novo. A correção só toca o ramo de movimento reduzido, que o MCP não simula; fica no mesmo teste manual do critério 6.
