@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { HERO_POSTER } from "@/lib/media";
 import { useLoopWhileVisible, VideoToggle } from "./video-toggle";
+
 /** VP9 for browsers that decode it, H.264 at level 4.0 for everything else. */
 const SOURCES = [
   { src: "/video/hero.webm", type: "video/webm" },
