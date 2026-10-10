@@ -59,6 +59,13 @@ const PLATEAU = 0.22;
 /** How far from the seat it has gone completely. */
 const VANISH = 0.78;
 
+/**
+ * Years off the seat dim, but never below this. `forest-700` at 60% over
+ * `light-base` is 3.2:1, so every numeral still passes as large text (WCAG
+ * AA); the mask, not the opacity, is what makes the far ones vanish.
+ */
+const YEAR_FLOOR = 0.6;
+
 const clamp = (value: number, low: number, high: number) =>
   Math.min(high, Math.max(low, value));
 const rad = (degrees: number) => (degrees * Math.PI) / 180;
@@ -138,7 +145,7 @@ export function AboutTimeline() {
         year.style.transform = `translate(${x}px, ${y}px) translateY(-50%) rotate(${angle}deg) scale(${
           0.6 + near * 0.4
         })`;
-        year.style.opacity = `${0.14 + near * 0.86}`;
+        year.style.opacity = `${YEAR_FLOOR + near * (1 - YEAR_FLOOR)}`;
 
         // The dot rides the rule itself, a little ahead of the numeral.
         seat.style.transform = `translate(${x - 24 * scale}px, ${y}px)`;
