@@ -16,7 +16,7 @@ const PALETTE = {
   dark: {
     headerTheme: "dark",
     section: "bg-forest-900 text-light-base",
-    muted: "text-light-40",
+    muted: "text-light-base/70",
     rule: "border-light-15",
     accent: "",
     banner: "",
@@ -28,7 +28,7 @@ const PALETTE = {
   light: {
     headerTheme: "light",
     section: "bg-light-base text-dark-base",
-    muted: "text-dark-55",
+    muted: "text-dark-base/70",
     rule: "border-dark-10",
     accent: "text-forest-700",
     banner: "text-forest-900",
