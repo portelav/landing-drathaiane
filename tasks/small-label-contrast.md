@@ -3,7 +3,7 @@
 **Slug:** `small-label-contrast`
 **Branch:** `fix/small-label-contrast`
 **Área:** hero, Sobre (band, texto, linha do tempo), header · **Dono:** Lucas
-**Status:** Planning
+**Status:** Walkthrough
 **Gate S2:** Livre
 
 ---
@@ -126,16 +126,16 @@ Contas feitas a partir dos valores do código. O `/exec` confirma com medida.
 
 Um commit cada, nesta ordem. Não há FDD a escrever nem token novo. A remoção dos tokens vem depois dos componentes, para nenhum commit deixar classe sem cor.
 
-1. [ ] **Hero:** `PALETTE.light.muted` vira `text-dark-base/70` e `PALETTE.dark.muted` vira `text-light-base/70`. `fix(hero): lift secondary text to pass AA contrast`
-2. [ ] **Sobre, band:** rótulo "A dentista" em `text-dark-base/70 beside:text-dark-base`, com comentário curto do porquê (o gradiente da foto escurece o 70%). `fix(about): keep the band label legible over the backdrop`
-3. [ ] **Sobre, texto e linha do tempo:** os dois rótulos em `text-dark-base/70`. `fix(about): lift the section labels to pass AA contrast`
-4. [ ] **Header:** "Cirurgiã-Dentista" de `opacity-50` para `opacity-70`. `fix(header): lift the profession label to pass AA contrast`
-5. [ ] **Tokens:** conferir com `grep` que não sobrou uso e tirar `--c-dark-55`, `--c-light-40`, `--color-dark-55` e `--color-light-40` do `globals.css`. `refactor(styles): drop the secondary tokens that fail AA`
-6. [ ] **Medida no navegador** (sem commit): os critérios 1 a 4 e 7 em 390 px, iPad retrato e computador; a pele `dark` com o `TONE` trocado só localmente e revertido; a citação da band no `beside:`. Os números vão para o item 7 e para o Stage 7.
-7. [ ] **DESIGN.md, seção 3:** tirar as linhas de `dark-55` e `light-40` da paleta; registrar a regra do texto secundário; a tabela de contraste com os pares medidos (`dark-base/70` sobre `light-base`, `dark-base` sobre o `BACKDROP`, `light-base/70` sobre `forest-900`, citação da band); trocar a nota da linha 74 pelo resultado. `docs(design): record the secondary text rule and measured contrast`
-8. [ ] **Docs que citam `dark-55`:** `.claude/commands/ui.md` (atenção a texto secundário abaixo de 70%) e `docs/fdd/contato.md`, regra 4. `docs: point the secondary text rule at dark-base/70`
-9. [ ] **PRD e ROADMAP:** marcar o critério da seção 10; no ROADMAP, a linha da Fase 1 aponta para este arquivo como feita. Se a citação da band medir abaixo de 3:1, uma linha nova na Fase 1, junto da barra técnica, para o Lucas decidir o visual. `docs(roadmap): close the small label contrast item`
-10. [ ] **Verificação:** lint, typecheck e build; Stages 6 a 8 deste arquivo. `docs(tasks): record small-label-contrast execution`
+1. [x] **Hero:** `PALETTE.light.muted` vira `text-dark-base/70` e `PALETTE.dark.muted` vira `text-light-base/70`. `fix(hero): lift secondary text to pass AA contrast`
+2. [x] **Sobre, band:** rótulo "A dentista" em `text-dark-base/70 beside:text-dark-base`, com comentário curto do porquê (o gradiente da foto escurece o 70%). `fix(about): keep the band label legible over the backdrop`
+3. [x] **Sobre, texto e linha do tempo:** os dois rótulos em `text-dark-base/70`. `fix(about): lift the section labels to pass AA contrast`
+4. [x] **Header:** "Cirurgiã-Dentista" de `opacity-50` para `opacity-70`. `fix(header): lift the profession label to pass AA contrast`
+5. [x] **Tokens:** conferir com `grep` que não sobrou uso e tirar `--c-dark-55`, `--c-light-40`, `--color-dark-55` e `--color-light-40` do `globals.css`. `refactor(styles): drop the secondary tokens that fail AA`
+6. [x] **Medida no navegador** (sem commit): os critérios 1 a 4 e 7 em 390 px, iPad retrato e computador; a pele `dark` com o `TONE` trocado só localmente e revertido; a citação da band no `beside:`. Os números vão para o item 7 e para o Stage 7.
+7. [x] **DESIGN.md, seção 3:** tirar as linhas de `dark-55` e `light-40` da paleta; registrar a regra do texto secundário; a tabela de contraste com os pares medidos (`dark-base/70` sobre `light-base`, `dark-base` sobre o `BACKDROP`, `light-base/70` sobre `forest-900`, citação da band); trocar a nota da linha 74 pelo resultado. `docs(design): record the secondary text rule and measured contrast`
+8. [x] **Docs que citam `dark-55`:** `.claude/commands/ui.md` (atenção a texto secundário abaixo de 70%) e `docs/fdd/contato.md`, regra 4. `docs: point the secondary text rule at dark-base/70`
+9. [x] **PRD e ROADMAP:** marcar o critério da seção 10; no ROADMAP, a linha da Fase 1 aponta para este arquivo como feita. Se a citação da band medir abaixo de 3:1, uma linha nova na Fase 1, junto da barra técnica, para o Lucas decidir o visual. `docs(roadmap): close the small label contrast item`
+10. [x] **Verificação:** lint, typecheck e build; Stages 6 a 8 deste arquivo. `docs(tasks): record small-label-contrast execution`
 
 ---
 
@@ -153,34 +153,54 @@ Um commit cada, nesta ordem. Não há FDD a escrever nem token novo. A remoção
 
 ## Stage 6 — Code Execution
 
-*(Preenchido pelo exec.)*
-
 | # | Camada | Arquivo | Status |
 |---|---|---|---|
+| 1 | Componente | `src/components/hero.tsx` (`PALETTE.light.muted` e `PALETTE.dark.muted`) | Feito (`dc8956b`) |
+| 2 | Componente | `src/components/about.tsx` (rótulo "A dentista", com comentário) | Feito (`eabeda9`) |
+| 3 | Componente | `src/components/about-text.tsx`, `src/components/about-timeline.tsx` | Feito (`5b82bb5`) |
+| 4 | Componente | `src/components/header.tsx` ("Cirurgiã-Dentista") | Feito (`9645d43`) |
+| 5 | Tokens | `src/app/globals.css` (saem `dark-55` e `light-40`) | Feito (`00f1833`) |
+| 6 | Medida | navegador, sem commit | Feito |
+| 7 | Docs | `docs/design/DESIGN.md`, seção 3 | Feito (`56fe438`) |
+| 8 | Docs | `.claude/commands/ui.md`, `docs/fdd/contato.md` | Feito (`993ef84`) |
+| 9 | Docs | `docs/PRD.md` (seção 10), `docs/ROADMAP.md` | Feito (`f124db9`) |
+| 10 | Docs | este arquivo, Stages 6 a 8 | Feito |
 
 ### Desvios do plano
-- Nenhum | …
+- **`prefers-reduced-motion` não foi emulado.** A ferramenta `emulate` do MCP do Chrome DevTools não tem essa opção. O critério 7 foi conferido no código (ver Stage 7), não no navegador.
+- **Header mede 6,10, não 6,14.** A opacidade fica no `span`, e não na cor, e o arredondamento do alfa muda a segunda casa. Passa do mesmo jeito.
+- **ROADMAP:** o critério da linha mudou de "`dark-55` e `light-40` em texto pequeno" para "texto secundário pequeno", porque os dois tokens não existem mais. O sentido é o mesmo.
+- Nenhum outro.
 
 ---
 
 ## Stage 7 — Tests
 
-*(Preenchido pelo exec.)*
+Medida no navegador pelo MCP do Chrome DevTools, com `npm run dev`. Viewports: 390×844 (celular, toque), 1024×1366 (iPad retrato, toque) e 1440×900 (computador). Método: cor computada do texto (resolvida num canvas), alfa vezes a opacidade dos ancestrais, mistura sobre o primeiro fundo opaco atrás do ponto (`elementsFromPoint`) e razão WCAG 2.x. Na band, o fundo é a cor do `BACKDROP` interpolada na altura do texto, com a band aberta no fim da pista e o texto em opacidade 1.
 
 | Critério de aceite | Como foi verificado |
 |---|---|
+| 1. Rótulos do hero, do texto do Sobre e da linha do tempo, e parágrafo do hero, 4,5:1 ou mais | Medido nos três viewports: 6,14 em todos (tinta `91,90,88` sobre `light-base`) |
+| 2. "A dentista" 4,5:1 ou mais nos dois arranjos | Empilhado (390 px e iPad): 6,14 sobre `light-base`. `beside:` (1440×900): `dark-base` cheio sobre o gradiente a 38% da altura da band, de 6,31 a 6,36 entre o topo e a base do rótulo |
+| 3. "Cirurgiã-Dentista" 4,5:1 ou mais | 6,10 sobre `light-base`, header flutuando no topo, nos três viewports |
+| 4. Pele `dark` do hero 4,5:1 ou mais | `TONE = "dark"` trocado só localmente e revertido com `git checkout` (tree limpo depois). Rótulos e parágrafo: 7,08 sobre `forest-900`. Header no tom escuro: 7,05 |
+| 5. `dark-55` e `light-40` fora de `src/` e do `globals.css` | `grep -rn "dark-55\|light-40" src/` sem resultado |
+| 6. Só a cor muda | Diff dos componentes: só a classe de cor, ou a opacidade no header, e um comentário na band. Captura do hero em 1440×900: hierarquia igual, rótulos e parágrafo um pouco mais escuros |
+| 7. `prefers-reduced-motion` legível e igual | No código: nenhuma das classes de cor tem variante `motion-reduce:`. Com movimento reduzido, o `rest()` da band limpa a opacidade inline do texto (fica 1) e deixa a band aberta, então o rótulo fica sobre o mesmo gradiente, com a mesma tinta medida. Não emulado (ver desvios) |
+| 8. DESIGN.md atualizado | Seção 3: regra do texto secundário, linhas dos tokens removidas, pares medidos, nota da pendência trocada pela medida da citação |
+| 9. Lint, typecheck e build | Ver Stage 8 |
+
+**Fora do escopo, medido:** a citação da band aberta (`light-base`, 37 px) sobre o gradiente mede 2,52 na primeira linha e 3,00 na última, abaixo dos 3:1 de texto grande. Ficou registrada no DESIGN.md e como linha nova na Fase 1 do ROADMAP, para o Lucas decidir o visual.
 
 ---
 
 ## Stage 8 — Verification
 
-*(Preenchido pelo exec.)*
-
-- **lint:** Pass | Fail
-- **typecheck:** Pass | Fail
-- **test:** Pass | Fail | n/a
-- **build:** Pass | Fail
-- **Navegador (390 px e computador):** Pass | Fail
+- **lint:** Pass (`npm run lint`, saída 0)
+- **typecheck:** Pass (`npx next typegen && npx tsc --noEmit`, saída 0)
+- **test:** n/a (o projeto não tem testes)
+- **build:** Pass (`npm run build`, `/` estático)
+- **Navegador (390 px, iPad retrato e computador):** Pass. Contraste medido como no Stage 7. Captura da band aberta em 1440×900: rótulo em `dark-base` legível sobre a parede. Só a aba aberta pelo MCP foi fechada, e o `npm run dev` foi parado.
 
 ---
 
