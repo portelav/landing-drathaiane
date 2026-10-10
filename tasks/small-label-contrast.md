@@ -254,3 +254,7 @@ Medida no navegador pelo MCP do Chrome DevTools, com `npm run dev`. Viewports: 3
 - `grep -n opacity src/components/about-timeline.tsx`: origem do aviso 1.
 
 **Gate S9 — WARNINGS**
+
+### Correções depois do walkthrough
+- **Avisos 1 e 2 corrigidos (`e2300f6`).** A regra virou "nenhum texto em repouso abaixo de 70%", com a roleta citada como exceção, no DESIGN.md e no `ui.md`. A frase das medidas agora diz que a band aberta e a pele escura do hero só foram medidas no computador.
+- **Aviso 3 continua aberto.** É a citação da band, já registrada no ROADMAP (Fase 1) para o Lucas decidir.
