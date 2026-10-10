@@ -66,21 +66,26 @@ A doutora já tem o conteúdo das seções que faltam e ainda não mandou (D9). 
 
 ## Regras de fora
 
-Consulta em 2026-10-09. Detalhe, citações e grau de certeza em [`docs/research/publicidade-odontologica.md`](research/publicidade-odontologica.md). Tirar o `noindex` depende do aval da Dra. Thaiane (D22). O DEF/CRO-AL, setor de fiscalização do Conselho Regional de Odontologia de Alagoas, revisa peças de graça (fiscalizacao@croal.org.br).
+Conferido contra o texto oficial em 2026-10-10: Código de Ética Odontológica (CEO, aprovado pela Res. CFO-118/2012 e alterado pela Res. CFO-SEC-271/2025), Res. CFO-196/2019 e Res. CFO-230/2020. A cartilha do CRO-AL e o "CFO Esclarece" são interpretação dos conselhos e aparecem marcados assim. Detalhe e citações em [`docs/research/publicidade-odontologica.md`](research/publicidade-odontologica.md). Tirar o `noindex` depende do aval da Dra. Thaiane (D22). O DEF/CRO-AL, setor de fiscalização do Conselho Regional de Odontologia de Alagoas, revisa peças de graça (fiscalizacao@croal.org.br).
 
 | Regra | Efeito no produto | Fonte |
 |---|---|---|
-| Nome, profissão e número do CRO em toda divulgação | Rodapé fixo com "Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418" | [CEO art. 43](https://website.cfo.org.br/wp-content/uploads/2018/03/codigo_etica.pdf); [cartilha CRO-AL](https://croal.org.br/wp-content/uploads/2025/04/Cartilha-de-publicidade-na-odontologia.pdf) |
-| Proibido preço, forma de pagamento, bandeira de cartão, "grátis", "promoção", "desconto", "oferta", "popular", sorteio, brinde, indicação de amigos | Serviços sem valores. Nenhum CTA promocional | CEO art. 44, I e VII; cartilha CRO-AL |
-| "Especialista" só com especialidade registrada no CRO-AL; senão, "área de atuação" | Sobre e Serviços dizem "especialista" só com o registro confirmado | CEO art. 44, II; cartilha CRO-AL |
+| Nome, profissão e número do CRO em toda divulgação | Rodapé fixo com "Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418" | [CEO art. 43](https://website.cfo.org.br/wp-content/uploads/2018/03/codigo_etica.pdf) |
+| Proibido preço, serviço gratuito e forma de pagamento | Nenhum preço nem condição de pagamento (D29) | CEO art. 44, I; art. 20, IX (consulta e diagnóstico gratuitos) |
+| Proibido oferecer serviço como brinde, prêmio ou sorteio | Nenhum sorteio nem brinde | CEO art. 20, VIII, na redação da [Res. CFO-SEC-271/2025](https://sistemas.cfo.org.br/visualizar/atos/RESOLU%C3%87%C3%83O/SEC/2025/271) |
+| Proibido aliciar paciente, "especialmente a utilização da expressão 'popular'" | Nenhum "popular" | CEO art. 44, VII |
+| "Desconto", "promoção", "oferta", bandeira de cartão, indicação de amigos, pacote e cupom não são permitidos | Nenhum CTA promocional. "Desconto" saiu do Código em 2025 e fica fora pela cartilha | [Cartilha CRO-AL](https://croal.org.br/wp-content/uploads/2025/04/Cartilha-de-publicidade-na-odontologia.pdf) (interpretação) |
+| "Especialista" só com especialidade registrada no CRO-AL; senão, "área de atuação" | Sobre e Serviços dizem "especialista" só com o registro confirmado | CEO art. 44, II, e art. 43, § 1º, I e II |
 | Mestrado e doutorado podem ser divulgados | Linha do tempo pode manter o mestrado | CEO art. 43, § 1º, III |
-| Proibida promessa de resultado, sensacionalismo, superlativo, crítica a colega | Tom de voz no DESIGN.md; revisão de todo texto no `/walkthrough` | CEO art. 44, I e IV; [CFO Esclarece](https://website.cfo.org.br/redes-sociais-na-odontologia-fique-atento-as-normas-eticas-e-acerte-na-publicacao-dos-conteudos/) |
-| Proibida imagem do transcurso de procedimento, de instrumental, material, equipamento ou tecido biológico | Nenhum vídeo de atendimento; marca de material nunca em destaque | [Res. CFO-196/2019](https://sistemas.cfo.org.br/visualizar/atos/RESOLU%C3%87%C3%83O/SEC/2019/196) arts. 1º § 1º e 3º |
-| Cartilha do CRO-AL lista "bastidores, ambiente clínico" como proibido (termo que não está na norma; é a leitura do conselho que fiscaliza) | Imagem do consultório conferida contra a cartilha antes de indexar (D22) | Cartilha CRO-AL p. 8 |
+| Proibida expressão que caracterize sensacionalismo, autopromoção, concorrência desleal, mercantilização ou promessa de resultado | Tom de voz no DESIGN.md; revisão de todo texto no `/walkthrough` | [Res. CFO-196/2019](https://sistemas.cfo.org.br/visualizar/atos/RESOLU%C3%87%C3%83O/SEC/2019/196) art. 2º, § 1º |
+| Proibido criticar técnica de outro profissional como inadequada ou ultrapassada | Texto não critica técnica de colega | CEO art. 44, IV |
+| Proibido vídeo ou imagem do transcurso ou da realização de procedimento, salvo em publicação científica | Nenhum vídeo de atendimento | Res. CFO-196/2019 art. 3º |
+| Em selfie, proibida imagem que permita identificar equipamento, instrumental, material ou tecido biológico | Selfie dela, se entrar, sem nada disso identificável | Res. CFO-196/2019 art. 1º, § 1º, que está no artigo das selfies. O [CFO Esclarece](https://website.cfo.org.br/redes-sociais-na-odontologia-fique-atento-as-normas-eticas-e-acerte-na-publicacao-dos-conteudos/) e a cartilha CRO-AL leem a proibição para qualquer imagem (interpretação) |
+| Cartilha do CRO-AL lista "bastidores, ambiente clínico" como proibido (termo que não está na norma; é a leitura do conselho que fiscaliza) | Imagem do consultório conferida contra a cartilha antes de indexar (D22) | Cartilha CRO-AL p. 8 (interpretação) |
 | Toda publicação de imagem ou vídeo leva nome e CRO | Confirmar com o CRO-AL se o rodapé basta ou se cada foto e vídeo precisa de legenda com nome e CRO | Res. CFO-196/2019 art. 4º |
-| Antes e depois só da própria doutora, com TCLE e nome + CRO na imagem; nunca em nome de clínica | Serviços pode ter casos, se ela tiver TCLE | Res. CFO-196/2019; CFO Esclarece |
-| Paciente ou terceiro identificável só com consentimento escrito, e nunca para autopromoção | Ninguém identificável na página sem autorização escrita | CEO art. 44, VI |
-| Proibido anunciar procedimento não odontológico (micropigmentação, design de sobrancelha etc.) | Serviços só com procedimentos odontológicos | Res. CFO-230/2020; cartilha CRO-AL |
+| Antes e depois só de casos dela, com TCLE e nome + CRO na imagem; nunca em nome de clínica | Serviços pode ter casos, se ela tiver TCLE | Res. CFO-196/2019 arts. 2º e 4º; "nunca em nome de clínica": CFO Esclarece (interpretação) |
+| Paciente identificável só com consentimento livre e esclarecido, e nunca para autopromoção | Ninguém identificável na página sem autorização escrita | CEO art. 44, VI |
+| Proibido anunciar procedimento não odontológico (micropigmentação, design de sobrancelha etc.) | Serviços só com procedimentos odontológicos | [Res. CFO-230/2020](https://sistemas.cfo.org.br/visualizar/atos/RESOLU%C3%87%C3%83O/SEC/2020/230) art. 2º |
 | Sem coleta de dados, sem obrigação de política de privacidade | Se entrar formulário ou analytics, política de privacidade e base legal (LGPD) | Lei 13.709/2018 |
 
 ### Perguntas em aberto
