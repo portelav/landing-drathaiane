@@ -246,7 +246,7 @@ O projeto não tem testes automatizados. Verificação no navegador, pelo MCP do
 ### Resumo
 - **Veredito:** WARNINGS
 - **Arquivos analisados:** 13 (4 de código, 9 de documentação)
-- **Findings:** 0 críticos, 2 avisos
+- **Findings:** 0 críticos, 1 aviso (o aviso sobre o texto do Código foi resolvido no mesmo dia)
 
 ### Checklist
 | Item | Status | Observação |
@@ -279,7 +279,7 @@ O projeto não tem testes automatizados. Verificação no navegador, pelo MCP do
 - Nenhum.
 
 #### Warnings
-- **Texto consolidado do Código não conferido.** O art. 43 foi lido no PDF do Código publicado pelo CFO (texto aprovado pela Res. CFO-118/2012). A versão consolidada, com as alterações posteriores, fica em `sistemas.cfo.org.br`, que não abriu (erro de certificado). — `src/components/footer.tsx:18` — Conferir na auditoria das regras contra o texto oficial, na branch de docs.
+- ~~**Texto consolidado do Código não conferido.**~~ Resolvido em 2026-10-09. O Código em vigor é o aprovado pela Res. CFO-118/2012. A única alteração encontrada no sistema de atos do CFO é a Res. CFO-SEC-271/2025, que mexe no art. 20 (VIII e X), no art. 32 (XIII) e no art. 44 (XIV). O art. 43 continua com o texto de 2012, então a conferência do rodapé vale. O PDF do Código no site do CFO não traz a alteração de 2025. — `src/components/footer.tsx:18`
 - **Movimento reduzido sem conferência no navegador.** O MCP do Chrome DevTools não emula `prefers-reduced-motion`. — `src/components/footer.tsx:51` — Sem risco prático: o rodapé não anima e só tem transição de opacidade no hover. Conferir à mão se quiser.
 
 #### Positive
@@ -297,5 +297,6 @@ O projeto não tem testes automatizados. Verificação no navegador, pelo MCP do
 - `git log --format=%ae main..HEAD`: só o e-mail noreply.
 - `gitleaks git --log-opts="main..HEAD"`: 12 commits, nenhum vazamento.
 - Art. 43 e art. 44 do Código de Ética lidos no PDF do CFO (`website.cfo.org.br/wp-content/uploads/2018/03/codigo_etica.pdf`).
+- Res. CFO-SEC-118/2012, 196/2019 e 271/2025 lidas no sistema de atos do CFO (`sistemas.cfo.org.br/visualizar/atos/...`), para saber se o texto de 2012 continua valendo.
 
 **Gate S9 — WARNINGS**
