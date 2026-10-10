@@ -95,6 +95,7 @@ Sobre depoimentos: o Código de Ética não trata de depoimento de paciente. A r
 |---|---|---|
 | Conteúdo das seções depende dela e não tem data | Fase 2 parada | Fase 1 não depende dela (D21). Na Fase 2, estrutura e movimento com `> TODO` no FDD, nunca com texto inventado na página |
 | Uma peça do site ser considerada infração ética | Processo ético contra ela (advertência a suspensão) | Regras de fora no `/walkthrough`; aval dela antes de indexar (D22); dúvida pontual ao DEF/CRO-AL |
+| Peça do site, commit ou doc expor ou prejudicar a doutora fora do CRO (privacidade, segurança pessoal, reputação, área jurídica, dinheiro) | Problema para ela fora da odontologia | Princípio no topo do `CLAUDE.md`: cada peça é pesada pelo que pode expor; na dúvida, fica fora e vai ao Lucas |
 | Repositório público expõe fotos e dados dela, ou dúvida aberta sobre ela | Exposição sem consentimento | Aval dado em 2026-10-09 (D18). Dúvida, pendência e dado de terceiro só nas notas privadas (D19) |
 | Opinião dela sobre estética, design ou seção chegar com a seção já pronta | Retrabalho de visual | O Lucas conversa com ela, com opções, quando a decisão de visual ou de seção pesa (D28); olhar final dela antes de tirar o `noindex` (D22) |
 

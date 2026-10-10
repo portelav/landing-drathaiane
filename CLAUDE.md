@@ -2,6 +2,10 @@
 
 Contexto operacional para agentes de IA neste repositório. Ler antes de qualquer tarefa. Ler também o `AGENTS.md` (bloco do Next.js, escrito e reescrito pelo `next dev`).
 
+## Princípio
+
+O site, o repositório e os docs nunca podem causar problema à Dra. Thaiane em área nenhuma da vida: profissional, jurídica, privacidade, reputação, segurança pessoal, dinheiro. O CRO é uma delas, não a única. Cada peça do site, commit e documento é pesado pelo que pode expor ou prejudicá-la (dado pessoal, localização, rotina, imagem). Na dúvida, fica fora, e a pergunta vai ao Lucas.
+
 ## Projeto
 
 **landing-drathaiane**: landing page da Dra. Thaiane Lessa, cirurgiã-dentista em Maceió (CRO/AL-6418). Para pacientes de estética e de odontologia restauradora que querem conhecer a profissional antes de chamar no WhatsApp.
