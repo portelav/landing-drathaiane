@@ -3,7 +3,7 @@
 **Slug:** `footer-colophon`
 **Branch:** `redesign/footer-colophon`
 **Área:** rodapé · **Dono:** Lucas
-**Status:** Execution
+**Status:** Walkthrough
 **Gate S2:** Livre (trivial: um arquivo de código, sem regra nova; direção escolhida pelo Lucas em 2026-10-10)
 
 ---
@@ -48,6 +48,19 @@
 
 ## Stage 4 — Execution Planning
 
-1. [ ] `src/components/footer.tsx` como colofão claro. `redesign`
-2. [ ] FDD (`docs/fdd/contato.md`) e DESIGN.md: fundo, contraste medido, sem `forest-900` como fundo. `docs`
-3. [ ] Status do `tasks/footer-and-menu-anchors.md` para Done (PR #2). `docs(tasks)`
+1. [x] `src/components/footer.tsx` como colofão claro. `redesign` (`2dbcaba`; ajuste dos canais numa linha no celular em `867adb8`)
+2. [x] FDD (`docs/fdd/contato.md`) e DESIGN.md: fundo, contraste medido, sem `forest-900` como fundo. `docs` (`000f779`)
+3. [x] Status do `tasks/footer-and-menu-anchors.md` para Done (PR #2). `docs(tasks)` (`20257e4`)
+
+---
+
+## Verificação
+
+- **Lint, typecheck e build:** verdes.
+- **Navegador (MCP do Chrome DevTools):**
+  - 390 px: monograma, identificação em três linhas, os três canais numa linha só (44 px de altura) e direitos. Sem rolagem horizontal.
+  - iPad retrato (1024×1366, toque): identificação à esquerda e canais à direita, linha a linha, em linhas de 44 px.
+  - Computador (1440×900, mouse): mesmo arranjo, em linhas de 32 px.
+- **Contraste medido:** nome 15,59; profissão, CRO, canais e direitos 6,14; monograma `forest-900` 12,89.
+- **Teclado:** Tab a partir do header cai no WhatsApp do rodapé, com contorno de 2 px em `dark-base`.
+- **Regras do CFO:** a identificação continua com nome, profissão e número de inscrição (art. 43). Nenhum texto novo.
