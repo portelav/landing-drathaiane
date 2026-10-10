@@ -7,7 +7,7 @@ Contexto operacional para agentes de IA neste repositório. Ler antes de qualque
 **landing-drathaiane**: landing page da Dra. Thaiane Lessa, cirurgiã-dentista em Maceió (CRO/AL-6418). Para pacientes de estética e de odontologia restauradora que querem conhecer a profissional antes de chamar no WhatsApp.
 Objetivo: site completo e publicável, que entre no portfólio e no currículo do Lucas.
 
-A Dra. Thaiane aprova todo conteúdo e todo visual. Fotos e dados dela só ficam públicos (no site indexado ou no repositório aberto) com o aval dela.
+O Lucas confirma tudo. A Dra. Thaiane opina sobre estética, design e seções, dando opções, sem aprovação formal, e dá o olhar final no site completo antes de sair o `noindex` (PRD, D22 e D28). Texto, foto e dado dela vêm dela, nunca inventados. Pergunta técnica, de git ou de segurança não vai para ela.
 
 ## Equipe
 
@@ -108,7 +108,7 @@ QA: abrir a página pelo MCP do Chrome DevTools (`.mcp.json`) em 390 px, iPad re
 1. Nenhuma seção sem FDD. O FDD é a spec.
 2. Mudança de stack ou de arquitetura exige ADR antes do código.
 3. O PRD é vivo: implementação divergiu, o doc muda na mesma branch.
-4. Dúvida entre duas leituras do doc: perguntar. Decisão de produto é do Lucas e da doutora, registrada no PRD com data.
+4. Dúvida entre duas leituras do doc: perguntar. Decisão de produto é do Lucas, registrada no PRD com data; a doutora opina sobre estética, design e seções (D28).
 5. Texto, foto ou dado que ela ainda não mandou vira `> TODO` (no doc) ou fica fora da página. Nunca texto plausível inventado: aqui isso vira problema ético para ela.
 6. Documento pronto ou seção concluída: commit imediato.
 

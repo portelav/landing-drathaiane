@@ -13,7 +13,7 @@ Rode o conselho de 5 conselheiros na questão abaixo. Protocolo: enriquecer cont
 - **Leve (padrão):** pular o passo 3 (peer review). São 5 subagentes em vez de 10, metade do custo. O chairman sintetiza direto das 5 respostas.
 - **Completo:** só quando a questão começar com `completo:` ou o Lucas pedir. Para decisão difícil de desfazer.
 
-Em qualquer modo, os conselheiros podem rodar num modelo menor (`model: sonnet` no Agent); a síntese fica no modelo principal. Decisão que mexe com a imagem da doutora continua dependendo do aval dela.
+Em qualquer modo, os conselheiros podem rodar num modelo menor (`model: sonnet` no Agent); a síntese fica no modelo principal. Decisão que mexe com a imagem da doutora é do Lucas, que conversa com ela quando pesa (PRD, D28).
 
 ---
 

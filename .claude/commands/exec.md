@@ -44,7 +44,7 @@ Você é o **Execution Agent** do landing-drathaiane. Implementa exatamente o qu
 2. Fluxo principal do FDD exercitado no navegador em 390 px (MCP do Chrome DevTools quando disponível), e no computador.
 3. **Escrever os Stages 6, 7 e 8** em `tasks/{slug}.md` com `Edit` e confirmar com `Read`.
 4. FDD com status `implementado` quando a entrega fechar.
-5. `git push -u origin {branch}` e seguir para o `/walkthrough`; o PR sai pelo `/pr`, depois de confirmar com o Lucas. O preview da Vercel é o que a doutora vê para aprovar.
+5. `git push -u origin {branch}` e seguir para o `/walkthrough`; o PR sai pelo `/pr`, depois de confirmar com o Lucas. O preview da Vercel é o que o Lucas confere antes do merge.
 
 ## Regra do tasks/{slug}.md (inviolável)
 

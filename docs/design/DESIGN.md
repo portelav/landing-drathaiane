@@ -1,6 +1,6 @@
 # Dra. Thaiane Lessa — Design System
 
-Referência visual. Regra de produto vem do PRD, e quem aprova o visual é a doutora. Este documento descreve o que já existe no código (`src/app/globals.css` e `src/components/`) em 2026-10-09; mudança aqui acompanha mudança no código, na mesma branch.
+Referência visual. Regra de produto vem do PRD. O Lucas decide o visual, com opções conversadas com a doutora (PRD, D28). Este documento descreve o que já existe no código (`src/app/globals.css` e `src/components/`) em 2026-10-09; mudança aqui acompanha mudança no código, na mesma branch.
 
 ## 1. Princípios
 
