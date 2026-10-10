@@ -3,7 +3,7 @@
 **Slug:** `footer-and-menu-anchors`
 **Branch:** `feat/footer-and-menu-anchors`
 **Área:** rodapé e header · **Dono:** Lucas
-**Status:** Planning
+**Status:** Walkthrough
 **Gate S2:** Livre
 
 ---
@@ -136,28 +136,28 @@ Guia do Next 16 lido: `01-app/01-getting-started/03-layouts-and-pages.md` e `05-
 
 Até 10 itens, um commit cada, na ordem do `/exec`.
 
-1. [ ] **PRD, decisões** (`docs/PRD.md`, seção 12). Nova Rodada 3 (2026-10-09), plano do rodapé:
+1. [x] **PRD, decisões** (`docs/PRD.md`, seção 12). Nova Rodada 3 (2026-10-09), plano do rodapé:
    - **D26:** na Fase 1, o rodapé é o destino de `#contato`, com a identificação e os canais já públicos. Serviços sai do menu até a seção existir.
    - **D27:** o rodapé leva "© 2026 Dra. Thaiane Lessa. Todos os direitos reservados." e não leva crédito do site.
    A decisão é registrada antes da spec que a cita. `docs(prd)`
-2. [ ] **FDD do rodapé.** `docs(fdd)`
+2. [x] **FDD do rodapé.** `docs(fdd)`
    - `docs/fdd/contato.md`: divide em "Rodapé (Fase 1)", com objetivo, conteúdo, comportamento, movimento, regras, acessibilidade, desempenho e critérios completos, e "Seção Contato (Fase 2)", que segue com `> TODO`. Registra que a Fase 2 assume `#contato`.
    - `docs/fdd/README.md`: estado no índice.
    - `docs/fdd/servicos.md:24`: `#servicos` volta ao menu quando a seção existir.
    - `docs/fdd/sobre.md:218`: tira a frase das três âncoras quebradas.
-3. [ ] **Fonte única dos contatos.** `src/lib/contact.ts` com `PHONE_DISPLAY`, `PHONE_HREF`, `WHATSAPP_HREF` e `INSTAGRAM_HREF`. O `header.tsx` passa a importar de lá, sem mudança visível. `refactor`
-4. [ ] **Componente do rodapé.** `src/components/footer.tsx`, conforme o desenho do Stage 3 e o FDD. `feat`
-5. [ ] **Composição.** `<Footer />` em `src/app/layout.tsx`, depois de `{children}`. `feat`
-6. [ ] **Menu.** `NAV_LINKS` só com Sobre e Contato. Os comentários sobre "four destinations" passam a falar dos destinos sem número. `fix`
-7. [ ] **DESIGN.md.** `docs(design)`
+3. [x] **Fonte única dos contatos.** `src/lib/contact.ts` com `PHONE_DISPLAY`, `PHONE_HREF`, `WHATSAPP_HREF` e `INSTAGRAM_HREF`. O `header.tsx` passa a importar de lá, sem mudança visível. `refactor`
+4. [x] **Componente do rodapé.** `src/components/footer.tsx`, conforme o desenho do Stage 3 e o FDD. `feat`
+5. [x] **Composição.** `<Footer />` em `src/app/layout.tsx`, depois de `{children}`. `feat`
+6. [x] **Menu.** `NAV_LINKS` só com Sobre e Contato. Os comentários sobre "four destinations" passam a falar dos destinos sem número. `fix`
+7. [x] **DESIGN.md.** `docs(design)`
    - Seção 3: `forest-900` também como fundo do rodapé, e o par medido do texto secundário.
    - Seção 6: linha "Rodapé: nada anima".
    - Seção 7: `Footer`.
-8. [ ] **Fechamento no PRD e no ROADMAP.** `docs`
+8. [x] **Fechamento no PRD e no ROADMAP.** `docs`
    - PRD seção 6: estado de "Contato e rodapé" (rodapé pronto, seção pendente).
    - PRD seção 10: marca os dois primeiros itens da Fase 1, depois do QA.
    - ROADMAP: coluna Plano das duas linhas com `tasks/footer-and-menu-anchors.md`.
-9. [ ] **`CLAUDE.md`.** "Estado atual" com rodapé e menu. Estrutura do código com `footer` e `src/lib/`. `docs(claude)`
+9. [x] **`CLAUDE.md`.** "Estado atual" com rodapé e menu. Estrutura do código com `footer` e `src/lib/`. `docs(claude)`
 
 QA antes do item 8:
 - Chrome DevTools MCP em 390 px, iPad retrato e computador.
@@ -188,34 +188,54 @@ QA antes do item 8:
 
 ## Stage 6 — Code Execution
 
-*(Preenchido pelo exec.)*
-
 | # | Camada | Arquivo | Status |
 |---|---|---|---|
+| 1 | Docs | `docs/PRD.md` (Rodada 3, D26 e D27) | feito, `f899e7f` |
+| 2 | Docs | `docs/fdd/contato.md` | feito, `fb0e8ca` |
+| 2 | Docs | `docs/fdd/README.md`, `docs/fdd/servicos.md`, `docs/fdd/sobre.md` | feito, `de8b149` |
+| 3 | Dados | `src/lib/contact.ts` (novo), `src/components/header.tsx` | feito, `a395593` |
+| 4 | Componente | `src/components/footer.tsx` (novo), `docs/fdd/contato.md` | feito, `937ecf6` |
+| 5 | Composição | `src/app/layout.tsx` | feito, `cf88fe3` |
+| 6 | Componente | `src/components/header.tsx` (`NAV_LINKS`) | feito, `649af3c` |
+| 7 | Docs | `docs/design/DESIGN.md` | feito, `650ef69` |
+| 8 | Docs | `docs/PRD.md` (seções 6 e 10), `docs/ROADMAP.md`, `docs/fdd/contato.md` e `README.md` (status) | feito, `126191a` |
+| 9 | Docs | `CLAUDE.md` | feito, `9cba318` |
 
 ### Desvios do plano
-- Nenhum | …
+- **Item 2 em dois commits.** O primeiro levou só o `contato.md`, porque o script que editava os outros três arquivos falhou (não há Python no shell). O segundo commit fecha o item.
+- **Layout da base do rodapé.** O plano previa identificação e direitos lado a lado a partir de `sm`. Entre 640 e 1023 px as duas linhas não cabem lado a lado, então ficaram em `flex-wrap`: lado a lado quando cabem, uma embaixo da outra quando não. Os canais ficam em linha a partir de `lg`. O FDD foi ajustado no mesmo commit do componente (`937ecf6`).
+- **`INSTAGRAM_HANDLE`** entrou em `src/lib/contact.ts` além dos quatro dados listados, para o rodapé não repetir "@thaiane_lessa" à mão.
+- **Fechamento do FDD.** O status "implementado" e os critérios marcados no FDD entraram no commit do item 8, junto com PRD e ROADMAP.
 
 ---
 
 ## Stage 7 — Tests
 
-*(Preenchido pelo exec.)*
+O projeto não tem testes automatizados. Verificação no navegador, pelo MCP do Chrome DevTools, contra o `next dev`.
 
 | Critério de aceite | Como foi verificado |
 |---|---|
+| 1. Identificação exata e inteira em `light-base` sobre `forest-900` | `innerText` do parágrafo igual ao texto do PRD. Largura de 340 px em 390 px, sem cortar. Uma linha no iPad retrato (1024×1366) e no computador (1440×900). Prints conferidos |
+| 2. Linha de direitos | Texto presente nas três larguras |
+| 3. Três canais, destinos, nova aba, 44 px, nome acessível | `href` e `target` lidos no DOM. Altura de cada link: 44 px. O nome acessível é o texto visível mais "(abre em nova aba)" em `sr-only` nos dois externos |
+| 4. Menus só com Sobre e Contato, todo `href` existe | Menu compacto (390 px) e menu que desdobra (1440 px): dois links cada. `document.querySelector(href)` não é nulo para os dois |
+| 5. Contato leva ao rodapé; Sobre continua funcionando | Celular: clique em Contato chegou ao fim da página (`scrollY` 4357 de 4357), rodapé visível e menu fechado. Computador com o Lenis ligado: `scrollY` 8865 de 8865, rodapé visível. Sobre: topo do `#sobre` em 0 |
+| 6. Contraste ≥ 4,5:1, medido | Cor computada misturada sobre o fundo, no navegador. Identificação: 12,89. Canais: 9,69. Rótulo e direitos: 7,08 |
+| 7. Foco visível e ordem de leitura | Tab a partir do último foco do header caiu no WhatsApp do rodapé, com `:focus-visible` e contorno sólido de 2 px em `light-base`, afastado 4 px (print). Ordem no DOM: `h2` "Contato", canais, identificação, direitos |
+| 8. Nada se move; igual com movimento reduzido | Pelo código: o rodapé não tem animação; só transição de opacidade no hover. O MCP não emula `prefers-reduced-motion`, então não houve conferência no navegador |
+| 9. Header com os mesmos contatos | `tel:+5582993871990`, `https://wa.me/5582993871990` e `https://instagram.com/thaiane_lessa` lidos no header depois da troca para `src/lib/contact.ts` |
+| 10. Lint, typecheck e build | Stage 8 |
 
 ---
 
 ## Stage 8 — Verification
 
-*(Preenchido pelo exec.)*
-
-- **lint:** Pass | Fail
-- **typecheck:** Pass | Fail
-- **test:** Pass | Fail | n/a
-- **build:** Pass | Fail
-- **Navegador (390 px e computador):** Pass | Fail
+- **lint:** Pass (`npm run lint`)
+- **typecheck:** Pass (`npx next typegen && npx tsc --noEmit`)
+- **test:** n/a (sem testes automatizados)
+- **build:** Pass (`npm run build`, `/` estático)
+- **Navegador (390 px, iPad retrato 1024×1366 e computador 1440×900):** Pass. Sem rolagem horizontal; sem erro nem aviso no console. O indicador do `next dev` cobre o canto do rodapé só em desenvolvimento.
+- **Regras de fora:** Pass. Identificação exata; nenhuma palavra vetada; só dados já publicados; nenhuma imagem além do monograma.
 
 ---
 
