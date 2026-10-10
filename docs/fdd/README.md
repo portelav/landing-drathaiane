@@ -3,12 +3,13 @@
 Um arquivo por seção. Nome: `<nome>.md` em kebab-case.
 Escrito ANTES da implementação. É a spec que o código deve satisfazer.
 
-Regra: seção sem FDD não entra em desenvolvimento. Preloader, header e hero foram construídos antes desta regra e não têm FDD; ganham um quando forem revistos.
+Regra: seção sem FDD não entra em desenvolvimento. Preloader e header foram construídos antes desta regra e não têm FDD; ganham um quando forem revistos. O hero ganhou o seu na revisão da pausa do vídeo.
 
 ## Índice
 
 | Seção | Status | Plano |
 |---|---|---|
+| [Hero](hero.md) | implementado | `tasks/video-pause-control.md` |
 | [Sobre](sobre.md) | implementado | (anterior ao kit) |
 | [Serviços](servicos.md) | rascunho (conteúdo pendente) | — |
 | [Depoimentos](depoimentos.md) | fora por enquanto (PRD, D25) | — |

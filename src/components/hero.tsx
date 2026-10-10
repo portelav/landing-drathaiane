@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useLoopWhileVisible, VideoToggle } from "./video-toggle";
 
 const POSTER = "/video/hero-poster.webp";
 /** VP9 for browsers that decode it, H.264 at level 4.0 for everything else. */
@@ -81,42 +82,9 @@ export function Hero() {
   const veilRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Decorative playback: the poster carries the first paint, and the video only
-  // starts once we know the visitor has not asked for reduced motion.
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let attempts = 0;
-
-    const attempt = () => {
-      if (media.matches) return;
-      video.play().catch(() => {
-        // Some browsers refuse until enough data has arrived. Try again once
-        // it has, a couple of times; past that the refusal is a real policy
-        // (low power mode, data saver) and the poster is the right answer.
-        if (attempts++ < 3) video.addEventListener("canplay", attempt, { once: true });
-      });
-    };
-
-    const sync = () => {
-      if (media.matches) {
-        video.pause();
-        video.currentTime = 0;
-      } else {
-        attempts = 0;
-        attempt();
-      }
-    };
-
-    sync();
-    media.addEventListener("change", sync);
-    return () => {
-      media.removeEventListener("change", sync);
-      video.removeEventListener("canplay", attempt);
-    };
-  }, []);
+  // Decorative playback: the poster carries the first paint, and the video
+  // loops only while it is on screen and the visitor has not stopped it.
+  const playback = useLoopWhileVisible(videoRef);
 
   // Scroll-driven reveal. Everything animated here is absolutely positioned, so
   // resizing the window costs no reflow of the page around it.
@@ -327,6 +295,14 @@ export function Hero() {
           >
             seu sorriso, no seu tempo
           </span>
+
+          {playback.playable && (
+            <VideoToggle
+              paused={playback.paused}
+              onToggle={playback.toggle}
+              subject="do consultório"
+            />
+          )}
         </div>
 
         <div className="pointer-events-none absolute inset-y-0 left-0 z-20 hidden items-center wide:flex">

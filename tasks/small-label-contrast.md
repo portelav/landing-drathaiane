@@ -3,7 +3,7 @@
 **Slug:** `small-label-contrast`
 **Branch:** `fix/small-label-contrast`
 **Área:** hero, Sobre (band, texto, linha do tempo), header · **Dono:** Lucas
-**Status:** Walkthrough
+**Status:** Done (PR #5 mergeado em 2026-10-10)
 **Gate S2:** Livre
 
 ---

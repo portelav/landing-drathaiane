@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useLoopWhileVisible, VideoToggle } from "./video-toggle";
 
 const POSTER = "/video/kit-poster.webp";
 /** VP9 for browsers that decode it, H.264 for everything else. */
@@ -73,32 +74,7 @@ export function AboutTimeline() {
   const seats = useRef<(HTMLSpanElement | null)[]>([]);
   const slots = useRef<(HTMLDivElement | null)[]>([]);
 
-  /**
-   * Loops for as long as it is on screen, and only while it is on screen —
-   * a forever loop scrolled past is spent battery.
-   */
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) {
-          video.pause();
-          return;
-        }
-        video.play().catch(() => {
-          // Refused by a data saver or low power mode. The poster is the right
-          // answer then, and it is already on screen.
-        });
-      },
-      { threshold: 0.4 },
-    );
-
-    observer.observe(video);
-    return () => observer.disconnect();
-  }, []);
+  const playback = useLoopWhileVisible(videoRef);
 
   useEffect(() => {
     const wrap = wrapRef.current;
@@ -312,7 +288,7 @@ export function AboutTimeline() {
         {/* Portrait, because every frame this practice shoots is portrait —
             the panel takes the format rather than letterboxing it. The wheel
             tells the trajectory; the hands anchor it in the present. */}
-        <div className="mt-14 w-[82%] shrink-0 beside:mt-0 beside:w-[30%]">
+        <div className="relative mt-14 w-[82%] shrink-0 beside:mt-0 beside:w-[30%]">
           <video
             ref={videoRef}
             muted
@@ -331,6 +307,14 @@ export function AboutTimeline() {
               <source key={source.src} src={source.src} type={source.type} />
             ))}
           </video>
+
+          {playback.playable && (
+            <VideoToggle
+              paused={playback.paused}
+              onToggle={playback.toggle}
+              subject="do kit de higiene"
+            />
+          )}
         </div>
       </div>
     </section>

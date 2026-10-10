@@ -160,7 +160,17 @@ letterbox.
 mesma regra do Tempo 2. Loop de pessoa executando tarefa vira esteira: a ação
 tem começo e fim, e repetida o olho acha o ponto de emenda.
 
-> Nota de 2026-10-09: decisão revertida em 6068291 (2026-08-20). O vídeo agora roda em loop e pausa ao sair da tela: um quadro congelado ao lado de uma roda que ainda gira parecia falha de carregamento. Como se repete por mais de 5 s, falta um controle de pausa (WCAG 2.2.2), item no ROADMAP.
+> Nota de 2026-10-09: decisão revertida em 6068291 (2026-08-20). O vídeo agora roda em loop e pausa ao sair da tela: um quadro congelado ao lado de uma roda que ainda gira parecia falha de carregamento.
+
+**Em loop, com pausa** (PRD, D31, 2026-10-10). O comportamento é o mesmo do vídeo do hero e vem da mesma peça (`src/components/video-toggle.tsx`):
+- Toca em loop enquanto 40% dele está na tela e pausa fora dela.
+- Como se repete por mais de 5 s, tem um botão de pausa (WCAG 2.2.2) no canto inferior direito.
+  - Desenho: quadrado claro de 32 px, sem raio, com ícone escuro.
+  - Toque: área de 44 × 44 px.
+  - Leitor de tela: "Pausar o vídeo do kit de higiene" ou "Reproduzir o vídeo do kit de higiene".
+- A pausa pedida pela pessoa vale até ela tocar em reproduzir, mesmo que role para longe e volte.
+- Com movimento reduzido, ou se o navegador recusa tocar, fica o poster e o botão não aparece.
+- O vídeo segue decorativo (`aria-hidden`), e o botão é o único controle.
 
 **Dimensionado pelo tamanho de exibição.** O hero pesa 4,2MB porque é tela
 cheia; este painel cabe em 300–500KB.

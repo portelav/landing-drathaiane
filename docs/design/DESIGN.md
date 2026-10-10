@@ -74,6 +74,7 @@ AA pede 4,5:1 para texto normal e 3:1 para texto grande (24 px, ou 18,66 px em n
 | `light-base/70` sobre `forest-900` (pele escura do hero, fora de uso) | 7,08 | AA e AAA |
 | `dark-base` sobre o gradiente da band, na altura do rótulo | 6,34 | AA |
 | `light-base` sobre o gradiente da band (citação, texto grande) | 2,52 a 3,00 | **Não passa** |
+| Ícone do botão de pausa (`dark-base`) sobre o quadrado (`light-base`), os dois a 80% sobre qualquer quadro do vídeo | 8,45 ou mais (15,68 com foco ou hover) | Componente (3:1) |
 | `dark-40` sobre `light-base` | 2,46 | **Não passa**: só traço decorativo |
 
 A citação da band aberta, em `light-base` sobre o gradiente, mede 2,52 na primeira linha e 3,00 na última, abaixo dos 3:1 de texto grande. Corrigir muda o visual da band; item no ROADMAP.
@@ -94,6 +95,7 @@ Nada abaixo de 11 px, e 11 px só em rótulo de caixa-alta com contraste AA.
 ## 5. Forma
 
 - Quase sem raio: a página é feita de fotos, vídeos e texto, não de cartões. Exceções: os botões sociais do header (`rounded-[16px]`, 44 px, área de toque mínima) e os marcadores da linha do tempo (`rounded-full`).
+- O botão de pausa dos vídeos segue a regra: quadrado de 32 px, sem raio, dentro de uma área de toque de 44 px, no canto inferior direito do vídeo.
 - Sem sombra de cartão. A única "sombra" é a mistura de cor que continua a parede da foto na band do Sobre.
 - Espaçamento lateral: 24 px no celular, 40 px a partir de `sm`.
 
@@ -110,11 +112,12 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 | Sobre, band: retrato cresce, cenário abre | scroll (rAF) | proporcional ao scroll | Eixo horizontal, continuação do hero |
 | Sobre, texto: linhas sobem por máscara | entrada, uma vez | 70 ms entre linhas | Único momento que anima e para: o silêncio depois é o efeito |
 | Sobre, roleta de anos | scroll (rAF) | proporcional ao scroll | Eixo vertical, o contraste que hero e band não dão |
-| Vídeo do kit | entrada na tela | loop, pausa fora da tela | Um quadro parado ao lado da roda parecia falha |
+| Vídeo do consultório (hero) | 40% na tela | loop; pausa fora da tela e pelo botão | O consultório vivo na primeira impressão |
+| Vídeo do kit | 40% na tela | loop; pausa fora da tela e pelo botão | Um quadro parado ao lado da roda parecia falha |
 | Rodapé | nenhum | nada anima; hover dos canais só de opacidade, 300 ms | Ponto de repouso depois de três momentos seguidos dirigidos por scroll |
 
 - Animar `transform` e `opacity`. **Exceção registrada:** a roleta aplica `blur` de até 2,5 px nas frases em trânsito, para fundir a passagem entre duas linhas vizinhas. Nada de `mix-blend-mode` em elemento que se move.
-- O que se mexe sozinho por mais de 5 s tem como pausar (WCAG 2.2.2). Hoje o vídeo do hero e o do kit não têm controle; item no ROADMAP.
+- O que se mexe sozinho por mais de 5 s tem como pausar (WCAG 2.2.2). Os dois vídeos em loop têm o botão `VideoToggle`. A pausa da pessoa vale até ela tocar em reproduzir, mesmo que role para longe e volte (PRD, D31).
 - `prefers-reduced-motion`: **respeitado**, decisão já tomada no código. Cada peça vai ao estado final legível: hero e band abertos e sem palco travado, texto sem máscara, roleta inteira desenhada, vídeos parados no poster, Lenis desligado, preloader encurtado para 300 ms.
 - Lenis só no computador; no toque o aparelho já suaviza.
 - O que já foi decidido não fazer está em `docs/fdd/sobre.md` ("O que foi decidido não fazer"): palavras acendendo com o scroll, parallax no retrato, contagem crescente nos anos, letra a letra em parágrafo.
@@ -126,7 +129,8 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 | `Preloader` | `src/components/preloader.tsx` | desenhando, preenchido, voando, ausente; versão curta com movimento reduzido |
 | `Header` | `src/components/header.tsx` | flutuando, ancorado (fundo próprio), escondido; tema claro e escuro; menu aberto e fechado |
 | `BrandMark` | `src/components/brand-mark.tsx` | herda a cor do texto |
-| `Hero` | `src/components/hero.tsx` | `wide:` (abre por scroll) ou estreito (quadro inteiro); vídeo tocando ou poster |
+| `Hero` | `src/components/hero.tsx` | `wide:` (abre por scroll) ou estreito (quadro inteiro); vídeo tocando, pausado ou no poster |
+| `VideoToggle`, `useLoopWhileVisible` | `src/components/video-toggle.tsx` | botão: pausar ou reproduzir, foco, hover; ausente com movimento reduzido ou antes de o vídeo tocar |
 | `About`, `AboutText`, `AboutTimeline` | `src/components/about*.tsx` | `beside:` (lado a lado, por scroll) ou empilhado; movimento reduzido |
 | `SmoothScroll` | `src/components/smooth-scroll.tsx` | ligado no computador; desligado no toque e com movimento reduzido |
 | `Footer` | `src/components/footer.tsx` | estático; destino de `#contato` enquanto a seção Contato não existe (PRD, D26) |

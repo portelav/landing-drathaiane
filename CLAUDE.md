@@ -166,7 +166,7 @@ Antes de abrir PR: lint, typecheck e build verdes (o CI roda os três).
 ```
 src/
   app/          layout.tsx (metadados, fontes, noindex), page.tsx (ordem das seções), globals.css (tokens, variantes wide: e beside:)
-  components/   uma seção ou peça por arquivo: preloader, header, hero, about, about-text, about-timeline, footer, brand-mark, smooth-scroll
+  components/   uma seção ou peça por arquivo: preloader, header, hero, about, about-text, about-timeline, footer, brand-mark, smooth-scroll, video-toggle (pausa dos vídeos)
   lib/          dados sem componente, compartilhados entre Server e Client Components: contact.ts (telefone, WhatsApp, Instagram)
 public/
   images/  logos/  video/   mídia já transcodificada
