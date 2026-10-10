@@ -58,7 +58,9 @@ export function Footer() {
           </p>
         </div>
 
-        <ul className="m-0 list-none p-0 text-[0.9375rem]">
+        {/* One row on a phone, where the three fit side by side; a column
+            beside the identification once there is room for both. */}
+        <ul className="m-0 flex list-none flex-wrap gap-x-6 p-0 text-[0.9375rem] sm:flex-col sm:gap-x-0">
           {CHANNELS.map((channel) => (
             <li key={channel.href}>
               <a
