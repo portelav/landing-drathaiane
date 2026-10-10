@@ -3,7 +3,7 @@
 **Slug:** `roles-prices-cfo-rules`
 **Branch:** `docs/roles-prices-cfo-rules`
 **Área:** docs (PRD, CLAUDE.md, pesquisa, comandos) · **Dono:** Lucas
-**Status:** Planning
+**Status:** Walkthrough
 **Gate S2:** Livre
 
 ---
@@ -163,34 +163,60 @@ Depois do merge (fora da branch): apagar a memória `docs-branch-plan` do agente
 
 ## Stage 6 — Code Execution
 
-*(Preenchido pelo exec.)*
-
 | # | Camada | Arquivo | Status |
 |---|---|---|---|
+| 1 | tasks | `tasks/footer-colophon.md` | Done (`2036223`) |
+| 2 | PRD | `docs/PRD.md` (Rodada 4, D28; risco da seção 9) | Done (`a1990c9`) |
+| 3 | Docs e comandos | `CLAUDE.md`, `docs/design/DESIGN.md`, `.claude/commands/exec.md`, `.claude/commands/council.md` | Done (`1ebf3da`) |
+| 4 | Docs | `CLAUDE.md` (seção "Princípio"), `docs/PRD.md` (risco fora do CRO) | Done (`8e79b80`) |
+| 5 | PRD | `docs/PRD.md` (D29; seção 7) | Done (`c7d19d5`) |
+| 6 | Pesquisa | `docs/research/publicidade-odontologica.md` | Done (`e875a14`) |
+| 7 | PRD | `docs/PRD.md` ("Regras de fora": abertura e tabela) | Done (`b7d51b7`) |
+| 8 | Docs | `CLAUDE.md` ("Regras de fora") | Done (`9963a69`) |
+| 9 | Comandos e design | `.claude/commands/plan.md`, `exec.md`, `walkthrough.md`; `docs/design/DESIGN.md` | Done (`6db669e`) |
+
+Conferências do item 6, feitas no texto oficial em 2026-10-10:
+- Art. 44, VII: diz "especialmente a utilização da expressão 'popular'". Uma das extrações do PDF do Código cortou a linha; a outra, feita em 2026-10-09 com `pdfjs-dist`, traz o inciso inteiro.
+- Res. CFO-230/2020, baixada do sistema de atos do CFO: o art. 2º veda publicidade de procedimento não odontológico. O certificado TLS do site continua vencido; o PDF foi baixado com `curl -k` (texto público, nada enviado).
+- "CFO Esclarece": não fala em "superlativo"; confirma que pessoa jurídica não publica antes e depois.
+- Página "Códigos" do CFO: ainda aponta para o PDF de 2012. Nenhum código novo.
 
 ### Desvios do plano
-- Nenhum | …
+- **Art. 1º, § 1º, da Res. 196/2019.** O "CFO Esclarece" lê a proibição de equipamento, instrumental, material e tecido biológico para qualquer imagem, não só para selfie, como a cartilha do CRO-AL já fazia. A tabela do PRD e a pesquisa registram isso como interpretação, ao lado do texto literal. O efeito no produto seguiu o plano: vale para selfie, e saiu "marca de material nunca em destaque". Fica para o Lucas decidir se mantém assim.
+- **Res. CFO-198/2019.** A pesquisa dizia que a cartilha tinha digitado errado ao citar a "Res. CFO-198/2019". O texto oficial da 230/2020 diz que regulamenta o art. 3º da 198/2019, então a cartilha está certa. A pesquisa foi corrigida e ganhou uma seção sobre a 230/2020, que também registra a alteração dela pela Res. CFO-285/2026 (procedimentos, não publicidade).
+- **"Superlativo"** saiu da tabela do PRD e da lista curta, porque o "CFO Esclarece" não o menciona. Continua no tom de voz do DESIGN.md (seção 8) e nas regras do `docs/fdd/servicos.md`, que ficaram fora do escopo.
+- **Item de paciente** no `CLAUDE.md` e no `walkthrough.md`: além do art. 44, VI, mantém o efeito do PRD ("na página, ninguém identificável sem autorização escrita"), para não perder a proteção de terceiro identificável que a lista antiga tinha.
+- **Tabela do PRD** passou de 12 para 17 linhas: preço, brinde e sorteio, "popular", palavras da cartilha e crítica a colega viraram linhas próprias, cada uma com a sua fonte.
 
 ---
 
 ## Stage 7 — Tests
 
-*(Preenchido pelo exec.)*
+Entrega só de docs: não há teste automatizado. Cada critério foi conferido com `grep` e `git diff`.
 
 | Critério de aceite | Como foi verificado |
 |---|---|
+| 1. Nenhuma frase de aprovação dela | `grep` pelas cinco frases em `CLAUDE.md`, `docs/` e `.claude/`: nenhum resultado |
+| 2. Rodada 4 com D28 e D29; D7 intacto | Leitura da seção 12 do PRD; D7 sem diff |
+| 3. "Aval dela" só para o `noindex`; nada técnico para ela | Linhas novas do diff (fora de `tasks/`) com "aval" ou "pauta": só o parágrafo de abertura das "Regras de fora", que fala de D22 |
+| 4. Lista curta com sete itens e proporção; regra da dúvida fora | Leitura do `CLAUDE.md`, seção "Regras de fora" |
+| 5. Princípio no topo com as áreas | Leitura do `CLAUDE.md`, seção "Princípio" |
+| 6. Tabela do PRD com artigo ou "(interpretação)" em cada linha; nenhuma fonte de terceiros | Leitura da tabela linha a linha; o único link fora do CFO e do CRO-AL é a Lei 13.709/2018 |
+| 7. Pesquisa sem fonte secundária como fonte de regra; Res. 271/2025 citada do texto | `grep` por "Sorriai" e "secundária" na seção de fontes: nada; seção da Res. 271/2025 cita os arts. 20, 32 e 44 |
+| 8. Comandos alinhados | `grep` por "instrumental", "material" e "superlativo" em `plan.md`, `exec.md` e `walkthrough.md`: nada |
+| 9. Status do rodapé | `tasks/footer-colophon.md`, linha 6: `Done (PR #3 mergeado em 2026-10-10)` |
+| 10. Nenhum arquivo em `src/` | `git diff --stat main`: só `.claude/commands/`, `CLAUDE.md`, `docs/` e `tasks/` |
 
 ---
 
 ## Stage 8 — Verification
 
-*(Preenchido pelo exec.)*
-
-- **lint:** Pass | Fail
-- **typecheck:** Pass | Fail
-- **test:** Pass | Fail | n/a
-- **build:** Pass | Fail
-- **Navegador (390 px e computador):** Pass | Fail
+- **lint:** Pass
+- **typecheck:** Pass (`npx next typegen && npx tsc --noEmit`)
+- **test:** n/a
+- **build:** Pass
+- **Navegador (390 px e computador):** n/a (nenhum arquivo do site mudou)
+- **Commits:** 10, todos com o e-mail noreply e sem atribuição de IA
 
 ---
 
