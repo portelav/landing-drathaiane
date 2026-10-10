@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { INSTAGRAM_HREF, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_HREF } from "@/lib/contact";
 import { BrandMark, MARK_FLIGHT } from "./brand-mark";
 
 const NAV_LINKS = [
@@ -11,11 +12,6 @@ const NAV_LINKS = [
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "Contato", href: "#contato" },
 ];
-
-const PHONE_DISPLAY = "(82) 99387-1990";
-const PHONE_HREF = "tel:+5582993871990";
-const WHATSAPP_HREF = "https://wa.me/5582993871990";
-const INSTAGRAM_HREF = "https://instagram.com/thaiane_lessa";
 
 /** One shape for every social tile, so the row reads as a set. */
 const SOCIAL_TILE =
