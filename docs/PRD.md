@@ -96,7 +96,7 @@ Sobre depoimentos: o Código de Ética não trata de depoimento de paciente. A r
 | Conteúdo das seções depende dela e não tem data | Fase 2 parada | Fase 1 não depende dela (D21). Na Fase 2, estrutura e movimento com `> TODO` no FDD, nunca com texto inventado na página |
 | Uma peça do site ser considerada infração ética | Processo ético contra ela (advertência a suspensão) | Regras de fora no `/walkthrough`; aval dela antes de indexar (D22); dúvida pontual ao DEF/CRO-AL |
 | Repositório público expõe fotos e dados dela, ou dúvida aberta sobre ela | Exposição sem consentimento | Aval dado em 2026-10-09 (D18). Dúvida, pendência e dado de terceiro só nas notas privadas (D19) |
-| Dependência de uma pessoa (ela aprova tudo) | Retrabalho se a aprovação vier depois | Mostrar o preview da Vercel a cada seção, antes do merge |
+| Opinião dela sobre estética, design ou seção chegar com a seção já pronta | Retrabalho de visual | O Lucas conversa com ela, com opções, quando a decisão de visual ou de seção pesa (D28); olhar final dela antes de tirar o `noindex` (D22) |
 
 ## 10. Critérios de pronto
 
@@ -177,3 +177,9 @@ Plano em `tasks/footer-and-menu-anchors.md`.
 
 - **D26.** Na Fase 1, o rodapé é o destino de `#contato`: leva a identificação e os canais que o site já mostra no header (WhatsApp, telefone, Instagram; D3). Quando a seção Contato da Fase 2 existir, ela assume a âncora. Serviços sai do menu até a seção existir.
 - **D27.** O rodapé leva "© 2026 Dra. Thaiane Lessa. Todos os direitos reservados." (D20) e não leva crédito do site.
+
+### Rodada 4 (2026-10-10): papéis, preços e regras do CFO
+
+Plano em `tasks/roles-prices-cfo-rules.md`.
+
+- **D28.** Papéis. O Lucas confirma tudo: conteúdo, visual, técnica, segurança e git. A Dra. Thaiane opina sobre estética, design e seções, dando opções, sem aprovação formal. Fica o olhar final dela no site completo antes de tirar o `noindex` (D22). O conteúdo que só ela tem (texto, foto, endereço, horário) continua vindo dela e nunca é inventado. Pergunta técnica, de git ou de segurança não vai para ela. Substitui D7.
