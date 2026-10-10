@@ -55,9 +55,10 @@ Duas peles de cor no código (`PALETTE`), escolhidas pela constante `TONE`. No a
 Só `transform`, `opacity`, `width` do quadro (que está em posição absoluta e não força layout do resto da página) e `objectPosition`. O botão não anima: o hover é só de opacidade, 300 ms.
 
 **`prefers-reduced-motion`:**
-- Sem palco travado: no `wide:`, a seção perde a pista de `300svh`. A janela fica no tamanho de um painel, o texto parado e a linha de exibição centralizada.
+- Sem palco travado: no `wide:`, a seção perde a pista de `300svh`. A janela fica no tamanho de um painel e o texto fica parado.
+- A linha de exibição fica centralizada no estreito. No `wide:`, ela não aparece, porque só entra com a abertura.
 - O vídeo fica no poster e o botão não aparece.
-- Se a preferência mudar com a página aberta, tudo acompanha.
+- Se a preferência mudar com a página aberta, tudo acompanha. Ligar a preferência desfaz a pausa pedida pela pessoa: ao desligar, o vídeo volta ao loop, com o botão.
 
 ## Regras
 
@@ -68,7 +69,7 @@ Só `transform`, `opacity`, `width` do quadro (que está em posição absoluta e
 
 ## Acessibilidade
 
-- Ordem de leitura: rótulo, título (`h1`), parágrafo, convite, botão de pausa.
+- Ordem de leitura: rótulo, título (`h1`), parágrafo, convite, e então o botão de pausa e a linha de exibição. No estreito, a linha vem antes do botão; no `wide:`, depois.
 - O vídeo é decorativo: `aria-hidden`, fora do Tab, sem os controles do navegador nem picture-in-picture. O botão é o único controle.
 - O botão é um `button` com nome que muda entre "Pausar" e "Reproduzir". Responde a Enter e a Espaço, e o foco é visível sobre o quadrado claro.
 - O ícone passa em 3:1 contra o quadrado.
