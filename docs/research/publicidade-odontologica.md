@@ -83,7 +83,15 @@ Ou seja, antes e depois é permitido, com as condições da página 8 e da pági
 
 ## Depoimentos
 
-Nenhuma das fontes primárias lidas proíbe depoimento de paciente de forma explícita. Fontes secundárias de marketing odontológico afirmam que depoimento em peça publicitária é vedado, apoiadas nos incisos I (enganosa ou abusiva), VI (identificar paciente sem consentimento e nunca para autopromoção) e VII (aliciamento) do art. 44. Leitura do agente: um depoimento identificado de paciente, numa landing que é peça publicitária, esbarra no inciso VI, já que o fim é a promoção da profissional. **Incerto. Perguntar ao CRO-AL antes de construir a seção.**
+Nenhuma das fontes primárias lidas proíbe depoimento de paciente de forma explícita. O Código de Ética só usa a palavra "depoimento" uma vez, no art. 10, sobre perito que depôs como testemunha. A regra que pesa é o art. 44, VI, conferido no PDF oficial em 2026-10-09:
+
+> VI - divulgar nome, endereço ou qualquer outro elemento que identifique o paciente, a não ser com seu consentimento livre e esclarecido, ou de seu responsável legal, desde que não sejam para fins de autopromoção ou benefício do profissional, ou da entidade prestadora de serviços odontológicos, observadas as demais previsões deste Código;
+
+Fontes secundárias de marketing odontológico, não registradas aqui, afirmam que depoimento em peça publicitária é vedado, apoiadas nos incisos I (enganosa ou abusiva), VI e VII (aliciamento) do art. 44. Sem fonte citada, a afirmação não sustenta decisão.
+
+Leitura do agente: um depoimento identificado de paciente, numa landing que é peça publicitária, esbarra no inciso VI, já que o fim é a promoção da profissional. O texto do inciso fala de elemento que *identifique* o paciente; depoimento sem esse elemento não cai nele de forma direta. **Incerto. Confirmar com o CRO-AL antes de construir a seção.**
+
+A seção está fora do site por enquanto (PRD, D25).
 
 ## Dados pessoais (LGPD)
 

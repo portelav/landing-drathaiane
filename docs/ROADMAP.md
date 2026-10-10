@@ -1,31 +1,35 @@
 # Roadmap
 
-Forma leve: projeto solo. Escopo, meta e prazo do MVP saem da revisão do site com o Lucas (PRD, D17); até lá, a lista abaixo é só o que já se sabe.
+Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só depende do Lucas e vai até 2026-10-23; a Fase 2 é a versão pública e não tem data. Critérios de pronto no PRD, seção 10.
 
-## Agora
+## Fase 1: portfólio (até 2026-10-23)
 
 | Item | Critério de pronto | Plano |
 |---|---|---|
-| Revisão do site com o Lucas | Escopo do MVP, meta e prazo registrados no PRD (Rodada 2, seções 5 e 10) e nesta lista | — |
 | Rodapé com identificação | "Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418" visível em 390 px, iPad e computador | `/plan` (parte de Contato) |
-| Âncoras quebradas do menu | `#servicos`, `#depoimentos`, `#contato` levam a uma seção, ou saem do menu até ela existir | — |
+| Menu sem link quebrado | Depoimentos sai do menu (D25); `#servicos` e `#contato` levam a uma seção, ou saem do menu até ela existir | — |
 | Contraste dos rótulos de 11 px | `dark-55` e `light-40` em texto pequeno passam em 4,5:1 (DESIGN.md, seção 3) | — |
 | Pausa dos vídeos em loop | Hero e kit com controle de pausa acessível (WCAG 2.2.2) | — |
+| Barra técnica | Lighthouse no celular: LCP abaixo de 2,5 s no 4G, acessibilidade sem falha AA, em 390 px, iPad e computador | — |
+| README final | Prints e link do site | — |
+| Portfólio e currículo | Link do site nos dois | fora do repositório |
 
-## Depois
+## Fase 2: site público (sem data)
 
 - Seção Serviços (`docs/fdd/servicos.md`), quando o conteúdo chegar.
 - Seção Contato (`docs/fdd/contato.md`), quando o conteúdo chegar.
-- Seção Depoimentos ou substituto (`docs/fdd/depoimentos.md`), depois da resposta do CRO-AL.
-- Revisão do DEF/CRO-AL (consultoria gratuita) antes de tirar o `noindex`, e os ajustes que ela pedir.
-- Tirar o `noindex`, completar metadados e prévia de link (Open Graph).
-- README final com prints e link.
+- Aval dela no site completo; tirar o `noindex`, completar metadados e prévia de link (Open Graph) (D22).
+- Barra técnica conferida de novo com as seções novas.
+
+## Depois
+
 - Rever o ignore `.claude/**` do `eslint.config.mjs` (comentário diz "vendored agent tooling"): as skills de terceiros saíram no kickoff, e o que sobrou em `.claude/hooks/` é código do projeto.
-- Domínio próprio.
+- Domínio próprio (D10).
 
 ## Talvez
 
-- Seção de primeira visita, para onde a doutora acha que o vídeo do kit pertence (nota em `docs/fdd/sobre.md`).
+- Seção Depoimentos (`docs/fdd/depoimentos.md`), fora por enquanto (D25).
+- Seção de primeira visita, com o vídeo do kit (contexto nas notas privadas).
 - Faixa estreita com a foto `IMG_9049` (sacolinha do kit) entre o texto e a linha do tempo do Sobre.
 - Analytics de cliques no WhatsApp (exige política de privacidade e novo `/kickoff`).
 

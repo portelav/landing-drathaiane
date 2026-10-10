@@ -11,7 +11,7 @@ Regra: seção sem FDD não entra em desenvolvimento. Preloader, header e hero f
 |---|---|---|
 | [Sobre](sobre.md) | implementado | (anterior ao kit) |
 | [Serviços](servicos.md) | rascunho (conteúdo pendente) | — |
-| [Depoimentos](depoimentos.md) | rascunho (bloqueado: dúvida ética) | — |
+| [Depoimentos](depoimentos.md) | fora por enquanto (PRD, D25) | — |
 | [Contato e rodapé](contato.md) | rascunho (conteúdo pendente) | — |
 
 ## Template (seção de site)

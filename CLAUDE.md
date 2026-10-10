@@ -17,7 +17,7 @@ Repositório: `portelav/landing-drathaiane`, público desde 2026-10-09, com o av
 
 ## Marco atual
 
-Fechar o MVP: seções que faltam (Serviços, Depoimentos ou substituto, Contato e rodapé), conformidade com as regras do CFO e do CRO-AL, e saída do `noindex`. Escopo, meta e prazo do MVP ainda vão ser definidos numa revisão do site. Lista de trabalho em `docs/ROADMAP.md`.
+Fase 1 do MVP, até 2026-10-23 (PRD, D21 a D25): o que só depende do Lucas, para o site entrar no portfólio e no currículo com o `noindex`. Rodapé com o CRO, menu sem link quebrado, contraste, pausa dos vídeos, barra técnica e README. Depois, sem data, a Fase 2: Serviços e Contato com o conteúdo dela, aval dela e saída do `noindex`. Depoimentos está fora por enquanto. Critérios de pronto no PRD, seção 10; lista de trabalho em `docs/ROADMAP.md`.
 
 Onde está cada coisa:
 
@@ -34,7 +34,7 @@ Onde está cada coisa:
 
 ## Estado atual
 
-Prontos: preloader com o monograma, header (WhatsApp e Instagram), hero com vídeo e a seção Sobre em três tempos (band, texto, linha do tempo com vídeo). Faltam Serviços, Depoimentos e Contato, cujas âncoras o menu já declara. O conteúdo dessas seções está com a doutora. No ar em https://drathaianelessa.vercel.app com `noindex`.
+Prontos: preloader com o monograma, header (WhatsApp e Instagram), hero com vídeo e a seção Sobre em três tempos (band, texto, linha do tempo com vídeo). Faltam Serviços e Contato, cujo conteúdo está com a doutora. O menu ainda declara as âncoras de Serviços, Depoimentos e Contato, que não levam a lugar nenhum. No ar em https://drathaianelessa.vercel.app com `noindex`.
 
 ## Ambientes
 
