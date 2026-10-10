@@ -50,13 +50,13 @@ Tokens em `src/app/globals.css`, expostos ao Tailwind por `@theme inline`.
 
 ### Texto secundário
 
-Rótulos, parágrafo de apoio e canais do rodapé usam o token-base a 70%: `dark-base/70` sobre fundo claro, `light-base/70` sobre fundo escuro. No header, onde a cor vem do tom da seção, é `opacity-70`. Sobre foto, ou sobre gradiente tirado de foto, o texto vai em cor cheia: o rótulo "A dentista" na band aberta é `dark-base`. Nenhum texto abaixo de 70%.
+Rótulos, parágrafo de apoio e canais do rodapé usam o token-base a 70%: `dark-base/70` sobre fundo claro, `light-base/70` sobre fundo escuro. No header, onde a cor vem do tom da seção, é `opacity-70`. Sobre foto, ou sobre gradiente tirado de foto, o texto vai em cor cheia: o rótulo "A dentista" na band aberta é `dark-base`. Nenhum texto em repouso abaixo de 70%. A exceção é a roleta da linha do tempo, que apaga os anos fora de foco durante o scroll; com movimento reduzido, ela fica toda em cor cheia.
 
 `dark-55` e `light-40` saíram em 2026-10-10: em texto pequeno não passavam no AA (3,79 e 3,52).
 
 ### Contraste verificado
 
-AA pede 4,5:1 para texto normal e 3:1 para texto grande (24 px, ou 18,66 px em negrito). Os pares de cor sólida foram calculados em 2026-10-09 (WCAG 2.x). Os de texto secundário e os da band foram medidos no navegador em 2026-10-10, em 390 px, iPad retrato e computador: cor computada misturada sobre o fundo real e, na band, sobre a cor do gradiente na altura do texto.
+AA pede 4,5:1 para texto normal e 3:1 para texto grande (24 px, ou 18,66 px em negrito). Os pares de cor sólida foram calculados em 2026-10-09 (WCAG 2.x). Os de texto secundário e os da band foram medidos no navegador em 2026-10-10, em 390 px, iPad retrato e computador (a band aberta e a pele escura do hero, só no computador): cor computada misturada sobre o fundo real e, na band, sobre a cor do gradiente na altura do texto.
 
 | Par | Razão | Passa |
 |---|---|---|

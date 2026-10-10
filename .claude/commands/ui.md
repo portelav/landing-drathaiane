@@ -20,7 +20,7 @@ Você é o especialista de interface. Base de componentes: **componentes própri
 - **Celular primeiro**, 390 px; depois iPad retrato e computador. Layout que depende de foto ou vídeo decide por proporção (`wide:`, `beside:`).
 - **Tokens, nunca cor ou fonte solta.** Token que falta entra em `globals.css` e no DESIGN.md, não hex avulso.
 - **Parado é estado de primeira classe:** toda peça tem estado final legível com `prefers-reduced-motion`.
-- **Acessibilidade:** toque mínimo 44 px, foco visível, `aria-label` em botão só com ícone, contraste AA (texto secundário em `dark-base/70` ou `light-base/70`, nunca abaixo de 70%; sobre foto, cor cheia; ver DESIGN.md, seção 3), alternativa a gesto.
+- **Acessibilidade:** toque mínimo 44 px, foco visível, `aria-label` em botão só com ícone, contraste AA (texto secundário em `dark-base/70` ou `light-base/70`, nunca abaixo de 70% em repouso; sobre foto, cor cheia; ver DESIGN.md, seção 3), alternativa a gesto.
 - **Movimento:** cada animação tem o porquê no FDD; só `transform` e `opacity` (exceções no DESIGN.md); o que se mexe sozinho por mais de 5 s tem pausa.
 - **Textos em português do Brasil**, no tom do DESIGN.md e dentro das regras do CFO (PRD). Sem emoji como ícone.
 - **Componente de servidor por padrão**; `"use client"` só onde há estado, efeito ou evento.
