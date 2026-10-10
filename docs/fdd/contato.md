@@ -1,7 +1,7 @@
 # FDD: Seção Contato e rodapé
 
 Status: rodapé implementado (Fase 1); seção Contato em rascunho (conteúdo pendente, Fase 2)
-PRD: seção 6, item Contato e rodapé; D26 e D27
+PRD: seção 6, item Contato e rodapé; D26, D27 e D32 a D34
 Plano do rodapé: `tasks/footer-and-menu-anchors.md`
 
 ## Objetivo
@@ -76,7 +76,16 @@ Verificáveis em 390 px, iPad retrato e computador:
 
 ### Conteúdo
 
-> TODO: endereço, horários, mapa (sim ou não), e-mail. A doutora já tem e ainda não mandou.
+Partes decididas (D32 a D34). O texto de cada uma vem dela.
+
+- Endereço do consultório, com link de rota para o Maps (D34). Sem mapa embutido.
+- Horário e acesso (estacionamento, acessibilidade), se ela quiser.
+- Primeira consulta: as etapas em poucas linhas (D32).
+- Perguntas frequentes curtas (D32).
+- Link discreto para as avaliações dela fora do site, no perfil do Google (D33).
+- WhatsApp, o mesmo do header e do rodapé.
+
+> TODO: endereço, horário, acesso, e-mail (sim ou não), etapas da primeira consulta, perguntas e respostas, link do perfil no Google. A doutora já tem parte disso e ainda não mandou.
 
 ### Comportamento
 
@@ -90,6 +99,10 @@ Verificáveis em 390 px, iPad retrato e computador:
 
 1. Se mencionar convênios, só os nomes (art. 43, § 1º, IV); nunca condição de pagamento.
 2. Sem formulário: o contato sai para o WhatsApp. Formulário exige novo `/kickoff` (LGPD, ADD).
+3. Endereço do consultório, nunca o de casa (D34).
+4. Nenhuma avaliação, nome ou foto de paciente na página: só o link para fora (D33; CEO art. 44, VI).
+5. Pergunta sobre valor, se entrar, sem número, faixa, "a partir de" ou forma de pagamento (D29, D32). Nada de "gratuito" ou "sem compromisso" (CEO art. 20, IX).
+6. Primeira consulta e perguntas frequentes sem promessa de resultado (Res. CFO-196/2019, art. 2º, § 1º).
 
 ### Acessibilidade
 
@@ -97,7 +110,9 @@ Verificáveis em 390 px, iPad retrato e computador:
 
 ### Desempenho
 
-> TODO: mapa embutido pesa e carrega script de terceiro. Se entrar, carregamento preguiçoso ou imagem estática com link.
+Sem mapa embutido (D34): o endereço leva à rota por link, sem script nem cookie de terceiro.
+
+> TODO: definir no `/plan` da seção.
 
 ### Critérios de aceite
 
