@@ -43,7 +43,7 @@ Tokens em `src/app/globals.css`, expostos ao Tailwind por `@theme inline`.
 | `dark-55` | `#1a1a18` a 55% | Texto secundário, rótulos |
 | `dark-40`, `dark-10` | 40%, 10% | Traços, divisórias |
 | `light-40`, `light-15` | `#f4f2ee` a 40%, 15% | Texto secundário e traços sobre fundo escuro |
-| `forest-900` | `#163000` | Verde original da marca; fundo do rodapé |
+| `forest-900` | `#163000` | Verde original da marca; monograma do rodapé |
 | `forest-700`, `500`, `300` | `#2e4718`, `#4a6330`, `#5a7440` | Anos da linha do tempo, fundos de destaque |
 | `wine-700`, `500`, `300` | `#661028`, `#8e1a3c`, `#b02b58` | Acento da marca |
 | `whatsapp`, `instagram` | valores oficiais | Só nos ícones dessas marcas |
@@ -67,11 +67,9 @@ Calculado em 2026-10-09 (WCAG 2.x). AA pede 4,5:1 para texto normal e 3:1 para t
 | `dark-55` sobre `light-base` | 3,79 | **Só texto grande** |
 | `light-40` sobre `dark-base` | 3,52 | **Só texto grande** |
 | `dark-40` sobre `light-base` | 2,46 | **Não passa**: só traço decorativo |
-| `light-base` sobre `forest-900` (identificação do rodapé) | 12,89 | AA e AAA |
-| `light-base` a 85% sobre `forest-900` (canais do rodapé) | 9,69 | AA e AAA |
-| `light-base` a 70% sobre `forest-900` (rótulo e direitos do rodapé) | 7,08 | AA e AAA |
+| `dark-base` a 70% sobre `light-base` (texto secundário e canais do rodapé) | 6,14 | AA |
 
-Os três pares do rodapé foram medidos no navegador em 2026-10-09. No rodapé, o texto secundário usa `light-base` a 70%, nunca `light-40`.
+O par do rodapé foi medido no navegador em 2026-10-10. No rodapé, o texto secundário usa `dark-base` a 70%, nunca `dark-55`.
 
 `dark-55` e `light-40` hoje aparecem em rótulos de 11 px (hero, band do Sobre, texto do Sobre, linha do tempo). Isso não passa no AA; item no ROADMAP.
 
