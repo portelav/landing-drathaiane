@@ -46,7 +46,7 @@ Nada anima. O rodapé é o ponto de repouso depois de três momentos seguidos di
 1. A identificação aparece inteira, em toda largura de tela, com o nome em `dark-base` sobre `light-base` (CEO art. 43).
 2. Nenhum dado que a doutora não tenha publicado. Endereço, horários e e-mail ficam para a Fase 2.
 3. Nenhuma palavra vetada (DESIGN.md, seção 8). Nenhuma imagem além do monograma.
-4. Todo texto passa em 4,5:1, inclusive o secundário. `dark-55` não serve aqui; o secundário usa `dark-base` a 70%.
+4. Todo texto passa em 4,5:1, inclusive o secundário, que usa `dark-base` a 70% (DESIGN.md, seção 3).
 
 ### Acessibilidade
 

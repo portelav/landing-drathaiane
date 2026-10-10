@@ -114,7 +114,7 @@ Só depende do Lucas. O site continua com `noindex`.
 
 - [x] Rodapé com "Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418", legível.
 - [x] Menu sem link quebrado: Depoimentos sai (D25); Serviços e Contato levam a uma seção ou saem do menu até ela existir. Serviços saiu; Contato leva ao rodapé (D26).
-- [ ] Rótulos de 11 px com contraste de 4,5:1 (DESIGN.md, seção 3).
+- [x] Rótulos de 11 px com contraste de 4,5:1 (DESIGN.md, seção 3).
 - [ ] Vídeos em loop (hero e kit) com controle de pausa acessível (WCAG 2.2.2).
 - [ ] Barra técnica da seção 5: Lighthouse no celular com LCP abaixo de 2,5 s no 4G e acessibilidade sem falha AA.
 - [ ] README final, com prints e link.

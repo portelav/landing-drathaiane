@@ -242,7 +242,7 @@ export function AboutTimeline() {
         <div ref={columnRef} className="beside:relative beside:flex-1 beside:self-stretch">
           <h3
             ref={labelRef}
-            className="tracking-brand text-[0.6875rem] uppercase text-dark-55 beside:absolute beside:top-0 beside:z-10"
+            className="tracking-brand text-[0.6875rem] uppercase text-dark-base/70 beside:absolute beside:top-0 beside:z-10"
           >
             Formação e trajetória
           </h3>

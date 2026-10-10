@@ -40,18 +40,23 @@ Tokens em `src/app/globals.css`, expostos ao Tailwind por `@theme inline`.
 |---|---|---|
 | `light-base` | `#f4f2ee` | Fundo quente das seções claras (Sobre) |
 | `dark-base` | `#1a1a18` | Texto principal, fundos escuros |
-| `dark-55` | `#1a1a18` a 55% | Texto secundário, rótulos |
 | `dark-40`, `dark-10` | 40%, 10% | Traços, divisórias |
-| `light-40`, `light-15` | `#f4f2ee` a 40%, 15% | Texto secundário e traços sobre fundo escuro |
+| `light-15` | `#f4f2ee` a 15% | Traços sobre fundo escuro |
 | `forest-900` | `#163000` | Verde original da marca; monograma do rodapé |
 | `forest-700`, `500`, `300` | `#2e4718`, `#4a6330`, `#5a7440` | Anos da linha do tempo, fundos de destaque |
 | `wine-700`, `500`, `300` | `#661028`, `#8e1a3c`, `#b02b58` | Acento da marca |
 | `whatsapp`, `instagram` | valores oficiais | Só nos ícones dessas marcas |
 | `background` | `#ffffff` | Fundo da página |
 
+### Texto secundário
+
+Rótulos, parágrafo de apoio e canais do rodapé usam o token-base a 70%: `dark-base/70` sobre fundo claro, `light-base/70` sobre fundo escuro. No header, onde a cor vem do tom da seção, é `opacity-70`. Sobre foto, ou sobre gradiente tirado de foto, o texto vai em cor cheia: o rótulo "A dentista" na band aberta é `dark-base`. Nenhum texto em repouso abaixo de 70%. A exceção é a roleta da linha do tempo, que apaga os anos fora de foco durante o scroll; com movimento reduzido, ela fica toda em cor cheia.
+
+`dark-55` e `light-40` saíram em 2026-10-10: em texto pequeno não passavam no AA (3,79 e 3,52).
+
 ### Contraste verificado
 
-Calculado em 2026-10-09 (WCAG 2.x). AA pede 4,5:1 para texto normal e 3:1 para texto grande (24 px, ou 18,66 px em negrito).
+AA pede 4,5:1 para texto normal e 3:1 para texto grande (24 px, ou 18,66 px em negrito). Os pares de cor sólida foram calculados em 2026-10-09 (WCAG 2.x). Os de texto secundário e os da band foram medidos no navegador em 2026-10-10, em 390 px, iPad retrato e computador (a band aberta e a pele escura do hero, só no computador): cor computada misturada sobre o fundo real e, na band, sobre a cor do gradiente na altura do texto.
 
 | Par | Razão | Passa |
 |---|---|---|
@@ -64,14 +69,14 @@ Calculado em 2026-10-09 (WCAG 2.x). AA pede 4,5:1 para texto normal e 3:1 para t
 | `wine-500` sobre `light-base` | 7,95 | AA e AAA |
 | `wine-300` sobre `light-base` | 5,64 | AA |
 | `#ffffff` sobre `forest-500` | 6,73 | AA |
-| `dark-55` sobre `light-base` | 3,79 | **Só texto grande** |
-| `light-40` sobre `dark-base` | 3,52 | **Só texto grande** |
+| `dark-base/70` sobre `light-base` (rótulos, parágrafo do hero, rodapé) | 6,14 | AA |
+| "Cirurgiã-Dentista" no header, `opacity-70`, sobre `light-base` | 6,10 | AA |
+| `light-base/70` sobre `forest-900` (pele escura do hero, fora de uso) | 7,08 | AA e AAA |
+| `dark-base` sobre o gradiente da band, na altura do rótulo | 6,34 | AA |
+| `light-base` sobre o gradiente da band (citação, texto grande) | 2,52 a 3,00 | **Não passa** |
 | `dark-40` sobre `light-base` | 2,46 | **Não passa**: só traço decorativo |
-| `dark-base` a 70% sobre `light-base` (texto secundário e canais do rodapé) | 6,14 | AA |
 
-O par do rodapé foi medido no navegador em 2026-10-10. No rodapé, o texto secundário usa `dark-base` a 70%, nunca `dark-55`.
-
-`dark-55` e `light-40` hoje aparecem em rótulos de 11 px (hero, band do Sobre, texto do Sobre, linha do tempo). Isso não passa no AA; item no ROADMAP.
+A citação da band aberta, em `light-base` sobre o gradiente, mede 2,52 na primeira linha e 3,00 na última, abaixo dos 3:1 de texto grande. Corrigir muda o visual da band; item no ROADMAP.
 
 ## 4. Tipografia
 

@@ -22,10 +22,8 @@
 :root {
   /* Neutrals */
   --c-light-base: #f4f2ee;
-  --c-light-40: rgba(244, 242, 238, 0.4);
   --c-light-15: rgba(244, 242, 238, 0.15);
   --c-dark-base: #1a1a18;
-  --c-dark-55: rgba(26, 26, 24, 0.55);
   --c-dark-40: rgba(26, 26, 24, 0.4);
   --c-dark-10: rgba(26, 26, 24, 0.1);
 
@@ -67,10 +65,8 @@
   --color-foreground: var(--foreground);
 
   --color-light-base: var(--c-light-base);
-  --color-light-40: var(--c-light-40);
   --color-light-15: var(--c-light-15);
   --color-dark-base: var(--c-dark-base);
-  --color-dark-55: var(--c-dark-55);
   --color-dark-40: var(--c-dark-40);
   --color-dark-10: var(--c-dark-10);
 

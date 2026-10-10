@@ -147,7 +147,7 @@ export function Header() {
           </motion.span>
           <span className="tracking-brand flex flex-col text-[0.6875rem] uppercase leading-[1.6]">
             <span>Dra. Thaiane Lessa</span>
-            <span className="opacity-50">Cirurgiã-Dentista</span>
+            <span className="opacity-70">Cirurgiã-Dentista</span>
           </span>
         </Link>
 

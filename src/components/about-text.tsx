@@ -156,7 +156,7 @@ export function AboutText() {
               centimetres apart and separate triggers would fire together
               anyway. */}
           <motion.div {...reveal}>
-            <p className="tracking-brand text-[0.6875rem] uppercase text-dark-55">
+            <p className="tracking-brand text-[0.6875rem] uppercase text-dark-base/70">
               {reduce
                 ? EYEBROW
                 : eyebrow.map((item) => (
