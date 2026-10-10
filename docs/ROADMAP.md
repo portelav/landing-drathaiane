@@ -18,6 +18,7 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 
 - Seção Serviços (`docs/fdd/servicos.md`), quando o conteúdo chegar.
 - Seção Contato (`docs/fdd/contato.md`), quando o conteúdo chegar.
+- Revisão do site inteiro contra as regras de fora, com as respostas que tiverem chegado (PRD, D30); lista do que conferir nas notas privadas.
 - Aval dela no site completo; tirar o `noindex`, completar metadados e prévia de link (Open Graph) (D22).
 - Barra técnica conferida de novo com as seções novas.
 

@@ -99,7 +99,7 @@ Sobre depoimentos: o Código de Ética não trata de depoimento de paciente. A r
 | Risco ou premissa | Impacto | O que fazer |
 |---|---|---|
 | Conteúdo das seções depende dela e não tem data | Fase 2 parada | Fase 1 não depende dela (D21). Na Fase 2, estrutura e movimento com `> TODO` no FDD, nunca com texto inventado na página |
-| Uma peça do site ser considerada infração ética | Processo ético contra ela (advertência a suspensão) | Regras de fora no `/walkthrough`; aval dela antes de indexar (D22); dúvida pontual ao DEF/CRO-AL |
+| Uma peça do site ser considerada infração ética | Processo ético contra ela (advertência a suspensão) | Regras de fora no `/walkthrough`; revisão do site inteiro antes de indexar (D30); aval dela antes de indexar (D22); dúvida pontual ao DEF/CRO-AL |
 | Peça do site, commit ou doc expor ou prejudicar a doutora fora do CRO (privacidade, segurança pessoal, reputação, área jurídica, dinheiro) | Problema para ela fora da odontologia | Princípio no topo do `CLAUDE.md`: cada peça é pesada pelo que pode expor; na dúvida, fica fora e vai ao Lucas |
 | Repositório público expõe fotos e dados dela, ou dúvida aberta sobre ela | Exposição sem consentimento | Aval dado em 2026-10-09 (D18). Dúvida, pendência e dado de terceiro só nas notas privadas (D19) |
 | Opinião dela sobre estética, design ou seção chegar com a seção já pronta | Retrabalho de visual | O Lucas conversa com ela, com opções, quando a decisão de visual ou de seção pesa (D28); olhar final dela antes de tirar o `noindex` (D22) |
@@ -126,6 +126,7 @@ Só depende do Lucas. O site continua com `noindex`.
 Depende do conteúdo e do aval dela (D24).
 
 - [ ] Serviços e Contato com o conteúdo real dela.
+- [ ] Site inteiro revisto de novo contra as regras de fora; o que não passou mudou ou saiu (D30).
 - [ ] Aval dela no site completo, com o texto do rodapé.
 - [ ] `noindex` fora, metadados completos e prévia de link (Open Graph).
 - [ ] Barra técnica da Fase 1 conferida de novo com as seções novas.
@@ -190,3 +191,4 @@ Plano em `tasks/roles-prices-cfo-rules.md`.
 
 - **D28.** Papéis. O Lucas confirma tudo: conteúdo, visual, técnica, segurança e git. A Dra. Thaiane opina sobre estética, design e seções, dando opções, sem aprovação formal. Fica o olhar final dela no site completo antes de tirar o `noindex` (D22). O conteúdo que só ela tem (texto, foto, endereço, horário) continua vindo dela e nunca é inventado. Pergunta técnica, de git ou de segurança não vai para ela. Substitui D7.
 - **D29.** O site nunca tem preço nem tabela de preços, a pedido dela. Vale também para faixa de preço, "a partir de", forma ou condição de pagamento. O Código de Ética veda o mesmo (art. 44, I).
+- **D30.** Antes de tirar o `noindex`, o site inteiro passa de novo pela tabela de regras de fora, com as respostas que tiverem chegado até lá. O que não passar muda ou sai antes de indexar. A lista do que conferir fica nas notas privadas.
