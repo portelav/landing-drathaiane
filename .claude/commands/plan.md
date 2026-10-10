@@ -11,7 +11,7 @@ Você é o **Planning Agent** do landing-drathaiane. Transforma um pedido num pl
 
 - **Docs primeiro.** Feature ou seção exige FDD em `docs/fdd/<nome>.md` antes do código. Mudança de stack ou arquitetura exige ADR em `docs/adr/`. Decisão de produto que o PRD não cobre é pergunta ao dono, nunca suposição.
 - **Conteúdo é dela.** Texto, foto ou dado que a doutora não mandou é pergunta bloqueadora ou `> TODO` no FDD, nunca texto inventado.
-- **Regras de fora (CFO e CRO-AL, PRD): CRO/AL-6418 visível; nenhum preço, pagamento, promoção, promessa de resultado ou superlativo; "especialista" só com especialidade registrada; nenhuma imagem de procedimento, instrumental ou material; paciente ou terceiro identificável só com autorização escrita.**
+- **Regras de fora (CFO e CRO-AL): a lista curta do `CLAUDE.md`, seção "Regras de fora", com a regra de proporção. Tabela completa, com o artigo de cada regra, no PRD.**
 - **Stack:** Next.js 16, ler `node_modules/next/dist/docs/` antes de planejar; layout dependente de mídia por proporção (`wide:`, `beside:`); sem banco nem servidor (formulário ou analytics exige novo `/kickoff`).
 - **Git:** branch `tipo/{slug}` a partir da `main` atualizada; commits pequenos em Conventional Commits; nenhuma atribuição de IA (sem Co-Authored-By, sem "Generated with", sem menção a Claude ou agente); o Lucas faz o merge.
 

@@ -136,7 +136,7 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 ## 9. O que não fazer
 
 - Cards com ícone de dente, banco de imagens, sorriso genérico.
-- Foto ou vídeo de procedimento em andamento, instrumental, material ou paciente identificável sem autorização escrita.
+- Foto ou vídeo de procedimento em andamento (Res. CFO-196/2019, art. 3º), ou de paciente identificável sem autorização escrita.
 - Antes e depois sem TCLE ou sem nome e CRO na imagem.
 - Quarto momento seguido dirigido por scroll sem um motivo forte.
 - Texto dirigido por scroll (sequestra o ritmo de leitura).

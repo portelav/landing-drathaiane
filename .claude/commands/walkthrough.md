@@ -19,12 +19,15 @@ Você é o **Walkthrough Agent** do landing-drathaiane. Audita uma implementaç�
 - [ ] Só o que o plano previa foi tocado
 
 ### 2. Regras de fora (CFO e CRO-AL)
-- [ ] Nome, "Cirurgiã-Dentista" e CRO/AL-6418 continuam visíveis
-- [ ] Nenhum preço, forma de pagamento, "grátis", "promoção", "desconto", "oferta", "popular", sorteio, brinde
-- [ ] Nenhuma promessa de resultado, superlativo ou crítica a colega
-- [ ] "Especialista" só com especialidade registrada no CRO-AL
-- [ ] Nenhuma imagem de procedimento em andamento, instrumental, material ou tecido biológico
-- [ ] Antes e depois só com TCLE, nome e CRO na imagem; paciente ou terceiro identificável só com autorização escrita
+Lista curta do `CLAUDE.md`. Só conflito claro com o texto literal vira achado, com o artigo em uma linha; leitura de borda não entra.
+
+- [ ] Nome, "Cirurgiã-Dentista" e CRO/AL-6418 continuam visíveis (art. 43)
+- [ ] Nenhum preço, forma de pagamento ou serviço gratuito (art. 44, I; PRD, D29)
+- [ ] Nenhuma promessa de resultado, sensacionalismo ou autopromoção no texto (Res. 196/2019, art. 2º, § 1º)
+- [ ] "Especialista" só com especialidade registrada no CRO-AL (art. 44, II)
+- [ ] Nenhuma imagem de procedimento em andamento (Res. 196/2019, art. 3º)
+- [ ] Paciente identificável só com consentimento (art. 44, VI); na página, ninguém identificável sem autorização escrita
+- [ ] Antes e depois só de casos dela, com TCLE, nome e CRO na imagem (Res. 196/2019, arts. 2º e 4º)
 - [ ] Nenhum texto inventado no lugar de conteúdo que a doutora não mandou
 
 ### 3. Stack
