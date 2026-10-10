@@ -55,7 +55,7 @@ A doutora já tem o conteúdo das seções que faltam e ainda não mandou (D9). 
 - Versão em outro idioma.
 - Domínio pago: fica para o fim, depois do MVP.
 - Depoimentos, por enquanto: a seção sai do site e do menu e fica para decisão futura (D25).
-- Preços e condições de pagamento: vetados pelo CFO.
+- Preços e condições de pagamento: nunca, a pedido dela (D29); o Código de Ética também veda (art. 44, I).
 
 ## 8. Requisitos não funcionais
 
@@ -184,3 +184,4 @@ Plano em `tasks/footer-and-menu-anchors.md`.
 Plano em `tasks/roles-prices-cfo-rules.md`.
 
 - **D28.** Papéis. O Lucas confirma tudo: conteúdo, visual, técnica, segurança e git. A Dra. Thaiane opina sobre estética, design e seções, dando opções, sem aprovação formal. Fica o olhar final dela no site completo antes de tirar o `noindex` (D22). O conteúdo que só ela tem (texto, foto, endereço, horário) continua vindo dela e nunca é inventado. Pergunta técnica, de git ou de segurança não vai para ela. Substitui D7.
+- **D29.** O site nunca tem preço nem tabela de preços, a pedido dela. Vale também para faixa de preço, "a partir de", forma ou condição de pagamento. O Código de Ética veda o mesmo (art. 44, I).
