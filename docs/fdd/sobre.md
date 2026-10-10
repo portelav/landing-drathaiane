@@ -160,7 +160,7 @@ letterbox.
 mesma regra do Tempo 2. Loop de pessoa executando tarefa vira esteira: a ação
 tem começo e fim, e repetida o olho acha o ponto de emenda.
 
-> Nota de 2026-10-09: decisão revertida em 6068291 (2026-08-20). O vídeo agora roda em loop e pausa ao sair da tela: um quadro congelado ao lado de uma roda que ainda gira parecia falha de carregamento. Como se repete por mais de 5 s, falta um controle de pausa (WCAG 2.2.2), item no ROADMAP. A doutora acha que este vídeo pertence a uma seção de primeira visita, que ainda não existe.
+> Nota de 2026-10-09: decisão revertida em 6068291 (2026-08-20). O vídeo agora roda em loop e pausa ao sair da tela: um quadro congelado ao lado de uma roda que ainda gira parecia falha de carregamento. Como se repete por mais de 5 s, falta um controle de pausa (WCAG 2.2.2), item no ROADMAP.
 
 **Dimensionado pelo tamanho de exibição.** O hero pesa 4,2MB porque é tela
 cheia; este painel cabe em 300–500KB.
@@ -224,10 +224,6 @@ O texto e os serviços precisam falar com as duas sem parecer confusos.
 O caso clínico mais forte que ela contou ficou de fora do Tempo 2 de propósito:
 é grande demais para um parágrafo de "sobre" e é material de `Serviços`, com
 foto de antes/depois se ela tiver (PRD, D5).
-
-Pendências conhecidas e não tratadas: `Depoimentos` não pode existir de forma
-honesta sem depoimento real, e `Serviços` não tem prova visual sem foto de caso.
-Nenhum dos dois materiais existe hoje.
 
 ## Bug corrigido
 

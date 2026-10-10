@@ -29,7 +29,7 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 ## Talvez
 
 - Seção Depoimentos (`docs/fdd/depoimentos.md`), fora por enquanto (D25).
-- Seção de primeira visita, para onde a doutora acha que o vídeo do kit pertence (nota em `docs/fdd/sobre.md`).
+- Seção de primeira visita, com o vídeo do kit (contexto nas notas privadas).
 - Faixa estreita com a foto `IMG_9049` (sacolinha do kit) entre o texto e a linha do tempo do Sobre.
 - Analytics de cliques no WhatsApp (exige política de privacidade e novo `/kickoff`).
 
