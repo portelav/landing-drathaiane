@@ -2,12 +2,16 @@
 
 Contexto operacional para agentes de IA neste repositório. Ler antes de qualquer tarefa. Ler também o `AGENTS.md` (bloco do Next.js, escrito e reescrito pelo `next dev`).
 
+## Princípio
+
+O site, o repositório e os docs nunca podem causar problema à Dra. Thaiane em área nenhuma da vida: profissional, jurídica, privacidade, reputação, segurança pessoal, dinheiro. O CRO é uma delas, não a única. Cada peça do site, commit e documento é pesado pelo que pode expor ou prejudicá-la (dado pessoal, localização, rotina, imagem). Na dúvida, fica fora, e a pergunta vai ao Lucas.
+
 ## Projeto
 
 **landing-drathaiane**: landing page da Dra. Thaiane Lessa, cirurgiã-dentista em Maceió (CRO/AL-6418). Para pacientes de estética e de odontologia restauradora que querem conhecer a profissional antes de chamar no WhatsApp.
 Objetivo: site completo e publicável, que entre no portfólio e no currículo do Lucas.
 
-A Dra. Thaiane aprova todo conteúdo e todo visual. Fotos e dados dela só ficam públicos (no site indexado ou no repositório aberto) com o aval dela.
+O Lucas confirma tudo. A Dra. Thaiane opina sobre estética, design e seções, dando opções, sem aprovação formal, e dá o olhar final no site completo antes de sair o `noindex` (PRD, D22 e D28). Texto, foto e dado dela vêm dela, nunca inventados. Pergunta técnica, de git ou de segurança não vai para ela.
 
 ## Equipe
 
@@ -66,15 +70,19 @@ Regras que decorrem da stack:
 
 ## Regras de fora (CFO e CRO-AL)
 
-O site é publicidade odontológica. Todo texto, foto e vídeo segue o Código de Ética Odontológica (Res. CFO-118/2012, cap. XVI) e a Res. CFO-196/2019. Tabela completa e fontes no PRD, seção "Regras de fora". Em resumo, para quem escreve ou revisa:
+O site é publicidade odontológica. Vale o Código de Ética Odontológica (Res. CFO-118/2012, alterado pela Res. CFO-SEC-271/2025) e a Res. CFO-196/2019, lidos no texto oficial. Tabela completa, com o artigo de cada regra, no PRD, seção "Regras de fora". A lista curta, para quem escreve ou revisa:
 
-- Nome, "Cirurgiã-Dentista" e CRO/AL-6418 visíveis no site (rodapé, no mínimo).
-- Nunca: preço, forma de pagamento, "grátis", "promoção", "desconto", "popular", sorteio, brinde, promessa de resultado, superlativo, crítica a colega.
-- "Especialista" só se a especialidade estiver registrada no CRO-AL; senão, "área de atuação".
-- Sem imagem de procedimento em andamento, instrumental, material ou tecido biológico.
-- Antes e depois só da própria doutora, com TCLE assinado e nome + CRO na imagem.
-- Paciente ou terceiro identificável só com autorização escrita.
-- Dúvida sobre uma peça: não publicar, registrar em `private/pauta.md` e perguntar à doutora.
+- Nome, "Cirurgiã-Dentista" e CRO/AL-6418 visíveis no site, no rodapé no mínimo (art. 43).
+- Nenhum preço, forma de pagamento ou serviço gratuito (art. 44, I; PRD, D29).
+- Nenhuma promessa de resultado, sensacionalismo ou autopromoção no texto (Res. 196/2019, art. 2º, § 1º).
+- "Especialista" só com a especialidade registrada no CRO-AL (art. 44, II). Área de atuação, procedimento e técnica só depois do título dessa especialidade ou de "clínico geral" (art. 43, § 1º, I).
+- Nenhuma imagem de procedimento em andamento (Res. 196/2019, art. 3º).
+- Paciente identificável só com consentimento (art. 44, VI); na página, ninguém identificável sem autorização escrita (PRD).
+- Antes e depois só de casos dela, com TCLE (Termo de Consentimento Livre e Esclarecido), nome e CRO na imagem (Res. 196/2019, arts. 2º e 4º).
+
+Proporção: peça que passa na lista vai. Conflito claro com o texto literal se corrige, citando o artigo em uma linha. Leitura de borda não se levanta, e o DEF/CRO-AL não é consultado por pouca coisa. Regra vem do texto oficial, nunca de fonte de terceiros; leitura dos conselhos (cartilha do CRO-AL, "CFO Esclarece") é interpretação e se marca assim.
+
+Fora do CFO vale o princípio do topo: o que puder expor ou prejudicar a doutora fica fora, e a dúvida vai ao Lucas.
 
 ## Fluxo com agentes
 
@@ -108,7 +116,7 @@ QA: abrir a página pelo MCP do Chrome DevTools (`.mcp.json`) em 390 px, iPad re
 1. Nenhuma seção sem FDD. O FDD é a spec.
 2. Mudança de stack ou de arquitetura exige ADR antes do código.
 3. O PRD é vivo: implementação divergiu, o doc muda na mesma branch.
-4. Dúvida entre duas leituras do doc: perguntar. Decisão de produto é do Lucas e da doutora, registrada no PRD com data.
+4. Dúvida entre duas leituras do doc: perguntar. Decisão de produto é do Lucas, registrada no PRD com data; a doutora opina sobre estética, design e seções (D28).
 5. Texto, foto ou dado que ela ainda não mandou vira `> TODO` (no doc) ou fica fora da página. Nunca texto plausível inventado: aqui isso vira problema ético para ela.
 6. Documento pronto ou seção concluída: commit imediato.
 

@@ -3,7 +3,7 @@
 **Slug:** `footer-colophon`
 **Branch:** `redesign/footer-colophon`
 **Área:** rodapé · **Dono:** Lucas
-**Status:** Walkthrough
+**Status:** Done (PR #3 mergeado em 2026-10-10)
 **Gate S2:** Livre (trivial: um arquivo de código, sem regra nova; direção escolhida pelo Lucas em 2026-10-10)
 
 ---

@@ -1,6 +1,6 @@
 # Dra. Thaiane Lessa — Design System
 
-Referência visual. Regra de produto vem do PRD, e quem aprova o visual é a doutora. Este documento descreve o que já existe no código (`src/app/globals.css` e `src/components/`) em 2026-10-09; mudança aqui acompanha mudança no código, na mesma branch.
+Referência visual. Regra de produto vem do PRD. O Lucas decide o visual, com opções conversadas com a doutora (PRD, D28). Este documento descreve o que já existe no código (`src/app/globals.css` e `src/components/`) em 2026-10-09; mudança aqui acompanha mudança no código, na mesma branch.
 
 ## 1. Princípios
 
@@ -131,12 +131,13 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 - Primeira pessoa no texto dela ("Trabalho melhor com tempo"), segunda pessoa para o paciente ("Quando você sair daqui").
 - Frases curtas, concretas, sem jargão; termo técnico só com glosa (como "marca global de materiais odontológicos" para a Ivoclar).
 - Fala de cuidado e planejamento, nunca de resultado.
-- **Palavras vetadas** (CFO e CRO-AL): preço, valor, parcelamento, "grátis", "promoção", "desconto", "oferta", "popular", "pacote", "cupom", "sorteio", "brinde", "indicação de amigos"; "especialista" sem registro da especialidade; "o melhor", "garantido", "perfeito", "sem dor" e qualquer promessa de resultado ou superlativo.
+- **Palavras vetadas pelas regras de fora** (PRD, "Regras de fora"): preço, valor, parcelamento e "grátis" (Código de Ética, art. 44, I, e art. 20, IX); "popular" (art. 44, VII); "sorteio" e "brinde" (art. 20, VIII); "especialista" sem registro da especialidade (art. 44, II); "garantido" e qualquer promessa de resultado (Res. CFO-196/2019, art. 2º, § 1º). A cartilha do CRO-AL acrescenta "promoção", "desconto", "oferta", "pacote", "cupom" e "indicação de amigos" (interpretação).
+- **Vetadas por tom, mais estrito que a regra:** superlativo ("o melhor", "perfeito") e "sem dor".
 
 ## 9. O que não fazer
 
 - Cards com ícone de dente, banco de imagens, sorriso genérico.
-- Foto ou vídeo de procedimento em andamento, instrumental, material ou paciente identificável sem autorização escrita.
+- Foto ou vídeo de procedimento em andamento (Res. CFO-196/2019, art. 3º), ou de paciente identificável sem autorização escrita.
 - Antes e depois sem TCLE ou sem nome e CRO na imagem.
 - Quarto momento seguido dirigido por scroll sem um motivo forte.
 - Texto dirigido por scroll (sequestra o ritmo de leitura).

@@ -55,7 +55,7 @@ A doutora já tem o conteúdo das seções que faltam e ainda não mandou (D9). 
 - Versão em outro idioma.
 - Domínio pago: fica para o fim, depois do MVP.
 - Depoimentos, por enquanto: a seção sai do site e do menu e fica para decisão futura (D25).
-- Preços e condições de pagamento: vetados pelo CFO.
+- Preços e condições de pagamento: nunca, a pedido dela (D29); o Código de Ética também veda (art. 44, I).
 
 ## 8. Requisitos não funcionais
 
@@ -66,21 +66,26 @@ A doutora já tem o conteúdo das seções que faltam e ainda não mandou (D9). 
 
 ## Regras de fora
 
-Consulta em 2026-10-09. Detalhe, citações e grau de certeza em [`docs/research/publicidade-odontologica.md`](research/publicidade-odontologica.md). Tirar o `noindex` depende do aval da Dra. Thaiane (D22). O DEF/CRO-AL, setor de fiscalização do Conselho Regional de Odontologia de Alagoas, revisa peças de graça (fiscalizacao@croal.org.br).
+Conferido contra o texto oficial em 2026-10-10: Código de Ética Odontológica (CEO, aprovado pela Res. CFO-118/2012 e alterado pela Res. CFO-SEC-271/2025), Res. CFO-196/2019 e Res. CFO-230/2020. A cartilha do CRO-AL e o "CFO Esclarece" são interpretação dos conselhos e aparecem marcados assim. Detalhe e citações em [`docs/research/publicidade-odontologica.md`](research/publicidade-odontologica.md). Tirar o `noindex` depende do aval da Dra. Thaiane (D22). O DEF/CRO-AL, setor de fiscalização do Conselho Regional de Odontologia de Alagoas, revisa peças de graça (fiscalizacao@croal.org.br).
 
 | Regra | Efeito no produto | Fonte |
 |---|---|---|
-| Nome, profissão e número do CRO em toda divulgação | Rodapé fixo com "Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418" | [CEO art. 43](https://website.cfo.org.br/wp-content/uploads/2018/03/codigo_etica.pdf); [cartilha CRO-AL](https://croal.org.br/wp-content/uploads/2025/04/Cartilha-de-publicidade-na-odontologia.pdf) |
-| Proibido preço, forma de pagamento, bandeira de cartão, "grátis", "promoção", "desconto", "oferta", "popular", sorteio, brinde, indicação de amigos | Serviços sem valores. Nenhum CTA promocional | CEO art. 44, I e VII; cartilha CRO-AL |
-| "Especialista" só com especialidade registrada no CRO-AL; senão, "área de atuação" | Sobre e Serviços dizem "especialista" só com o registro confirmado | CEO art. 44, II; cartilha CRO-AL |
+| Nome, profissão e número do CRO em toda divulgação | Rodapé fixo com "Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418" | [CEO art. 43](https://website.cfo.org.br/wp-content/uploads/2018/03/codigo_etica.pdf) |
+| Proibido preço, serviço gratuito e forma de pagamento | Nenhum preço nem condição de pagamento (D29) | CEO art. 44, I; art. 20, IX (consulta e diagnóstico gratuitos) |
+| Proibido oferecer serviço como brinde, prêmio ou sorteio | Nenhum sorteio nem brinde | CEO art. 20, VIII, na redação da [Res. CFO-SEC-271/2025](https://sistemas.cfo.org.br/visualizar/atos/RESOLU%C3%87%C3%83O/SEC/2025/271) |
+| Proibido aliciar paciente, "especialmente a utilização da expressão 'popular'" | Nenhum "popular" | CEO art. 44, VII |
+| "Desconto", "promoção", "oferta", bandeira de cartão, indicação de amigos, pacote e cupom não são permitidos | Nenhum CTA promocional. "Desconto" saiu do Código em 2025 e fica fora pela cartilha | [Cartilha CRO-AL](https://croal.org.br/wp-content/uploads/2025/04/Cartilha-de-publicidade-na-odontologia.pdf) (interpretação) |
+| "Especialista" só com especialidade registrada no CRO-AL. Área de atuação, procedimento e técnica só precedidos do título da especialidade registrada ou de "clínico geral" | Texto do site diz "especialista" só com o registro confirmado, e nomeia área de atuação só depois do título ou de "clínico geral" | CEO art. 44, II, e art. 43, § 1º, I e II |
 | Mestrado e doutorado podem ser divulgados | Linha do tempo pode manter o mestrado | CEO art. 43, § 1º, III |
-| Proibida promessa de resultado, sensacionalismo, superlativo, crítica a colega | Tom de voz no DESIGN.md; revisão de todo texto no `/walkthrough` | CEO art. 44, I e IV; [CFO Esclarece](https://website.cfo.org.br/redes-sociais-na-odontologia-fique-atento-as-normas-eticas-e-acerte-na-publicacao-dos-conteudos/) |
-| Proibida imagem do transcurso de procedimento, de instrumental, material, equipamento ou tecido biológico | Nenhum vídeo de atendimento; marca de material nunca em destaque | [Res. CFO-196/2019](https://sistemas.cfo.org.br/visualizar/atos/RESOLU%C3%87%C3%83O/SEC/2019/196) arts. 1º § 1º e 3º |
-| Cartilha do CRO-AL lista "bastidores, ambiente clínico" como proibido (termo que não está na norma; é a leitura do conselho que fiscaliza) | Imagem do consultório conferida contra a cartilha antes de indexar (D22) | Cartilha CRO-AL p. 8 |
+| Proibida expressão que caracterize sensacionalismo, autopromoção, concorrência desleal, mercantilização ou promessa de resultado | Tom de voz no DESIGN.md; revisão de todo texto no `/walkthrough` | [Res. CFO-196/2019](https://sistemas.cfo.org.br/visualizar/atos/RESOLU%C3%87%C3%83O/SEC/2019/196) art. 2º, § 1º |
+| Proibido criticar técnica de outro profissional como inadequada ou ultrapassada | Texto não critica técnica de colega | CEO art. 44, IV |
+| Proibido vídeo ou imagem do transcurso ou da realização de procedimento, salvo em publicação científica | Nenhum vídeo de atendimento | Res. CFO-196/2019 art. 3º |
+| Em selfie, proibida imagem que permita identificar equipamento, instrumental, material ou tecido biológico | Selfie dela, se entrar, sem nada disso identificável | Res. CFO-196/2019 art. 1º, § 1º, que está no artigo das selfies. O [CFO Esclarece](https://website.cfo.org.br/redes-sociais-na-odontologia-fique-atento-as-normas-eticas-e-acerte-na-publicacao-dos-conteudos/) e a cartilha CRO-AL leem a proibição para qualquer imagem (interpretação) |
+| Cartilha do CRO-AL lista "bastidores, ambiente clínico" como proibido (termo que não está na norma; é a leitura do conselho que fiscaliza) | Imagem do consultório conferida contra a cartilha antes de indexar (D22) | Cartilha CRO-AL p. 8 (interpretação) |
 | Toda publicação de imagem ou vídeo leva nome e CRO | Confirmar com o CRO-AL se o rodapé basta ou se cada foto e vídeo precisa de legenda com nome e CRO | Res. CFO-196/2019 art. 4º |
-| Antes e depois só da própria doutora, com TCLE e nome + CRO na imagem; nunca em nome de clínica | Serviços pode ter casos, se ela tiver TCLE | Res. CFO-196/2019; CFO Esclarece |
-| Paciente ou terceiro identificável só com consentimento escrito, e nunca para autopromoção | Ninguém identificável na página sem autorização escrita | CEO art. 44, VI |
-| Proibido anunciar procedimento não odontológico (micropigmentação, design de sobrancelha etc.) | Serviços só com procedimentos odontológicos | Res. CFO-230/2020; cartilha CRO-AL |
+| Antes e depois só de casos dela, com TCLE e nome + CRO na imagem; nunca em nome de clínica | Serviços pode ter casos, se ela tiver TCLE | Res. CFO-196/2019 arts. 2º e 4º; "nunca em nome de clínica": CFO Esclarece (interpretação) |
+| Paciente identificável só com consentimento livre e esclarecido, e nunca para autopromoção | Ninguém identificável na página sem autorização escrita | CEO art. 44, VI |
+| Proibido anunciar procedimento não odontológico (micropigmentação, design de sobrancelha etc.) | Serviços só com procedimentos odontológicos | [Res. CFO-230/2020](https://sistemas.cfo.org.br/visualizar/atos/RESOLU%C3%87%C3%83O/SEC/2020/230) art. 2º |
 | Sem coleta de dados, sem obrigação de política de privacidade | Se entrar formulário ou analytics, política de privacidade e base legal (LGPD) | Lei 13.709/2018 |
 
 ### Perguntas em aberto
@@ -94,9 +99,10 @@ Sobre depoimentos: o Código de Ética não trata de depoimento de paciente. A r
 | Risco ou premissa | Impacto | O que fazer |
 |---|---|---|
 | Conteúdo das seções depende dela e não tem data | Fase 2 parada | Fase 1 não depende dela (D21). Na Fase 2, estrutura e movimento com `> TODO` no FDD, nunca com texto inventado na página |
-| Uma peça do site ser considerada infração ética | Processo ético contra ela (advertência a suspensão) | Regras de fora no `/walkthrough`; aval dela antes de indexar (D22); dúvida pontual ao DEF/CRO-AL |
+| Uma peça do site ser considerada infração ética | Processo ético contra ela (advertência a suspensão) | Regras de fora no `/walkthrough`; revisão do site inteiro antes de indexar (D30); aval dela antes de indexar (D22); dúvida pontual ao DEF/CRO-AL |
+| Peça do site, commit ou doc expor ou prejudicar a doutora fora do CRO (privacidade, segurança pessoal, reputação, área jurídica, dinheiro) | Problema para ela fora da odontologia | Princípio no topo do `CLAUDE.md`: cada peça é pesada pelo que pode expor; na dúvida, fica fora e vai ao Lucas |
 | Repositório público expõe fotos e dados dela, ou dúvida aberta sobre ela | Exposição sem consentimento | Aval dado em 2026-10-09 (D18). Dúvida, pendência e dado de terceiro só nas notas privadas (D19) |
-| Dependência de uma pessoa (ela aprova tudo) | Retrabalho se a aprovação vier depois | Mostrar o preview da Vercel a cada seção, antes do merge |
+| Opinião dela sobre estética, design ou seção chegar com a seção já pronta | Retrabalho de visual | O Lucas conversa com ela, com opções, quando a decisão de visual ou de seção pesa (D28); olhar final dela antes de tirar o `noindex` (D22) |
 
 ## 10. Critérios de pronto
 
@@ -120,6 +126,7 @@ Só depende do Lucas. O site continua com `noindex`.
 Depende do conteúdo e do aval dela (D24).
 
 - [ ] Serviços e Contato com o conteúdo real dela.
+- [ ] Site inteiro revisto de novo contra as regras de fora; o que não passou mudou ou saiu (D30).
 - [ ] Aval dela no site completo, com o texto do rodapé.
 - [ ] `noindex` fora, metadados completos e prévia de link (Open Graph).
 - [ ] Barra técnica da Fase 1 conferida de novo com as seções novas.
@@ -177,3 +184,11 @@ Plano em `tasks/footer-and-menu-anchors.md`.
 
 - **D26.** Na Fase 1, o rodapé é o destino de `#contato`: leva a identificação e os canais que o site já mostra no header (WhatsApp, telefone, Instagram; D3). Quando a seção Contato da Fase 2 existir, ela assume a âncora. Serviços sai do menu até a seção existir.
 - **D27.** O rodapé leva "© 2026 Dra. Thaiane Lessa. Todos os direitos reservados." (D20) e não leva crédito do site.
+
+### Rodada 4 (2026-10-10): papéis, preços e regras do CFO
+
+Plano em `tasks/roles-prices-cfo-rules.md`.
+
+- **D28.** Papéis. O Lucas confirma tudo: conteúdo, visual, técnica, segurança e git. A Dra. Thaiane opina sobre estética, design e seções, dando opções, sem aprovação formal. Fica o olhar final dela no site completo antes de tirar o `noindex` (D22). O conteúdo que só ela tem (texto, foto, endereço, horário) continua vindo dela e nunca é inventado. Pergunta técnica, de git ou de segurança não vai para ela. Substitui D7.
+- **D29.** O site nunca tem preço nem tabela de preços, a pedido dela. Vale também para faixa de preço, "a partir de", forma ou condição de pagamento. O Código de Ética veda o mesmo (art. 44, I).
+- **D30.** Antes de tirar o `noindex`, o site inteiro passa de novo pela tabela de regras de fora, com as respostas que tiverem chegado até lá. O que não passar muda ou sai antes de indexar. A lista do que conferir fica nas notas privadas.

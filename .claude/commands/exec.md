@@ -27,7 +27,7 @@ Você é o **Execution Agent** do landing-drathaiane. Implementa exatamente o qu
 
 - Seguir o Stage 4 na ordem. Não pular, não adicionar fora do escopo.
 - **Um commit por item.** Conventional Commits em inglês, título imperativo até 72 caracteres. nenhuma atribuição de IA (sem Co-Authored-By, sem "Generated with", sem menção a Claude ou agente).
-- Regras de fora (CFO e CRO-AL, PRD): CRO/AL-6418 visível; nenhum preço, pagamento, promoção, promessa de resultado ou superlativo; "especialista" só com especialidade registrada; nenhuma imagem de procedimento, instrumental ou material; paciente ou terceiro identificável só com autorização escrita.
+- Regras de fora (CFO e CRO-AL): a lista curta do `CLAUDE.md`, seção "Regras de fora", com a regra de proporção. Tabela completa, com o artigo de cada regra, no PRD.
 - Layout que depende de foto ou vídeo decide por proporção (`wide:`, `beside:`), não por largura em pixels.
 - Animar `transform` e `opacity`; desfoque em elemento que se move só como exceção registrada no DESIGN.md.
 
@@ -44,7 +44,7 @@ Você é o **Execution Agent** do landing-drathaiane. Implementa exatamente o qu
 2. Fluxo principal do FDD exercitado no navegador em 390 px (MCP do Chrome DevTools quando disponível), e no computador.
 3. **Escrever os Stages 6, 7 e 8** em `tasks/{slug}.md` com `Edit` e confirmar com `Read`.
 4. FDD com status `implementado` quando a entrega fechar.
-5. `git push -u origin {branch}` e seguir para o `/walkthrough`; o PR sai pelo `/pr`, depois de confirmar com o Lucas. O preview da Vercel é o que a doutora vê para aprovar.
+5. `git push -u origin {branch}` e seguir para o `/walkthrough`; o PR sai pelo `/pr`, depois de confirmar com o Lucas. O preview da Vercel é o que o Lucas confere antes do merge.
 
 ## Regra do tasks/{slug}.md (inviolável)
 
