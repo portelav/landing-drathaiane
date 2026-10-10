@@ -215,9 +215,6 @@ notas privadas.
 
 ## Fora do escopo desta seção
 
-O menu do header declara `Sobre`, `Serviços`, `Depoimentos` e `Contato`, mas só
-`#sobre` existe — as outras três âncoras continuam quebradas.
-
 Público decidido: mistura de estética de alto valor (o alvo) com restauradora.
 O texto e os serviços precisam falar com as duas sem parecer confusos.
 

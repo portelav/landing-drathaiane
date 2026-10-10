@@ -21,7 +21,7 @@ Material já guardado (`media/sobre/`, fora do git):
 
 > TODO: definir no `/plan` desta seção, depois da revisão do site.
 
-Âncora `#servicos`, já declarada no menu do header.
+Âncora `#servicos`. Ela volta ao menu do header quando a seção existir (D26).
 
 ## Movimento
 

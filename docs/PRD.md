@@ -42,7 +42,7 @@ Seções em ordem na página.
 | Sobre | Quem ela é, como trabalha, credenciais com datas | [`docs/fdd/sobre.md`](fdd/sobre.md) | pronto |
 | Serviços | O que ela trata, para os dois públicos | [`docs/fdd/servicos.md`](fdd/servicos.md) | falta (conteúdo pendente) |
 | Depoimentos | Prova social | [`docs/fdd/depoimentos.md`](fdd/depoimentos.md) | fora por enquanto, sai do site e do menu (D25) |
-| Contato e rodapé | Como chegar, horários, WhatsApp; identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | falta (conteúdo pendente) |
+| Contato e rodapé | Como chegar, horários, WhatsApp; identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | rodapé pronto, com a identificação e os canais (D26); seção Contato falta (conteúdo pendente) |
 
 ### Conteúdo pendente
 
@@ -106,8 +106,8 @@ Duas fases (D21). Cada item é verificável em 390 px, iPad retrato e computador
 
 Só depende do Lucas. O site continua com `noindex`.
 
-- [ ] Rodapé com "Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418", legível.
-- [ ] Menu sem link quebrado: Depoimentos sai (D25); Serviços e Contato levam a uma seção ou saem do menu até ela existir.
+- [x] Rodapé com "Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418", legível.
+- [x] Menu sem link quebrado: Depoimentos sai (D25); Serviços e Contato levam a uma seção ou saem do menu até ela existir. Serviços saiu; Contato leva ao rodapé (D26).
 - [ ] Rótulos de 11 px com contraste de 4,5:1 (DESIGN.md, seção 3).
 - [ ] Vídeos em loop (hero e kit) com controle de pausa acessível (WCAG 2.2.2).
 - [ ] Barra técnica da seção 5: Lighthouse no celular com LCP abaixo de 2,5 s no 4G e acessibilidade sem falha AA.
@@ -170,3 +170,10 @@ Cumpre D17.
 - **D23.** Meta: entrar no portfólio e no currículo, cumprir a barra técnica medida e ficar indexado com o aval dela (seção 5). Cliques no WhatsApp ficam fora, por exigir analytics.
 - **D24.** Prazo: Fase 1 até 2026-10-23. Fase 2 sem data; o conteúdo é acompanhado nas notas privadas.
 - **D25.** Depoimentos sai do site e do menu por enquanto. A seção fica para decisão futura e não entra em nenhuma das duas fases.
+
+### Rodada 3 (2026-10-09): plano do rodapé
+
+Plano em `tasks/footer-and-menu-anchors.md`.
+
+- **D26.** Na Fase 1, o rodapé é o destino de `#contato`: leva a identificação e os canais que o site já mostra no header (WhatsApp, telefone, Instagram; D3). Quando a seção Contato da Fase 2 existir, ela assume a âncora. Serviços sai do menu até a seção existir.
+- **D27.** O rodapé leva "© 2026 Dra. Thaiane Lessa. Todos os direitos reservados." (D20) e não leva crédito do site.

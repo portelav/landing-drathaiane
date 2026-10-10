@@ -34,7 +34,7 @@ Onde está cada coisa:
 
 ## Estado atual
 
-Prontos: preloader com o monograma, header (WhatsApp e Instagram), hero com vídeo e a seção Sobre em três tempos (band, texto, linha do tempo com vídeo). Faltam Serviços e Contato, cujo conteúdo está com a doutora. O menu ainda declara as âncoras de Serviços, Depoimentos e Contato, que não levam a lugar nenhum. No ar em https://drathaianelessa.vercel.app com `noindex`.
+Prontos: preloader com o monograma, header (WhatsApp e Instagram), hero com vídeo, a seção Sobre em três tempos (band, texto, linha do tempo com vídeo) e o rodapé com a identificação do CRO e os canais de contato. Faltam Serviços e a seção Contato, cujo conteúdo está com a doutora. O menu leva só a Sobre e a Contato; Contato aponta para o rodapé até a seção existir (PRD, D26). No ar em https://drathaianelessa.vercel.app com `noindex`.
 
 ## Ambientes
 
@@ -158,7 +158,8 @@ Antes de abrir PR: lint, typecheck e build verdes (o CI roda os três).
 ```
 src/
   app/          layout.tsx (metadados, fontes, noindex), page.tsx (ordem das seções), globals.css (tokens, variantes wide: e beside:)
-  components/   uma seção ou peça por arquivo: preloader, header, hero, about, about-text, about-timeline, brand-mark, smooth-scroll
+  components/   uma seção ou peça por arquivo: preloader, header, hero, about, about-text, about-timeline, footer, brand-mark, smooth-scroll
+  lib/          dados sem componente, compartilhados entre Server e Client Components: contact.ts (telefone, WhatsApp, Instagram)
 public/
   images/  logos/  video/   mídia já transcodificada
 docs/           PRD, ADRs, FDDs, ROADMAP, DESIGN, research

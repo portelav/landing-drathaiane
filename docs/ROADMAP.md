@@ -6,8 +6,8 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 
 | Item | Critério de pronto | Plano |
 |---|---|---|
-| Rodapé com identificação | "Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418" visível em 390 px, iPad e computador | `/plan` (parte de Contato) |
-| Menu sem link quebrado | Depoimentos sai do menu (D25); `#servicos` e `#contato` levam a uma seção, ou saem do menu até ela existir | — |
+| Rodapé com identificação | "Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418" visível em 390 px, iPad e computador | `tasks/footer-and-menu-anchors.md` |
+| Menu sem link quebrado | Depoimentos sai do menu (D25); `#servicos` e `#contato` levam a uma seção, ou saem do menu até ela existir | `tasks/footer-and-menu-anchors.md` |
 | Contraste dos rótulos de 11 px | `dark-55` e `light-40` em texto pequeno passam em 4,5:1 (DESIGN.md, seção 3) | — |
 | Pausa dos vídeos em loop | Hero e kit com controle de pausa acessível (WCAG 2.2.2) | — |
 | Barra técnica | Lighthouse no celular: LCP abaixo de 2,5 s no 4G, acessibilidade sem falha AA, em 390 px, iPad e computador | — |

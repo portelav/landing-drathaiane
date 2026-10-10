@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Inter_Tight } from "next/font/google";
+import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import "./globals.css";
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SmoothScroll />
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

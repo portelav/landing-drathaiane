@@ -3,19 +3,14 @@
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { INSTAGRAM_HREF, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_HREF } from "@/lib/contact";
 import { BrandMark, MARK_FLIGHT } from "./brand-mark";
 
+/** Only sections that exist on the page; one joins when its section lands. */
 const NAV_LINKS = [
   { label: "Sobre", href: "#sobre" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Depoimentos", href: "#depoimentos" },
   { label: "Contato", href: "#contato" },
 ];
-
-const PHONE_DISPLAY = "(82) 99387-1990";
-const PHONE_HREF = "tel:+5582993871990";
-const WHATSAPP_HREF = "https://wa.me/5582993871990";
-const INSTAGRAM_HREF = "https://instagram.com/thaiane_lessa";
 
 /** One shape for every social tile, so the row reads as a set. */
 const SOCIAL_TILE =
@@ -247,7 +242,7 @@ export function Header() {
         </div>
       </div>
 
-      {/* Narrow screens have no middle to unfold into, so the same four
+      {/* Narrow screens have no middle to unfold into, so the same
           destinations drop just below the bar — a band, never the whole page. */}
       <AnimatePresence>
         {open && (
