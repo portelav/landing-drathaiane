@@ -3,7 +3,7 @@
 **Slug:** `roles-prices-cfo-rules`
 **Branch:** `docs/roles-prices-cfo-rules`
 **Área:** docs (PRD, CLAUDE.md, pesquisa, comandos) · **Dono:** Lucas
-**Status:** Walkthrough
+**Status:** Done (PR #4 mergeado em 2026-10-10)
 **Gate S2:** Livre
 
 ---

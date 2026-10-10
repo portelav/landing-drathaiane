@@ -3,7 +3,7 @@
 **Slug:** `go-public`
 **Branch:** `chore/go-public`
 **Área:** repositório · **Dono:** Lucas
-**Status:** Execution
+**Status:** Done (repositório público desde 2026-10-09)
 **Gate S2:** Livre (plano aprovado pelo Lucas em 2026-10-09)
 
 ---
