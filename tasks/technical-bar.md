@@ -131,7 +131,7 @@
 2. [x] `perf(hero)`: preload do poster do hero com prioridade alta em `page.tsx`.
 3. [x] `perf(video)`: `preload="none"` nos dois vídeos. O hook carrega o do hero depois do `load` da página, e o do kit perto da tela. O poster do kit é atribuído só ao chegar perto da tela. Medir.
 4. [x] `perf`: diagnóstico das cerca de 7.000 fatias do agendador do React na carga, no build local com o profiler. Corrigir se for laço de renderização, com a causa na mensagem do commit. Medir. Se não for laço, registrar o achado e seguir.
-5. [ ] `perf`, só se o LCP ainda não passar: poster do hero mais leve (mesma resolução, qualidade menor, sem metadado) ou `preload: false` na fonte que não está na primeira tela. Medir.
+5. [ ] (não feito: fontes e imagens não mudam o LCP simulado, ver Stage 6) `perf`, só se o LCP ainda não passar: poster do hero mais leve (mesma resolução, qualidade menor, sem metadado) ou `preload: false` na fonte que não está na primeira tela. Medir.
 6. [x] `fix(a11y)`: piso de 60% de opacidade nos anos da roleta (opção A).
 7. [x] Medição final: 3 execuções em cada tamanho (celular, iPad retrato, computador), mais a conferência manual de movimento reduzido. Números no Stage 7.
 8. [x] `docs`:
@@ -269,5 +269,11 @@ Medição local, `npm run build && npm start`, Lighthouse 13.4.1, mediana de 3, 
 - `git log --format=%B main..HEAD | grep -i -E "co-authored|generated with|claude"`: vazio. Autor: e-mail noreply em todos os commits
 - Lighthouse 13.4.1 local (Stage 7) e PageSpeed Insights sobre a `main` (LCP 3,2 s)
 - Navegador (Chrome DevTools MCP): 390 px (vídeos, poster do kit, botão) e 1440 × 900 (roleta)
+
+### Correções depois do walkthrough
+- `CLAUDE.md`: a estrutura de `lib/` passa a citar o `media.ts`.
+- `src/components/hero.tsx`: linha em branco entre os imports e `SOURCES`.
+- Stage 4: o item 5 diz por que não foi feito.
+- Ficam abertos os dois primeiros avisos: a medição na produção, depois do merge, e o teste no iPhone com movimento reduzido.
 
 **Gate S9 — WARNINGS**
