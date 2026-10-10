@@ -42,7 +42,7 @@ Seções em ordem na página.
 | Sobre | Quem ela é, como trabalha, credenciais com datas | [`docs/fdd/sobre.md`](fdd/sobre.md) | pronto |
 | Serviços | O que ela trata, para os dois públicos | [`docs/fdd/servicos.md`](fdd/servicos.md) | falta (conteúdo pendente) |
 | Depoimentos | Prova social | [`docs/fdd/depoimentos.md`](fdd/depoimentos.md) | fora por enquanto, sai do site e do menu (D25) |
-| Contato e rodapé | Como chegar, horários, WhatsApp; identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | rodapé pronto, com a identificação e os canais (D26); seção Contato falta (conteúdo pendente) |
+| Contato e rodapé | Como chegar (endereço do consultório e rota), horários, primeira consulta, perguntas frequentes, link para as avaliações, WhatsApp (D32 a D34); identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | rodapé pronto, com a identificação e os canais (D26); seção Contato falta (conteúdo pendente) |
 
 ### Conteúdo pendente
 
@@ -51,10 +51,11 @@ A doutora já tem o conteúdo das seções que faltam e ainda não mandou (D9). 
 ## 7. Fora de escopo
 
 - Agendamento online, formulário, área do paciente: o contato é pelo WhatsApp. Se entrar, rodar `/kickoff` de novo (entra ADD).
-- Blog e conteúdo educativo.
+- Blog e páginas de conteúdo educativo. A primeira consulta e as perguntas frequentes não são blog: entram na seção Contato (D32).
 - Versão em outro idioma.
 - Domínio pago: fica para o fim, depois do MVP.
-- Depoimentos, por enquanto: a seção sai do site e do menu e fica para decisão futura (D25).
+- Depoimentos, por enquanto: a seção sai do site e do menu e fica para decisão futura (D25). O link para as avaliações externas não é a seção e entra em Contato (D33).
+- Mapa embutido: o endereço leva a uma rota no Maps por link (D34).
 - Preços e condições de pagamento: nunca, a pedido dela (D29); o Código de Ética também veda (art. 44, I).
 
 ## 8. Requisitos não funcionais
@@ -77,6 +78,7 @@ Conferido contra o texto oficial em 2026-10-10: Código de Ética Odontológica 
 | "Desconto", "promoção", "oferta", bandeira de cartão, indicação de amigos, pacote e cupom não são permitidos | Nenhum CTA promocional. "Desconto" saiu do Código em 2025 e fica fora pela cartilha | [Cartilha CRO-AL](https://croal.org.br/wp-content/uploads/2025/04/Cartilha-de-publicidade-na-odontologia.pdf) (interpretação) |
 | "Especialista" só com especialidade registrada no CRO-AL. Área de atuação, procedimento e técnica só precedidos do título da especialidade registrada ou de "clínico geral" | Texto do site diz "especialista" só com o registro confirmado, e nomeia área de atuação só depois do título ou de "clínico geral" | CEO art. 44, II, e art. 43, § 1º, I e II |
 | Mestrado e doutorado podem ser divulgados | Linha do tempo pode manter o mestrado | CEO art. 43, § 1º, III |
+| Endereço, telefone, e-mail, horário e convênios podem ser divulgados | Contato com o endereço do consultório e o horário (D34); convênio, se houver, só pelo nome | CEO art. 43, § 1º, IV |
 | Proibida expressão que caracterize sensacionalismo, autopromoção, concorrência desleal, mercantilização ou promessa de resultado | Tom de voz no DESIGN.md; revisão de todo texto no `/walkthrough` | [Res. CFO-196/2019](https://sistemas.cfo.org.br/visualizar/atos/RESOLU%C3%87%C3%83O/SEC/2019/196) art. 2º, § 1º |
 | Proibido criticar técnica de outro profissional como inadequada ou ultrapassada | Texto não critica técnica de colega | CEO art. 44, IV |
 | Proibido vídeo ou imagem do transcurso ou da realização de procedimento, salvo em publicação científica | Nenhum vídeo de atendimento | Res. CFO-196/2019 art. 3º |
@@ -125,7 +127,7 @@ Só depende do Lucas. O site continua com `noindex`.
 
 Depende do conteúdo e do aval dela (D24).
 
-- [ ] Serviços e Contato com o conteúdo real dela.
+- [ ] Serviços e Contato com o conteúdo real dela. Contato com endereço do consultório e rota, horário, primeira consulta, perguntas frequentes e link para as avaliações (D32 a D34).
 - [ ] Site inteiro revisto de novo contra as regras de fora; o que não passou mudou ou saiu (D30).
 - [ ] Aval dela no site completo, com o texto do rodapé.
 - [ ] `noindex` fora, metadados completos e prévia de link (Open Graph).
@@ -193,3 +195,11 @@ Plano em `tasks/roles-prices-cfo-rules.md`.
 - **D29.** O site nunca tem preço nem tabela de preços, a pedido dela. Vale também para faixa de preço, "a partir de", forma ou condição de pagamento. O Código de Ética veda o mesmo (art. 44, I).
 - **D30.** Antes de tirar o `noindex`, o site inteiro passa de novo pela tabela de regras de fora, com as respostas que tiverem chegado até lá. O que não passar muda ou sai antes de indexar. A lista do que conferir fica nas notas privadas.
 - **D31.** Pausa dos vídeos (2026-10-10). Os dois vídeos, o do consultório no hero e o do kit no Sobre, rodam em loop enquanto estão na tela e param quando saem dela. Cada um tem um botão de pausa discreto no canto inferior direito: ícone escuro num quadrado claro de 32 px, sem raio, com área de toque de 44 px. A pausa pedida pela pessoa vale até ela tocar em reproduzir, só durante a visita. Foi considerado tirar o botão do hero e assumir a falha no critério WCAG 2.2.2; ficou o botão nos dois.
+
+### Rodada 5 (2026-10-10): pesquisa de sites de dentistas
+
+Pesquisa com 24 sites de dentistas de estética e restauradora (Maceió, Nordeste, Brasil e exterior), o que o paciente procura antes de chamar e conferência no navegador. O relatório cita outros profissionais e fica nas notas privadas. Plano em `tasks/contact-decisions.md`.
+
+- **D32.** Entram uma parte "primeira consulta", com as etapas em poucas linhas, e perguntas frequentes curtas. As duas ficam na seção Contato; forma e lugar exato saem do plano da seção. O texto vem dela. Pergunta sobre valor só entra se ela quiser, e a resposta não tem número, faixa, "a partir de" nem forma de pagamento (D29).
+- **D33.** Contato leva um link discreto para as avaliações dela fora do site (perfil no Google). A página não reproduz avaliação, nome nem foto de paciente (CEO art. 44, VI). Depoimentos continua fora (D25). Depende de ela ter o perfil e querer o link.
+- **D34.** Contato mostra o endereço do consultório (CEO art. 43, § 1º, IV), com link de rota para o Maps. Sem mapa embutido: ele carrega script e cookies de terceiros, e o site não coleta dados (regras de fora, LGPD). Endereço de casa nunca. Endereço, horário e acesso vêm dela.
