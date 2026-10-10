@@ -25,6 +25,8 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 
 - Rever o ignore `.claude/**` do `eslint.config.mjs` (comentário diz "vendored agent tooling"): as skills de terceiros saíram no kickoff, e o que sobrou em `.claude/hooks/` é código do projeto.
 - Domínio próprio (D10).
+- Rever o visual do rodapé: o colofão claro (`tasks/footer-colophon.md`) melhorou o primeiro rodapé, mas ainda não convence o Lucas.
+- Nome do header quebrando em quatro linhas em 390 px quando o header ganha fundo.
 
 ## Talvez
 

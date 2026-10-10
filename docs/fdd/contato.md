@@ -18,7 +18,7 @@ Fechar a página com a identificação obrigatória e os canais de contato, e se
 
 Só o que já está publicado no site (D3):
 
-- Identificação: "Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418".
+- Identificação, uma parte por linha: "Dra. Thaiane Lessa", "Cirurgiã-Dentista", "CRO/AL-6418". O art. 43 do Código de Ética exige nome, profissão e número de inscrição, não um separador.
 - Direitos (D27): "© 2026 Dra. Thaiane Lessa. Todos os direitos reservados."
 - Canais: WhatsApp (`https://wa.me/5582993871990`), telefone "(82) 99387-1990" (`tel:+5582993871990`), Instagram "@thaiane_lessa" (`https://instagram.com/thaiane_lessa`).
 
@@ -27,16 +27,13 @@ Os dados de contato vêm de `src/lib/contact.ts`, a mesma fonte do header.
 ### Comportamento
 
 - `<footer id="contato">` depois do conteúdo da página, montado em `layout.tsx` como par do header. Server Component, sem JavaScript.
-- Fundo `forest-900`, texto `light-base`. Sinaliza `data-header-theme="dark"` para o header inverter quando passar por cima.
-- Primeiro bloco:
-  - Monograma (`BrandMark`) estático: fecha a página com a mesma marca que o preloader abriu.
-  - Rótulo "Contato" em caixa-alta.
-  - Os três canais em Instrument Serif, como no menu compacto. Sem ícone: editorial, não institucional.
-- Um traço `light-15` separa os dois blocos.
-- Segundo bloco:
-  - A identificação em `light-base` cheio. Cada parte (nome, profissão, CRO) não quebra no meio; a linha só quebra nos separadores.
-  - Os direitos em texto secundário.
-- Os canais ficam um embaixo do outro no celular e em linha a partir de `lg`. Identificação e direitos ficam lado a lado quando cabem e um embaixo do outro quando não cabem. Breakpoint em pixel, porque o rodapé não depende de foto nem de vídeo.
+- Colofão no fundo da própria página (`light-base`), sem bloco de cor: a página termina no mesmo tom em que é lida. Um traço `dark-10` no topo separa o rodapé da última seção. Sinaliza `data-header-theme="light"`.
+- Monograma (`BrandMark`) em `forest-900`, estático: fecha a página com a mesma marca que o preloader abriu.
+- Identificação ao lado do monograma, em três linhas de Inter Tight (15 px): o nome em `dark-base`, profissão e CRO em `dark-base` a 70%.
+- Canais em Inter Tight (15 px), como links discretos no estilo do menu do header. Sem ícone e sem serifa grande.
+- Direitos numa linha pequena embaixo, em `dark-base` a 70%.
+- Celular: monograma, identificação, canais numa linha só (os três cabem em 390 px) e direitos, um embaixo do outro.
+- A partir de `sm`: identificação à esquerda, canais numa coluna à direita. Cada linha da identificação fica na altura de um canal: as duas colunas usam linhas de 44 px em tela de toque e de 32 px com mouse (`pointer-fine`). Breakpoint em pixel, porque o rodapé não depende de foto nem de vídeo.
 - WhatsApp e Instagram abrem em nova aba. O telefone abre o discador.
 - Quando a seção Contato da Fase 2 existir, ela assume `#contato`, e o rodapé fica só como rodapé.
 
@@ -46,18 +43,18 @@ Nada anima. O rodapé é o ponto de repouso depois de três momentos seguidos di
 
 ### Regras
 
-1. A identificação aparece exata, em toda largura de tela, em `light-base` sobre `forest-900` (CEO art. 43).
+1. A identificação aparece inteira, em toda largura de tela, com o nome em `dark-base` sobre `light-base` (CEO art. 43).
 2. Nenhum dado que a doutora não tenha publicado. Endereço, horários e e-mail ficam para a Fase 2.
 3. Nenhuma palavra vetada (DESIGN.md, seção 8). Nenhuma imagem além do monograma.
-4. Todo texto passa em 4,5:1, inclusive o secundário. `light-40` não serve aqui.
+4. Todo texto passa em 4,5:1, inclusive o secundário. `dark-55` não serve aqui; o secundário usa `dark-base` a 70%.
 
 ### Acessibilidade
 
 - O `<footer>` é o landmark `contentinfo`.
-- Ordem de leitura: rótulo "Contato" (`h2`), canais, identificação, direitos.
+- Ordem de leitura: "Contato" (`h2` só para leitor de tela), identificação, canais, direitos.
 - O monograma tem `aria-hidden`.
 - O nome acessível de cada canal contém o texto visível. Os que abrem em nova aba levam "(abre em nova aba)" só para leitor de tela.
-- Cada canal tem área de toque de pelo menos 44 px de altura, e foco visível.
+- Em tela de toque, cada canal tem área de toque de 44 px de altura; com mouse, 32 px. Foco visível em todos.
 
 ### Desempenho
 
@@ -69,7 +66,7 @@ Verificáveis em 390 px, iPad retrato e computador:
 
 - [x] Identificação exata e inteira, sem cortar.
 - [x] Linha de direitos presente.
-- [x] Três canais com os destinos acima. WhatsApp e Instagram em nova aba. Área de toque de pelo menos 44 px.
+- [x] Três canais com os destinos acima. WhatsApp e Instagram em nova aba. Área de toque de 44 px em tela de toque.
 - [x] Contato no menu leva ao rodapé, no computador (com o Lenis) e no celular.
 - [x] Todo texto passa em 4,5:1, medido.
 - [x] Foco visível em cada canal; ordem de leitura como acima.

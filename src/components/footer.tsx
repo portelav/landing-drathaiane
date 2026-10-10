@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import {
   INSTAGRAM_HANDLE,
   INSTAGRAM_HREF,
@@ -14,62 +13,72 @@ const CHANNELS = [
   { label: INSTAGRAM_HANDLE, href: INSTAGRAM_HREF, external: true },
 ];
 
-/** Name, profession and registry: the CFO requires all three on every page. */
+/**
+ * Name, profession and registry number: the CFO requires all three on every
+ * page. One per line, so the line never needs separators to stay readable.
+ */
 const IDENTIFICATION = ["Dra. Thaiane Lessa", "Cirurgiã-Dentista", "CRO/AL-6418"];
 
-const FOCUS_RING =
-  "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-light-base";
+/**
+ * Side by side, each identification line sits level with one channel: both
+ * columns share the row height, 44 px for touch and 32 px for a mouse.
+ */
+const ROW = "flex items-center min-h-11 pointer-fine:min-h-8";
 
 /**
- * Closes the page and, until the full contact section exists, is where the
- * menu's "Contato" lands. Nothing moves here: it is the rest after three
- * scroll-driven pieces in a row.
+ * A quiet colophon on the page's own ground rather than a block of colour:
+ * the page ends the way it reads. Until the full contact section exists, this
+ * is where the menu's "Contato" lands.
  */
 export function Footer() {
   return (
     <footer
       id="contato"
-      data-header-theme="dark"
-      className="bg-forest-900 px-6 pb-10 pt-20 text-light-base sm:px-10 sm:pb-12 sm:pt-28"
+      data-header-theme="light"
+      className="bg-light-base px-6 text-dark-base sm:px-10"
     >
-      <div className="flex flex-col gap-6">
-        {/* The mark the preloader opened with, standing still at the end. */}
-        <BrandMark height={40} />
-        <h2 className="tracking-brand m-0 text-[0.6875rem] font-normal uppercase text-light-base/70">
-          Contato
-        </h2>
-      </div>
+      <h2 className="sr-only">Contato</h2>
 
-      <ul className="mt-6 flex flex-col lg:flex-row lg:flex-wrap lg:gap-x-12">
-        {CHANNELS.map((channel) => (
-          <li key={channel.href}>
-            <a
-              href={channel.href}
-              {...(channel.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className={`inline-flex min-h-11 items-center font-display text-[clamp(1.75rem,3.4vw,2.75rem)] leading-none no-underline opacity-85 transition-opacity duration-300 hover:opacity-100 ${FOCUS_RING}`}
-            >
-              {channel.label}
-              {channel.external && <span className="sr-only"> (abre em nova aba)</span>}
-            </a>
-          </li>
-        ))}
-      </ul>
+      <div className="flex flex-col gap-8 border-t border-dark-10 pb-10 pt-12 sm:flex-row sm:items-start sm:justify-between sm:gap-12 sm:pb-12 sm:pt-16">
+        <div className="flex flex-col gap-5 sm:flex-row sm:gap-6">
+          <span className="text-forest-900 sm:pt-1.5">
+            <BrandMark height={36} />
+          </span>
+          <p className="m-0 text-[0.9375rem]">
+            {IDENTIFICATION.map((line, index) => (
+              <span
+                key={line}
+                className={`block leading-6 sm:flex sm:min-h-11 sm:items-center sm:pointer-fine:min-h-8 ${
+                  index === 0 ? "" : "text-dark-base/70"
+                }`}
+              >
+                {line}
+              </span>
+            ))}
+          </p>
+        </div>
 
-      {/* Identification and rights sit side by side when they fit and stack
-          when they do not — the footer holds no media, so no ratio applies. */}
-      <div className="mt-16 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3 border-t border-light-15 pt-6 sm:mt-24">
-        <p className="m-0 text-[0.9375rem] leading-relaxed">
-          {IDENTIFICATION.map((part, index) => (
-            <Fragment key={part}>
-              {index > 0 && " · "}
-              <span className="whitespace-nowrap">{part}</span>
-            </Fragment>
+        {/* One row on a phone, where the three fit side by side; a column
+            beside the identification once there is room for both. */}
+        <ul className="m-0 flex list-none flex-wrap gap-x-6 p-0 text-[0.9375rem] sm:flex-col sm:gap-x-0">
+          {CHANNELS.map((channel) => (
+            <li key={channel.href}>
+              <a
+                href={channel.href}
+                {...(channel.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className={`${ROW} w-fit no-underline opacity-70 transition-opacity duration-300 hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark-base`}
+              >
+                {channel.label}
+                {channel.external && <span className="sr-only"> (abre em nova aba)</span>}
+              </a>
+            </li>
           ))}
-        </p>
-        <p className="m-0 text-[0.8125rem] leading-relaxed text-light-base/70">
-          © 2026 Dra. Thaiane Lessa. Todos os direitos reservados.
-        </p>
+        </ul>
       </div>
+
+      <p className="m-0 pb-10 text-[0.8125rem] text-dark-base/70 sm:pb-12">
+        © 2026 Dra. Thaiane Lessa. Todos os direitos reservados.
+      </p>
     </footer>
   );
 }
