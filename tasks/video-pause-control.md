@@ -232,4 +232,52 @@ Medido no navegador pelo MCP do Chrome DevTools, com `next dev`, em 390×844 (ce
 
 ## Stage 9 — Walkthrough
 
-*(Preenchido pelo walkthrough.)*
+> Data: 2026-10-10
+
+### Resumo
+- **Veredito:** WARNINGS
+- **Arquivos analisados:** 14 (3 de código, 11 de docs)
+- **Findings:** 0 críticos, 2 avisos
+
+### Checklist
+| Item | Status | Observação |
+|---|---|---|
+| 1. Escopo | OK | Os 14 arquivos são os do Stage 4. No código: uma peça nova e a troca do efeito de reprodução nos dois componentes, mais o botão |
+| 2. Regras de fora | OK | Nenhuma mídia nova. Os únicos textos novos são os rótulos do botão, que são interface. O FDD do hero registra a regra de pessoa identificável sem afirmar o status; a pendência fica nas notas privadas. Nenhum nome de outra empresa nos docs novos |
+| 3. Stack | OK | `"use client"` na peça nova, que tem estado e efeito; nenhuma API do Next; nenhuma dependência. Layout pelo contêiner do vídeo, que já segue `wide:` e `beside:` |
+| 4. Produto | OK | Bate com D31 e com os dois FDDs, salvo o aviso 1. A troca de "recepção" por "consultório" no rótulo está justificada nos desvios |
+| 5. Interface: tokens | OK | `light-base`, `dark-base`, sem hex solto. Quadrado sem raio, como a regra de forma |
+| 5. Interface: viewports, toque, foco | OK | Medido nos três tamanhos: 44 × 44 px, foco visível por dentro do quadrado, ícone com 8,45:1 ou mais. Enter e Espaço testados no celular, onde o Lenis fica desligado; no computador foi testado o clique real |
+| 5. Interface: movimento e pausa | OK | O botão não anima, e o hover é só de opacidade. Era o que faltava para o WCAG 2.2.2 |
+| 5. Interface: `prefers-reduced-motion` | OK, com ressalva | Conferido no código, não emulado. Ver aviso 2 |
+| 5. Interface: desempenho | OK | O hero agora também para fora da tela, e o poster continua sendo a primeira pintura |
+| 6. Higiene: verificações | OK | Lint, typecheck e build com saída 0 (Stage 8) |
+| 6. Higiene: commits | OK | 12 commits em Conventional Commits, títulos até 72 caracteres, todos com o e-mail noreply. Busca por atribuição de IA vazia. Branch em dia com a `main` |
+| 6. Higiene: docs | OK, com aviso | FDDs, PRD (D31), ROADMAP, DESIGN.md e `CLAUDE.md` atualizados. Ver aviso 1 |
+
+### Findings
+#### Critical
+- Nenhum.
+
+#### Warnings
+1. **O FDD do hero erra o estado com movimento reduzido no `wide:`.** Diz "a linha de exibição centralizada". No código, o `rest()` limpa a opacidade inline da linha grande, e a classe `opacity-0` volta: no `wide:` com movimento reduzido, a linha não aparece. Ela só fica centralizada no estreito. A ordem de leitura também omite a linha de exibição, que existe no DOM e o leitor de tela lê. — `docs/fdd/hero.md:58` e `docs/fdd/hero.md:71`; código em `src/components/hero.tsx:110` e `:311` — Sugestão: "no estreito, a linha de exibição fica centralizada; no `wide:`, ela não aparece". Na ordem de leitura, a linha entra perto do botão, como no DOM. Se a linha deveria aparecer, é decisão do Lucas, e outra entrega.
+2. **Caso raro de vídeo preso sem botão.** A sequência é: a pessoa pausa pelo botão, liga "reduzir movimento" com a página aberta e depois desliga. O `pausedRef` continua verdadeiro e o vídeo não toca, então `playable` não volta a ser verdadeiro e o botão some. Sobra o vídeo parado no primeiro quadro, sem como retomar até recarregar a página. — `src/components/video-toggle.tsx:43-47` — Sugestão: no ramo de movimento reduzido do `sync()`, zerar também a pausa da pessoa (`pausedRef.current = false; setPaused(false)`). Com movimento reduzido ela não tem efeito, e ao desligar o vídeo volta ao loop e o botão reaparece.
+
+#### Positive
+- Uma peça só no lugar de dois efeitos que já divergiam. O hero ganhou a parada fora da tela; o kit ganhou as novas tentativas e a escuta da preferência.
+- O limite de 40% do kit agora vale de fato. O código antigo tocava ao primeiro pixel, e o defeito foi achado e registrado.
+- A pausa da pessoa vence a visibilidade, como decidido, e foi testada rolando para longe e voltando.
+- O rótulo do botão descreve o que o vídeo mostra, conferido nos quadros, e não o que se supunha.
+- Teste honesto: o critério de movimento reduzido ficou desmarcado no FDD até haver teste num aparelho.
+
+### Verificações executadas
+- `git diff --name-only main...HEAD`: 14 arquivos, todos previstos.
+- `git log HEAD..origin/main`: vazio (em dia com a `main`).
+- `git log --format=%B main..HEAD | grep -i -E "co-authored|generated with|claude|agent"`: vazio.
+- `git log --format='%ae'`: só `198817785+portelav@users.noreply.github.com`.
+- Títulos acima de 72 caracteres: nenhum.
+- Leitura do diff de `hero.tsx`, `about-timeline.tsx` e `video-toggle.tsx`.
+- `grep -n "opacity-0\|banner.style.opacity" src/components/hero.tsx`: origem do aviso 1.
+- Lint, typecheck e build: verdes no Stage 8, sem mudança de código depois.
+
+**Gate S9 — WARNINGS**
