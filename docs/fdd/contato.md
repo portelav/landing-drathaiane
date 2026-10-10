@@ -1,6 +1,6 @@
 # FDD: Seção Contato e rodapé
 
-Status: rodapé aprovado (Fase 1); seção Contato em rascunho (conteúdo pendente, Fase 2)
+Status: rodapé implementado (Fase 1); seção Contato em rascunho (conteúdo pendente, Fase 2)
 PRD: seção 6, item Contato e rodapé; D26 e D27
 Plano do rodapé: `tasks/footer-and-menu-anchors.md`
 
@@ -67,13 +67,13 @@ Sem mídia: o monograma é SVG inline. Sem JavaScript no cliente.
 
 Verificáveis em 390 px, iPad retrato e computador:
 
-- [ ] Identificação exata e inteira, sem cortar.
-- [ ] Linha de direitos presente.
-- [ ] Três canais com os destinos acima. WhatsApp e Instagram em nova aba. Área de toque de pelo menos 44 px.
-- [ ] Contato no menu leva ao rodapé, no computador (com o Lenis) e no celular.
-- [ ] Todo texto passa em 4,5:1, medido.
-- [ ] Foco visível em cada canal; ordem de leitura como acima.
-- [ ] Nada se move; com `prefers-reduced-motion` fica igual.
+- [x] Identificação exata e inteira, sem cortar.
+- [x] Linha de direitos presente.
+- [x] Três canais com os destinos acima. WhatsApp e Instagram em nova aba. Área de toque de pelo menos 44 px.
+- [x] Contato no menu leva ao rodapé, no computador (com o Lenis) e no celular.
+- [x] Todo texto passa em 4,5:1, medido.
+- [x] Foco visível em cada canal; ordem de leitura como acima.
+- [x] Nada se move; com `prefers-reduced-motion` fica igual.
 
 ## Seção Contato (Fase 2)
 

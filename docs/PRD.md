@@ -42,7 +42,7 @@ Seções em ordem na página.
 | Sobre | Quem ela é, como trabalha, credenciais com datas | [`docs/fdd/sobre.md`](fdd/sobre.md) | pronto |
 | Serviços | O que ela trata, para os dois públicos | [`docs/fdd/servicos.md`](fdd/servicos.md) | falta (conteúdo pendente) |
 | Depoimentos | Prova social | [`docs/fdd/depoimentos.md`](fdd/depoimentos.md) | fora por enquanto, sai do site e do menu (D25) |
-| Contato e rodapé | Como chegar, horários, WhatsApp; identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | falta (conteúdo pendente) |
+| Contato e rodapé | Como chegar, horários, WhatsApp; identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | rodapé pronto, com a identificação e os canais (D26); seção Contato falta (conteúdo pendente) |
 
 ### Conteúdo pendente
 
@@ -106,8 +106,8 @@ Duas fases (D21). Cada item é verificável em 390 px, iPad retrato e computador
 
 Só depende do Lucas. O site continua com `noindex`.
 
-- [ ] Rodapé com "Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418", legível.
-- [ ] Menu sem link quebrado: Depoimentos sai (D25); Serviços e Contato levam a uma seção ou saem do menu até ela existir.
+- [x] Rodapé com "Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418", legível.
+- [x] Menu sem link quebrado: Depoimentos sai (D25); Serviços e Contato levam a uma seção ou saem do menu até ela existir. Serviços saiu; Contato leva ao rodapé (D26).
 - [ ] Rótulos de 11 px com contraste de 4,5:1 (DESIGN.md, seção 3).
 - [ ] Vídeos em loop (hero e kit) com controle de pausa acessível (WCAG 2.2.2).
 - [ ] Barra técnica da seção 5: Lighthouse no celular com LCP abaixo de 2,5 s no 4G e acessibilidade sem falha AA.
