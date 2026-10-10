@@ -36,7 +36,7 @@ Os dados de contato vêm de `src/lib/contact.ts`, a mesma fonte do header.
 - Segundo bloco:
   - A identificação em `light-base` cheio. Cada parte (nome, profissão, CRO) não quebra no meio; a linha só quebra nos separadores.
   - Os direitos em texto secundário.
-- No celular os blocos empilham; a partir de `sm`, identificação e direitos ficam lado a lado. Breakpoint em pixel, porque o rodapé não depende de foto nem de vídeo.
+- Os canais ficam um embaixo do outro no celular e em linha a partir de `lg`. Identificação e direitos ficam lado a lado quando cabem e um embaixo do outro quando não cabem. Breakpoint em pixel, porque o rodapé não depende de foto nem de vídeo.
 - WhatsApp e Instagram abrem em nova aba. O telefone abre o discador.
 - Quando a seção Contato da Fase 2 existir, ela assume `#contato`, e o rodapé fica só como rodapé.
 
