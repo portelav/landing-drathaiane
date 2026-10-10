@@ -3,7 +3,7 @@
 **Slug:** `video-pause-control`
 **Branch:** `feat/video-pause-control`
 **Área:** hero (vídeo da recepção), Sobre (vídeo do kit) · **Dono:** Lucas
-**Status:** Planning
+**Status:** Walkthrough
 **Gate S2:** Livre
 
 ---
@@ -142,26 +142,26 @@
 
 Um commit cada, nesta ordem.
 
-1. [ ] **FDD do hero** (`docs/fdd/hero.md`, status `aprovado`), escrito a partir do código e do DESIGN.md, no template de seção: objetivo, conteúdo existente, comportamento (estreito e `wide:`), movimento, regras, acessibilidade com a pausa, desempenho e critérios. Sem conteúdo novo. Índice em `docs/fdd/README.md`. `docs(fdd): document the hero and its video pause`
-2. [ ] **FDD do Sobre**, seção "O vídeo": loop na tela, pausa fora, botão; a nota de 2026-10-09 vira histórico resolvido. `docs(fdd): record the kit video pause control`
-3. [ ] **Peça `src/components/video-toggle.tsx`**: hook `useLoopWhileVisible` e botão `VideoToggle`, com comentário curto do porquê (WCAG 2.2.2, bateria). `feat(video): add a shared loop-while-visible hook and pause button`
-4. [ ] **Hero**: trocar o efeito das linhas 86 a 118 pelo hook; botão no canto inferior direito do quadro, acima do véu e do gradiente. `feat(hero): pause the reception video off screen and on demand`
-5. [ ] **Linha do tempo**: trocar o efeito das linhas 76 a 101 pelo hook; contêiner do vídeo `relative`; botão no canto inferior direito. `feat(about): add the pause control to the kit video`
-6. [ ] **Navegador** (sem commit), pelo MCP do Chrome DevTools em 390 px, iPad retrato e computador: critérios 1 a 5, 7 e 8; contraste do ícone; captura do botão nos dois vídeos. O critério 6 fica conferido no código.
-7. [ ] **DESIGN.md**:
+1. [x] **FDD do hero** (`docs/fdd/hero.md`, status `aprovado`), escrito a partir do código e do DESIGN.md, no template de seção: objetivo, conteúdo existente, comportamento (estreito e `wide:`), movimento, regras, acessibilidade com a pausa, desempenho e critérios. Sem conteúdo novo. Índice em `docs/fdd/README.md`. `docs(fdd): document the hero and its video pause`
+2. [x] **FDD do Sobre**, seção "O vídeo": loop na tela, pausa fora, botão; a nota de 2026-10-09 vira histórico resolvido. `docs(fdd): record the kit video pause control`
+3. [x] **Peça `src/components/video-toggle.tsx`**: hook `useLoopWhileVisible` e botão `VideoToggle`, com comentário curto do porquê (WCAG 2.2.2, bateria). `feat(video): add a shared loop-while-visible hook and pause button`
+4. [x] **Hero**: trocar o efeito das linhas 86 a 118 pelo hook; botão no canto inferior direito do quadro, acima do véu e do gradiente. `feat(hero): pause the reception video off screen and on demand`
+5. [x] **Linha do tempo**: trocar o efeito das linhas 76 a 101 pelo hook; contêiner do vídeo `relative`; botão no canto inferior direito. `feat(about): add the pause control to the kit video`
+6. [x] **Navegador** (sem commit), pelo MCP do Chrome DevTools em 390 px, iPad retrato e computador: critérios 1 a 5, 7 e 8; contraste do ícone; captura do botão nos dois vídeos. O critério 6 fica conferido no código.
+7. [x] **DESIGN.md**:
    - seção 5: o botão como peça sem raio;
    - seção 6: linha "Vídeo da recepção" e a do kit atualizada, e a nota da pausa pendente trocada pela regra;
    - seção 7: `VideoToggle` e os estados do `Hero`.
 
    `docs(design): record the video pause control`
-8. [ ] **PRD, ROADMAP e `CLAUDE.md`**:
+8. [x] **PRD, ROADMAP e `CLAUDE.md`**:
    - PRD: D31 com as decisões de 2026-10-10, critério da seção 10 marcado, e na seção 6 o Hero aponta para o FDD;
    - ROADMAP: a linha aponta para este arquivo;
    - `CLAUDE.md`: `video-toggle` na estrutura do código.
 
    `docs: record the video pause decision`
-9. [ ] **Planos já mergeados como Done**: `small-label-contrast` (PR #5), `roles-prices-cfo-rules` (PR #4) e `go-public` (repositório público em 2026-10-09). `docs(tasks): mark merged plans as done`
-10. [ ] **Verificação**: lint, typecheck e build; Stages 6 a 8 deste arquivo; FDDs como `implementado`. `docs(tasks): record video-pause-control execution`
+9. [x] **Planos já mergeados como Done**: `small-label-contrast` (PR #5), `roles-prices-cfo-rules` (PR #4) e `go-public` (repositório público em 2026-10-09). `docs(tasks): mark merged plans as done`
+10. [x] **Verificação**: lint, typecheck e build; Stages 6 a 8 deste arquivo; FDDs como `implementado`. `docs(tasks): record video-pause-control execution`
 
 ---
 
@@ -179,34 +179,54 @@ Um commit cada, nesta ordem.
 
 ## Stage 6 — Code Execution
 
-*(Preenchido pelo exec.)*
-
 | # | Camada | Arquivo | Status |
 |---|---|---|---|
+| 1 | FDD | `docs/fdd/hero.md` (novo), `docs/fdd/README.md` | Feito (`2cdbd6f`); status `implementado` em `fe03afe` |
+| 2 | FDD | `docs/fdd/sobre.md`, seção "O vídeo" | Feito (`8ac9a49`) |
+| 3 | Componente | `src/components/video-toggle.tsx` (novo): `useLoopWhileVisible` e `VideoToggle` | Feito (`998c80a`) |
+| 4 | Componente | `src/components/hero.tsx` | Feito (`05f0f0f`) |
+| 5 | Componente | `src/components/about-timeline.tsx` | Feito (`59c2d3b`) |
+| 6 | Navegador | sem commit | Feito |
+| 7 | Docs | `docs/design/DESIGN.md`, seções 3, 5, 6 e 7 | Feito (`f81bcfb`) |
+| 8 | Docs | `docs/PRD.md` (D31, seção 6, seção 10), `docs/ROADMAP.md`, `CLAUDE.md` | Feito (`e679d85`) |
+| 9 | Docs | `tasks/small-label-contrast.md`, `tasks/roles-prices-cfo-rules.md`, `tasks/go-public.md` | Feito (`da2e1fa`) |
+| 10 | Docs | este arquivo, Stages 6 a 8 | Feito |
 
 ### Desvios do plano
-- Nenhum | …
+- **Nome do botão do hero: "do consultório", não "da recepção".** Antes de escrever o FDD, conferi quadros do vídeo: o tríptico mostra a recepção, a copa e uma sala de atendimento, não só a recepção. "Pausar o vídeo do consultório" descreve o que aparece. O título do commit `05f0f0f` ainda diz "reception video".
+- **O observador do kit não respeitava os 40%.** O código antigo usava `threshold: 0.4` com `entry.isIntersecting`. Isso continua verdadeiro com qualquer pedaço do vídeo na tela, então na prática ele tocava ao primeiro pixel. A peça nova observa `[0, 0,4]` e decide pela razão (`intersectionRatio >= 0,4`).
+- **Contraste do ícone no DESIGN.md.** A medida estava prevista no item 6 e foi registrada na tabela da seção 3, no item 7.
+- **Critério de movimento reduzido do FDD do hero ficou desmarcado.** Foi conferido no código, mas falta o teste num aparelho.
+- **Servidor de desenvolvimento antigo.** O `next dev` da entrega anterior continuava rodando na porta 3000 (o `TaskStop` parou o `npm`, mas não o `node` filho). Os testes usaram esse servidor, que recarrega o código atual. No fim, os dois processos foram parados.
+- **Status do FDD numa entrega à parte.** A troca para `implementado` saiu num commit próprio (`fe03afe`) antes do item 10, em vez de junto com ele.
 
 ---
 
 ## Stage 7 — Tests
 
-*(Preenchido pelo exec.)*
+Medido no navegador pelo MCP do Chrome DevTools, com `next dev`, em 390×844 (celular, toque), 1024×1366 (iPad retrato, toque) e 1440×900 (computador). Estado dos vídeos lido por `video.paused`, `currentTime` e a fração visível de cada um.
 
 | Critério de aceite | Como foi verificado |
 |---|---|
+| 1. Toca na tela, pausa fora | Nos três tamanhos: o hero toca no topo (no celular, 44% visível já basta) e ao longo da pista do `wide:`; descendo até o kit, o hero pausa e o kit toca; voltando, o kit pausa e o hero retoma de onde parou (0,6 s para 2,1 s) |
+| 2. Canto inferior direito, 32 px e 44 × 44 px | Caixa do botão de 44×44 e quadrado de 32×32 nos dois vídeos, a 8 px da borda direita e da de baixo do contêiner. No computador, o botão do hero fica em (1373, 848) a (1417, 892), dentro do quadro |
+| 3. Clique, toque, Enter e Espaço | Clique real pelo MCP no computador; clique por script no celular; Enter e Espaço pelo teclado com foco no botão. Os quatro alternam, o nome muda entre "Pausar o vídeo do consultório" e "Reproduzir o vídeo do consultório", e o ícone muda junto. Espaço não rola a página |
+| 4. Pausa da pessoa persiste | Pausado pelo botão, rolar até o kit e voltar mantém o hero pausado e com "Reproduzir". O botão de novo volta ao loop |
+| 5. Foco visível; ícone 3:1 | Captura em 390 px com foco: contorno escuro por dentro do quadrado claro. Ícone contra o quadrado, os dois a 80% sobre qualquer quadro: 8,45 (vídeo branco) a 10,31 (vídeo preto). Com foco ou hover: 15,68 |
+| 6. Movimento reduzido: poster, sem botão | Conferido no código: `sync()` pausa, volta ao início e põe `playable` em falso; a escuta de `change` acompanha a mudança com a página aberta. Não emulado (o MCP não simula a preferência); fica o teste manual no preview |
+| 7. Vídeo decorativo; ordem do Tab | `aria-hidden="true"`, `tabIndex` -1 e `controls` falso nos dois. Árvore de acessibilidade: o botão do hero vem depois de "Role para conhecer" e antes da band; o do kit vem depois da lista da linha do tempo |
+| 8. Abertura do hero intacta; nada coberto | No iPad e no computador, em 0%, 30%, 60% e 100% da pista: o botão não cruza a linha de exibição, o texto nem o header, e é o elemento do topo no seu ponto (`elementFromPoint`). Capturas no celular e no computador |
+| 9. Lint, typecheck e build | Ver Stage 8 |
 
 ---
 
 ## Stage 8 — Verification
 
-*(Preenchido pelo exec.)*
-
-- **lint:** Pass | Fail
-- **typecheck:** Pass | Fail
-- **test:** Pass | Fail | n/a
-- **build:** Pass | Fail
-- **Navegador (390 px e computador):** Pass | Fail
+- **lint:** Pass (`npm run lint`, saída 0)
+- **typecheck:** Pass (`npx next typegen && npx tsc --noEmit`, saída 0)
+- **test:** n/a (o projeto não tem testes)
+- **build:** Pass (`npm run build`, `/` estático)
+- **Navegador (390 px, iPad retrato e computador):** Pass nos critérios 1 a 5, 7 e 8. O critério 6 foi conferido só no código. Só a aba aberta pelo MCP foi fechada.
 
 ---
 
