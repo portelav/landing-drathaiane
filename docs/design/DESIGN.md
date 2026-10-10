@@ -131,7 +131,8 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 - Primeira pessoa no texto dela ("Trabalho melhor com tempo"), segunda pessoa para o paciente ("Quando você sair daqui").
 - Frases curtas, concretas, sem jargão; termo técnico só com glosa (como "marca global de materiais odontológicos" para a Ivoclar).
 - Fala de cuidado e planejamento, nunca de resultado.
-- **Palavras vetadas** (CFO e CRO-AL): preço, valor, parcelamento, "grátis", "promoção", "desconto", "oferta", "popular", "pacote", "cupom", "sorteio", "brinde", "indicação de amigos"; "especialista" sem registro da especialidade; "o melhor", "garantido", "perfeito", "sem dor" e qualquer promessa de resultado ou superlativo.
+- **Palavras vetadas pelas regras de fora** (PRD, "Regras de fora"): preço, valor, parcelamento e "grátis" (Código de Ética, art. 44, I, e art. 20, IX); "popular" (art. 44, VII); "sorteio" e "brinde" (art. 20, VIII); "especialista" sem registro da especialidade (art. 44, II); "garantido" e qualquer promessa de resultado (Res. CFO-196/2019, art. 2º, § 1º). A cartilha do CRO-AL acrescenta "promoção", "desconto", "oferta", "pacote", "cupom" e "indicação de amigos" (interpretação).
+- **Vetadas por tom, mais estrito que a regra:** superlativo ("o melhor", "perfeito") e "sem dor".
 
 ## 9. O que não fazer
 
