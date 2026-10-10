@@ -241,4 +241,61 @@ O projeto não tem testes automatizados. Verificação no navegador, pelo MCP do
 
 ## Stage 9 — Walkthrough
 
-*(Preenchido pelo walkthrough.)*
+> Data: 2026-10-09
+
+### Resumo
+- **Veredito:** WARNINGS
+- **Arquivos analisados:** 13 (4 de código, 9 de documentação)
+- **Findings:** 0 críticos, 2 avisos
+
+### Checklist
+| Item | Status | Observação |
+|---|---|---|
+| 1. Escopo | OK | Só os arquivos do Stage 4. `INSTAGRAM_HANDLE` a mais está registrado nos desvios |
+| 2. Nome, "Cirurgiã-Dentista" e CRO visíveis | OK | O rodapé cumpre o caput do art. 43 do Código de Ética (nome, número de inscrição, profissão), conferido no texto do CFO |
+| 2. Preço, pagamento, promoção, superlativo, crítica | OK | Nenhum no texto novo |
+| 2. "Especialista" | OK | Não aparece |
+| 2. Imagem de procedimento, instrumental ou material | OK | Nenhuma imagem nova; o monograma é logomarca (art. 43, § 1º, V) |
+| 2. Paciente ou terceiro identificável | OK | Nenhum |
+| 2. Texto inventado | OK | Só dados já publicados (D3), o texto exigido pelo art. 43 e a linha de direitos da D27 |
+| 3. Next.js 16 e `"use client"` | OK | O rodapé é Server Component; os dados saíram do módulo cliente para `src/lib/contact.ts` |
+| 3. Layout por proporção | n/a | O rodapé não depende de mídia; breakpoint em pixel justificado no FDD |
+| 3. Vídeo (ADR 0003) | n/a | Nenhum vídeo novo |
+| 4. FDD e PRD | OK | Bate com `docs/fdd/contato.md` (rodapé) e com a D26 e a D27 |
+| 4. Decisão não coberta | OK | Três escolhas perguntadas ao Lucas no `/plan` e registradas |
+| 4. Português do Brasil | OK | Textos da interface e docs |
+| 5. Tokens | OK | `forest-900`, `light-base`, `light-15`, opacidades de `light-base`; nenhuma cor solta |
+| 5. 390 px, iPad retrato, computador | OK | Conferido pelo `/exec` no MCP do Chrome DevTools (Stage 7) |
+| 5. Toque, foco, contraste | OK | 44 px; contorno de 2 px; contraste medido de 7,08 a 12,89 |
+| 5. Movimento | OK | Nada anima; hover só de opacidade |
+| 5. `prefers-reduced-motion` | Aviso | Conferido só pelo código (aviso 2) |
+| 5. Desempenho | OK | Sem mídia, sem JavaScript no cliente para o rodapé |
+| 6. Lint, typecheck, build | OK | Verdes |
+| 6. Commits e atribuição | OK | 12 commits pequenos, Conventional Commits, títulos até 63 caracteres, e-mail noreply, nenhuma atribuição |
+| 6. Docs | OK | FDD, índice, PRD, ROADMAP, DESIGN.md e `CLAUDE.md` atualizados |
+
+### Findings
+#### Critical
+- Nenhum.
+
+#### Warnings
+- **Texto consolidado do Código não conferido.** O art. 43 foi lido no PDF do Código publicado pelo CFO (texto aprovado pela Res. CFO-118/2012). A versão consolidada, com as alterações posteriores, fica em `sistemas.cfo.org.br`, que não abriu (erro de certificado). — `src/components/footer.tsx:18` — Conferir na auditoria das regras contra o texto oficial, na branch de docs.
+- **Movimento reduzido sem conferência no navegador.** O MCP do Chrome DevTools não emula `prefers-reduced-motion`. — `src/components/footer.tsx:51` — Sem risco prático: o rodapé não anima e só tem transição de opacidade no hover. Conferir à mão se quiser.
+
+#### Positive
+- O rodapé é Server Component, sem JavaScript. Ler os dados de um módulo neutro evita atravessar a fronteira `"use client"` do header.
+- O menu nasce da mesma lista nos dois formatos, e todo destino existe na página.
+- A identificação não quebra no meio de uma parte; só quebra nos separadores.
+- O contraste foi medido no navegador e registrado no DESIGN.md, com a regra de nunca usar `light-40` no rodapé.
+- Os desvios do plano estão registrados, inclusive o item 2 em dois commits.
+
+### Verificações executadas
+- `npm run lint`: verde.
+- `npx next typegen && npx tsc --noEmit`: verde.
+- `npm run build`: verde, `/` estático.
+- `git log --format=%B main..HEAD | grep -i -E "co-authored|generated with"`: vazio.
+- `git log --format=%ae main..HEAD`: só o e-mail noreply.
+- `gitleaks git --log-opts="main..HEAD"`: 12 commits, nenhum vazamento.
+- Art. 43 e art. 44 do Código de Ética lidos no PDF do CFO (`website.cfo.org.br/wp-content/uploads/2018/03/codigo_etica.pdf`).
+
+**Gate S9 — WARNINGS**
