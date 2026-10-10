@@ -194,9 +194,9 @@ O Lucas pediu para corrigir os avisos da primeira passada nesta branch, inclusiv
 
 | # | Camada | Arquivo | Status |
 |---|---|---|---|
-| A | Docs e comandos | `CLAUDE.md`, `docs/PRD.md`, `docs/fdd/servicos.md`, `.claude/commands/walkthrough.md`: regra de área de atuação com a condição do art. 43, § 1º, I | Done (`e3078d7`) |
-| B | Design e FDD | `docs/design/DESIGN.md` (seção 8), `docs/fdd/servicos.md` ("Regras"): cada palavra vetada com o artigo; o que é tom de voz ou interpretação vem marcado | Done (`a14518b`) |
-| C | PRD e ROADMAP | `docs/PRD.md` (D30, critério da Fase 2, risco), `docs/ROADMAP.md` (Fase 2): revisão do site inteiro contra as regras de fora antes de tirar o `noindex` | Done (`df24207`) |
+| A | Docs e comandos | `CLAUDE.md`, `docs/PRD.md`, `docs/fdd/servicos.md`, `.claude/commands/walkthrough.md`: regra de área de atuação com a condição do art. 43, § 1º, I | Done (`a024683`) |
+| B | Design e FDD | `docs/design/DESIGN.md` (seção 8), `docs/fdd/servicos.md` ("Regras"): cada palavra vetada com o artigo; o que é tom de voz ou interpretação vem marcado | Done (`53cf43a`) |
+| C | PRD e ROADMAP | `docs/PRD.md` (D30, critério da Fase 2, risco), `docs/ROADMAP.md` (Fase 2): revisão do site inteiro contra as regras de fora antes de tirar o `noindex` | Done (`b02107c`) |
 
 Decisões do Lucas, em 2026-10-10: o efeito do art. 1º, § 1º, da Res. 196/2019 fica para depois; ele conversa com a doutora e pesquisa. As peças do site ficam como estão até a revisão do D30. A lista do que conferir está nas notas privadas.
 
@@ -257,9 +257,9 @@ Entrega só de docs: não há teste automatizado. Cada critério foi conferido c
 
 #### Warnings
 - Nenhum. Os três avisos da primeira passada:
-  - A regra de área de atuação não trazia a condição do art. 43, § 1º, I. Corrigido em `e3078d7`.
+  - A regra de área de atuação não trazia a condição do art. 43, § 1º, I. Corrigido em `a024683`.
   - O efeito do art. 1º, § 1º, da Res. 196/2019 estava pendente. O Lucas deixou para depois (2026-10-10). A tabela do PRD continua com o texto literal e a interpretação lado a lado, e a decisão entra na revisão do D30.
-  - O DESIGN.md e o FDD de Serviços tratavam escolha de tom como regra do CFO. Corrigido em `a14518b`.
+  - O DESIGN.md e o FDD de Serviços tratavam escolha de tom como regra do CFO. Corrigido em `53cf43a`.
 
 #### Positive
 - Nenhuma frase de aprovação dela ficou nos docs e comandos. D28 substitui D7 sem editá-lo, e o olhar final antes do `noindex` continua em todos os lugares.
