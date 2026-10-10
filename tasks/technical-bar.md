@@ -3,8 +3,8 @@
 **Slug:** `technical-bar`
 **Branch:** `perf/technical-bar`
 **Área:** hero, Sobre (linha do tempo e vídeo do kit), layout · **Dono:** Lucas
-**Status:** Planning
-**Gate S2:** Bloqueado (pergunta 1)
+**Status:** Execution
+**Gate S2:** Livre (pergunta 1 respondida em 2026-10-10: opção A)
 
 ---
 
@@ -66,6 +66,9 @@
 8. Lint, typecheck e build verdes.
 
 ### Perguntas bloqueadoras
+- Nenhuma em aberto. A pergunta 1 foi respondida pelo Lucas em 2026-10-10: **opção A** (piso de 60%). A premissa de medição foi aceita junto.
+
+### Pergunta respondida
 1. **Anos apagados da roleta (computador).** No computador, a linha do tempo gira como uma roleta: o ano atual fica forte e os vizinhos ficam bem apagados (14% de opacidade nas pontas). O Lighthouse mede esses anos apagados como texto de baixo contraste e reprova a acessibilidade no computador (96). Opções:
    - **A.** Piso de 60% de opacidade nos anos vizinhos. Passa no Lighthouse. A roleta fica menos "holofote", e o sumiço nas pontas continua pela máscara que já existe.
    - **B.** Manter como está e registrar a exceção no DESIGN.md, como texto decorativo em movimento. O critério "sem falha AA" deixa de valer para a roleta, e o PRD (seção 10) muda.
@@ -129,7 +132,7 @@
 3. [ ] `perf(video)`: `preload="none"` nos dois vídeos. O hook carrega o do hero depois do `load` da página, e o do kit perto da tela. O poster do kit é atribuído só ao chegar perto da tela. Medir.
 4. [ ] `perf`: diagnóstico das cerca de 7.000 fatias do agendador do React na carga, no build local com o profiler. Corrigir se for laço de renderização, com a causa na mensagem do commit. Medir. Se não for laço, registrar o achado e seguir.
 5. [ ] `perf`, só se o LCP ainda não passar: poster do hero mais leve (mesma resolução, qualidade menor, sem metadado) ou `preload: false` na fonte que não está na primeira tela. Medir.
-6. [ ] `fix(a11y)`: piso de opacidade dos anos da roleta, se a pergunta 1 for respondida com A.
+6. [ ] `fix(a11y)`: piso de 60% de opacidade nos anos da roleta (opção A).
 7. [ ] Medição final: 3 execuções em cada tamanho (celular, iPad retrato, computador), mais a conferência manual de movimento reduzido. Números no Stage 7.
 8. [ ] `docs`:
    - FDD do hero e FDD do Sobre: seção Desempenho.
@@ -143,10 +146,10 @@
 
 - [x] Regras nas camadas certas (carregamento no hook compartilhado, preload no Server Component da página, decisão técnica em ADR)
 - [x] FDD existe ou está no checklist (hero e Sobre existem; Desempenho atualizado no item 8)
-- [ ] Decisão de produto coberta pelo PRD ou pergunta aberta: **pergunta 1 aberta** (visual da roleta)
+- [x] Decisão de produto coberta pelo PRD ou pergunta aberta: pergunta 1 respondida (opção A); vira decisão no PRD no item 8
 - [x] Checklist ≤ 10, SoT ≤ 4, decisão única, evidências ≤ 7
 
-**Gate S2:** Bloqueado até a resposta à pergunta 1. A premissa de medição pode ser contestada no mesmo momento.
+**Gate S2:** Livre (2026-10-10).
 
 ---
 
