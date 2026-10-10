@@ -222,4 +222,46 @@ Entrega só de docs: não há teste automatizado. Cada critério foi conferido c
 
 ## Stage 9 — Walkthrough
 
-*(Preenchido pelo walkthrough.)*
+> Data: 2026-10-10
+
+### Resumo
+- **Veredito:** WARNINGS
+- **Arquivos analisados:** 10
+- **Findings:** 0 críticos, 3 avisos
+
+### Checklist
+| Item | Status | Observação |
+|---|---|---|
+| 1. Escopo | Pass | Só os arquivos do Stage 4. A seção sobre a Res. 230/2020 na pesquisa é desvio registrado no Stage 6 |
+| 2. Regras de fora | Pass | Nenhum texto, foto ou vídeo do site mudou. Os docs conferidos citam o artigo de cada regra; ressalva no aviso 1 |
+| 3. Stack | n/a | Nenhum arquivo em `src/` |
+| 4. Produto | Pass | D28 e D29 batem com o escopo combinado; D7 intacto; olhar final antes do `noindex` (D22) preservado. A decisão do art. 1º, § 1º, ficou com o Lucas (aviso 2) |
+| 5. Interface | n/a | Só docs |
+| 6. Higiene | Pass | Lint, typecheck e build verdes; 11 commits, títulos até 72 caracteres, e-mail noreply, sem atribuição de IA; PRD, `CLAUDE.md`, DESIGN.md e pesquisa atualizados; ROADMAP sem item, como previsto |
+
+### Findings
+#### Critical
+- Nenhum.
+
+#### Warnings
+- **O art. 43, § 1º, I, tem uma condição que a regra de "área de atuação" não traz.** O inciso permite anunciar áreas de atuação "desde que precedidos do título da especialidade registrada no Conselho Regional ou qualificação profissional de clínico geral". A tabela e a lista curta dizem só "senão, 'área de atuação'". O defeito vem da `main`; esta branch passou a citar o inciso, o que o deixou visível. — `docs/PRD.md:78`, `CLAUDE.md:78` — Completar a regra com "precedida de 'clínico geral' (art. 43, § 1º, I)".
+- **Decisão pendente sobre o art. 1º, § 1º, da Res. 196/2019.** O efeito no produto vale só para selfie, como o plano previa, e saiu "marca de material nunca em destaque". O "CFO Esclarece" e a cartilha do CRO-AL leem a proibição para qualquer imagem (interpretação). — `docs/PRD.md:83` — O Lucas decide se mantém assim ou se volta a evitar marca de material em destaque (uma linha no PRD e outra no DESIGN.md).
+- **Regras de seção fora da lista curta.** `docs/fdd/servicos.md:34` ("nem superlativo") e `docs/design/DESIGN.md:134` ("palavras vetadas (CFO e CRO-AL)") ainda dão ao CFO palavras que são escolha de voz, como "superlativo", "o melhor" e "sem dor". Fora do escopo, como previsto. — Quando sair o `/plan` de Serviços, separar o que é regra do CFO do que é tom de voz.
+
+#### Positive
+- Nenhuma frase de aprovação dela ficou nos docs e comandos. D28 substitui D7 sem editá-lo, e o olhar final antes do `noindex` continua em todos os lugares.
+- Toda linha da tabela do PRD cita artigo do texto oficial ou vem marcada como "(interpretação)". A fonte secundária saiu da pesquisa.
+- Ler o texto oficial corrigiu dois erros da pesquisa: o "erro de digitação" da cartilha sobre a Res. 198/2019, que não era erro, e o "superlativo", que o "CFO Esclarece" não menciona.
+- `plan.md` e `exec.md` apontam para o `CLAUDE.md` em vez de copiar a lista, então a regra fica num lugar só.
+- Nada privado entrou no repositório público: nenhum dado pessoal, nenhuma dúvida aberta sobre ela, e a pauta continua nas notas privadas.
+
+### Verificações executadas
+- `git diff --name-only main...HEAD`: 10 arquivos (`.claude/commands/` 4, `CLAUDE.md`, `docs/` 3, `tasks/` 2)
+- `npm run lint`: exit 0
+- `npx next typegen && npx tsc --noEmit`: exit 0
+- `npm run build`: exit 0
+- `git log --format=%B main..HEAD | grep -i -E "co-authored|generated with|claude"`: vazio
+- `git log --format=%ae main..HEAD`: só `198817785+portelav@users.noreply.github.com`
+- `grep` dos critérios 1, 3 e 8 do Stage 1: sem ocorrência
+
+**Gate S9 — WARNINGS**
