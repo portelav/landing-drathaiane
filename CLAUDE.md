@@ -93,7 +93,9 @@ Comandos em `.claude/commands/`, skills em `.claude/skills/`, subagentes em `.cl
 3. `/walkthrough`: audita (inclusive as regras do CFO) e escreve o Stage 9. APPROVED, WARNINGS ou BLOCKED.
 4. `/pr`: abre o PR depois de confirmar. O Lucas faz o merge.
 
-Cada seção nova é um `/plan`. Trivial (até 3 arquivos, sem regra): `tasks/{slug}.md` mínimo (Stages 1 e 4) e direto ao `/exec`.
+Cada seção nova é um `/plan`. O fluxo completo é para seção nova e para mudança que toque regra, dado ou conteúdo da doutora. Ajuste e correção pequena (até 3 arquivos, sem regra, sem conteúdo novo) não ganha `tasks/{slug}.md` nem `/plan`: vai direto, e o escopo fica na descrição do PR.
+
+**Trabalho em lote:** vários ajustes do mesmo marco ou tema entram numa branch só, com um commit por mudança lógica, e viram um PR só (por exemplo, "acabamento da Fase 1"). Não abrir um PR por ajuste. O PR curto leva resumo, como testar e preview; do template, só os itens que se aplicam.
 
 | Comando ou skill | Para quê |
 |---|---|
@@ -125,7 +127,7 @@ QA: abrir a página pelo MCP do Chrome DevTools (`.mcp.json`) em 390 px, iPad re
 - Commits pequenos, uma mudança lógica por commit.
 - Conventional Commits: `feat`, `fix`, `chore`, `docs`, `refactor`, `test`, `style`, `perf`, `ci`, e `redesign`/`tweak`/`revert` como o histórico já usa. Título em inglês, imperativo, sem ponto final, até 72 caracteres.
 - NUNCA adicionar Co-Authored-By, "Generated with" ou qualquer atribuição de IA em commits ou PRs.
-- Branch `tipo/nome` a partir da `main` atualizada, PR para `main`, merge sem squash. PR nunca em rascunho, e só aberto depois de confirmar.
+- Branch `tipo/nome` a partir da `main` atualizada, PR para `main`, merge sem squash. PR nunca em rascunho, e só aberto depois de confirmar. Uma branch e um PR por tema ou marco, com vários commits dentro; branch separada só quando a mudança não depende das outras ou precisa de revisão à parte.
 - Nunca `git push --force` em `main`. Nunca commitar `.env`, segredos ou credenciais.
 
 ## Repositório público
@@ -159,7 +161,7 @@ npm run lint
 npx next typegen && npx tsc --noEmit   # typecheck (typegen gera LayoutProps e PageProps)
 ```
 
-Antes de abrir PR: lint, typecheck e build verdes (o CI roda os três).
+Durante o trabalho basta o lint e o typecheck, e o build roda uma vez antes de abrir o PR. Antes de abrir PR: lint, typecheck e build verdes (o CI roda os três).
 
 ## Estrutura do código
 
