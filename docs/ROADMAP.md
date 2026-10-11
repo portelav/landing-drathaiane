@@ -12,7 +12,7 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 | Contraste da citação da band | Na band aberta, a citação do Sobre passa em 3:1 (texto grande) sobre o gradiente; hoje mede de 2,52 a 3,00 (DESIGN.md, seção 3). Muda o visual da band: decisão do Lucas | — |
 | Pausa dos vídeos em loop | Hero e kit com controle de pausa acessível (WCAG 2.2.2) | `tasks/video-pause-control.md` |
 | Barra técnica | Nota de desempenho do Lighthouse de 85 ou mais no celular e de 90 ou mais no computador, e acessibilidade sem falha AA (D37). Feito: 88 no celular, 94 a 100 no computador, acessibilidade 100 | `tasks/technical-bar.md` |
-| README final | Prints e link do site | — |
+| README final | Prints e link do site | `tasks/readme-final.md` |
 | Portfólio e currículo | Link do site nos dois | fora do repositório |
 
 ## Fase 2: site público (sem data)
