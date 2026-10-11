@@ -74,11 +74,11 @@ AA pede 4,5:1 para texto normal e 3:1 para texto grande (24 px, ou 18,66 px em n
 | "Cirurgiã-Dentista" no header, `opacity-70`, sobre `light-base` | 6,10 | AA |
 | `light-base/70` sobre `forest-900` (pele escura do hero, fora de uso) | 7,08 | AA e AAA |
 | `dark-base` sobre o gradiente da band, na altura do rótulo | 6,34 | AA |
-| `light-base` sobre o gradiente da band (citação, texto grande) | 2,52 a 3,00 | **Não passa** |
+| `dark-base` sobre o gradiente da band, nas quatro linhas da citação | 5,34 a 6,13 | AA |
 | Ícone do botão de pausa (`dark-base`) sobre o quadrado (`light-base`), os dois a 80% sobre qualquer quadro do vídeo | 8,45 ou mais (15,68 com foco ou hover) | Componente (3:1) |
 | `dark-40` sobre `light-base` | 2,46 | **Não passa**: só traço decorativo |
 
-A citação da band aberta, em `light-base` sobre o gradiente, mede 2,52 na primeira linha e 3,00 na última, abaixo dos 3:1 de texto grande. Corrigir muda o visual da band; item no ROADMAP.
+A citação da band aberta era em `light-base` e media de 2,52 a 3,00, abaixo dos 3:1 de texto grande. Foi para `dark-base` cheio, como o rótulo, medida em 2026-10-11 no computador (1440×900): de 5,34 a 6,13. Escurecer o gradiente em vez disso quebraria a emenda com a parede da foto. Empilhado (celular, iPad retrato) a citação já era `dark-base` sobre `light-base`.
 
 ## 4. Tipografia
 

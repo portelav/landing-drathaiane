@@ -187,10 +187,10 @@ export function About() {
               A dentista
             </p>
 
-            {/* Light type only exists where the backdrop is behind it. Stacked
-                on a phone the copy sits on the page's cream, where the same
-                colour would vanish. */}
-            <p className="max-w-[26ch] font-display text-[clamp(1.75rem,2.6vw,2.75rem)] leading-[1.12] beside:text-light-base">
+            {/* Full-strength ink like the label: cream type on the wall's
+                mid-tones measured 2.52 to 3.00:1, under the 3:1 large-text
+                floor. */}
+            <p className="max-w-[26ch] font-display text-[clamp(1.75rem,2.6vw,2.75rem)] leading-[1.12]">
               Entre técnicas, detalhes e planejamentos… Existe sempre o mais
               importante: o cuidado com quem está na cadeira.
             </p>
