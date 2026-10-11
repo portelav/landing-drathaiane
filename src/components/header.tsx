@@ -120,7 +120,7 @@ export function Header() {
   return (
     <header
       ref={headerRef}
-      className="pointer-events-none fixed inset-x-0 top-0 z-40 flex items-center justify-between px-6 py-5 transition-[transform,color,background-color,backdrop-filter,box-shadow] duration-500 ease-[var(--ease-out-quint)] sm:px-10"
+      className="pointer-events-none fixed inset-x-0 top-0 z-40 flex items-center justify-between px-6 py-5 transition-[transform,color,background-color,backdrop-filter,box-shadow] duration-500 ease-[var(--ease-out-quint)] max-sm:px-3.5 sm:px-10"
       style={{
         color: light ? "var(--c-light-base)" : "var(--c-dark-base)",
         transform: hidden && !open ? "translateY(-105%)" : "translateY(0)",
@@ -135,7 +135,7 @@ export function Header() {
       <div className="flex items-center gap-8 lg:gap-10">
         <Link
           href="/"
-          className="pointer-events-auto flex items-center gap-3.5 no-underline"
+          className="pointer-events-auto flex items-center gap-3.5 no-underline max-sm:gap-2.5"
           onClick={close}
         >
           <motion.span
@@ -193,7 +193,7 @@ export function Header() {
         </motion.nav>
       </div>
 
-      <div className="flex items-center gap-6 sm:gap-8">
+      <div className="flex items-center gap-2 sm:gap-8">
         <a
           href={PHONE_HREF}
           className="pointer-events-auto hidden text-[0.8125rem] no-underline opacity-70 transition-opacity duration-300 hover:opacity-100 sm:block"
@@ -207,13 +207,15 @@ export function Header() {
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="site-nav site-nav-compact"
-          className="group pointer-events-auto flex items-center gap-2.5 text-[0.8125rem]"
+          className="group pointer-events-auto flex items-center justify-center gap-2.5 text-[0.8125rem] max-sm:h-11 max-sm:w-11"
         >
-          <span className="tracking-brand uppercase">{open ? "Fechar" : "Menu"}</span>
+          {/* On a phone the name needs the room, so the word gives way to the
+              icon; it stays in the accessibility tree. */}
+          <span className="tracking-brand uppercase max-sm:sr-only">{open ? "Fechar" : "Menu"}</span>
           <BurgerIcon open={open} />
         </button>
 
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2 sm:gap-2.5">
           <a
             href={WHATSAPP_HREF}
             target="_blank"
