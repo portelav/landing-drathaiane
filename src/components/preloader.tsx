@@ -6,7 +6,7 @@ import { MARK_FLIGHT, MONOGRAM_PATH } from "./brand-mark";
 
 const EASE_IN_OUT = [0.77, 0, 0.175, 1] as const;
 
-const SPECIALTY_LINE = "Dentística Estética & Restauradora";
+const SPECIALTY_LINE = "Clínica geral · Dentística estética e restauradora";
 
 /**
  * One timeline, in seconds. The monogram draws, then fills top-down; the line
