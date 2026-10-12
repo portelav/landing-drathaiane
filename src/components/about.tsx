@@ -52,7 +52,7 @@ export function About() {
     const stillness = window.matchMedia("(prefers-reduced-motion: reduce)");
     let queued = 0;
 
-    /** Parks the band fully open, which is how it should read without motion. */
+    /** Hands the band back to the stylesheet, which stacks it as on a phone. */
     const rest = () => {
       band.style.width = "";
       band.style.height = "";
@@ -63,14 +63,10 @@ export function About() {
       copy.style.transform = "";
     };
 
-    const draw = () => {
-      queued = 0;
-
+    /** Lays the band out at a point in its opening, 0 closed to 1 fully open. */
+    const place = (progress: number) => {
       const viewportHeight = window.innerHeight;
       const viewportWidth = window.innerWidth;
-      const rect = wrap.getBoundingClientRect();
-      const runway = rect.height - viewportHeight;
-      const progress = runway > 0 ? clamp(-rect.top / runway) : 0;
 
       // First the card grows on its own, then the backdrop opens out from it.
       // The two overlap so there is no pause between them.
@@ -93,6 +89,15 @@ export function About() {
       copy.style.transform = `translate3d(${(1 - arriving) * 2}rem, 0, 0)`;
     };
 
+    const draw = () => {
+      queued = 0;
+
+      const viewportHeight = window.innerHeight;
+      const rect = wrap.getBoundingClientRect();
+      const runway = rect.height - viewportHeight;
+      place(runway > 0 ? clamp(-rect.top / runway) : 0);
+    };
+
     const onScroll = () => {
       if (!queued) queued = requestAnimationFrame(draw);
     };
@@ -106,7 +111,14 @@ export function About() {
       window.removeEventListener("scroll", onScroll);
       rest();
 
-      if (!pinned.matches || stillness.matches) return;
+      if (!pinned.matches) return;
+
+      // Without motion there is nothing to scrub, and on this layout the
+      // stylesheet gives the band no size at all: park it fully open.
+      if (stillness.matches) {
+        place(1);
+        return;
+      }
 
       draw();
       window.addEventListener("scroll", onScroll, { passive: true });

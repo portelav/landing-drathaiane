@@ -204,9 +204,9 @@ aberto filmado do outro lado da sala não serve em proporção nenhuma.
   e porque sem os anos o Tempo 3 perde a razão de existir e vira lista.
 
 Tudo com `prefers-reduced-motion` levando ao estado final visível, como hero e
-band já fazem. No Tempo 2 isso significa texto puro, sem as máscaras por
+band já fazem (a band abre inteira, retrato e frase lado a lado). No Tempo 2 isso significa texto puro, sem as máscaras por
 palavra; no Tempo 3, régua inteira desenhada, marcos opacos e vídeo parado no
-poster.
+poster, e a linha do tempo vira lista simples: anos, marcos e o vídeo ao lado, sem a roda.
 
 ---
 
