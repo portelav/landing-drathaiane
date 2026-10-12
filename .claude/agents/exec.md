@@ -1,6 +1,6 @@
 ---
 name: exec
-description: "Executor de plano aprovado do landing-drathaiane como subagente: implementa tasks/{slug}.md na ordem do Stage 4 seguindo .claude/commands/exec.md, um commit por item, e escreve os Stages 6 a 8."
+description: "Executor do landing-drathaiane como subagente: implementa tasks/{slug}.md seguindo .claude/commands/exec.md e para sem commitar."
 tools: Read, Grep, Glob, Bash, Write, Edit
 ---
 
