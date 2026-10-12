@@ -161,8 +161,8 @@ Decisões que já estavam no código e no plano do Sobre.
 - **D11.** Repositório privado; fica público no fim. Fotos e dados dela só com o aval dela.
 - **D12.** Regras do CFO e do CRO-AL pesquisadas e registradas aqui (seção "Regras de fora").
 - **D13.** Skills de terceiros saem do repositório: as repetidas são apagadas, as 6 únicas vão para o `claude-kit`.
-- **D14.** Git: branch e PR por entrega, o Lucas faz o merge. Sem atribuição de IA.
-- **D15.** Fluxo de agentes: núcleo (`/plan`, `/exec`, `/walkthrough`, `/pr`) com `/feature-flow`, `/cot`, `/tot` e `/council` (leve por padrão).
+- **D14.** Git: branch e PR por seção ou marco (não por ajuste), o Lucas faz o merge. Sem atribuição de IA.
+- **D15.** Fluxo de agentes: `/plan`, `/exec`, `/walkthrough`, `/commit` e `/pr`, enxutos. Em 2026-10-12 saíram `/cot`, `/tot`, `/council`, `/refine`, `/feature-flow` e os hooks (cerimônia demais para uma landing page).
 - **D16.** O plano do Sobre vira o primeiro FDD (`docs/fdd/sobre.md`).
 - **D17.** Critério de pronto, meta e prazo do MVP: definidos numa sessão de revisão do site com o Lucas, logo depois do kickoff.
 
