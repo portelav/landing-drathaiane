@@ -14,8 +14,15 @@ const BACKDROP =
 const PHOTO_ASPECT = 3 / 4;
 
 /** Band height as a share of the viewport, closed and open. */
-const HEIGHT_FROM = 0.36;
+const HEIGHT_FROM = 0.6;
 const HEIGHT_TO = 1;
+
+/**
+ * Head start, as a share of the viewport. The stage is a full screen of cream
+ * for as long as it takes to arrive, so the card starts growing while the
+ * stage is still sliding in instead of waiting for the pin.
+ */
+const LEAD = 0.45;
 
 
 /**
@@ -95,7 +102,8 @@ export function About() {
       const viewportHeight = window.innerHeight;
       const rect = wrap.getBoundingClientRect();
       const runway = rect.height - viewportHeight;
-      place(runway > 0 ? clamp(-rect.top / runway) : 0);
+      const lead = LEAD * viewportHeight;
+      place(runway > 0 ? clamp((lead - rect.top) / (runway + lead)) : 0);
     };
 
     const onScroll = () => {
