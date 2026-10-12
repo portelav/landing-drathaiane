@@ -17,7 +17,7 @@ guardado para as seções seguintes.
 
 ### Tempo 1 — a band
 
-O retrato cresce, o cenário abre para os lados, a frase chega pela direita.
+O retrato cresce, o cenário abre para os lados, a frase chega pela direita. O retrato já abre com 60% da altura da tela e começa a crescer enquanto o palco ainda chega, para não sobrar uma tela de creme vazia antes da abertura.
 Dirigido por scroll, eixo horizontal. Roda em `src/components/about.tsx`, acima
 do teste `beside:`.
 
@@ -205,8 +205,8 @@ aberto filmado do outro lado da sala não serve em proporção nenhuma.
 
 Tudo com `prefers-reduced-motion` levando ao estado final visível, como hero e
 band já fazem (a band abre inteira, retrato e frase lado a lado). No Tempo 2 isso significa texto puro, sem as máscaras por
-palavra; no Tempo 3, régua inteira desenhada, marcos opacos e vídeo parado no
-poster, e a linha do tempo vira lista simples: anos, marcos e o vídeo ao lado, sem a roda.
+palavra; no Tempo 3, lista simples no lugar da roda: anos e marcos à esquerda e o vídeo
+parado no poster ao lado.
 
 ---
 
