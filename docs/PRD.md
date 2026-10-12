@@ -216,3 +216,7 @@ Plano em `tasks/technical-bar.md`.
   - **Por que mudou:** depois da ADR 0004, o LCP no celular caiu de 3,2 para 2,9 s e parou aí. Mesmo sem nenhum JS, a página daria 2,3 s. O resto vem de um atraso do Chrome para mostrar a primeira tela quando a imagem do hero está nela, e nada no código do site mudou isso (`tasks/technical-bar.md`, "Medição na produção").
   - **O que ficou para depois:** chegar a 2,5 s pede diminuir o JS da primeira tela (ADR 0002), sem ganho garantido. Está no ROADMAP.
   - **Notas medidas:** 88 no celular (igual nas três execuções), 89 a 93 no iPad, 94 a 100 no computador.
+
+### Rodada 7 (2026-10-11): respostas dela
+
+- **D38.** A menção ao grupo de creators da Ivoclar fica no Sobre. Ela confirmou.
