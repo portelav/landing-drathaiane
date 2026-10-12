@@ -76,6 +76,7 @@ const stage = (progress: number, from: number, to: number) =>
 export function Hero() {
   const wrapRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
+  const runwayRef = useRef<HTMLDivElement>(null);
   const introRef = useRef<HTMLDivElement>(null);
   const bannerRef = useRef<HTMLSpanElement>(null);
   const mobileBannerRef = useRef<HTMLSpanElement>(null);
@@ -91,12 +92,13 @@ export function Hero() {
   useEffect(() => {
     const wrap = wrapRef.current;
     const frame = frameRef.current;
+    const track = runwayRef.current;
     const intro = introRef.current;
     const banner = bannerRef.current;
     const mobileBanner = mobileBannerRef.current;
     const veil = veilRef.current;
     const video = videoRef.current;
-    if (!wrap || !frame || !intro || !banner || !mobileBanner || !veil || !video) return;
+    if (!wrap || !frame || !track || !intro || !banner || !mobileBanner || !veil || !video) return;
 
     const pinned = window.matchMedia(OPENS_ABOVE);
     const stillness = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -153,8 +155,10 @@ export function Hero() {
     };
 
     /**
-     * Narrow screens: the frame is already full width, so the line crosses it
-     * as the frame itself travels through the viewport — no pinning, no runway.
+     * Narrow screens: the frame is already full width, so there is no window
+     * to open. It still holds the screen like the wide layout does, though —
+     * `track` is taller than the viewport and the frame sticks inside it — and
+     * the line crosses it while it is held.
      *
      * A full-height frame on a phone crops to roughly a quarter of the source,
      * which is narrower than a single panel. So instead of opening outwards the
@@ -163,12 +167,12 @@ export function Hero() {
      */
     const drawLoose = () => {
       const viewportWidth = window.innerWidth;
-      const rect = frame.getBoundingClientRect();
-      const travel = window.innerHeight + rect.height;
-      const progress = clamp((window.innerHeight - rect.top) / travel);
+      const rect = track.getBoundingClientRect();
+      const held = rect.height - window.innerHeight;
+      const progress = held > 0 ? clamp(-rect.top / held) : 0;
 
-      // Spend the whole pan while the frame is actually on screen.
-      video.style.objectPosition = `${stage(progress, 0.18, 0.82) * 100}% 50%`;
+      // Spend the whole pan while the frame is held.
+      video.style.objectPosition = `${stage(progress, 0.05, 0.95) * 100}% 50%`;
 
       mobileBanner.style.transform = `translate3d(${lerp(
         viewportWidth,
@@ -222,7 +226,7 @@ export function Hero() {
       data-header-theme={skin.headerTheme}
       className={`relative ${skin.section} wide:h-[300svh] motion-reduce:wide:h-auto`}
     >
-      <div className="sticky top-0 flex min-h-[100svh] flex-col overflow-hidden wide:block wide:h-[100svh]">
+      <div className="flex min-h-[100svh] flex-col wide:sticky wide:top-0 wide:block wide:h-[100svh] wide:overflow-hidden">
         <div
           ref={introRef}
           className="relative z-10 flex flex-col justify-end gap-7 px-6 pb-10 pt-28 sm:gap-10 sm:px-10 sm:pb-14 sm:pt-32 wide:absolute wide:inset-y-0 wide:left-0 wide:w-1/2 wide:pb-16 wide:pt-40"
@@ -249,60 +253,64 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Opens from one panel of the triptych to the full frame. */}
-        <div
-          ref={frameRef}
-          className="relative h-[100svh] w-full overflow-hidden wide:absolute wide:inset-y-0 wide:right-0 wide:h-auto wide:w-[min(59.31svh,50vw)]"
-        >
-          {/* Decorative: the browser otherwise offers picture-in-picture and
-              hover playback controls over any video this size, which is not a
-              choice this footage should present. */}
-          <video
-            ref={videoRef}
-            muted
-            loop
-            playsInline
-            preload="none"
-            poster={HERO_POSTER}
-            aria-hidden
-            tabIndex={-1}
-            disablePictureInPicture
-            disableRemotePlayback
-            controlsList="nodownload noplaybackrate noremoteplayback"
-            className="pointer-events-none absolute inset-0 h-full w-full object-cover"
-          >
-            {SOURCES.map((source) => (
-              <source key={source.src} src={source.src} type={source.type} />
-            ))}
-          </video>
-
+        {/* Narrow: the runway the frame sticks in while the triptych pans. It
+            drops out of the layout on `wide:`, where the stage above sticks. */}
+        <div ref={runwayRef} className="h-[300svh] motion-reduce:h-auto wide:contents">
+          {/* Opens from one panel of the triptych to the full frame. */}
           <div
-            ref={veilRef}
-            aria-hidden
-            className={`absolute inset-0 ${skin.veil} opacity-30 wide:opacity-0`}
-          />
-
-          {/* Keeps the header legible wherever the frame reaches under it. */}
-          <div
-            aria-hidden
-            className="absolute inset-0"
-            style={{ background: skin.gradient }}
-          />
-
-          <span
-            ref={mobileBannerRef}
-            className={`pointer-events-none absolute left-0 top-1/2 block whitespace-nowrap font-display text-[clamp(2.5rem,13vw,4.5rem)] italic leading-none ${skin.banner} wide:hidden`}
+            ref={frameRef}
+            className="sticky top-0 h-[100svh] w-full overflow-hidden wide:absolute wide:inset-y-0 wide:right-0 wide:h-auto wide:w-[min(59.31svh,50vw)]"
           >
-            seu sorriso, no seu tempo
-          </span>
-
-          {playback.playable && (
-            <VideoToggle
-              paused={playback.paused}
-              onToggle={playback.toggle}
-              subject="do consultório"
+            {/* Decorative: the browser otherwise offers picture-in-picture and
+                hover playback controls over any video this size, which is not a
+                choice this footage should present. */}
+            <video
+              ref={videoRef}
+              muted
+              loop
+              playsInline
+              preload="none"
+              poster={HERO_POSTER}
+              aria-hidden
+              tabIndex={-1}
+              disablePictureInPicture
+              disableRemotePlayback
+              controlsList="nodownload noplaybackrate noremoteplayback"
+              className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+            >
+              {SOURCES.map((source) => (
+                <source key={source.src} src={source.src} type={source.type} />
+              ))}
+            </video>
+  
+            <div
+              ref={veilRef}
+              aria-hidden
+              className={`absolute inset-0 ${skin.veil} opacity-30 wide:opacity-0`}
             />
-          )}
+  
+            {/* Keeps the header legible wherever the frame reaches under it. */}
+            <div
+              aria-hidden
+              className="absolute inset-0"
+              style={{ background: skin.gradient }}
+            />
+  
+            <span
+              ref={mobileBannerRef}
+              className={`pointer-events-none absolute left-0 top-1/2 block whitespace-nowrap font-display text-[clamp(2.5rem,13vw,4.5rem)] italic leading-none ${skin.banner} wide:hidden`}
+            >
+              seu sorriso, no seu tempo
+            </span>
+  
+            {playback.playable && (
+              <VideoToggle
+                paused={playback.paused}
+                onToggle={playback.toggle}
+                subject="do consultório"
+              />
+            )}
+          </div>
         </div>
 
         <div className="pointer-events-none absolute inset-y-0 left-0 z-20 hidden items-center wide:flex">
