@@ -142,6 +142,8 @@ usa, pelo mesmo motivo.
 
 ## O vídeo
 
+> Nota de 2026-10-12: o vídeo saiu da linha do tempo; ao lado da roda ele parecia solto, sem motivo. Os três arquivos saíram de `public/` e ficam guardados em `media/sobre/video/parked-site/` (fora do git) e no histórico, no commit `6a34698`. Volta quando houver um lugar que o peça, por exemplo a seção de primeira visita (ROADMAP, "Mais adiante"). A descrição abaixo é do vídeo guardado.
+
 `public/video/kit.webm` · `kit.mp4` · `kit-poster.webp`. Master bruto em
 `media/sobre/video/` (fora do repositório, `/media/` é ignorada).
 

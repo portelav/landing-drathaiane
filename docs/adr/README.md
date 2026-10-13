@@ -13,6 +13,7 @@ As três primeiras registram, no kickoff (2026-10-09), decisões tomadas durante
 | [0002](0002-motion-lenis-scroll.md) | Motion e Lenis para o movimento, `requestAnimationFrame` próprio nas peças dirigidas por scroll | aceito |
 | [0003](0003-self-hosted-video.md) | Vídeo próprio em `public/video/`, VP9 e H.264 nível 4.0 com poster | aceito; o carregamento (`preload`) foi substituído pela 0004 |
 | [0004](0004-deferred-video-loading.md) | Vídeos carregam depois da primeira tela; poster do hero com prioridade alta | aceito |
+| [0005](0005-mapbox-static-map.md) | Mapa do consultório como imagem estática do Mapbox, servida pelo `next/image` | aceito |
 
 ## Template
 

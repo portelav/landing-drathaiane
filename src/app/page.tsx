@@ -2,6 +2,7 @@ import { preload } from "react-dom";
 import { About } from "@/components/about";
 import { AboutText } from "@/components/about-text";
 import { AboutTimeline } from "@/components/about-timeline";
+import { ContactSection } from "@/components/contact-section";
 import { Hero } from "@/components/hero";
 import { Preloader } from "@/components/preloader";
 import { HERO_POSTER } from "@/lib/media";
@@ -19,6 +20,7 @@ export default function Home() {
         <About />
         <AboutText />
         <AboutTimeline />
+        <ContactSection />
       </main>
     </>
   );

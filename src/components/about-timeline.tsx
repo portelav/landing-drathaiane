@@ -1,15 +1,6 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { useLoopWhileVisible, VideoToggle } from "./video-toggle";
-
-const POSTER = "/video/kit-poster.webp";
-/** VP9 for browsers that decode it, H.264 for everything else. */
-const SOURCES = [
-  { src: "/video/kit.webm", type: "video/webm" },
-  { src: "/video/kit.mp4", type: "video/mp4" },
-];
 
 const MILESTONES = [
   {
@@ -77,12 +68,9 @@ export function AboutTimeline() {
   const arcRef = useRef<HTMLDivElement>(null);
   const markerRef = useRef<HTMLSpanElement>(null);
   const labelRef = useRef<HTMLHeadingElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const years = useRef<(HTMLSpanElement | null)[]>([]);
   const seats = useRef<(HTMLSpanElement | null)[]>([]);
   const slots = useRef<(HTMLDivElement | null)[]>([]);
-
-  const playback = useLoopWhileVisible(videoRef);
 
   useEffect(() => {
     const wrap = wrapRef.current;
@@ -292,49 +280,6 @@ export function AboutTimeline() {
               className="hidden h-px bg-forest-700 opacity-45 beside:absolute beside:block motion-reduce:beside:hidden"
             />
           </div>
-        </div>
-
-        {/* Portrait, because every frame this practice shoots is portrait —
-            the panel takes the format rather than letterboxing it. The wheel
-            tells the trajectory; the hands anchor it in the present. */}
-        <div className="relative mt-14 w-[82%] shrink-0 beside:mt-0 beside:w-[30%]">
-          {/* The poster sits behind the video instead of in its `poster`
-              attribute: an image can wait until it nears the screen, a poster
-              cannot, and this one is far below the fold (ADR 0004). Until its
-              first frame the video is transparent and lets it show. */}
-          <Image
-            src={POSTER}
-            alt=""
-            fill
-            sizes="(min-width: 64rem) and (min-aspect-ratio: 6/5) 30vw, 82vw"
-            className="object-cover"
-          />
-
-          <video
-            ref={videoRef}
-            muted
-            loop
-            playsInline
-            preload="none"
-            aria-hidden
-            tabIndex={-1}
-            disablePictureInPicture
-            disableRemotePlayback
-            controlsList="nodownload noplaybackrate noremoteplayback"
-            className="pointer-events-none relative aspect-[9/16] w-full object-cover"
-          >
-            {SOURCES.map((source) => (
-              <source key={source.src} src={source.src} type={source.type} />
-            ))}
-          </video>
-
-          {playback.playable && (
-            <VideoToggle
-              paused={playback.paused}
-              onToggle={playback.toggle}
-              subject="do kit de higiene"
-            />
-          )}
         </div>
       </div>
     </section>

@@ -44,7 +44,7 @@ Seções em ordem na página.
 | Sobre | Quem ela é, como trabalha, credenciais com datas | [`docs/fdd/sobre.md`](fdd/sobre.md) | pronto |
 | Serviços | O que ela trata, para os dois públicos | [`docs/fdd/servicos.md`](fdd/servicos.md) | falta (conteúdo pendente) |
 | Depoimentos | Prova social | [`docs/fdd/depoimentos.md`](fdd/depoimentos.md) | fora por enquanto, sai do site e do menu (D25) |
-| Contato e rodapé | Como chegar (endereço do consultório e rota), horários, primeira consulta, perguntas frequentes, link para as avaliações, WhatsApp (D32 a D34); identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | rodapé pronto, com a identificação e os canais (D26); seção Contato falta (conteúdo pendente) |
+| Contato e rodapé | Como chegar (endereço do consultório e rota), horários, primeira consulta, perguntas frequentes, WhatsApp (D32 a D34; link das avaliações fora, D39); identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | rodapé pronto, com a identificação e os canais (D26); seção Contato feita em parte (2026-10-12): faltam e-mail, duração, acessibilidade do prédio e demais perguntas |
 
 ### Conteúdo pendente
 
@@ -57,7 +57,7 @@ A doutora já tem o conteúdo das seções que faltam e ainda não mandou (D9). 
 - Versão em outro idioma.
 - Domínio pago: fica para o fim, depois do MVP.
 - Depoimentos, por enquanto: a seção sai do site e do menu e fica para decisão futura (D25). O link para as avaliações externas não é a seção e entra em Contato (D33).
-- Mapa embutido: o endereço leva a uma rota no Maps por link (D34).
+- Mapa interativo embutido (Mapbox GL, Google): fica fora. O mapa de Contato é uma imagem estática do Mapbox, servida pelo `next/image` (D40, ADR 0005).
 - Preços e condições de pagamento: nunca, a pedido dela (D29); o Código de Ética também veda (art. 44, I).
 
 ## 8. Requisitos não funcionais
@@ -117,7 +117,7 @@ Duas fases (D21). Cada item é verificável em 390 px, iPad retrato e computador
 Só depende do Lucas. O site continua com `noindex`.
 
 - [x] Rodapé com "Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418", legível.
-- [x] Menu sem link quebrado: Depoimentos sai (D25); Serviços e Contato levam a uma seção ou saem do menu até ela existir. Serviços saiu; Contato leva ao rodapé (D26).
+- [x] Menu sem link quebrado: Depoimentos sai (D25); Serviços e Contato levam a uma seção ou saem do menu até ela existir. Serviços saiu; Contato leva à seção (D26, cumprida em 2026-10-12).
 - [x] Rótulos de 11 px com contraste de 4,5:1 (DESIGN.md, seção 3).
 - [x] Vídeos em loop (hero e kit) com controle de pausa acessível (WCAG 2.2.2) (D31).
 - [x] Barra técnica da seção 5 (D37). Nota de desempenho: 88 no celular, 89 a 93 no iPad, 94 a 100 no computador. Acessibilidade: 100 nos três. LCP no celular: 2,9 s, medido em 2026-10-10.
@@ -129,7 +129,7 @@ Só depende do Lucas. O site continua com `noindex`.
 
 Depende do conteúdo e do aval dela (D24).
 
-- [ ] Serviços e Contato com o conteúdo real dela. Contato com endereço do consultório e rota, horário, primeira consulta, perguntas frequentes e link para as avaliações (D32 a D34).
+- [ ] Serviços e Contato com o conteúdo real dela. Contato feito em parte (2026-10-12): endereço e rota, estacionamento, horário, primeira consulta e a pergunta de valor (D32, D34, D39). Faltam e-mail, duração da consulta, acessibilidade do prédio e as demais perguntas. Serviços segue pendente.
 - [ ] Site inteiro revisto de novo contra as regras de fora; o que não passou mudou ou saiu (D30).
 - [ ] Aval dela no site completo, com o texto do rodapé.
 - [ ] `noindex` fora, metadados completos e prévia de link (Open Graph).
@@ -196,7 +196,7 @@ Plano em `tasks/roles-prices-cfo-rules.md`.
 - **D28.** Papéis. O Lucas confirma tudo: conteúdo, visual, técnica, segurança e git. A Dra. Thaiane opina sobre estética, design e seções, dando opções, sem aprovação formal. Fica o olhar final dela no site completo antes de tirar o `noindex` (D22). O conteúdo que só ela tem (texto, foto, endereço, horário) continua vindo dela e nunca é inventado. Pergunta técnica, de git ou de segurança não vai para ela. Substitui D7.
 - **D29.** O site nunca tem preço nem tabela de preços, a pedido dela. Vale também para faixa de preço, "a partir de", forma ou condição de pagamento. O Código de Ética veda o mesmo (art. 44, I).
 - **D30.** Antes de tirar o `noindex`, o site inteiro passa de novo pela tabela de regras de fora, com as respostas que tiverem chegado até lá. O que não passar muda ou sai antes de indexar. A lista do que conferir fica nas notas privadas.
-- **D31.** Pausa dos vídeos (2026-10-10). Os dois vídeos, o do consultório no hero e o do kit no Sobre, rodam em loop enquanto estão na tela e param quando saem dela. Cada um tem um botão de pausa discreto no canto inferior direito: ícone escuro num quadrado claro de 32 px, sem raio, com área de toque de 44 px. A pausa pedida pela pessoa vale até ela tocar em reproduzir, só durante a visita. Foi considerado tirar o botão do hero e assumir a falha no critério WCAG 2.2.2; ficou o botão nos dois.
+- **D31.** Pausa dos vídeos (2026-10-10). Os dois vídeos, o do consultório no hero e o do kit no Sobre, rodam em loop enquanto estão na tela e param quando saem dela. Cada um tem um botão de pausa discreto no canto inferior direito: ícone escuro num quadrado claro de 32 px, sem raio, com área de toque de 44 px. A pausa pedida pela pessoa vale até ela tocar em reproduzir, só durante a visita. Foi considerado tirar o botão do hero e assumir a falha no critério WCAG 2.2.2; ficou o botão nos dois. Nota de 2026-10-12: o vídeo do kit saiu do Sobre (ficava solto ao lado da roda) e está guardado para reuso; hoje só o hero tem vídeo e botão.
 
 ### Rodada 5 (2026-10-10): pesquisa de sites de dentistas
 
@@ -216,3 +216,9 @@ Plano em `tasks/technical-bar.md`.
   - **Por que mudou:** depois da ADR 0004, o LCP no celular caiu de 3,2 para 2,9 s e parou aí. Mesmo sem nenhum JS, a página daria 2,3 s. O resto vem de um atraso do Chrome para mostrar a primeira tela quando a imagem do hero está nela, e nada no código do site mudou isso (`tasks/technical-bar.md`, "Medição na produção").
   - **O que ficou para depois:** chegar a 2,5 s pede diminuir o JS da primeira tela (ADR 0002), sem ganho garantido. Está no ROADMAP.
   - **Notas medidas:** 88 no celular (igual nas três execuções), 89 a 93 no iPad, 94 a 100 no computador.
+
+### Rodada 7 (2026-10-11): respostas dela
+
+- **D38.** A menção ao grupo de creators da Ivoclar fica no Sobre. Ela confirmou.
+- **D39.** O link para o perfil e as avaliações do Google fica fora do site até haver mais avaliações (Lucas, 2026-10-11). A D33 segue válida, mas parada. A seção Contato assume `#contato` (D26) e o rodapé fica só como rodapé.
+- **D40.** Contato passa a mostrar um mapa estático do Mapbox, com o pino no consultório, no lugar do link de rota em texto (Lucas, 2026-10-12). Reverte a parte da D34 que vetava o mapa; o resto da D34 vale (endereço do consultório, nunca o de casa). A imagem é servida pelo `next/image`, para o navegador não falar com o Mapbox. Sem o token, volta o link de rota. Ver ADR 0005.

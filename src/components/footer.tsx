@@ -27,18 +27,14 @@ const ROW = "flex items-center min-h-11 pointer-fine:min-h-8";
 
 /**
  * A quiet colophon on the page's own ground rather than a block of colour:
- * the page ends the way it reads. Until the full contact section exists, this
- * is where the menu's "Contato" lands.
+ * the page ends the way it reads. The contact section above it owns `#contato`.
  */
 export function Footer() {
   return (
     <footer
-      id="contato"
       data-header-theme="light"
       className="bg-light-base px-6 text-dark-base sm:px-10"
     >
-      <h2 className="sr-only">Contato</h2>
-
       {/* A colophon, not a bar: held to the width of the page's own text
           column so the two blocks sit near each other instead of at the far
           edges of a wide screen. */}

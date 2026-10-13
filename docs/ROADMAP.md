@@ -10,7 +10,7 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 | Menu sem link quebrado | Depoimentos sai do menu (D25); `#servicos` e `#contato` levam a uma seção, ou saem do menu até ela existir | `tasks/footer-and-menu-anchors.md` |
 | Contraste dos rótulos de 11 px | Texto secundário pequeno passa em 4,5:1, medido (DESIGN.md, seção 3) | `tasks/small-label-contrast.md` |
 | Contraste da citação da band | Na band aberta, a citação do Sobre passa em 3:1 (texto grande) sobre o gradiente. Feito: citação em `dark-base`, 5,34 a 6,13 (DESIGN.md, seção 3) | `tasks/band-quote-contrast.md` |
-| Pausa dos vídeos em loop | Hero e kit com controle de pausa acessível (WCAG 2.2.2) | `tasks/video-pause-control.md` |
+| Pausa dos vídeos em loop | Hero (e o kit, enquanto esteve no site) com controle de pausa acessível (WCAG 2.2.2) | `tasks/video-pause-control.md` |
 | Barra técnica | Nota de desempenho do Lighthouse de 85 ou mais no celular e de 90 ou mais no computador, e acessibilidade sem falha AA (D37). Feito: 88 no celular, 94 a 100 no computador, acessibilidade 100 | `tasks/technical-bar.md` |
 | README final | Prints e link do site | `tasks/readme-final.md` |
 | Portfólio e currículo | Link do site nos dois | fora do repositório |
@@ -18,7 +18,7 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 ## Fase 2: site público (sem data)
 
 - Seção Serviços (`docs/fdd/servicos.md`), quando o conteúdo chegar.
-- Seção Contato (`docs/fdd/contato.md`), quando o conteúdo chegar: endereço do consultório com link de rota, horário, primeira consulta, perguntas frequentes e link para as avaliações (PRD, D32 a D34).
+- Seção Contato (`docs/fdd/contato.md`): feita em parte (`tasks/contact-section.md`), com endereço e rota, estacionamento, horário, primeira consulta e a pergunta de valor. Falta o que a doutora ainda não mandou: e-mail, duração da consulta, acessibilidade do prédio e as demais perguntas. O link das avaliações está fora até haver mais avaliações (PRD, D39).
 - Revisão do site inteiro contra as regras de fora, com as respostas que tiverem chegado (PRD, D30); lista do que conferir nas notas privadas.
 - Aval dela no site completo; tirar o `noindex`, completar metadados e prévia de link (Open Graph) (D22).
 - Barra técnica conferida de novo com as seções novas.
