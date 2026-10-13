@@ -116,7 +116,7 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 | Vídeo do consultório (hero) | 40% na tela | loop; pausa fora da tela e pelo botão | O consultório vivo na primeira impressão |
 | Vídeo do kit | (fora do site desde 2026-10-12; guardado para reuso) | | |
 | Contato | nenhum | título preso no topo a partir de `lg` (`position: sticky`, sem JS); `<details>` abre sem transição | Segura o título enquanto o texto passa, sem um quarto movimento calculado por scroll |
-| Rodapé | nenhum | nada anima; hover dos canais só de opacidade, 300 ms | Ponto de repouso depois de três momentos seguidos dirigidos por scroll |
+| Rodapé: voltar ao topo | clique | 1,8 s, ease-out quart (Lenis); direto com movimento reduzido | A página é longa, e o salto seco desorienta. O resto do rodapé não anima (hover só de opacidade, 300 ms) |
 
 - Animar `transform` e `opacity`. **Exceção registrada:** a roleta aplica `blur` de até 2,5 px nas frases em trânsito, para fundir a passagem entre duas linhas vizinhas. Nada de `mix-blend-mode` em elemento que se move.
 - O que se mexe sozinho por mais de 5 s tem como pausar (WCAG 2.2.2). Os dois vídeos em loop têm o botão `VideoToggle`. A pausa da pessoa vale até ela tocar em reproduzir, mesmo que role para longe e volte (PRD, D31).

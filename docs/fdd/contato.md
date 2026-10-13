@@ -40,7 +40,7 @@ Os dados de contato vêm de `src/lib/contact.ts`, a mesma fonte do header.
 
 ### Movimento
 
-Nada anima. O rodapé é o ponto de repouso depois de três momentos seguidos dirigidos por scroll (hero, band, roleta). O hover dos canais é só de opacidade, como nos links do header.
+Nada anima sozinho. O rodapé é o ponto de repouso depois de três momentos seguidos dirigidos por scroll (hero, band, roleta). O hover dos links é só de opacidade, como no header. Exceção, por clique: "Voltar ao topo" sobe a página em 1,8 s, com `ease-out` (Lenis onde ele roda, scroll suave do navegador no resto), e sobe direto com `prefers-reduced-motion`.
 
 ### Regras
 
