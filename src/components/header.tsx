@@ -239,7 +239,7 @@ export function Header() {
                   <a
                     href={link.href}
                     onClick={close}
-                    className="block py-3.5 font-display text-2xl leading-none no-underline"
+                    className="block py-3.5 text-[0.9375rem] no-underline opacity-70 transition-opacity duration-300 hover:opacity-100"
                   >
                     {link.label}
                   </a>
