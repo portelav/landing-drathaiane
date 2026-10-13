@@ -4,6 +4,16 @@ import Lenis from "lenis";
 import { useEffect } from "react";
 
 /**
+ * The running Lenis, so a link can ask it to scroll instead of jumping. Null
+ * before mount, on touch devices and whenever motion is reduced.
+ */
+let current: Lenis | null = null;
+
+export function getLenis() {
+  return current;
+}
+
+/**
  * Eases the page towards the scroll position instead of jumping to it. Without
  * this the pinned hero tracks the wheel one-to-one, which on Windows means a
  * stack of discrete jumps rather than a reveal.
@@ -20,7 +30,7 @@ export function SmoothScroll() {
     const start = () => {
       if (lenis || stillness.matches) return;
 
-      lenis = new Lenis({
+      lenis = current = new Lenis({
         // Catch-up factor per frame: enough to smooth the steps, high enough
         // that the page still feels attached to the wheel.
         lerp: 0.1,
@@ -40,7 +50,7 @@ export function SmoothScroll() {
       if (frame) cancelAnimationFrame(frame);
       frame = 0;
       lenis?.destroy();
-      lenis = null;
+      lenis = current = null;
     };
 
     const sync = () => {

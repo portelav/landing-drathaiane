@@ -1,4 +1,5 @@
 import { INSTAGRAM_HANDLE, INSTAGRAM_HREF, PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
+import { BackToTop } from "./back-to-top";
 import { BrandMark } from "./brand-mark";
 
 /**
@@ -42,9 +43,9 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <a href="#" className={LINK}>
+              <BackToTop className={LINK}>
                 Voltar ao topo <span aria-hidden>↑</span>
-              </a>
+              </BackToTop>
             </li>
           </ul>
         </div>
