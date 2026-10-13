@@ -39,46 +39,51 @@ export function Footer() {
     >
       <h2 className="sr-only">Contato</h2>
 
-      <div className="flex flex-col gap-8 border-t border-dark-10 pb-10 pt-12 sm:flex-row sm:items-start sm:justify-between sm:gap-12 sm:pb-12 sm:pt-16">
-        <div className="flex flex-col gap-5 sm:flex-row sm:gap-6">
-          <span className="text-forest-900 sm:pt-1.5">
-            <BrandMark height={36} />
-          </span>
-          <p className="m-0 text-[0.9375rem]">
-            {IDENTIFICATION.map((line, index) => (
-              <span
-                key={line}
-                className={`block leading-6 sm:flex sm:min-h-11 sm:items-center sm:pointer-fine:min-h-8 ${
-                  index === 0 ? "" : "text-dark-base/70"
-                }`}
-              >
-                {line}
-              </span>
+      {/* A colophon, not a bar: held to the width of the page's own text
+          column so the two blocks sit near each other instead of at the far
+          edges of a wide screen. */}
+      <div className="mx-auto max-w-2xl">
+        <div className="flex flex-col gap-8 border-t border-dark-10 pb-10 pt-12 sm:flex-row sm:items-start sm:justify-between sm:gap-12 sm:pb-12 sm:pt-16">
+          <div className="flex flex-col gap-5 sm:flex-row sm:gap-6">
+            <span className="text-forest-900 sm:pt-1.5">
+              <BrandMark height={36} />
+            </span>
+            <p className="m-0 text-[0.9375rem]">
+              {IDENTIFICATION.map((line, index) => (
+                <span
+                  key={line}
+                  className={`block leading-6 sm:flex sm:min-h-11 sm:items-center sm:pointer-fine:min-h-8 ${
+                    index === 0 ? "" : "text-dark-base/70"
+                  }`}
+                >
+                  {line}
+                </span>
+              ))}
+            </p>
+          </div>
+
+          {/* One row on a phone, where the three fit side by side; a column
+              beside the identification once there is room for both. */}
+          <ul className="m-0 flex list-none flex-wrap gap-x-6 p-0 text-[0.9375rem] sm:flex-col sm:gap-x-0">
+            {CHANNELS.map((channel) => (
+              <li key={channel.href}>
+                <a
+                  href={channel.href}
+                  {...(channel.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className={`${ROW} w-fit no-underline opacity-70 transition-opacity duration-300 hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark-base`}
+                >
+                  {channel.label}
+                  {channel.external && <span className="sr-only"> (abre em nova aba)</span>}
+                </a>
+              </li>
             ))}
-          </p>
+          </ul>
         </div>
 
-        {/* One row on a phone, where the three fit side by side; a column
-            beside the identification once there is room for both. */}
-        <ul className="m-0 flex list-none flex-wrap gap-x-6 p-0 text-[0.9375rem] sm:flex-col sm:gap-x-0">
-          {CHANNELS.map((channel) => (
-            <li key={channel.href}>
-              <a
-                href={channel.href}
-                {...(channel.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className={`${ROW} w-fit no-underline opacity-70 transition-opacity duration-300 hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark-base`}
-              >
-                {channel.label}
-                {channel.external && <span className="sr-only"> (abre em nova aba)</span>}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <p className="m-0 pb-10 text-[0.8125rem] text-dark-base/70 sm:pb-12">
+          © 2026 Dra. Thaiane Lessa. Todos os direitos reservados.
+        </p>
       </div>
-
-      <p className="m-0 pb-10 text-[0.8125rem] text-dark-base/70 sm:pb-12">
-        © 2026 Dra. Thaiane Lessa. Todos os direitos reservados.
-      </p>
     </footer>
   );
 }
