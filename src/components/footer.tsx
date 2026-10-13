@@ -1,82 +1,56 @@
-import {
-  INSTAGRAM_HANDLE,
-  INSTAGRAM_HREF,
-  PHONE_DISPLAY,
-  PHONE_HREF,
-  WHATSAPP_HREF,
-} from "@/lib/contact";
+import { INSTAGRAM_HANDLE, INSTAGRAM_HREF, PHONE_DISPLAY, PHONE_HREF } from "@/lib/contact";
+import { BackToTop } from "./back-to-top";
 import { BrandMark } from "./brand-mark";
 
-const CHANNELS = [
-  { label: "WhatsApp", href: WHATSAPP_HREF, external: true },
-  { label: PHONE_DISPLAY, href: PHONE_HREF, external: false },
-  { label: INSTAGRAM_HANDLE, href: INSTAGRAM_HREF, external: true },
-];
-
 /**
- * Name, profession and registry number: the CFO requires all three on every
- * page. One per line, so the line never needs separators to stay readable.
+ * 44 px for touch, 32 px with a mouse. The phone repeats the contact section
+ * on purpose: this is where someone looking for a number at the bottom of the
+ * page expects to find it.
  */
-const IDENTIFICATION = ["Dra. Thaiane Lessa", "Cirurgiã-Dentista", "CRO/AL-6418"];
+const LINK =
+  "inline-flex min-h-11 items-center gap-1.5 no-underline opacity-70 transition-opacity duration-300 hover:opacity-100 pointer-fine:min-h-8 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark-base";
 
 /**
- * Side by side, each identification line sits level with one channel: both
- * columns share the row height, 44 px for touch and 32 px for a mouse.
- */
-const ROW = "flex items-center min-h-11 pointer-fine:min-h-8";
-
-/**
- * A quiet colophon on the page's own ground rather than a block of colour:
- * the page ends the way it reads. The contact section above it owns `#contato`.
+ * A low strip on the page's own ground, on the same edge as the contact
+ * section above it so the two read as one column. Name, profession and
+ * registry number stay whole: the CFO requires all three on every page.
  */
 export function Footer() {
   return (
-    <footer
-      data-header-theme="light"
-      className="bg-light-base px-6 text-dark-base sm:px-10"
-    >
-      {/* A colophon, not a bar: held to the width of the page's own text
-          column so the two blocks sit near each other instead of at the far
-          edges of a wide screen. */}
-      <div className="mx-auto max-w-2xl">
-        <div className="flex flex-col gap-8 border-t border-dark-10 pb-10 pt-12 sm:flex-row sm:items-start sm:justify-between sm:gap-12 sm:pb-12 sm:pt-16">
-          <div className="flex flex-col gap-5 sm:flex-row sm:gap-6">
-            <span className="text-forest-900 sm:pt-1.5">
+    <footer data-header-theme="light" className="bg-light-base text-dark-base">
+      <div className="mx-auto max-w-[78rem] px-6 sm:px-10">
+        <div className="flex flex-col gap-6 border-t border-dark-10 pb-4 pt-8 sm:flex-row sm:items-center sm:justify-between sm:gap-10">
+          <div className="flex items-center gap-4">
+            <span className="text-forest-900">
               <BrandMark height={36} />
             </span>
-            <p className="m-0 text-[0.9375rem]">
-              {IDENTIFICATION.map((line, index) => (
-                <span
-                  key={line}
-                  className={`block leading-6 sm:flex sm:min-h-11 sm:items-center sm:pointer-fine:min-h-8 ${
-                    index === 0 ? "" : "text-dark-base/70"
-                  }`}
-                >
-                  {line}
-                </span>
-              ))}
+            <p className="m-0 text-[0.9375rem] leading-snug">
+              Dra. Thaiane Lessa
+              <span className="block text-dark-base/70">Cirurgiã-Dentista · CRO/AL-6418</span>
             </p>
           </div>
 
-          {/* One row on a phone, where the three fit side by side; a column
-              beside the identification once there is room for both. */}
-          <ul className="m-0 flex list-none flex-wrap gap-x-6 p-0 text-[0.9375rem] sm:flex-col sm:gap-x-0">
-            {CHANNELS.map((channel) => (
-              <li key={channel.href}>
-                <a
-                  href={channel.href}
-                  {...(channel.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className={`${ROW} w-fit no-underline opacity-70 transition-opacity duration-300 hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark-base`}
-                >
-                  {channel.label}
-                  {channel.external && <span className="sr-only"> (abre em nova aba)</span>}
-                </a>
-              </li>
-            ))}
+          <ul className="m-0 flex list-none flex-wrap items-center gap-x-6 p-0 text-[0.9375rem]">
+            <li>
+              <a href={PHONE_HREF} className={LINK}>
+                {PHONE_DISPLAY}
+              </a>
+            </li>
+            <li>
+              <a href={INSTAGRAM_HREF} target="_blank" rel="noopener noreferrer" className={LINK}>
+                {INSTAGRAM_HANDLE}
+                <span className="sr-only"> (abre em nova aba)</span>
+              </a>
+            </li>
+            <li>
+              <BackToTop className={LINK}>
+                Voltar ao topo <span aria-hidden>↑</span>
+              </BackToTop>
+            </li>
           </ul>
         </div>
 
-        <p className="m-0 pb-10 text-[0.8125rem] text-dark-base/70 sm:pb-12">
+        <p className="m-0 pb-8 text-[0.8125rem] text-dark-base/70">
           © 2026 Dra. Thaiane Lessa. Todos os direitos reservados.
         </p>
       </div>
