@@ -114,7 +114,8 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 | Sobre, texto: linhas sobem por máscara | entrada, uma vez | 70 ms entre linhas | Único momento que anima e para: o silêncio depois é o efeito |
 | Sobre, roleta de anos | scroll (rAF) | proporcional ao scroll | Eixo vertical, o contraste que hero e band não dão |
 | Vídeo do consultório (hero) | 40% na tela | loop; pausa fora da tela e pelo botão | O consultório vivo na primeira impressão |
-| Vídeo do kit | 40% na tela | loop; pausa fora da tela e pelo botão | Um quadro parado ao lado da roda parecia falha |
+| Vídeo do kit | (fora do site desde 2026-10-12; guardado para reuso) | | |
+| Contato | nenhum | nada anima; o `<details>` da pergunta abre sem transição | Quarto momento seguido dirigido por scroll sem motivo forte; a seção é leitura e repouso |
 | Rodapé | nenhum | nada anima; hover dos canais só de opacidade, 300 ms | Ponto de repouso depois de três momentos seguidos dirigidos por scroll |
 
 - Animar `transform` e `opacity`. **Exceção registrada:** a roleta aplica `blur` de até 2,5 px nas frases em trânsito, para fundir a passagem entre duas linhas vizinhas. Nada de `mix-blend-mode` em elemento que se move.
@@ -134,14 +135,16 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 | `VideoToggle`, `useLoopWhileVisible` | `src/components/video-toggle.tsx` | botão: pausar ou reproduzir, foco, hover; ausente com movimento reduzido ou antes de o vídeo tocar |
 | `About`, `AboutText`, `AboutTimeline` | `src/components/about*.tsx` | `beside:` (lado a lado, por scroll) ou empilhado; movimento reduzido |
 | `SmoothScroll` | `src/components/smooth-scroll.tsx` | ligado no computador; desligado no toque e com movimento reduzido |
-| `Footer` | `src/components/footer.tsx` | estático; destino de `#contato` enquanto a seção Contato não existe (PRD, D26) |
+| `ContactSection` | `src/components/contact-section.tsx` | estático; destino de `#contato`; pergunta aberta ou fechada (`<details>`) |
+| `Footer` | `src/components/footer.tsx` | estático; identificação, canais e direitos (sem `id`, desde a seção Contato) |
 
 ## 8. Tom de voz
 
 - Primeira pessoa no texto dela ("Trabalho melhor com tempo"), segunda pessoa para o paciente ("Quando você sair daqui").
 - Frases curtas, concretas, sem jargão; termo técnico só com glosa (como "marca global de materiais odontológicos" para a Ivoclar).
 - Fala de cuidado e planejamento, nunca de resultado.
-- **Palavras vetadas pelas regras de fora** (PRD, "Regras de fora"): preço, valor, parcelamento e "grátis" (Código de Ética, art. 44, I, e art. 20, IX); "popular" (art. 44, VII); "sorteio" e "brinde" (art. 20, VIII); "especialista" sem registro da especialidade (art. 44, II); "garantido" e qualquer promessa de resultado (Res. CFO-196/2019, art. 2º, § 1º). A cartilha do CRO-AL acrescenta "promoção", "desconto", "oferta", "pacote", "cupom" e "indicação de amigos" (interpretação).
+- **Palavras vetadas pelas regras de fora** (PRD, "Regras de fora"): preço, valor (o dinheiro), parcelamento e "grátis" (Código de Ética, art. 44, I, e art. 20, IX); "popular" (art. 44, VII); "sorteio" e "brinde" (art. 20, VIII); "especialista" sem registro da especialidade (art. 44, II); "garantido" e qualquer promessa de resultado (Res. CFO-196/2019, art. 2º, § 1º). A cartilha do CRO-AL acrescenta "promoção", "desconto", "oferta", "pacote", "cupom" e "indicação de amigos" (interpretação).
+- **Exceção em "valor":** a pergunta "Quanto custa o tratamento?" do FAQ e a resposta dela usam a palavra para recusar o preço, o caso que o PRD (D32) prevê. Fora dessa pergunta, a palavra segue vetada.
 - **Vetadas por tom, mais estrito que a regra:** superlativo ("o melhor", "perfeito") e "sem dor".
 
 ## 9. O que não fazer

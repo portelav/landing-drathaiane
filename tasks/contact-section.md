@@ -175,3 +175,13 @@ Um commit por item, na ordem do `/exec`.
 ## Stage 9 — Walkthrough
 
 *(Preenchido pelo walkthrough.)*
+
+---
+
+## Feito e verificado
+
+**Arquivos:** `docs/fdd/contato.md`, `docs/design/DESIGN.md`, `src/lib/contact.ts`, `src/components/contact-section.tsx` (novo), `src/components/footer.tsx`, `src/app/page.tsx`, `docs/PRD.md` (D39), `docs/ROADMAP.md`.
+
+**Desvios:** `CLAUDE.md` não mudou (não tem "Estado atual" e a estrutura é genérica). Título do `h2` ("Como chegar e o que esperar") e a frase de chamada do WhatsApp são texto meu, para o Lucas conferir ou trocar.
+
+**Conferido:** lint e typecheck verdes; `npm run build` verde (rota estática). Critérios 1, 2, 4, 6, 7 e 8 (navegador, contraste, teclado): **pendentes**, o Chrome do MCP estava preso por outra instância e não abriu.

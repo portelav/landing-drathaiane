@@ -129,7 +129,7 @@ Só depende do Lucas. O site continua com `noindex`.
 
 Depende do conteúdo e do aval dela (D24).
 
-- [ ] Serviços e Contato com o conteúdo real dela. Contato com endereço do consultório e rota, horário, primeira consulta, perguntas frequentes e link para as avaliações (D32 a D34).
+- [ ] Serviços e Contato com o conteúdo real dela. Contato feito em parte (2026-10-12): endereço e rota, estacionamento, horário, primeira consulta e a pergunta de valor (D32, D34, D39). Faltam e-mail, duração da consulta, acessibilidade do prédio e as demais perguntas. Serviços segue pendente.
 - [ ] Site inteiro revisto de novo contra as regras de fora; o que não passou mudou ou saiu (D30).
 - [ ] Aval dela no site completo, com o texto do rodapé.
 - [ ] `noindex` fora, metadados completos e prévia de link (Open Graph).
@@ -220,3 +220,4 @@ Plano em `tasks/technical-bar.md`.
 ### Rodada 7 (2026-10-11): respostas dela
 
 - **D38.** A menção ao grupo de creators da Ivoclar fica no Sobre. Ela confirmou.
+- **D39.** O link para o perfil e as avaliações do Google fica fora do site até haver mais avaliações (Lucas, 2026-10-11). A D33 segue válida, mas parada. A seção Contato assume `#contato` (D26) e o rodapé fica só como rodapé.
