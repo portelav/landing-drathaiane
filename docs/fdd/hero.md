@@ -27,7 +27,7 @@ Duas peles de cor no código (`PALETTE`), escolhidas pela constante `TONE`. No a
 
 **Estreito** (proporção abaixo de 427/720, o teste `wide:`; quase todo celular em pé):
 - O texto vem primeiro, e o vídeo desce para um quadro de tela inteira (`100svh`) logo abaixo.
-- Não há palco travado.
+- O quadro do vídeo trava (`sticky`) numa pista de `300svh` enquanto a panorâmica passa pelos três painéis, como no `wide:`. Depois da pista, a página segue.
 
 **`wide:`** (proporção de 427/720 ou mais; tablet, computador):
 - O texto ocupa a metade esquerda, e o vídeo começa como uma janela na direita, do tamanho de um painel do tríptico.
@@ -48,14 +48,14 @@ Duas peles de cor no código (`PALETTE`), escolhidas pela constante `TONE`. No a
 | Véu sobre o vídeo (`wide:`) | scroll | Opacidade até 0,56 na pele clara (0,34 na escura), proporcional à abertura | Paredes claras em tela cheia atrás da linha de exibição pedem um pouco de sombra |
 | Texto sai (`wide:`) | scroll | Opacidade e deslocamento para a esquerda, de 5% a 40% da pista | O texto sai bem antes de o vídeo tomar a tela |
 | Linha "seu sorriso, no seu tempo" (`wide:`) | scroll | Entra pela direita a partir de 22% e assenta centralizada no fim | Linha de exibição grande que vaza as duas bordas |
-| Panorâmica no tríptico (estreito) | scroll | `objectPosition` de 0% a 100% enquanto o quadro atravessa a tela | Em tela de celular o recorte é mais estreito que um painel; os três painéis chegam um depois do outro |
-| Linha de exibição (estreito) | scroll | Atravessa da direita para a esquerda | Contraponto ao movimento da panorâmica |
+| Panorâmica no tríptico (estreito) | scroll | `objectPosition` de 0% a 100% enquanto o quadro fica travado na pista de `300svh` | Em tela de celular o recorte é mais estreito que um painel; os três painéis chegam um depois do outro, com a tela parada |
+| Linha de exibição (estreito) | scroll | Atravessa da direita para a esquerda durante a pista | Contraponto ao movimento da panorâmica |
 | Vídeo | sozinho, na tela | Loop, com pausa pelo botão e fora da tela | O consultório vivo na primeira impressão |
 
 Só `transform`, `opacity`, `width` do quadro (que está em posição absoluta e não força layout do resto da página) e `objectPosition`. O botão não anima: o hover é só de opacidade, 300 ms.
 
 **`prefers-reduced-motion`:**
-- Sem palco travado: no `wide:`, a seção perde a pista de `300svh`. A janela fica no tamanho de um painel e o texto fica parado.
+- Sem palco travado: nas duas proporções a pista de `300svh` some. No `wide:` a janela fica no tamanho de um painel e o texto fica parado; no estreito o quadro fica na tela cheia, sem panorâmica.
 - A linha de exibição fica centralizada no estreito. No `wide:`, ela não aparece, porque só entra com a abertura.
 - O vídeo fica no poster e o botão não aparece.
 - Se a preferência mudar com a página aberta, tudo acompanha. Ligar a preferência desfaz a pausa pedida pela pessoa: ao desligar, o vídeo volta ao loop, com o botão.

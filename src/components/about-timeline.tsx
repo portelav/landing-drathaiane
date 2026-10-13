@@ -97,7 +97,8 @@ export function AboutTimeline() {
     const stillness = window.matchMedia("(prefers-reduced-motion: reduce)");
     let queued = 0;
 
-    /** Hands the layout back to the stylesheet, which parks it as a list. */
+    /** Hands the layout back to the stylesheet, which parks it as a list: stacked
+     *  on narrow screens, and on `beside:` through the `motion-reduce:` classes. */
     const rest = () => {
       [...years.current, ...seats.current, ...slots.current].forEach((element) => {
         if (!element) return;
@@ -226,7 +227,7 @@ export function AboutTimeline() {
         <div ref={columnRef} className="beside:relative beside:flex-1 beside:self-stretch">
           <h3
             ref={labelRef}
-            className="tracking-brand text-[0.6875rem] uppercase text-dark-base/70 beside:absolute beside:top-0 beside:z-10"
+            className="tracking-brand text-[0.6875rem] uppercase text-dark-base/70 beside:absolute beside:top-0 beside:z-10 motion-reduce:beside:static"
           >
             Formação e trajetória
           </h3>
@@ -235,7 +236,7 @@ export function AboutTimeline() {
               dissolve at the top and bottom instead of being cut off by the
               stage edge, and the arc stops before it can run across the label
               or trail off as a stray line. */}
-          <div className="mt-2 beside:absolute beside:inset-0 beside:mt-0 beside:[mask-image:linear-gradient(to_bottom,transparent_0%,#000_20%,#000_80%,transparent_100%)]">
+          <div className="mt-2 beside:absolute beside:inset-0 beside:mt-0 beside:[mask-image:linear-gradient(to_bottom,transparent_0%,#000_20%,#000_80%,transparent_100%)] motion-reduce:beside:static motion-reduce:beside:mt-2 motion-reduce:beside:[mask-image:none]">
             <div
               ref={arcRef}
               aria-hidden
@@ -248,7 +249,7 @@ export function AboutTimeline() {
                   ref={(node) => {
                     years.current[index] = node;
                   }}
-                  className="mt-10 block origin-left font-display text-[clamp(2.5rem,5.2vw,4rem)] leading-none tabular-nums text-forest-700 whitespace-nowrap beside:absolute beside:left-0 beside:top-0 beside:mt-0 beside:will-change-[transform,opacity]"
+                  className="mt-10 block origin-left font-display text-[clamp(2.5rem,5.2vw,4rem)] leading-none tabular-nums text-forest-700 whitespace-nowrap beside:absolute beside:left-0 beside:top-0 beside:mt-0 beside:will-change-[transform,opacity] motion-reduce:beside:static motion-reduce:beside:mt-10"
                 >
                   {milestone.year}
                 </span>
@@ -265,7 +266,7 @@ export function AboutTimeline() {
                   ref={(node) => {
                     slots.current[index] = node;
                   }}
-                  className="mt-3 flex flex-col gap-2 beside:pointer-events-none beside:absolute beside:left-0 beside:top-0 beside:mt-0 beside:will-change-[transform,opacity]"
+                  className="mt-3 flex flex-col gap-2 beside:pointer-events-none beside:absolute beside:left-0 beside:top-0 beside:mt-0 beside:will-change-[transform,opacity] motion-reduce:beside:pointer-events-auto motion-reduce:beside:static motion-reduce:beside:mt-3"
                 >
                   <div
                     aria-hidden
