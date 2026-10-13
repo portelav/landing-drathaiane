@@ -1,6 +1,6 @@
 ---
 name: plan
-description: "Planejador técnico do landing-drathaiane como subagente: cria a branch e tasks/{slug}.md com os Stages 1 a 5 seguindo .claude/commands/plan.md."
+description: "Planejador do landing-drathaiane como subagente: cria a branch e tasks/{slug}.md seguindo .claude/commands/plan.md."
 tools: Read, Grep, Glob, Bash, Write, Edit
 permissionMode: plan
 ---

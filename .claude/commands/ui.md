@@ -30,7 +30,7 @@ Você é o especialista de interface. Base de componentes: **componentes própri
 1. **Diagnosticar:** que FDD, que componentes existem, que tokens valem.
 2. **Planejar:** composição, estados, fronteira servidor e cliente, movimento.
 3. **Implementar** em `src/components/`.
-4. **Validar:** `npm run lint`, `npx next typegen && npx tsc --noEmit` e `npm run build`; abrir em 390 px, iPad retrato e computador (MCP do Chrome DevTools), conferir com movimento reduzido, navegar por teclado; passar o checklist do `/ui-ux-pro-max`.
+4. **Validar:** `npm run lint`, `npx next typegen && npx tsc --noEmit` e `npm run build`; abrir em 390 px, iPad retrato e computador (MCP do Chrome DevTools), conferir com movimento reduzido, navegar por teclado.
 
 ## Restrições
 

@@ -2,40 +2,20 @@
 
 <!-- 1 a 3 frases. O que muda para quem usa. -->
 
-## Contexto
-
-- Plano: `tasks/<slug>.md`
-- FDD: `docs/fdd/<nome>.md` (status: rascunho | aprovado | implementado)
-
 ## Mudanças
 
-<!-- Por camada. Apagar as que não se aplicam. -->
+<!-- Só o que se aplica: interface, conteúdo e mídia, docs. Plano: tasks/<slug>.md, se houver. -->
 
-- **Interface:** …
-- **Conteúdo e mídia:** …
-- **Docs:** …
-
-## Como testar no local
+## Como testar
 
 1. `npm run dev`
 2. …
 
-## Preview
-
-- URL: <!-- preview do deploy, ou "só após merge" -->
+Preview: <!-- URL do deploy -->
 
 ## Checklist
 
-- [ ] `tasks/<slug>.md` com Stages 1 a 9 (ou 1 e 4 para trivial)
-- [ ] `npm run lint`, `npx next typegen && npx tsc --noEmit` e `npm run build` verdes
-- [ ] Testado em 390 px, iPad retrato e computador, e com movimento reduzido
-- [ ] Textos em português; toque 44 px, foco visível, contraste AA
+- [ ] `npm run lint`, typecheck e `npm run build` verdes
+- [ ] 390 px, iPad retrato e computador, e com movimento reduzido
 - [ ] Regras de fora (CFO e CRO-AL) conferidas em texto e mídia novos
-- [ ] Docs atualizados (FDD, PRD, ROADMAP conforme o caso)
-- [ ] Nenhuma atribuição de IA (sem Co-Authored-By, sem "Generated with", sem menção a Claude ou agente)
-
-## Issues
-
-<!-- Uma por linha. Apagar a seção se não houver. -->
-
-- Closes #
+- [ ] Docs atualizados, se o comportamento mudou

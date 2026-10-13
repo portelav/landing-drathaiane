@@ -110,7 +110,6 @@ export function Header() {
   }, [open]);
 
   const light = tone === "dark";
-  const duration = reducedMotion ? 0 : 0.55;
 
   const veil = light ? "rgba(22, 48, 0, 0.5)" : "rgba(244, 242, 238, 0.72)";
   // The dropdown always needs a ground of its own — unlike the bar, it can be
@@ -132,7 +131,21 @@ export function Header() {
           : "none",
       }}
     >
-      <div className="flex items-center gap-8 lg:gap-10">
+      <div className="flex items-center gap-4 sm:gap-8">
+        <button
+          ref={menuButtonRef}
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-controls="site-nav"
+          className="group pointer-events-auto flex items-center justify-center gap-2.5 text-[0.8125rem] max-sm:h-11 max-sm:w-11"
+        >
+          <BurgerIcon open={open} />
+          {/* On a phone the name needs the room, so the word gives way to the
+              icon; it stays in the accessibility tree. */}
+          <span className="tracking-brand uppercase max-sm:sr-only">{open ? "Fechar" : "Menu"}</span>
+        </button>
+
         <Link
           href="/"
           className="pointer-events-auto flex items-center gap-3.5 no-underline max-sm:gap-2.5"
@@ -150,47 +163,6 @@ export function Header() {
             <span className="opacity-70">Cirurgiã-Dentista</span>
           </span>
         </Link>
-
-        {/* The destinations unfold sideways into the bar's own empty middle —
-            nothing on the page is ever covered. */}
-        <motion.nav
-          id="site-nav"
-          className="pointer-events-auto hidden overflow-hidden lg:block"
-          initial={false}
-          animate={open ? "open" : "closed"}
-          variants={{
-            open: {
-              maxWidth: 560,
-              transition: { duration, ease: EASE, staggerChildren: 0.05, delayChildren: 0.08 },
-            },
-            closed: {
-              maxWidth: 0,
-              transition: { duration, ease: EASE, staggerChildren: 0.03, staggerDirection: -1 },
-            },
-          }}
-        >
-          <ul className="flex items-center gap-9 whitespace-nowrap pr-2">
-            {NAV_LINKS.map((link) => (
-              <motion.li
-                key={link.href}
-                variants={{
-                  open: { opacity: 1, y: 0 },
-                  closed: { opacity: 0, y: 8 },
-                }}
-                transition={{ duration: reducedMotion ? 0 : 0.35, ease: EASE }}
-              >
-                <a
-                  href={link.href}
-                  onClick={close}
-                  tabIndex={open ? undefined : -1}
-                  className="text-[0.8125rem] no-underline opacity-70 transition-opacity duration-300 hover:opacity-100"
-                >
-                  {link.label}
-                </a>
-              </motion.li>
-            ))}
-          </ul>
-        </motion.nav>
       </div>
 
       <div className="flex items-center gap-2 sm:gap-8">
@@ -200,20 +172,6 @@ export function Header() {
         >
           {PHONE_DISPLAY}
         </a>
-
-        <button
-          ref={menuButtonRef}
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-controls="site-nav site-nav-compact"
-          className="group pointer-events-auto flex items-center justify-center gap-2.5 text-[0.8125rem] max-sm:h-11 max-sm:w-11"
-        >
-          {/* On a phone the name needs the room, so the word gives way to the
-              icon; it stays in the accessibility tree. */}
-          <span className="tracking-brand uppercase max-sm:sr-only">{open ? "Fechar" : "Menu"}</span>
-          <BurgerIcon open={open} />
-        </button>
 
         <div className="flex items-center gap-2 sm:gap-2.5">
           <a
@@ -244,13 +202,14 @@ export function Header() {
         </div>
       </div>
 
-      {/* Narrow screens have no middle to unfold into, so the same
-          destinations drop just below the bar — a band, never the whole page. */}
+      {/* The destinations drop just below the bar, one above the other, under
+          the button that opened them: a band on a phone, a small panel beside
+          the button once there is room. Never the whole page. */}
       <AnimatePresence>
         {open && (
           <motion.nav
-            id="site-nav-compact"
-            className="pointer-events-auto absolute inset-x-0 top-full lg:hidden"
+            id="site-nav"
+            className="pointer-events-auto absolute inset-x-0 top-full sm:inset-x-auto sm:left-4 sm:w-72"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -262,7 +221,7 @@ export function Header() {
               boxShadow: `inset 0 -1px 0 ${light ? "var(--c-light-15)" : "var(--c-dark-10)"}`,
             }}
           >
-            <ul className="flex flex-col px-6 py-2 sm:px-10">
+            <ul className="flex flex-col px-6 py-2 sm:px-6">
               {NAV_LINKS.map((link, index) => (
                 <motion.li
                   key={link.href}
@@ -280,7 +239,7 @@ export function Header() {
                   <a
                     href={link.href}
                     onClick={close}
-                    className="block py-3.5 font-display text-2xl leading-none no-underline"
+                    className="block py-3.5 text-[0.9375rem] no-underline opacity-70 transition-opacity duration-300 hover:opacity-100"
                   >
                     {link.label}
                   </a>

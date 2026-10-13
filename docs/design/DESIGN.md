@@ -109,7 +109,7 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 | Preloader: monograma desenhado e preenchido | carregamento | ~2,9 s; monograma voa para o header via `layoutId` | Abrir com a marca, e entregar a marca ao header sem corte |
 | Hero: janela abre de um painel para a tela cheia | scroll (rAF) | proporcional ao scroll | O tríptico do vídeo se revela painel a painel |
 | Header: some ao descer, volta ao subir; inverte a cor pelo tom da seção | scroll | 500 ms, `ease-out-quint` | Sair do caminho sem sumir de vez |
-| Menu do header | toque | 550 ms, stagger 50 ms | Desdobrar dentro do header |
+| Menu do header | toque | 350 ms, itens com 45 ms de intervalo | Lista que desce sob o botão, no canto esquerdo |
 | Sobre, band: retrato cresce, cenário abre | scroll (rAF) | proporcional ao scroll | Eixo horizontal, continuação do hero |
 | Sobre, texto: linhas sobem por máscara | entrada, uma vez | 70 ms entre linhas | Único momento que anima e para: o silêncio depois é o efeito |
 | Sobre, roleta de anos | scroll (rAF) | proporcional ao scroll | Eixo vertical, o contraste que hero e band não dão |

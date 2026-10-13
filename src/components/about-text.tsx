@@ -1,7 +1,28 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { motion } from "motion/react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+
+const STILLNESS = "(prefers-reduced-motion: reduce)";
+
+/**
+ * Whether the visitor asked for no motion. Here the markup depends on it —
+ * words wrapped for the reveal or plain text — so the server has to render the
+ * same thing the first client render does. `useReducedMotion` reads the
+ * media query on the client's first render and fails hydration; the server
+ * snapshot below keeps both renders equal and the real value lands right after.
+ */
+function useStillness() {
+  return useSyncExternalStore(
+    (notify) => {
+      const query = window.matchMedia(STILLNESS);
+      query.addEventListener("change", notify);
+      return () => query.removeEventListener("change", notify);
+    },
+    () => window.matchMedia(STILLNESS).matches,
+    () => false,
+  );
+}
 
 /**
  * Entry-triggered, once, and then still.
@@ -120,7 +141,7 @@ function Word({ children, line }: { children: string; line: number }) {
 }
 
 export function AboutText() {
-  const reduce = useReducedMotion();
+  const reduce = useStillness();
   const columnRef = useRef<HTMLDivElement>(null);
   const lines = useLineIndices(columnRef, !reduce);
 
