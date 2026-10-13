@@ -1,4 +1,5 @@
-import { ADDRESS_LINES, HOURS, PARKING, ROUTE_HREF, WHATSAPP_HREF } from "@/lib/contact";
+import Image from "next/image";
+import { ADDRESS_LINES, HOURS, MAP_SRC, PARKING, ROUTE_HREF, WHATSAPP_HREF } from "@/lib/contact";
 
 const STEPS = [
   {
@@ -71,16 +72,40 @@ export function ContactSection() {
                     </span>
                   ))}
                 </address>
-                <a
-                  href={ROUTE_HREF}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${LINK} mt-2 text-[0.9375rem]`}
-                >
-                  Ver a rota no Maps
-                  <span className="sr-only"> (abre em nova aba)</span>
-                </a>
-                <dl className="mt-6 flex flex-col gap-5 text-[1.0625rem] leading-[1.65] text-dark-base/85">
+                {/* The map is the route link: one tap opens the directions. The
+                    text link stays for the day the token is missing, and the
+                    section never shows a broken picture. */}
+                {MAP_SRC ? (
+                  <a
+                    href={ROUTE_HREF}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative mt-5 block aspect-[16/9] overflow-hidden bg-dark-10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark-base"
+                  >
+                    <Image
+                      src={MAP_SRC}
+                      alt="Mapa com o pino no consultório, na Av. Comendador Gustavo Paiva."
+                      fill
+                      sizes="(min-width: 1024px) 46rem, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                    <span className="absolute bottom-0 left-0 bg-light-base px-3 py-2 text-[0.8125rem] text-dark-base">
+                      Abrir a rota no Maps
+                      <span className="sr-only"> (abre em nova aba)</span>
+                    </span>
+                  </a>
+                ) : (
+                  <a
+                    href={ROUTE_HREF}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${LINK} mt-2 text-[0.9375rem]`}
+                  >
+                    Ver a rota no Maps
+                    <span className="sr-only"> (abre em nova aba)</span>
+                  </a>
+                )}
+                <dl className="mt-8 flex flex-col gap-5 text-[1.0625rem] leading-[1.65] text-dark-base/85">
                   <div>
                     <dt className={LABEL}>Estacionamento</dt>
                     <dd className="m-0 mt-1">{PARKING}</dd>
