@@ -94,12 +94,12 @@ Fora por decisão do Lucas (2026-10-11): link do perfil e das avaliações do Go
 - `h2` "Contato" em Instrument Serif; três blocos com `h3` em rótulo de caixa-alta: Como chegar, Primeira consulta, Perguntas frequentes.
 - Primeira consulta é uma `<ol>`; cada etapa tem título curto e uma frase dela.
 - A pergunta é um `<details>`/`<summary>` nativo: teclado, foco e leitor de tela já vêm do navegador. Fechada por padrão.
-- Celular: uma coluna. A partir de `sm`, "Como chegar" e "Primeira consulta" lado a lado. Breakpoint em pixel, porque a seção não depende de foto nem de vídeo.
+- Celular e iPad retrato: o título vem em cima e os blocos abaixo, em uma coluna (celular) ou duas lado a lado (a partir de `sm`). A partir de `lg`: título à esquerda, preso no topo da tela (`position: sticky`, sem JavaScript), e os blocos empilhados à direita; o título solta quando o texto acaba. Breakpoint em pixel, porque a seção não depende de foto nem de vídeo. No celular o título não prende: duas linhas grandes no topo comeriam a tela.
 - O link de rota usa a busca do Maps pelo endereço e abre em nova aba (`rel="noopener noreferrer"`). A chamada do WhatsApp abre em nova aba.
 
 ### Movimento
 
-Nenhum. Seria o quarto momento seguido dirigido por scroll (DESIGN.md, seção 9); a seção fica parada, como o rodapé. O `<details>` abre sem animação. Com `prefers-reduced-motion` é igual.
+O título preso a partir de `lg` é posição, não animação: nada se move sozinho nem acompanha o scroll com cálculo. O `<details>` abre sem transição. Com `prefers-reduced-motion` é igual.
 
 ### Regras
 
