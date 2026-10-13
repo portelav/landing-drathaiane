@@ -141,47 +141,56 @@ Um commit por item, na ordem do `/exec`.
 
 ## Stage 6 — Code Execution
 
-*(Preenchido pelo exec.)*
-
 | # | Camada | Arquivo | Status |
 |---|---|---|---|
+| 1 | Doc | `docs/fdd/contato.md` | feito |
+| 2 | Doc | `docs/design/DESIGN.md` | feito |
+| 3 | Dados | `src/lib/contact.ts` | feito |
+| 4 | Componente | `src/components/contact-section.tsx` | feito |
+| 5 | Componente | `src/components/footer.tsx` | feito |
+| 6 | Rota | `src/app/page.tsx` | feito |
+| 7 | Verificação | navegador, lint, typecheck, build | parcial (ver Stage 7) |
+| 8 | Doc | `docs/ROADMAP.md`, `docs/PRD.md` (D39) | feito; `CLAUDE.md` não precisou mudar |
 
 ### Desvios do plano
-- Nenhum
+- O vídeo do kit saiu da linha do tempo do Sobre, por pedido do Lucas (2026-10-12): ao lado da roda parecia solto. Arquivos guardados em `media/sobre/video/parked-site/` e no histórico (`6a34698`). A roda ficou sem o painel à direita, a decidir (foto retrato, foto de detalhe ou roda centralizada).
+- Título "Como chegar e o que esperar" e a frase "Quer conversar antes de marcar?" são texto do agente, a confirmar.
 
 ---
 
 ## Stage 7 — Tests
 
-*(Preenchido pelo exec.)*
-
 | Critério de aceite | Como foi verificado |
 |---|---|
+| 1. Conteúdo sem corte nem rolagem horizontal | computador (1440 px) por captura e 390 px por script: sem rolagem horizontal. iPad retrato: pendente |
+| 2. Link de rota | `target="_blank"`, `rel="noopener noreferrer"`, aviso para leitor de tela, busca com "Maceió, AL". Abrir o Maps e ver o prédio: pendente |
+| 3. Resposta de valor | texto idêntico ao dela, conferido no DOM; busca por "gratuit", "a partir de", "R$" sem resultado |
+| 4. Menu leva à seção | pendente (`#contato` único no DOM) |
+| 5. Rodapé sem `id` duplicado | um só `#contato` no DOM |
+| 6. Teclado | `<details>` nativo; clique abre e fecha. Enter e espaço: pendente |
+| 7. Contraste e toque | `summary` com 49 px; links 44 px em toque e 32 px com mouse. Contraste medido: pendente |
+| 8. Sem movimento | nada anima por construção |
+| 9. Lint, typecheck, build, Lighthouse | lint, typecheck e build verdes; Lighthouse pendente |
+| 10. Palavras vetadas | busca no código da seção sem ocorrência (só "valor" na pergunta do FAQ) |
 
 ---
 
 ## Stage 8 — Verification
 
-*(Preenchido pelo exec.)*
-
-- **lint:** Pass | Fail
-- **typecheck:** Pass | Fail
+- **lint:** Pass
+- **typecheck:** Pass
 - **test:** n/a
-- **build:** Pass | Fail
-- **Navegador (390 px e computador):** Pass | Fail
+- **build:** Pass
+- **Navegador (390 px e computador):** Pass parcial; iPad, menu, teclado, contraste e Lighthouse pendentes
 
 ---
 
 ## Stage 9 — Walkthrough
 
-*(Preenchido pelo walkthrough.)*
+**WARNINGS** (2026-10-12): sem conflito com as regras do CFO. Ressalvas: conferência no navegador incompleta (iPad, menu, teclado, contraste, Lighthouse); título e frase de chamada são texto do agente; endereço comercial público (previsto na D34); roda sem o painel à direita. Docs do PRD acertados.
 
 ---
 
 ## Feito e verificado
 
-**Arquivos:** `docs/fdd/contato.md`, `docs/design/DESIGN.md`, `src/lib/contact.ts`, `src/components/contact-section.tsx` (novo), `src/components/footer.tsx`, `src/app/page.tsx`, `docs/PRD.md` (D39), `docs/ROADMAP.md`.
-
-**Desvios:** `CLAUDE.md` não mudou (não tem "Estado atual" e a estrutura é genérica). Título do `h2` ("Como chegar e o que esperar") e a frase de chamada do WhatsApp são texto meu, para o Lucas conferir ou trocar.
-
-**Conferido:** lint e typecheck verdes; `npm run build` verde (rota estática). Critérios 1, 2, 4, 6, 7 e 8 (navegador, contraste, teclado): **pendentes**, o Chrome do MCP estava preso por outra instância e não abriu.
+Ver Stages 6 a 8 acima. Resumo: seção Contato implementada e commitada em 3 commits; vídeo do kit retirado; conferência completa no navegador (iPad, menu, teclado, contraste, Lighthouse) fica para o Lucas no preview.
