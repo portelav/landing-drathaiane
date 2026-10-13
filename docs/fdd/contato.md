@@ -19,9 +19,9 @@ Fechar a página com a identificação obrigatória e os canais de contato, e te
 
 Só o que já está publicado no site (D3):
 
-- Identificação, uma parte por linha: "Dra. Thaiane Lessa", "Cirurgiã-Dentista", "CRO/AL-6418". O art. 43 do Código de Ética exige nome, profissão e número de inscrição, não um separador.
+- Identificação: "Dra. Thaiane Lessa", e embaixo "Cirurgiã-Dentista · CRO/AL-6418". O art. 43 do Código de Ética exige nome, profissão e número de inscrição.
 - Direitos (D27): "© 2026 Dra. Thaiane Lessa. Todos os direitos reservados."
-- Canais: WhatsApp (`https://wa.me/5582993871990`), telefone "(82) 99387-1990" (`tel:+5582993871990`), Instagram "@thaiane_lessa" (`https://instagram.com/thaiane_lessa`).
+- Canais: telefone "(82) 99387-1990" (`tel:+5582993871990`), Instagram "@thaiane_lessa" (`https://instagram.com/thaiane_lessa`) e "Voltar ao topo" (`#`). O WhatsApp ficou só no header e na seção Contato; o telefone repete a seção de propósito.
 
 Os dados de contato vêm de `src/lib/contact.ts`, a mesma fonte do header.
 
@@ -30,12 +30,12 @@ Os dados de contato vêm de `src/lib/contact.ts`, a mesma fonte do header.
 - `<footer>` depois do conteúdo da página, montado em `layout.tsx` como par do header. Server Component, sem JavaScript.
 - Colofão no fundo da própria página (`light-base`), sem bloco de cor: a página termina no mesmo tom em que é lida. Um traço `dark-10` no topo separa o rodapé da última seção. Sinaliza `data-header-theme="light"`.
 - Monograma (`BrandMark`) em `forest-900`, estático: fecha a página com a mesma marca que o preloader abriu.
-- Identificação ao lado do monograma, em três linhas de Inter Tight (15 px): o nome em `dark-base`, profissão e CRO em `dark-base` a 70%.
-- Canais em Inter Tight (15 px), como links discretos no estilo do menu do header. Sem ícone e sem serifa grande.
+- Identificação ao lado do monograma, em duas linhas de Inter Tight (15 px): o nome em `dark-base`, profissão e CRO em `dark-base` a 70%.
+- Links em Inter Tight (15 px), discretos, no estilo do menu do header. Sem ícone e sem serifa grande.
 - Direitos numa linha pequena embaixo, em `dark-base` a 70%.
-- Celular: monograma, identificação, canais numa linha só (os três cabem em 390 px) e direitos, um embaixo do outro.
-- A partir de `sm`: identificação à esquerda, canais numa coluna à direita. Cada linha da identificação fica na altura de um canal: as duas colunas usam linhas de 44 px em tela de toque e de 32 px com mouse (`pointer-fine`). Breakpoint em pixel, porque o rodapé não depende de foto nem de vídeo.
-- WhatsApp e Instagram abrem em nova aba. O telefone abre o discador.
+- Celular: monograma e identificação, os links embaixo (quebram linha se faltar largura) e os direitos, um embaixo do outro.
+- A partir de `sm`: uma faixa baixa, identificação à esquerda e links à direita, na mesma borda do conteúdo da seção Contato (`max-w-[78rem]`, 24 px no celular e 40 px a partir de `sm`). Links com 44 px de altura em toque e 32 px com mouse (`pointer-fine`). Breakpoint em pixel, porque o rodapé não depende de foto nem de vídeo.
+- O Instagram abre em nova aba. O telefone abre o discador. "Voltar ao topo" rola para o início da página.
 - A seção Contato da Fase 2 assumiu `#contato`; o rodapé é só rodapé, sem `id` e sem `h2`.
 
 ### Movimento
@@ -67,7 +67,7 @@ Verificáveis em 390 px, iPad retrato e computador:
 
 - [x] Identificação exata e inteira, sem cortar.
 - [x] Linha de direitos presente.
-- [x] Três canais com os destinos acima. WhatsApp e Instagram em nova aba. Área de toque de 44 px em tela de toque.
+- [x] Três links: telefone, Instagram (nova aba) e voltar ao topo. Área de toque de 44 px em tela de toque.
 - [x] (Fase 1) Contato no menu levava ao rodapé; hoje leva à seção, ver abaixo.
 - [x] Todo texto passa em 4,5:1, medido.
 - [x] Foco visível em cada canal; ordem de leitura como acima.

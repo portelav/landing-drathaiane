@@ -136,7 +136,7 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 | `About`, `AboutText`, `AboutTimeline` | `src/components/about*.tsx` | `beside:` (lado a lado, por scroll) ou empilhado; movimento reduzido |
 | `SmoothScroll` | `src/components/smooth-scroll.tsx` | ligado no computador; desligado no toque e com movimento reduzido |
 | `ContactSection` | `src/components/contact-section.tsx` | estático; destino de `#contato`; pergunta aberta ou fechada (`<details>`) |
-| `Footer` | `src/components/footer.tsx` | estático; identificação, canais e direitos (sem `id`, desde a seção Contato) |
+| `Footer` | `src/components/footer.tsx` | estático; faixa baixa alinhada à seção Contato: identificação, telefone, Instagram, voltar ao topo e direitos |
 
 ## 8. Tom de voz
 
