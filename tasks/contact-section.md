@@ -160,28 +160,20 @@ Um commit por item, na ordem do `/exec`.
 
 ## Stage 7 — Tests
 
+Conferido no build de produção, em 2026-10-12, pelo MCP do Chrome DevTools.
+
 | Critério de aceite | Como foi verificado |
 |---|---|
-| 1. Conteúdo sem corte nem rolagem horizontal | computador (1440 px) por captura e 390 px por script: sem rolagem horizontal. iPad retrato: pendente |
-| 2. Link de rota | `target="_blank"`, `rel="noopener noreferrer"`, aviso para leitor de tela, busca com "Maceió, AL". Abrir o Maps e ver o prédio: pendente |
-| 3. Resposta de valor | texto idêntico ao dela, conferido no DOM; busca por "gratuit", "a partir de", "R$" sem resultado |
-| 4. Menu leva à seção | pendente (`#contato` único no DOM) |
+| 1. Conteúdo sem corte nem rolagem horizontal | 1440 px, iPad retrato (768 px, duas colunas) e 390 px: sem rolagem horizontal e sem elemento passando da borda; captura do iPad e do computador |
+| 2. Link de rota | `target="_blank"`, `rel="noopener noreferrer"`, aviso para leitor de tela; busca com "Maceió, AL". Abrir o Maps e ver o prédio: não feito (sem acesso à rede do Maps) |
+| 3. Resposta de valor | texto idêntico ao dela no DOM; sem "gratuit", "a partir de" nem "R$" |
+| 4. Menu leva à seção | no computador, abrir o menu e clicar em Contato rolou até a seção; header em tema claro. No celular, não repetido |
 | 5. Rodapé sem `id` duplicado | um só `#contato` no DOM |
-| 6. Teclado | `<details>` nativo; clique abre e fecha. Enter e espaço: pendente |
-| 7. Contraste e toque | `summary` com 49 px; links 44 px em toque e 32 px com mouse. Contraste medido: pendente |
-| 8. Sem movimento | nada anima por construção |
-| 9. Lint, typecheck, build, Lighthouse | lint, typecheck e build verdes; Lighthouse pendente |
-| 10. Palavras vetadas | busca no código da seção sem ocorrência (só "valor" na pergunta do FAQ) |
-
----
-
-## Stage 8 — Verification
-
-- **lint:** Pass
-- **typecheck:** Pass
-- **test:** n/a
-- **build:** Pass
-- **Navegador (390 px e computador):** Pass parcial; iPad, menu, teclado, contraste e Lighthouse pendentes
+| 6. Teclado | Enter abriu e Espaço fechou o `<details>`; foco com contorno de 2 px |
+| 7. Contraste e toque | menor razão medida na seção: 8,09:1. Links de 44 px em toque (iPad e 390 px); `summary` de 50 px |
+| 8. Sem movimento | título preso por `position: sticky` (só `lg`, sem JS), `static` em 390 px; nada anima |
+| 9. Lint, typecheck, build, Lighthouse | verdes. Lighthouse celular: acessibilidade 100, boas práticas 100, SEO 63 (esperado, `noindex`). Nota de desempenho não medida (a ferramenta a exclui); a seção não traz JS nem mídia |
+| 10. Palavras vetadas | busca no código da seção sem ocorrência, fora "valor" na pergunta do FAQ |
 
 ---
 
@@ -193,4 +185,4 @@ Um commit por item, na ordem do `/exec`.
 
 ## Feito e verificado
 
-Ver Stages 6 a 8 acima. Resumo: seção Contato implementada e commitada em 3 commits; vídeo do kit retirado; conferência completa no navegador (iPad, menu, teclado, contraste, Lighthouse) fica para o Lucas no preview.
+Ver Stages 6 a 8 acima. Resumo: seção Contato implementada e conferida nas três larguras, em 3 commits mais o título preso; vídeo do kit retirado. Fica para depois: abrir o Maps e ver o prédio, e medir a nota de desempenho do Lighthouse.
