@@ -57,7 +57,7 @@ A doutora já tem o conteúdo das seções que faltam e ainda não mandou (D9). 
 - Versão em outro idioma.
 - Domínio pago: fica para o fim, depois do MVP.
 - Depoimentos, por enquanto: a seção sai do site e do menu e fica para decisão futura (D25). O link para as avaliações externas não é a seção e entra em Contato (D33).
-- Mapa embutido: o endereço leva a uma rota no Maps por link (D34).
+- Mapa interativo embutido (Mapbox GL, Google): fica fora. O mapa de Contato é uma imagem estática do Mapbox, servida pelo `next/image` (D40, ADR 0005).
 - Preços e condições de pagamento: nunca, a pedido dela (D29); o Código de Ética também veda (art. 44, I).
 
 ## 8. Requisitos não funcionais
@@ -221,3 +221,4 @@ Plano em `tasks/technical-bar.md`.
 
 - **D38.** A menção ao grupo de creators da Ivoclar fica no Sobre. Ela confirmou.
 - **D39.** O link para o perfil e as avaliações do Google fica fora do site até haver mais avaliações (Lucas, 2026-10-11). A D33 segue válida, mas parada. A seção Contato assume `#contato` (D26) e o rodapé fica só como rodapé.
+- **D40.** Contato passa a mostrar um mapa estático do Mapbox, com o pino no consultório, no lugar do link de rota em texto (Lucas, 2026-10-12). Reverte a parte da D34 que vetava o mapa; o resto da D34 vale (endereço do consultório, nunca o de casa). A imagem é servida pelo `next/image`, para o navegador não falar com o Mapbox. Sem o token, volta o link de rota. Ver ADR 0005.

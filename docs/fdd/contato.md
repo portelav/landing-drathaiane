@@ -1,7 +1,7 @@
 # FDD: Seção Contato e rodapé
 
 Status: rodapé implementado (Fase 1); seção Contato implementada, aguardando conferência (Fase 2); faltam e-mail, duração, acessibilidade do prédio e demais perguntas
-PRD: seção 6, item Contato e rodapé; D26, D27 e D32 a D34
+PRD: seção 6, item Contato e rodapé; D26, D27 e D32 a D34 e D40; ADR 0005
 Plano da seção: `tasks/contact-section.md`
 Plano do rodapé: `tasks/footer-and-menu-anchors.md`
 
@@ -79,7 +79,7 @@ Verificáveis em 390 px, iPad retrato e computador:
 
 O texto vem dela, sem mudança de sentido. Endereço, estacionamento, horário e rota ficam em `src/lib/contact.ts`; este doc descreve o campo, não repete o dado.
 
-- Como chegar: endereço do consultório, link de rota para o Maps (D34), estacionamento e horário. Sem mapa embutido.
+- Como chegar: endereço do consultório, mapa estático do Mapbox com o pino (ADR 0005, D40) que abre a rota no Maps, estacionamento e horário. Sem token, cai no link de rota em texto.
 - Primeira consulta: quatro etapas numeradas (conversa e orientação de higiene oral, limpeza, avaliação, planejamento), em poucas linhas cada (D32).
 - Perguntas frequentes: por ora a de valor, com a resposta dela (D32). Sem número, faixa nem forma de pagamento (D29).
 - WhatsApp, o mesmo destino do header e do rodapé.
@@ -95,7 +95,7 @@ Fora por decisão do Lucas (2026-10-11): link do perfil e das avaliações do Go
 - Primeira consulta é uma `<ol>`; cada etapa tem título curto e uma frase dela.
 - A pergunta é um `<details>`/`<summary>` nativo: teclado, foco e leitor de tela já vêm do navegador. Fechada por padrão.
 - Celular e iPad retrato: o título vem em cima e os blocos abaixo, em uma coluna (celular) ou duas lado a lado (a partir de `sm`). A partir de `lg`: título à esquerda, preso no topo da tela (`position: sticky`, sem JavaScript), e os blocos empilhados à direita; o título solta quando o texto acaba. Breakpoint em pixel, porque a seção não depende de foto nem de vídeo. No celular o título não prende: duas linhas grandes no topo comeriam a tela.
-- O link de rota usa a busca do Maps pelo endereço e abre em nova aba (`rel="noopener noreferrer"`). A chamada do WhatsApp abre em nova aba.
+- O mapa é um link: tocar abre o Maps, em nova aba (`rel="noopener noreferrer"`), na mesma coordenada do pino. A imagem passa pelo `next/image`, então o navegador não fala com o Mapbox. A chamada do WhatsApp abre em nova aba.
 
 ### Movimento
 
@@ -120,14 +120,14 @@ O título preso a partir de `lg` é posição, não animação: nada se move soz
 
 ### Desempenho
 
-Sem mapa embutido (D34): o endereço leva à rota por link, sem script nem cookie de terceiro. Sem mídia e sem JavaScript no cliente.
+Mapa estático (ADR 0005, D40): sem script e sem cookie de terceiro no navegador; o servidor busca a imagem no Mapbox e a guarda em cache. Sem JavaScript no cliente.
 
 ### Critérios de aceite
 
 Verificáveis em 390 px, iPad retrato e computador:
 
 - [ ] `#contato` mostra endereço, link de rota, estacionamento, horário, as 4 etapas e a pergunta de valor, sem texto cortado nem rolagem horizontal.
-- [ ] O link de rota abre o Maps no endereço certo, em nova aba.
+- [ ] O mapa mostra o pino no consultório e abre a rota no Maps, em nova aba. Sem o token, aparece o link de rota em texto.
 - [ ] A resposta sobre valor é idêntica ao texto dela; nenhum número, faixa, "a partir de" nem forma de pagamento.
 - [ ] "Contato" no menu leva à seção (computador com Lenis e celular) e o header inverte o tema certo.
 - [ ] O rodapé vem logo depois, com a identificação intacta e sem `id="contato"`.
