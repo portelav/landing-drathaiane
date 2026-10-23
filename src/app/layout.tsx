@@ -55,7 +55,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="pt-BR"
       className={`h-full antialiased ${instrumentSerif.variable} ${interTight.variable}`}
     >
-      <body className="min-h-full flex flex-col font-sans">
+      {/* min-h-svh, not min-h-full: Lenis sets html to height: auto, which
+          leaves a percentage nothing to resolve against, and a short page
+          (the 404) then stops short of the bottom of the screen. */}
+      <body className="min-h-svh flex flex-col font-sans">
         <SmoothScroll />
         <Header />
         {children}
