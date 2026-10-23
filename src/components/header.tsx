@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { INSTAGRAM_HREF, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_HREF } from "@/lib/contact";
@@ -80,6 +81,9 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const { tone, hidden, anchored } = useSectionTone();
   const reducedMotion = useReducedMotion();
+  // The sections live on the home page; anywhere else (the 404) the links
+  // have to go back there first.
+  const sectionBase = usePathname() === "/" ? "" : "/";
   const headerRef = useRef<HTMLElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -237,7 +241,7 @@ export function Header() {
                   }}
                 >
                   <a
-                    href={link.href}
+                    href={sectionBase + link.href}
                     onClick={close}
                     className="block py-3.5 text-[0.9375rem] no-underline opacity-70 transition-opacity duration-300 hover:opacity-100"
                   >
