@@ -12,6 +12,7 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 | Contraste da citação da band | Na band aberta, a citação do Sobre passa em 3:1 (texto grande) sobre o gradiente. Feito: citação em `dark-base`, 5,34 a 6,13 (DESIGN.md, seção 3) | `tasks/band-quote-contrast.md` |
 | Pausa dos vídeos em loop | Hero (e o kit, enquanto esteve no site) com controle de pausa acessível (WCAG 2.2.2) | `tasks/video-pause-control.md` |
 | Barra técnica | Nota de desempenho do Lighthouse de 85 ou mais no celular e de 90 ou mais no computador, e acessibilidade sem falha AA (D37). Feito: 88 no celular, 94 a 100 no computador, acessibilidade 100 | `tasks/technical-bar.md` |
+| Prévia de link e 404 | Link compartilhado mostra imagem com nome, profissão e CRO; endereço errado cai numa 404 com a marca (D41) | `tasks/link-preview-404.md` |
 | README final | Prints e link do site | `tasks/readme-final.md` |
 | Portfólio e currículo | Link do site nos dois | fora do repositório |
 
@@ -20,7 +21,7 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 - Seção Serviços (`docs/fdd/servicos.md`), quando o conteúdo chegar.
 - Seção Contato (`docs/fdd/contato.md`): feita em parte (`tasks/contact-section.md`), com endereço e rota, estacionamento, horário, primeira consulta e a pergunta de valor. Falta o que a doutora ainda não mandou: e-mail, duração da consulta, acessibilidade do prédio e as demais perguntas. O link das avaliações está fora até haver mais avaliações (PRD, D39).
 - Revisão do site inteiro contra as regras de fora, com as respostas que tiverem chegado (PRD, D30); lista do que conferir nas notas privadas.
-- Aval dela no site completo; tirar o `noindex`, completar metadados e prévia de link (Open Graph) (D22).
+- Aval dela no site completo; tirar o `noindex` e completar os metadados de busca: canonical, dados estruturados e sitemap (D22, D41).
 - Barra técnica conferida de novo com as seções novas.
 
 ## Depois

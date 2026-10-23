@@ -45,6 +45,7 @@ Seções em ordem na página.
 | Serviços | O que ela trata, para os dois públicos | [`docs/fdd/servicos.md`](fdd/servicos.md) | falta (conteúdo pendente) |
 | Depoimentos | Prova social | [`docs/fdd/depoimentos.md`](fdd/depoimentos.md) | fora por enquanto, sai do site e do menu (D25) |
 | Contato e rodapé | Como chegar (endereço do consultório e rota), horários, primeira consulta, perguntas frequentes, WhatsApp (D32 a D34; link das avaliações fora, D39); identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | rodapé pronto, com a identificação e os canais (D26); seção Contato feita em parte (2026-10-12): faltam e-mail, duração, acessibilidade do prédio e demais perguntas |
+| Página 404 | Endereço errado cai numa página com a marca e o caminho de volta à home (D41) | (sem FDD) | pronto |
 
 ### Conteúdo pendente
 
@@ -65,7 +66,7 @@ A doutora já tem o conteúdo das seções que faltam e ainda não mandou (D9). 
 - Desempenho: nota de desempenho do Lighthouse de 85 ou mais no celular e de 90 ou mais no computador (D37). O LCP é medido e registrado; a meta de 2,5 s no celular fica para depois. Vídeo do hero com poster como primeira pintura; os vídeos só baixam depois da primeira tela (ADR 0004).
 - Acessibilidade: WCAG 2.2 AA (contraste, foco, `prefers-reduced-motion`, pausa do que se mexe sozinho por mais de 5 s).
 - Dispositivos: celular (390 px), iPad retrato e computador. Layouts dependentes de mídia testados por proporção.
-- SEO e compartilhamento: `noindex` até o aval dela (D22); depois, metadados completos, prévia de link (Open Graph) e indexação.
+- SEO e compartilhamento: prévia de link (Open Graph, com nome, profissão e CRO na imagem), ícone da Apple e cor do tema desde 2026-10-23 (D41). `noindex` até o aval dela (D22); depois, canonical, dados estruturados, sitemap e indexação.
 
 ## Regras de fora
 
@@ -121,6 +122,7 @@ Só depende do Lucas. O site continua com `noindex`.
 - [x] Rótulos de 11 px com contraste de 4,5:1 (DESIGN.md, seção 3).
 - [x] Vídeos em loop (hero e kit) com controle de pausa acessível (WCAG 2.2.2) (D31).
 - [x] Barra técnica da seção 5 (D37). Nota de desempenho: 88 no celular, 89 a 93 no iPad, 94 a 100 no computador. Acessibilidade: 100 nos três. LCP no celular: 2,9 s, medido em 2026-10-10.
+- [x] Prévia de link (Open Graph) com nome, "Cirurgiã-Dentista" e CRO na imagem, e página 404 (D41).
 - [ ] README final, com prints e link.
 - [ ] Link do site no portfólio e no currículo.
 - [x] Repositório público com o aval dela (D18).
@@ -132,7 +134,7 @@ Depende do conteúdo e do aval dela (D24).
 - [ ] Serviços e Contato com o conteúdo real dela. Contato feito em parte (2026-10-12): endereço e rota, estacionamento, horário, primeira consulta e a pergunta de valor (D32, D34, D39). Faltam e-mail, duração da consulta, acessibilidade do prédio e as demais perguntas. Serviços segue pendente.
 - [ ] Site inteiro revisto de novo contra as regras de fora; o que não passou mudou ou saiu (D30).
 - [ ] Aval dela no site completo, com o texto do rodapé.
-- [ ] `noindex` fora, metadados completos e prévia de link (Open Graph).
+- [ ] `noindex` fora, com canonical, dados estruturados e sitemap. A prévia de link já saiu na Fase 1 (D41).
 - [ ] Barra técnica da Fase 1 conferida de novo com as seções novas.
 
 Fora dos critérios: Depoimentos (D25) e domínio pago (D10).
@@ -222,3 +224,9 @@ Plano em `tasks/technical-bar.md`.
 - **D38.** A menção ao grupo de creators da Ivoclar fica no Sobre. Ela confirmou.
 - **D39.** O link para o perfil e as avaliações do Google fica fora do site até haver mais avaliações (Lucas, 2026-10-11). A D33 segue válida, mas parada. A seção Contato assume `#contato` (D26) e o rodapé fica só como rodapé.
 - **D40.** Contato passa a mostrar um mapa estático do Mapbox, com o pino no consultório, no lugar do link de rota em texto (Lucas, 2026-10-12). Reverte a parte da D34 que vetava o mapa; o resto da D34 vale (endereço do consultório, nunca o de casa). A imagem é servida pelo `next/image`, para o navegador não falar com o Mapbox. Sem o token, volta o link de rota. Ver ADR 0005.
+
+### Rodada 8 (2026-10-23): prévia de link e 404
+
+Plano em `tasks/link-preview-404.md`.
+
+- **D41.** A prévia de link (Open Graph, com imagem 1200 × 630), o ícone da Apple, a cor do tema e uma página 404 entram já, na Fase 1, sem esperar o `noindex` sair (Lucas, 2026-10-23). Não dependem de conteúdo dela, e o link já circula no portfólio. Antecipa essa parte da D22; o `noindex` continua até o aval dela. A imagem de prévia circula sozinha, então leva nome, "Cirurgiã-Dentista" e CRO/AL-6418 (CEO, art. 43) e nenhuma área de atuação (art. 43, § 1º, I). Canonical, dados estruturados e sitemap ficam para quando sair o `noindex`.
