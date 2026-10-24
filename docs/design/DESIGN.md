@@ -32,6 +32,8 @@ Arquivos em `public/logos/`:
 
 No código, o monograma é o componente `BrandMark` (`src/components/brand-mark.tsx`), um SVG que herda a cor do texto e é o mesmo `layoutId` do preloader ao header.
 
+A prévia de link e o ícone da Apple ficam em `src/app/` (PRD, D41). `opengraph-image.jpg` (1200 × 630): o retrato do Sobre à direita, a cor da parede da foto continuada à esquerda, o monograma em `forest-900`, o nome em Instrument Serif e "Cirurgiã-Dentista" e o CRO em Inter Tight, caixa-alta. `apple-icon.png` (180 × 180): monograma `light-base` sobre `forest-900`. A composição e o script que gera os dois ficam em `media/og/`, fora do git.
+
 ## 3. Paleta
 
 Tokens em `src/app/globals.css`, expostos ao Tailwind por `@theme inline`.
@@ -129,7 +131,7 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 | Componente | Onde | Estados |
 |---|---|---|
 | `Preloader` | `src/components/preloader.tsx` | desenhando, preenchido, voando, ausente; versão curta com movimento reduzido |
-| `Header` | `src/components/header.tsx` | flutuando, ancorado (fundo próprio), escondido; tema claro e escuro; menu aberto e fechado |
+| `Header` | `src/components/header.tsx` | flutuando, ancorado (fundo próprio), escondido; tema claro e escuro; menu aberto e fechado; fora da home, os links do menu voltam a ela |
 | `BrandMark` | `src/components/brand-mark.tsx` | herda a cor do texto |
 | `Hero` | `src/components/hero.tsx` | `wide:` (abre por scroll) ou estreito (quadro inteiro); vídeo tocando, pausado ou no poster |
 | `VideoToggle`, `useLoopWhileVisible` | `src/components/video-toggle.tsx` | botão: pausar ou reproduzir, foco, hover; ausente com movimento reduzido ou antes de o vídeo tocar |
@@ -137,6 +139,7 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 | `SmoothScroll` | `src/components/smooth-scroll.tsx` | ligado no computador; desligado no toque e com movimento reduzido |
 | `ContactSection` | `src/components/contact-section.tsx` | estático; destino de `#contato`; pergunta aberta ou fechada (`<details>`) |
 | `Footer` | `src/components/footer.tsx` | estático; faixa baixa alinhada à seção Contato: identificação, telefone, Instagram, voltar ao topo e direitos |
+| `NotFound` | `src/app/not-found.tsx` | estático; tema claro; monograma, título na tipografia do hero e link de volta ao início |
 
 ## 8. Tom de voz
 
