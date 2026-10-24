@@ -1,6 +1,6 @@
 # Prévia de link e página 404
 
-**Branch:** `feat/link-preview-404` · **Status:** Em execução
+**Branch:** `feat/link-preview-404` · **Status:** Feito
 
 ## Objetivo
 - O link do site, compartilhado no WhatsApp, no Instagram ou no portfólio, aparece com imagem, nome, profissão e CRO, não como link cru.
