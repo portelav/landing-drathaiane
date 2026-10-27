@@ -1,6 +1,6 @@
 # Foto dela ao lado da roda de anos
 
-**Branch:** `feat/timeline-portrait` · **Status:** Planejado
+**Branch:** `feat/timeline-portrait` · **Status:** Feito (PR a abrir)
 
 ## Objetivo
 - Preencher o espaço à direita da roda de anos (Sobre, Tempo 3), vazio desde que o vídeo do kit saiu em 2026-10-12, com a `DSC09749`: close dela de touca e máscara, clínica desfocada atrás.
@@ -65,3 +65,5 @@ Desvios do plano: a foto parada ficou "à toa" ao lado da roda (Lucas); ganhou a
 Console: só o aviso do Motion sobre movimento reduzido, esperado com a emulação.
 
 Celular (D42, pedido do Lucas no meio da branch): a lista parada virou a "foto em foco", escolhida entre quatro rascunhos (artefato privado). Antes dela, um rascunho com moldura e anos em contador foi descartado. Conferido em 390x844 a 2%, 50% e 100% do progresso, 375x667, iPad retrato e com movimento reduzido (palco `display: none`, quatro anos visíveis na lista). Sem rolagem horizontal, console limpo. Lint, typecheck e build verdes.
+
+Walkthrough: o rótulo de 11 px sobre a foto já clara media 2,6 a 3,2:1. Degradê de cima foi para `dark-base/85` e 40% da altura, rótulo em `light-base` cheio: 4,8:1 ou mais no fim da rolagem, em 390 px e no iPad retrato (medido nos prints).
