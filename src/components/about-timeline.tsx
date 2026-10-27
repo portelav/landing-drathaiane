@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const MILESTONES = [
@@ -27,12 +28,13 @@ const MILESTONES = [
 ];
 
 /**
- * Below this the wheel does not turn: the section is a plain stacked list.
+ * Below this the wheel does not turn, and the phone gets its own stage: the
+ * photo on top, the years counting up underneath (PRD, D42).
  *
- * A pinned stage has to hold the wheel and the portrait video side by side,
- * and stacked there is no viewport tall enough for both — the video alone is
- * three quarters of a phone screen. The same test the band uses, for the same
- * reason: room for two columns is a question of ratio, not of width alone.
+ * A pinned stage has to hold the wheel and the portrait side by side, and on
+ * a screen taller than wide there is no room for both. The same test the band
+ * uses, for the same reason: room for two columns is a question of ratio, not
+ * of width alone.
  */
 const OPENS_BESIDE = "(min-width: 64rem) and (min-aspect-ratio: 6/5)";
 
@@ -57,9 +59,58 @@ const VANISH = 0.78;
  */
 const YEAR_FLOOR = 0.6;
 
+/**
+ * The trajectory arrives at her: the photo opens as the wheel turns and is
+ * whole by the time 2026 comes to rest. A slice already shows at 2019, so the
+ * right side of the stage is never an empty panel.
+ */
+const PHOTO_SHOWN = 0.15;
+/** Progress at which the photo is fully open, just before 2026's plateau. */
+const PHOTO_FULL = 0.9;
+/** The photo settles from this zoom to 1 while it opens. */
+const PHOTO_ZOOM = 1.08;
+
+/**
+ * On the phone the years take turns over the photo instead of riding a wheel,
+ * so the handover is quicker than the wheel's: one year is gone before the
+ * next is fully there, and two lines of light copy never stack over the face.
+ */
+const PHONE_PLATEAU = 0.12;
+const PHONE_VANISH = 0.42;
+/** How far a year rises while it hands over, in px. */
+const PHONE_RISE = 36;
+/** The phone photo starts this far zoomed in and settles to 1. */
+const PHONE_ZOOM = 1.1;
+/** The dark wash over the phone photo, at 2019 and once it is in focus. */
+const PHONE_SHADE = 0.55;
+const PHONE_SHADE_END = 0.1;
+
 const clamp = (value: number, low: number, high: number) =>
   Math.min(high, Math.max(low, value));
 const rad = (degrees: number) => (degrees * Math.PI) / 180;
+
+/** How fully a year's copy is present at `offset` seats from its own. */
+const presenceAt = (offset: number) =>
+  clamp((VANISH - Math.abs(offset)) / (VANISH - PLATEAU), 0, 1);
+
+/**
+ * How far the photo has opened, 0 to 1, eased so the opening starts and
+ * lands gently instead of tracking the scroll like a ruler.
+ */
+const openingAt = (progress: number) => {
+  const reveal = clamp(progress / PHOTO_FULL, 0, 1);
+  return reveal * reveal * (3 - 2 * reveal);
+};
+
+/** The veil slides down off the photo while it settles from its zoom. */
+const openPhoto = (picture: HTMLElement, veil: HTMLElement, progress: number) => {
+  const eased = openingAt(progress);
+  // The individual `translate` and `scale` properties, the ones Tailwind's
+  // classes set, so the phone's resting classes are overridden, not stacked.
+  veil.style.display = "block";
+  veil.style.translate = `0 ${(PHOTO_SHOWN + (1 - PHOTO_SHOWN) * eased) * 100}%`;
+  picture.style.scale = `${PHOTO_ZOOM - (PHOTO_ZOOM - 1) * eased}`;
+};
 
 export function AboutTimeline() {
   const wrapRef = useRef<HTMLElement>(null);
@@ -68,9 +119,18 @@ export function AboutTimeline() {
   const arcRef = useRef<HTMLDivElement>(null);
   const markerRef = useRef<HTMLSpanElement>(null);
   const labelRef = useRef<HTMLHeadingElement>(null);
+  const pictureRef = useRef<HTMLDivElement>(null);
+  const veilRef = useRef<HTMLDivElement>(null);
   const years = useRef<(HTMLSpanElement | null)[]>([]);
   const seats = useRef<(HTMLSpanElement | null)[]>([]);
   const slots = useRef<(HTMLDivElement | null)[]>([]);
+  const phoneRunwayRef = useRef<HTMLDivElement>(null);
+  const phoneStageRef = useRef<HTMLDivElement>(null);
+  const phonePictureRef = useRef<HTMLDivElement>(null);
+  const phoneBlurRef = useRef<HTMLDivElement>(null);
+  const phoneShadeRef = useRef<HTMLDivElement>(null);
+  const phoneEntries = useRef<(HTMLDivElement | null)[]>([]);
+  const phoneBars = useRef<(HTMLSpanElement | null)[]>([]);
 
   useEffect(() => {
     const wrap = wrapRef.current;
@@ -79,11 +139,34 @@ export function AboutTimeline() {
     const arc = arcRef.current;
     const marker = markerRef.current;
     const label = labelRef.current;
-    if (!wrap || !stage || !column || !arc || !marker || !label) return;
+    const picture = pictureRef.current;
+    const veil = veilRef.current;
+    const phoneRunway = phoneRunwayRef.current;
+    const phoneStage = phoneStageRef.current;
+    const phonePicture = phonePictureRef.current;
+    const phoneBlur = phoneBlurRef.current;
+    const phoneShade = phoneShadeRef.current;
+    if (
+      !wrap ||
+      !stage ||
+      !column ||
+      !arc ||
+      !marker ||
+      !label ||
+      !picture ||
+      !veil ||
+      !phoneRunway ||
+      !phoneStage ||
+      !phonePicture ||
+      !phoneBlur ||
+      !phoneShade
+    )
+      return;
 
     const turning = window.matchMedia(OPENS_BESIDE);
     const stillness = window.matchMedia("(prefers-reduced-motion: reduce)");
     let queued = 0;
+    let frame: (() => void) | null = null;
 
     /** Hands the layout back to the stylesheet, which parks it as a list: stacked
      *  on narrow screens, and on `beside:` through the `motion-reduce:` classes. */
@@ -98,6 +181,14 @@ export function AboutTimeline() {
       arc.style.cssText = "";
       marker.style.cssText = "";
       label.style.left = "";
+      picture.style.scale = "";
+      veil.style.cssText = "";
+      [...phoneEntries.current, ...phoneBars.current].forEach((element) => {
+        if (element) element.style.cssText = "";
+      });
+      phonePicture.style.scale = "";
+      phoneBlur.style.opacity = "";
+      phoneShade.style.opacity = "";
     };
 
     const draw = () => {
@@ -144,7 +235,7 @@ export function AboutTimeline() {
         // below, comes to rest against the marker, and leaves over the top.
         // Presence holds across a plateau around the seat, so there is a
         // window where the line is genuinely still and readable.
-        const presence = clamp((VANISH - Math.abs(offset)) / (VANISH - PLATEAU), 0, 1);
+        const presence = presenceAt(offset);
 
         slot.style.width = `${copyWidth}px`;
         slot.style.transform = `translate(${copyLeft}px, ${y}px) translateY(-42%)`;
@@ -164,10 +255,45 @@ export function AboutTimeline() {
 
       // The label belongs over the column of years, not at the box's edge.
       label.style.left = `${seatX}px`;
+
+      openPhoto(picture, veil, progress);
+    };
+
+    /** The phone's version of the wheel: the same progress, told upright.
+     *  The photo comes into focus as the years go by over it, and is sharp
+     *  and bright by the time 2026 comes to rest. */
+    const drawPhone = () => {
+      queued = 0;
+
+      const rect = phoneRunway.getBoundingClientRect();
+      const runway = rect.height - phoneStage.clientHeight;
+      const progress = runway > 0 ? clamp(-rect.top / runway, 0, 1) : 0;
+      const position = progress * (MILESTONES.length - 1);
+
+      phoneEntries.current.forEach((entry, i) => {
+        if (!entry) return;
+        const offset = i - position;
+        const presence = clamp(
+          (PHONE_VANISH - Math.abs(offset)) / (PHONE_VANISH - PHONE_PLATEAU),
+          0,
+          1,
+        );
+        entry.style.transform = `translateY(${offset * PHONE_RISE}px)`;
+        entry.style.opacity = `${presence}`;
+      });
+
+      phoneBars.current.forEach((bar, i) => {
+        if (bar) bar.style.scale = `${clamp(position - i + 1, 0, 1)} 1`;
+      });
+
+      const focus = openingAt(progress);
+      phoneBlur.style.opacity = `${1 - focus}`;
+      phoneShade.style.opacity = `${PHONE_SHADE - (PHONE_SHADE - PHONE_SHADE_END) * focus}`;
+      phonePicture.style.scale = `${PHONE_ZOOM - (PHONE_ZOOM - 1) * focus}`;
     };
 
     const onScroll = () => {
-      if (!queued) queued = requestAnimationFrame(draw);
+      if (!queued && frame) queued = requestAnimationFrame(frame);
     };
 
     const apply = () => {
@@ -179,9 +305,10 @@ export function AboutTimeline() {
       window.removeEventListener("scroll", onScroll);
       rest();
 
-      if (!turning.matches || stillness.matches) return;
+      frame = stillness.matches ? null : turning.matches ? draw : drawPhone;
+      if (!frame) return;
 
-      draw();
+      frame();
       window.addEventListener("scroll", onScroll, { passive: true });
     };
 
@@ -205,9 +332,119 @@ export function AboutTimeline() {
       data-header-theme="light"
       className="relative bg-light-base text-dark-base beside:h-[380svh] motion-reduce:beside:h-auto"
     >
+      {/* The phone stage: the photo fills the screen, out of focus and dim,
+          and comes into focus as the years go by over it. Pinned for a short
+          run of scroll. Gone on `beside:`, where the wheel takes over, and
+          with reduced motion, where the plain list below stands in for it.
+          Dark under the header, so the bar inverts over the photo. */}
+      <div
+        ref={phoneRunwayRef}
+        data-header-theme="dark"
+        className="relative h-[320svh] beside:hidden motion-reduce:hidden"
+      >
+        <div
+          ref={phoneStageRef}
+          className="sticky top-0 h-[100svh] overflow-hidden bg-dark-base text-light-base"
+        >
+          <div ref={phonePictureRef} className="absolute inset-0 scale-[1.1] will-change-transform">
+            <Image
+              src="/images/dra-thaiane-paramentada.webp"
+              alt="Dra. Thaiane Lessa, de touca e máscara"
+              fill
+              sizes="100vw"
+              className="object-cover object-[70%_30%]"
+            />
+          </div>
+
+          {/* Out of focus is a second copy of the photo, blurred once by the
+              stylesheet and faded away, so the scroll only ever animates
+              opacity, never the blur itself. Same file, same request. */}
+          <div
+            ref={phoneBlurRef}
+            aria-hidden
+            className="absolute inset-0 scale-[1.12] blur-[14px] saturate-[0.7] will-change-[opacity]"
+          >
+            <Image
+              src="/images/dra-thaiane-paramentada.webp"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover object-[70%_30%]"
+            />
+          </div>
+
+          <div
+            ref={phoneShadeRef}
+            aria-hidden
+            className="absolute inset-0 bg-dark-base opacity-55 will-change-[opacity]"
+          />
+
+          {/* Light copy over a photo needs ground of its own at both ends:
+              the label over the cap, the years over the gown. The top one is
+              the stronger: once in focus the clinic behind the label is pale,
+              and 11 px text needs 4.5:1 there. */}
+          <div
+            aria-hidden
+            className="absolute inset-x-0 top-0 h-[40%] bg-linear-to-b from-dark-base/85 to-transparent"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-x-0 bottom-0 h-[55%] bg-linear-to-t from-dark-base/90 to-transparent"
+          />
+
+          <div className="absolute inset-x-6 top-24 flex flex-col gap-3 sm:inset-x-10">
+            <h3 className="tracking-brand text-[0.6875rem] uppercase text-light-base">
+              Formação e trajetória
+            </h3>
+            {/* One bar per year, filling like stories as the scroll goes by. */}
+            <div aria-hidden className="grid grid-cols-4 gap-1">
+              {MILESTONES.map((milestone, index) => (
+                <span key={milestone.year} className="h-0.5 overflow-hidden bg-light-base/30">
+                  <span
+                    ref={(node) => {
+                      phoneBars.current[index] = node;
+                    }}
+                    className={`block h-full origin-left bg-light-base ${
+                      index === 0 ? "" : "scale-x-0"
+                    }`}
+                  />
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* The years take turns at the foot of the screen: the one on the
+              seat fades out rising, the next fades in from below. */}
+          <div className="absolute inset-x-6 bottom-10 h-48 sm:inset-x-10">
+            {MILESTONES.map((milestone, index) => (
+              <div
+                key={milestone.year}
+                ref={(node) => {
+                  phoneEntries.current[index] = node;
+                }}
+                className={`absolute inset-x-0 bottom-0 will-change-[transform,opacity] ${
+                  index === 0 ? "" : "opacity-0"
+                }`}
+              >
+                <span className="block font-display text-[4.25rem] leading-none tabular-nums">
+                  {milestone.year}
+                </span>
+                <div className="mt-2 flex flex-col gap-1.5">
+                  {milestone.items.map((item) => (
+                    <p key={item} className="m-0 text-[0.9375rem] leading-snug text-light-base/90">
+                      {item}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div
         ref={stageRef}
-        className="flex flex-col gap-14 px-6 pb-28 sm:px-10 sm:pb-36 beside:sticky beside:top-0 beside:h-[100svh] beside:flex-row beside:items-center beside:gap-16 beside:overflow-hidden beside:px-10 beside:py-24 motion-reduce:beside:static motion-reduce:beside:h-auto motion-reduce:beside:overflow-visible"
+        className="hidden flex-col gap-14 px-6 pb-28 motion-reduce:flex beside:flex sm:px-10 sm:pb-36 beside:sticky beside:top-0 beside:h-[100svh] beside:flex-row beside:items-center beside:gap-16 beside:overflow-hidden beside:px-10 beside:py-24 motion-reduce:beside:static motion-reduce:beside:h-auto motion-reduce:beside:overflow-visible"
       >
         {/* The vertical axis is the contrast neither earlier piece can give:
             the hero and the band both open sideways, and the site has never
@@ -280,6 +517,29 @@ export function AboutTimeline() {
               className="hidden h-px bg-forest-700 opacity-45 beside:absolute beside:block motion-reduce:beside:hidden"
             />
           </div>
+        </div>
+
+        {/* The wheel tells the trajectory; she anchors it in the present.
+            Capped at the stage's height so a wide, short screen crops the
+            photo instead of pushing it past the pinned frame. */}
+        <div className="relative aspect-[3/4] w-[82%] shrink-0 overflow-hidden beside:max-h-full beside:w-[30%]">
+          <div ref={pictureRef} className="absolute inset-0 beside:will-change-transform">
+            <Image
+              src="/images/dra-thaiane-paramentada.webp"
+              alt="Dra. Thaiane Lessa, de touca e máscara"
+              fill
+              sizes="(min-width: 64rem) and (min-aspect-ratio: 6/5) 30vw, 82vw"
+              className="object-cover"
+            />
+          </div>
+
+          {/* Only the turning wheel shows it; stacked, or with reduced motion,
+              the photo is whole from the start. */}
+          <div
+            ref={veilRef}
+            aria-hidden
+            className="absolute inset-0 hidden bg-light-base will-change-transform"
+          />
         </div>
       </div>
     </section>

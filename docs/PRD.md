@@ -65,7 +65,7 @@ A doutora já tem o conteúdo das seções que faltam e ainda não mandou (D9). 
 
 - Desempenho: nota de desempenho do Lighthouse de 85 ou mais no celular e de 90 ou mais no computador (D37). O LCP é medido e registrado; a meta de 2,5 s no celular fica para depois. Vídeo do hero com poster como primeira pintura; os vídeos só baixam depois da primeira tela (ADR 0004).
 - Acessibilidade: WCAG 2.2 AA (contraste, foco, `prefers-reduced-motion`, pausa do que se mexe sozinho por mais de 5 s).
-- Dispositivos: celular (390 px), iPad retrato e computador. Layouts dependentes de mídia testados por proporção.
+- Dispositivos: celular (390 px), iPad retrato e computador. Layouts dependentes de mídia testados por proporção. **O celular é o alvo principal** (D42): cada seção é pensada primeiro em tela de celular em pé, e o computador adapta a partir dela.
 - SEO e compartilhamento: prévia de link (Open Graph, com nome, profissão e CRO na imagem), ícone da Apple e cor do tema desde 2026-10-23 (D41). `noindex` até o aval dela (D22); depois, canonical, dados estruturados, sitemap e indexação.
 
 ## Regras de fora
@@ -230,3 +230,11 @@ Plano em `tasks/technical-bar.md`.
 Plano em `tasks/link-preview-404.md`.
 
 - **D41.** A prévia de link (Open Graph, com imagem 1200 × 630), o ícone da Apple, a cor do tema e uma página 404 entram já, na Fase 1, sem esperar o `noindex` sair (Lucas, 2026-10-23). Não dependem de conteúdo dela, e o link já circula no portfólio. Antecipa essa parte da D22; o `noindex` continua até o aval dela. A imagem de prévia circula sozinha, então leva nome, "Cirurgiã-Dentista" e CRO/AL-6418 (CEO, art. 43) e nenhuma área de atuação (art. 43, § 1º, I). Canonical, dados estruturados e sitemap ficam para quando sair o `noindex`.
+
+### Rodada 9 (2026-10-27): celular primeiro
+
+- **D42.** O celular é o foco do site: é por ele que a maior parte dos pacientes vai chegar (Lucas, 2026-10-27). Até aqui o site foi desenhado a partir do computador, e o celular recebia a versão empilhada. Em 2026-10-27, num celular em pé, hero, band e linha do tempo ficam parados (só abrem em tela mais larga que alta), e o único movimento é o texto do Tempo 2. A linha do tempo vira uma lista sem animação nenhuma. A partir de agora:
+  - Cada seção tem uma versão própria para o celular, com o mesmo cuidado e o mesmo nível de movimento do computador. A versão empilhada não é mais o fim do caminho.
+  - Plano, FDD e QA começam pelo celular (390 px, e uma tela baixa como 375 × 667). O computador vem depois.
+  - O movimento segue as mesmas regras: `transform` e `opacity`, estado final legível com `prefers-reduced-motion`, pausa no que se mexe sozinho por mais de 5 s.
+  - Ordem: linha do tempo primeiro, depois band e hero (ROADMAP).

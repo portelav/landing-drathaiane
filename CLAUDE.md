@@ -30,6 +30,7 @@ Onde está cada coisa:
 Next.js 16 (App Router), React 19, Tailwind CSS 4 (tokens em `src/app/globals.css`), Motion 13 e Lenis, vídeo próprio em `public/video/` (ADRs 0001 a 0004). Sem banco, sem backend, sem formulário, sem analytics.
 
 - Next.js 16 não é o Next do treinamento: ler o guia em `node_modules/next/dist/docs/` antes de escrever código.
+- **Celular primeiro** (PRD, D42): é por onde a maioria vai entrar. Toda seção é desenhada, planejada e conferida primeiro no celular em pé, com movimento próprio; o computador adapta a partir dela. Empilhar e parar não é versão de celular.
 - Layout que depende de foto ou vídeo é por proporção (variantes `wide:` e `beside:`), não por largura em pixels.
 - Animar `transform` e `opacity`. Todo movimento tem estado final legível com `prefers-reduced-motion`. O que se mexe sozinho por mais de 5 s tem como pausar (WCAG 2.2.2).
 - Mídia bruta fica em `media/` (fora do git); no repositório só a versão transcodificada.

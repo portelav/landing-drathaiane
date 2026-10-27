@@ -115,6 +115,8 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 | Sobre, band: retrato cresce, cenário abre | scroll (rAF) | proporcional ao scroll | Eixo horizontal, continuação do hero |
 | Sobre, texto: linhas sobem por máscara | entrada, uma vez | 70 ms entre linhas | Único momento que anima e para: o silêncio depois é o efeito |
 | Sobre, roleta de anos | scroll (rAF) | proporcional ao scroll | Eixo vertical, o contraste que hero e band não dão |
+| Sobre, foto ao lado da roda: painel desce, zoom de 1,08 a 1 | scroll (rAF), com a roda | proporcional ao scroll, smoothstep; inteira aos 90% | A trajetória chega nela: a foto parada ficava solta ao lado da roda |
+| Sobre, linha do tempo no celular: foto em foco | scroll (rAF), palco preso por 320svh | proporcional ao scroll, smoothstep; nítida aos 90% | A versão do celular da roda (D42). O desfoque é uma cópia borrada uma vez que some por `opacity`; a rolagem nunca anima o `filter`. Rótulo de 11 px sobre degradê `dark-base/85`, medido em 4,8:1 ou mais com a foto já clara |
 | Vídeo do consultório (hero) | 40% na tela | loop; pausa fora da tela e pelo botão | O consultório vivo na primeira impressão |
 | Vídeo do kit | (fora do site desde 2026-10-12; guardado para reuso) | | |
 | Contato | nenhum | título preso no topo a partir de `lg` (`position: sticky`, sem JS); `<details>` abre sem transição | Segura o título enquanto o texto passa, sem um quarto movimento calculado por scroll |
