@@ -380,10 +380,12 @@ export function AboutTimeline() {
           />
 
           {/* Light copy over a photo needs ground of its own at both ends:
-              the label over the cap, the years over the gown. */}
+              the label over the cap, the years over the gown. The top one is
+              the stronger: once in focus the clinic behind the label is pale,
+              and 11 px text needs 4.5:1 there. */}
           <div
             aria-hidden
-            className="absolute inset-x-0 top-0 h-[32%] bg-linear-to-b from-dark-base/60 to-transparent"
+            className="absolute inset-x-0 top-0 h-[40%] bg-linear-to-b from-dark-base/85 to-transparent"
           />
           <div
             aria-hidden
@@ -391,7 +393,7 @@ export function AboutTimeline() {
           />
 
           <div className="absolute inset-x-6 top-24 flex flex-col gap-3 sm:inset-x-10">
-            <h3 className="tracking-brand text-[0.6875rem] uppercase text-light-base/85">
+            <h3 className="tracking-brand text-[0.6875rem] uppercase text-light-base">
               Formação e trajetória
             </h3>
             {/* One bar per year, filling like stories as the scroll goes by. */}
