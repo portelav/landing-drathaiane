@@ -3,7 +3,7 @@
 **Slug:** `header-name-wrap`
 **Branch:** `fix/header-name-wrap`
 **Área:** header · **Dono:** Lucas
-**Status:** Em andamento
+**Status:** Done (PR #13 mergeado em 2026-10-11)
 **Gate S2:** Livre
 
 ---

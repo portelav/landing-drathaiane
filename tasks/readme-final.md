@@ -3,7 +3,7 @@
 **Slug:** `readme-final`
 **Branch:** `docs/readme-final`
 **Área:** README, `docs/screenshots/` · **Dono:** Lucas
-**Status:** Em andamento
+**Status:** Done (PR #12 mergeado em 2026-10-11)
 **Gate S2:** Livre
 
 ---

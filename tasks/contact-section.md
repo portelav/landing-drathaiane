@@ -3,7 +3,7 @@
 **Slug:** `contact-section`
 **Branch:** `feat/contact-section`
 **Área:** seção nova (FDD, componente, página) · **Dono:** Lucas
-**Status:** Planning
+**Status:** Done (PR #17 mergeado em 2026-10-13); o que falta é conteúdo dela, no ROADMAP (Fase 2)
 **Gate S2:** Livre
 
 ---
