@@ -1,6 +1,6 @@
 # Foto dela ao lado da roda de anos
 
-**Branch:** `feat/timeline-portrait` · **Status:** Feito (PR a abrir)
+**Branch:** `feat/timeline-portrait` · **Status:** Feito (PR #20)
 
 ## Objetivo
 - Preencher o espaço à direita da roda de anos (Sobre, Tempo 3), vazio desde que o vídeo do kit saiu em 2026-10-12, com a `DSC09749`: close dela de touca e máscara, clínica desfocada atrás.
@@ -59,7 +59,7 @@ Desvios do plano: a foto parada ficou "à toa" ao lado da roda (Lucas); ganhou a
 4. 1440x900 com `prefers-reduced-motion` (CDP): lista à esquerda, foto ao lado, nada sobreposto (print).
 5. `loading="lazy"`; em 1440 px e DPR 1 o navegador pediu `w=640` para 404 px exibidos.
 6. `alt` conferido no DOM.
-7. Pendente: Lighthouse na produção (D35), depois do merge, ou no preview da branch.
+7. Lighthouse 13.4.1 na produção depois do merge, mediana de 3 (D35), em 2026-10-27: celular 88 (87, 88, 98; LCP 3,0 s), computador 100; acessibilidade 100 nos dois.
 8. Lint e typecheck verdes. O build roda uma vez antes do PR.
 
 Console: só o aviso do Motion sobre movimento reduzido, esperado com a emulação.
