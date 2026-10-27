@@ -60,7 +60,7 @@ Enxuto, para uma landing page de uma pessoa só. Comandos em `.claude/commands/`
 
 Outros: `/ui` (componente com os tokens), `/fix-loop` (bug: reproduzir no navegador primeiro, corrigir até verde).
 
-**Um PR por seção ou marco, não por ajuste.** A branch fica aberta até a entrega estar completa e visível no preview, com vários commits dentro. Ajuste pequeno que surge no meio vai na branch em andamento; sem branch aberta, acumula em `chore/polish` até haver uns 3 a 5. Doc e decisão do PRD entram junto com a seção que os motivou. Exceção: correção urgente em produção e mudança que precisa de revisão à parte.
+**Um PR por seção ou marco, não por ajuste.** A branch fica aberta até a entrega estar completa e visível no preview, com vários commits dentro. Ajuste pequeno que surge no meio vai na branch em andamento; sem branch aberta, acumula em `chore/polish` até haver uns 3 a 5. Ajuste muito pequeno (uma linha de status em `tasks/`, um erro de digitação): perguntar ao Lucas se vai num PR rápido próprio ou se espera na `chore/polish`. Direto na `main` não dá: a proteção exige PR e os checks do CI, inclusive para o dono. Doc e decisão do PRD entram junto com a seção que os motivou. Exceção: correção urgente em produção e mudança que precisa de revisão à parte.
 
 Docs: o PRD é vivo (implementação divergiu, o doc muda na mesma branch). Mudança de stack ou arquitetura pede ADR antes do código. Decisão de produto é do Lucas, registrada no PRD com data. Texto, foto ou dado que a doutora ainda não mandou vira `> TODO` ou fica fora da página, nunca texto plausível inventado.
 
