@@ -3,7 +3,7 @@
 **Slug:** `video-pause-control`
 **Branch:** `feat/video-pause-control`
 **Área:** hero (vídeo da recepção), Sobre (vídeo do kit) · **Dono:** Lucas
-**Status:** Walkthrough
+**Status:** Done (PR #6 mergeado em 2026-10-10)
 **Gate S2:** Livre
 
 ---

@@ -13,7 +13,7 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 | Pausa dos vídeos em loop | Hero (e o kit, enquanto esteve no site) com controle de pausa acessível (WCAG 2.2.2) | `tasks/video-pause-control.md` |
 | Barra técnica | Nota de desempenho do Lighthouse de 85 ou mais no celular e de 90 ou mais no computador, e acessibilidade sem falha AA (D37). Feito: 88 no celular, 94 a 100 no computador, acessibilidade 100 | `tasks/technical-bar.md` |
 | Prévia de link e 404 | Link compartilhado mostra imagem com nome, profissão e CRO; endereço errado cai numa 404 com a marca (D41) | `tasks/link-preview-404.md` |
-| README final | Prints e link do site | `tasks/readme-final.md` |
+| README final | Prints e link do site. Feito (PR #12) | `tasks/readme-final.md` |
 | Portfólio e currículo | Link do site nos dois | fora do repositório |
 
 ## Fase 2: site público (sem data)
@@ -27,7 +27,6 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 
 ## Depois
 
-- Rever o ignore `.claude/**` do `eslint.config.mjs` (comentário diz "vendored agent tooling"): as skills de terceiros saíram no kickoff, os hooks também saíram.
 - Domínio próprio (D10).
 - LCP no celular abaixo de 2,5 s; hoje dá 2,9 s (D37). Caminho: diminuir o JS da primeira tela (ADR 0002) e entender o atraso do Chrome em torno da imagem do hero (`tasks/technical-bar.md`, "Medição na produção").
 - Rever o visual do rodapé: o colofão claro (`tasks/footer-colophon.md`) melhorou o primeiro rodapé, mas ainda não convence o Lucas.

@@ -3,7 +3,7 @@
 **Slug:** `band-quote-contrast`
 **Branch:** `fix/band-quote-contrast`
 **Área:** Sobre (band aberta) · **Dono:** Lucas
-**Status:** Em andamento
+**Status:** Done (PR #11 mergeado em 2026-10-11)
 **Gate S2:** Livre
 
 ---
