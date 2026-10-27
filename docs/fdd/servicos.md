@@ -13,8 +13,8 @@ O visitante entende o que a doutora trata, se reconhece em pelo menos um dos cas
 
 > TODO: fotos de casos. Só antes e depois feitos por ela, com TCLE assinado e nome + CRO na imagem. Sem foto de procedimento em andamento.
 
-Material já guardado (`media/sobre/`, fora do git):
-- `DSC09749.jpg`: close dela paramentada, olhos na câmera, clínica desfocada atrás. A melhor foto do lote, reservada para esta seção ou para uma revisão do hero. Conferir com a regra de "ambiente clínico" do CRO-AL.
+Material já guardado (`media/`, fora do git):
+- `servicos/DSC09749.jpg`: close dela paramentada, olhos na câmera, clínica desfocada atrás. Original recebido em 2026-10-27 (3289×4604). Era reservada para esta seção; desde 2026-10-27 está no Sobre, ao lado da roda de anos (`docs/fdd/sobre.md`, "A foto"). Serviços pede outra foto, ou fica só com texto.
 - Um caso clínico que ela contou é material desta seção (PRD, D5), contado sem identificar o paciente. Detalhes nas notas privadas.
 
 ## Comportamento

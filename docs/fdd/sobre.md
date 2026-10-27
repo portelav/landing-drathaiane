@@ -132,11 +132,58 @@ esconde a conta.
 
 Só `transform`, `opacity` e `filter` são tocados — nada que force layout.
 
-**A roleta só existe onde há espaço.** Abaixo do teste `beside:` a seção é uma
-lista empilhada comum, sem palco travado, e o vídeo desce para baixo dela. Um
-palco travado teria que segurar a roda e o vídeo retrato lado a lado, e num
-celular o vídeo sozinho já é três quartos da tela. É o mesmo teste que a band
-usa, pelo mesmo motivo.
+**A roleta só existe onde há espaço.** Abaixo do teste `beside:` não cabem a
+roda e a foto retrato lado a lado. É o mesmo teste que a band usa, pelo mesmo
+motivo. Ali o Tempo 3 tem uma versão própria, a "foto em foco" (abaixo); com
+movimento reduzido, vira uma lista empilhada comum com a foto embaixo.
+
+**No celular: a foto em foco** (PRD, D42; escolhida pelo Lucas entre quatro
+rascunhos em 2026-10-27). A foto ocupa a tela inteira, presa por 320svh de
+rolagem, e os anos trocam por cima dela:
+
+- Em 2019 ela está fora de foco e escura; aos 90% do progresso está nítida e
+  clara. O desfoque é uma segunda cópia da foto, borrada uma vez pelo CSS, que
+  some por `opacity`; a rolagem nunca anima o `filter`. Por baixo, a foto
+  assenta de 1,1 para 1 e um véu escuro vai de 55% a 10%.
+- Ano grande e frase em `light-base` no pé da tela, sobre um degradê escuro;
+  rótulo no topo, sobre outro. Um ano sai subindo e apagando antes do próximo
+  chegar (platô de ±0,12 ano, some a 0,42, sobe 36 px), para duas frases
+  claras nunca se sobreporem em cima do rosto.
+- Quatro barras finas sob o rótulo enchem como stories, uma por ano.
+- O palco leva `data-header-theme="dark"`: o cabeçalho inverte sobre a foto.
+- Conferido em 390x844, 375x667 e iPad retrato (820x1180).
+
+---
+
+## A foto
+
+Desde 2026-10-27, o lugar à direita da roda, vazio desde que o vídeo saiu, é da
+`DSC09749`: close dela de touca e máscara, olhos na câmera, clínica desfocada
+atrás (`public/images/dra-thaiane-paramentada.webp`). A roda conta a trajetória;
+a foto mostra a profissional de hoje, e é isso que o kit não fazia.
+
+- Painel retrato 3:4, `object-cover`, 30% da largura com `beside:` e 82% abaixo
+  dele, no mesmo lugar e nas mesmas larguras do vídeo. Preso no palco junto com
+  a roda.
+- **A trajetória chega nela.** Parada, a foto ficava igual por quatro telas de
+  rolagem e parecia colada ao lado, como o kit. Agora ela abre com a roda, no
+  mesmo progresso: em 2019 só a faixa de cima (15%) aparece, um painel
+  `light-base` desce e a foto assenta de 1,08 para 1 de escala, inteira aos 90%
+  do progresso, antes do platô de 2026. Curva suave (smoothstep), para não
+  andar como régua. Não é um quarto momento: é o mesmo, com o mesmo scroll.
+  Só `transform`. Empilhado ou com movimento reduzido, o painel não existe e a
+  foto aparece inteira. Isso vale para o computador; no celular a mesma foto
+  está na "foto em foco" (Tempo 3).
+- Altura limitada à do palco (`max-h-full`). Numa tela larga e baixa a foto
+  recorta mais, em vez de passar do quadro preso. Conferido em 2560x1100.
+- `next/image` preguiçoso; a foto fica muito abaixo da primeira tela.
+- Informativa: `alt` "Dra. Thaiane Lessa, de touca e máscara", sem dizer onde
+  foi feita.
+- Webp de 1600x2240 saído do original de 3289x4604, sem EXIF, XMP nem ICC.
+- Não é procedimento em andamento, não tem paciente e a torneira ao fundo está
+  desfocada (Res. CFO-196/2019, arts. 1º, § 1º, e 3º). A leitura de "ambiente
+  clínico" da cartilha do CRO-AL entra na conferência de antes de indexar
+  (PRD, "Regras de fora", D22).
 
 ---
 
@@ -207,19 +254,18 @@ aberto filmado do outro lado da sala não serve em proporção nenhuma.
 
 Tudo com `prefers-reduced-motion` levando ao estado final visível, como hero e
 band já fazem (a band abre inteira, retrato e frase lado a lado). No Tempo 2 isso significa texto puro, sem as máscaras por
-palavra; no Tempo 3, lista simples no lugar da roda: anos e marcos à esquerda e o vídeo
-parado no poster ao lado.
+palavra; no Tempo 3, lista simples no lugar da roda: anos e marcos à esquerda e a foto
+ao lado.
 
 ---
 
 ## Material recebido e guardado
 
-Tudo em `media/sobre/`, fora do repositório.
+Em `media/`, fora do repositório.
 
-**`DSC09749.jpg`** — close dela paramentada, touca e máscara, olhos na câmera,
-clínica desfocada atrás. É a melhor foto do lote e o registro que mais falta ao
-site, e não tem lugar nesta seção: o Tempo 2 é deliberadamente sem foto ao lado.
-Guardada para `Serviços` ou para uma revisão do hero.
+**`servicos/DSC09749.jpg`** — close dela paramentada, touca e máscara, olhos na
+câmera, clínica desfocada atrás. Original recebido em 2026-10-27. Não cabe no
+Tempo 2, que é deliberadamente sem foto ao lado; está no Tempo 3 (ver "A foto").
 
 **`IMG_9049`** — uma sacolinha do kit ao lado do papel timbrado. Candidata a
 faixa estreita entre os Tempos 2 e 3, se a seção pedir respiro depois que as
