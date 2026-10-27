@@ -48,4 +48,20 @@
 ---
 
 ## Feito e verificado
-<!-- Escrito pelo /exec: arquivos tocados, desvios do plano, como cada critério foi conferido. -->
+
+Arquivos: `public/images/dra-thaiane-paramentada.webp` (novo), `src/components/about-timeline.tsx`, `docs/fdd/sobre.md`, `docs/fdd/servicos.md`, `private/pauta.md` (repositório privado).
+
+Desvios do plano: a foto parada ficou "à toa" ao lado da roda (Lucas); ganhou abertura presa ao progresso da roda (painel desce, escala de 1,08 para 1, 15% visível em 2019, inteira aos 90%), só `transform`, desligada no empilhado e com movimento reduzido (FDD do Sobre, "A foto"). Conferido em 1440x900 a 5%, 45% e 97% do progresso; com movimento reduzido e em 390 px o painel fica `display: none`. Painel com `beside:max-h-full`, para a foto não passar do palco preso numa tela larga e baixa (recorta mais em vez disso). O vídeo do kit tinha `mt-14` além do `gap-14` do palco; a foto fica só com o `gap`.
+
+1. Webp de 1600x2240, 223 KB, convertido com `sharp`. Metadado lido de volta: sem EXIF, XMP, ICC nem IPTC, e nenhum chunk `EXIF`, `XMP ` ou `ICCP` no arquivo.
+2. 1440x900: painel de 404x538 à direita da roda, sem cobrir ano, frase nem traço (print). 2560x1100: 740x908, dentro do palco de 100svh menos o `py-24`.
+3. 390 px: 280x374, depois da lista; iPad retrato (820x1180): 607x809. Sem rolagem horizontal nos dois (`scrollWidth` igual à largura).
+4. 1440x900 com `prefers-reduced-motion` (CDP): lista à esquerda, foto ao lado, nada sobreposto (print).
+5. `loading="lazy"`; em 1440 px e DPR 1 o navegador pediu `w=640` para 404 px exibidos.
+6. `alt` conferido no DOM.
+7. Pendente: Lighthouse na produção (D35), depois do merge, ou no preview da branch.
+8. Lint e typecheck verdes. O build roda uma vez antes do PR.
+
+Console: só o aviso do Motion sobre movimento reduzido, esperado com a emulação.
+
+Celular (D42, pedido do Lucas no meio da branch): a lista parada virou a "foto em foco", escolhida entre quatro rascunhos (artefato privado). Antes dela, um rascunho com moldura e anos em contador foi descartado. Conferido em 390x844 a 2%, 50% e 100% do progresso, 375x667, iPad retrato e com movimento reduzido (palco `display: none`, quatro anos visíveis na lista). Sem rolagem horizontal, console limpo. Lint, typecheck e build verdes.
