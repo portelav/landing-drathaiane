@@ -1,4 +1,4 @@
-# Band no celular: revelação na entrada
+# Band no celular: revelação na entrada (e travessões)
 
 **Branch:** `feat/mobile-hero-band` · **Status:** Planejado
 
@@ -6,13 +6,16 @@
 - Dar à band (Sobre, Tempo 1) uma versão própria no celular em pé (D42), no lugar da foto 3:4 com a frase embaixo, parada.
 - Forma escolhida pelo Lucas entre três protótipos em 390 px (opção B, 2026-10-28): a citação vem em cima, sobre a parede da própria foto, e a foto fica embaixo. Quando a band entra na tela, a revelação acontece uma vez.
 - Nada prende a rolagem: a band fica como respiro entre os dois trechos presos (o hero e a linha do tempo).
+- Pedido dela (2026-10-28): tirar os travessões do texto do site. Os dois que estão em arquivos desta branch entram aqui.
 
 ## Escopo
-- **Dentro:** layout e revelação da band fora do `beside:` (celular e iPad retrato); as entradas no PRD, no FDD do Sobre e no DESIGN.md.
-- **Fora:** a band no `beside:`, que continua como está (a foto cresce e a parede se abre para os lados); o hero do celular (próximo protótipo); texto novo.
+- **Dentro:** layout e revelação da band fora do `beside:` (celular e iPad retrato); as entradas no PRD, no FDD do Sobre e no DESIGN.md; os travessões do hero e da linha do tempo.
+- **Fora:** a band no `beside:`, que continua como está (a foto cresce e a parede se abre para os lados); o hero do celular (próximo protótipo); texto novo; os travessões do texto do Sobre (`about-text.tsx`), que ficam com o outro chat; travessões em comentários de código, que não aparecem no site.
 
 ## Conteúdo e regras de fora
-- Conteúdo da doutora: a foto e a frase já estão no site. Nada novo.
+- Conteúdo da doutora: a foto e a frase já estão no site. A troca dos travessões é dela, com o texto exato:
+  - `hero.tsx`: "…leitura do seu rosto — proporção, luz…" passa a "…leitura do seu rosto: proporção, luz…".
+  - `about-timeline.tsx`: "Início da graduação em Odontologia — Universidade Federal de Alagoas" passa a "Início da graduação em Odontologia, Universidade Federal de Alagoas".
 - Regras do CFO: nenhuma muda. A foto e a frase são as mesmas, sem promessa, preço ou procedimento.
 
 ## Comportamento
@@ -31,24 +34,28 @@
 5. Recarregar a página já na band, ou abrir `/#sobre`, mostra a band inteira, sem cortina parada.
 6. iPad retrato (820 × 1180): bloco de até 34rem, centralizado; no `beside:` (1440 × 900), a band é idêntica à de antes.
 7. Só `transform` e `opacity` animam, e o `sizes` da foto corresponde à largura exibida.
-8. Lint, typecheck e build passam; o Lighthouse no celular continua em 85 ou mais (D37).
+8. O texto visível do hero e da linha do tempo não tem travessão, e as duas frases estão como ela mandou.
+9. Lint, typecheck e build passam; o Lighthouse no celular continua em 85 ou mais (D37).
 
 ## Arquivos
 - `src/components/about.tsx`: layout fora do `beside:`, parede, borda de 2%, cortina e o observador que a arma.
+- `src/components/hero.tsx` e `src/components/about-timeline.tsx`: as duas frases sem travessão.
+- `docs/fdd/hero.md`: a citação do parágrafo do hero, com a frase nova.
 - `docs/PRD.md`: D45 (a band no celular, opção B, com a data).
 - `docs/fdd/sobre.md`: Tempo 1 no celular.
 - `docs/design/DESIGN.md`: a linha da band no celular na tabela de movimento e a regra do rótulo sobre a parede.
 
 ## Checklist
-1. [ ] Separar no `about.tsx` o bloco fora do `beside:` (parede, citação em cima, foto embaixo) sem tocar no `beside:`.
-2. [ ] Fundo da parede com a linha de cima medida e a borda de 2% na foto.
-3. [ ] Cortina e entrada da foto e da citação, armadas só se a band estiver abaixo da tela; uma vez só.
-4. [ ] Movimento reduzido e sem JS no estado final.
-5. [ ] iPad retrato com o bloco limitado a 34rem; `sizes` ajustado.
-6. [ ] QA por CDP em 390, 375 × 667, iPad retrato e 1440, inclusive com movimento reduzido, e medição do contraste.
-7. [ ] Teste no iPhone dele pelo servidor no Wi-Fi.
-8. [ ] PRD (D45), FDD do Sobre e DESIGN.md.
-9. [ ] Lint e typecheck; parar para o Lucas conferir.
+1. [ ] Trocar as duas frases com travessão (hero e linha do tempo).
+2. [ ] Separar no `about.tsx` o bloco fora do `beside:` (parede, citação em cima, foto embaixo) sem tocar no `beside:`.
+3. [ ] Fundo da parede com a linha de cima medida e a borda de 2% na foto.
+4. [ ] Cortina e entrada da foto e da citação, armadas só se a band estiver abaixo da tela; uma vez só.
+5. [ ] Movimento reduzido e sem JS no estado final.
+6. [ ] iPad retrato com o bloco limitado a 34rem; `sizes` ajustado.
+7. [ ] QA por CDP em 390, 375 × 667, iPad retrato e 1440, inclusive com movimento reduzido, e medição do contraste.
+8. [ ] Teste no iPhone dele pelo servidor no Wi-Fi.
+9. [ ] PRD (D45), FDD do Sobre e DESIGN.md.
+10. [ ] Lint e typecheck; parar para o Lucas conferir.
 
 ---
 
