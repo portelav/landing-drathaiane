@@ -97,7 +97,7 @@ Fora por decisão do Lucas (2026-10-11): link do perfil e das avaliações do Go
 
 ### Movimento
 
-O título preso a partir de `lg` é posição, não animação: nada se move sozinho nem acompanha o scroll com cálculo. O `<details>` abre sem transição. Com `prefers-reduced-motion` é igual.
+O título preso a partir de `lg` é posição, não animação: nada se move sozinho nem acompanha o scroll com cálculo. Ao abrir uma pergunta, a resposta aparece em 450 ms, com um ease-out cúbico (`cubic-bezier(0.33, 1, 0.68, 1)`): sobe 8 px e vai de transparente a visível (`@starting-style`, só `opacity` e `translate`). Fechar é instantâneo. Com `prefers-reduced-motion` fica só a passagem de transparente a visível, sem subir.
 
 ### Regras
 
