@@ -195,7 +195,10 @@ export function ContactSection() {
                         −
                       </span>
                     </summary>
-                    <p className="m-0 pb-5 text-[1.0625rem] leading-[1.65] text-dark-base/85">
+                    {/* The answer fades in from just under the question when it opens,
+                        instead of popping in; with reduced motion it only fades. An
+                        ease-out cubic, gentler at the start than the quint. */}
+                    <p className="m-0 pb-5 text-[1.0625rem] leading-[1.65] text-dark-base/85 transition-[opacity,translate] duration-[450ms] ease-[cubic-bezier(0.33,1,0.68,1)] starting:opacity-0 motion-safe:starting:-translate-y-2">
                       {item.answer}
                     </p>
                   </details>
