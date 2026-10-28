@@ -3,9 +3,13 @@
  * footer a Server Component, so both read from this neutral module rather than
  * one importing from the other across the client boundary.
  */
-export const PHONE_DISPLAY = "(82) 99387-1990";
-export const PHONE_HREF = "tel:+5582993871990";
-export const WHATSAPP_HREF = "https://wa.me/5582993871990";
+export const PHONE_DISPLAY = "(82) 99661-0348";
+export const PHONE_HREF = "tel:+5582996610348";
+
+/** Prefilled in the chat, so the visitor only has to press send. */
+const WHATSAPP_MESSAGE =
+  "Olá, gostaria de mais informações sobre uma consulta com a Dra. Thaiane Lessa.";
+export const WHATSAPP_HREF = `https://wa.me/5582996610348?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 export const INSTAGRAM_HANDLE = "@thaiane_lessa";
 export const INSTAGRAM_HREF = "https://instagram.com/thaiane_lessa";
 export const EMAIL = "dra.thaianelessa@gmail.com";
