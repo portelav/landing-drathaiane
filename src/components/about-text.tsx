@@ -68,7 +68,7 @@ const EYEBROW = "Sobre";
 const NAME = "Dra. Thaiane Lessa";
 
 const PARAGRAPHS = [
-  "Escolhi dentística ainda na faculdade. Sempre gostei de detalhes e de trabalho manual, de desenhar — e dentística é onde isso vira resultado na boca de alguém. Um caso que conduzi na graduação chamou a atenção da liga de dentística, e foi ali que entendi que era esse o caminho.",
+  "Atuo na clínica geral, com foco em dentística estética e restauradora. Escolhi dentística ainda na faculdade. Sempre gostei de detalhes e de trabalho manual, de desenhar — e dentística é onde isso vira resultado na boca de alguém. Um caso que conduzi na graduação chamou a atenção da liga de dentística, e foi ali que entendi que era esse o caminho.",
   "A primeira consulta é sem pressa. Faço uma anamnese detalhada e procuro entender seus hábitos, porque é deles que a boca costuma falar. Faço fotografias intraorais para te mostrar o que estou vendo, com as suas imagens. Limpeza, profilaxia e a higienização explicada passo a passo: qual escova, qual creme dental, para o seu caso. O básico precisa ser dito. Só depois disso a gente planeja.",
   "Concluí a especialização em dentística e emendei o mestrado — uma para voltar o olhar à clínica, o outro para entender o porquê de cada coisa que eu já fazia. Desde 2025 integro o grupo de creators da Ivoclar. Estética e saúde não existem uma sem a outra, e caso que dura é caso planejado e acompanhado. Trabalho melhor com tempo, sem relógio apitando para o próximo paciente. Quando você sair daqui, quero que se sinta cuidada nos detalhes que muitos dentistas consideram óbvios, e segura do planejamento que fizemos juntos.",
 ];
