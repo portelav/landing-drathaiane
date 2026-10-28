@@ -238,3 +238,10 @@ Plano em `tasks/link-preview-404.md`.
   - Plano, FDD e QA começam pelo celular (390 px, e uma tela baixa como 375 × 667). O computador vem depois.
   - O movimento segue as mesmas regras: `transform` e `opacity`, estado final legível com `prefers-reduced-motion`, pausa no que se mexe sozinho por mais de 5 s.
   - Ordem: linha do tempo primeiro, depois band e hero (ROADMAP).
+
+### Rodada 10 (2026-10-27): conteúdo do Contato
+
+- **D43.** O Contato recebe o resto do conteúdo dela: e-mail, duração média da primeira consulta, acessibilidade do prédio e mais quatro perguntas frequentes (Lucas, 2026-10-27).
+  - A pergunta dela sobre como funciona a primeira consulta fica fora: repete as etapas, que já estão na seção.
+  - O e-mail fica só no Contato, embaixo do WhatsApp; o rodapé continua com telefone e Instagram.
+  - Enquanto não houver especialidade registrada, área de atuação e procedimento vêm depois de "clínica geral" (CEO art. 43, § 1º, I). A linha do preloader já diz isso, mas com movimento reduzido ela some em 0,3 s; por isso a primeira frase do Sobre passa a ser a dela, "Atuo na clínica geral, com foco em dentística estética e restauradora.", e a menção fica fixa antes das perguntas e de Serviços.
