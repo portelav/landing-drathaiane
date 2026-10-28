@@ -21,7 +21,7 @@ Só o que já está publicado no site (D3):
 
 - Identificação: "Dra. Thaiane Lessa", e embaixo "Cirurgiã-Dentista · CRO/AL-6418". O art. 43 do Código de Ética exige nome, profissão e número de inscrição.
 - Direitos (D27): "© 2026 Dra. Thaiane Lessa. Todos os direitos reservados."
-- Canais: telefone "(82) 99387-1990" (`tel:+5582993871990`), Instagram "@thaiane_lessa" (`https://instagram.com/thaiane_lessa`) e "Voltar ao topo" (`#`). O WhatsApp ficou só no header e na seção Contato; o telefone repete a seção de propósito.
+- Canais: telefone "(82) 99661-0348" (`tel:+5582996610348`), o número da clínica (D45), Instagram "@thaiane_lessa" (`https://instagram.com/thaiane_lessa`) e "Voltar ao topo" (`#`). O WhatsApp ficou só no header e na seção Contato; o telefone repete a seção de propósito.
 
 Os dados de contato vêm de `src/lib/contact.ts`, a mesma fonte do header.
 
@@ -82,7 +82,7 @@ O texto vem dela, sem mudança de sentido. Endereço, estacionamento, horário e
 - Como chegar: endereço do consultório, mapa estático do Mapbox com o pino (ADR 0005, D40) que abre a rota no Maps, estacionamento, horário e acessibilidade do prédio. Sem token, cai no link de rota em texto.
 - Primeira consulta: a duração média, e quatro etapas numeradas (conversa e orientação de higiene oral, limpeza, avaliação, planejamento), em poucas linhas cada (D32).
 - Perguntas frequentes: a de valor primeiro (D32), sem número, faixa nem forma de pagamento (D29); depois quatro dela, sobre limpeza, clareamento, restauração e duração dos tratamentos. A que ela mandou sobre a primeira consulta fica fora, porque repete as etapas (D43).
-- WhatsApp, o mesmo destino do header e do rodapé, e embaixo o e-mail, como link `mailto:`. O e-mail fica só aqui, fora do rodapé (D43).
+- WhatsApp, o mesmo destino do header, com a mensagem pronta. O e-mail saiu: o WhatsApp é o único canal escrito (D45).
 
 Fora por decisão do Lucas (2026-10-11): link do perfil e das avaliações do Google, até haver mais avaliações (D33 parada, D39).
 
@@ -106,7 +106,7 @@ O título preso a partir de `lg` é posição, não animação: nada se move soz
 3. Endereço do consultório, nunca o de casa (D34).
 4. Nenhuma avaliação, nome ou foto de paciente na página (CEO art. 44, VI).
 5. Pergunta sobre valor sem número, faixa, "a partir de" ou forma de pagamento (D29, D32). Nada de "gratuito" ou "sem compromisso" (CEO art. 20, IX). A palavra "valor" só vale na pergunta que recusa o preço (DESIGN.md, seção 8).
-6. Primeira consulta e perguntas frequentes sem promessa de resultado (Res. CFO-196/2019, art. 2º, § 1º). As perguntas citam procedimentos, o que só vale depois de "clínica geral" enquanto não houver especialidade registrada (CEO art. 43, § 1º, I): a menção fixa está na primeira frase do Sobre, antes desta seção (D43).
+6. Primeira consulta e perguntas frequentes sem promessa de resultado (Res. CFO-196/2019, art. 2º, § 1º). As perguntas citam procedimentos, o que só vale depois de "clínica geral" enquanto não houver especialidade registrada (CEO art. 43, § 1º, I): a menção fixa está no primeiro parágrafo do Sobre, antes desta seção (D43, D45).
 
 ### Acessibilidade
 
@@ -124,7 +124,7 @@ Mapa estático (ADR 0005, D40): sem script e sem cookie de terceiro no navegador
 
 Verificáveis em 390 px, iPad retrato e computador:
 
-- [ ] `#contato` mostra endereço, link de rota, estacionamento, horário, acessibilidade, a duração, as 4 etapas, as 5 perguntas e o e-mail, sem texto cortado nem rolagem horizontal.
+- [ ] `#contato` mostra endereço, link de rota, estacionamento, horário, acessibilidade, a duração, as 4 etapas e as 5 perguntas, sem e-mail, sem texto cortado nem rolagem horizontal.
 - [ ] O mapa mostra o pino no consultório e abre a rota no Maps, em nova aba. Sem o token, aparece o link de rota em texto.
 - [ ] A resposta sobre valor é idêntica ao texto dela; nenhum número, faixa, "a partir de" nem forma de pagamento.
 - [ ] "Contato" no menu leva à seção (computador com Lenis e celular) e o header inverte o tema certo.
