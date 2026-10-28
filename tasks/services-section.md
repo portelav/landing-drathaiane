@@ -1,6 +1,6 @@
 # Seção Serviços
 
-**Branch:** `feat/services-section` · **Status:** Planejado
+**Branch:** `feat/services-section` · **Status:** Feito (PR #23)
 
 > **Decidido (2026-10-28):** opção A dos protótipos (11 opções em 3 rodadas): lista dos 5 serviços que abre um por vez (`<details name>`) + casos num carrossel horizontal com encaixe nativo (`scroll-snap`), caso da vez aceso e vizinhos a 50%, contagem "01 / 05", barrinhas e setas de 44 px. Sem um quarto momento dirigido por scroll. A Dra. Thaiane escolheu.
 
