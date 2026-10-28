@@ -115,6 +115,9 @@ type VideoToggleProps = {
  * keeps the full 44 px touch target. Square, like the rest of the page — the
  * only rounding on the site belongs to the header's social buttons and the
  * timeline's markers.
+ *
+ * On a phone the hero's frame is `lvh` tall, so its foot sits under Safari's
+ * toolbar until the toolbar tucks away; the offset keeps the button above it.
  */
 export function VideoToggle({ paused, onToggle, subject }: VideoToggleProps) {
   return (
@@ -122,7 +125,7 @@ export function VideoToggle({ paused, onToggle, subject }: VideoToggleProps) {
       type="button"
       onClick={onToggle}
       aria-label={`${paused ? "Reproduzir" : "Pausar"} o vídeo ${subject}`}
-      className="group absolute bottom-2 right-2 flex h-11 w-11 items-center justify-center focus-visible:outline-none"
+      className="group absolute bottom-[calc(100lvh-100svh+0.5rem)] right-2 flex wide:bottom-2 h-11 w-11 items-center justify-center focus-visible:outline-none"
     >
       <span className="flex h-8 w-8 items-center justify-center bg-light-base text-dark-base opacity-80 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 group-focus-visible:outline-2 group-focus-visible:-outline-offset-4 group-focus-visible:outline-dark-base">
         <svg aria-hidden viewBox="0 0 12 12" className="h-3 w-3" fill="currentColor">
