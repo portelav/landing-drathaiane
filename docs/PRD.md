@@ -44,7 +44,7 @@ Seções em ordem na página.
 | Sobre | Quem ela é, como trabalha, credenciais com datas | [`docs/fdd/sobre.md`](fdd/sobre.md) | pronto |
 | Serviços | O que ela trata, para os dois públicos, e cinco casos dela com foto | [`docs/fdd/servicos.md`](fdd/servicos.md) | feito (2026-10-28, D44) |
 | Depoimentos | Prova social | [`docs/fdd/depoimentos.md`](fdd/depoimentos.md) | fora por enquanto, sai do site e do menu (D25) |
-| Contato e rodapé | Como chegar (endereço do consultório e rota), horários, primeira consulta, perguntas frequentes, WhatsApp (D32 a D34; link das avaliações fora, D39); identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | rodapé pronto, com a identificação e os canais (D26); seção Contato feita em parte (2026-10-12): faltam e-mail, duração, acessibilidade do prédio e demais perguntas |
+| Contato e rodapé | Como chegar (endereço do consultório e rota), horários, primeira consulta, perguntas frequentes, WhatsApp (D32 a D34; link das avaliações fora, D39); identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | pronto: rodapé com a identificação e os canais (D26); seção Contato completa (2026-10-27, D43) |
 | Página 404 | Endereço errado cai numa página com a marca e o caminho de volta à home (D41) | (sem FDD) | pronto |
 
 ### Conteúdo pendente
@@ -131,7 +131,7 @@ Só depende do Lucas. O site continua com `noindex`.
 
 Depende do conteúdo e do aval dela (D24).
 
-- [ ] Serviços e Contato com o conteúdo real dela. Contato feito em parte (2026-10-12): endereço e rota, estacionamento, horário, primeira consulta e a pergunta de valor (D32, D34, D39). Faltam e-mail, duração da consulta, acessibilidade do prédio e as demais perguntas. Serviços feito em 2026-10-28 (D44).
+- [x] Serviços e Contato com o conteúdo real dela. Contato completo em 2026-10-27 (D32, D34, D39, D43; PR #22) e Serviços em 2026-10-28 (D44; PR #23).
 - [ ] Site inteiro revisto de novo contra as regras de fora; o que não passou mudou ou saiu (D30).
 - [ ] Aval dela no site completo, com o texto do rodapé.
 - [ ] `noindex` fora, com canonical, dados estruturados e sitemap. A prévia de link já saiu na Fase 1 (D41).

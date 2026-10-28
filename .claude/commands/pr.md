@@ -30,7 +30,12 @@ Um PR por seção ou marco, não por ajuste. Antes de qualquer coisa, perguntar 
    ```bash
    gh pr create --base main --title "<type(scope): subject>" --body-file <arquivo>
    ```
-4. Se houver `tasks/{slug}.md`: com o número que o `gh pr create` devolveu, trocar o status para `Feito (PR #N)`, commitar (`docs(tasks): mark {slug} as done in PR #N`) e enviar para a mesma branch. O status entra junto no merge, sem esperar o próximo PR.
+4. Marcar como feito o que o PR entrega, com o número que o `gh pr create` devolveu, num commit só (`docs: mark {slug} as done in PR #N`) enviado para a mesma branch. Entra junto no merge, sem esperar o próximo PR:
+   - `docs/PRD.md`, seção 10: marcar `[x]` nos critérios que o PR cumpre, com a data, a decisão e o PR.
+   - `docs/PRD.md`, tabela da seção 6: status da seção que o PR toca.
+   - `docs/ROADMAP.md`: o item passa a "feito", com o plano e o PR.
+   - `tasks/{slug}.md`, se houver: status `Feito (PR #N)`.
+   Conferir os quatro mesmo quando o PR parece não tocar neles. Se nada mudar, dizer isso no resumo.
 5. Informar a URL. Lembrar que o Lucas faz o merge, sem squash.
 
 Responda sempre em português do Brasil.
