@@ -1,5 +1,15 @@
 import Image from "next/image";
-import { ADDRESS_LINES, HOURS, MAP_SRC, PARKING, ROUTE_HREF, WHATSAPP_HREF } from "@/lib/contact";
+import {
+  ACCESSIBILITY,
+  ADDRESS_LINES,
+  EMAIL,
+  EMAIL_HREF,
+  HOURS,
+  MAP_SRC,
+  PARKING,
+  ROUTE_HREF,
+  WHATSAPP_HREF,
+} from "@/lib/contact";
 
 const STEPS = [
   {
@@ -26,6 +36,26 @@ const QUESTIONS = [
     answer:
       "O valor depende do que você precisa, então só consigo informar depois da avaliação, quando monto seu plano de tratamento.",
   },
+  {
+    question: "Com que frequência devo fazer a limpeza?",
+    answer:
+      "Em geral, de 6 em 6 meses, mas pode ser mais ou menos frequente conforme a saúde da sua gengiva e seus hábitos. Na avaliação eu te oriento.",
+  },
+  {
+    question: "O clareamento estraga o dente?",
+    answer:
+      "Não. Quando bem indicado e acompanhado por uma dentista, é um procedimento seguro e de mínima intervenção.",
+  },
+  {
+    question: "A restauração dói? Preciso de anestesia?",
+    answer:
+      "Cuidamos do seu conforto do começo ao fim. Antes de iniciar, explico cada etapa, e quando necessário usamos anestesia local. Se você tem receio, conversamos antes para que tudo seja feito no seu ritmo.",
+  },
+  {
+    question: "Quanto tempo duram as facetas e as restaurações?",
+    answer:
+      "É algo individualizado, pois varia de paciente para paciente. Depende dos cuidados de higiene e alimentação e do acompanhamento periódico. Com as revisões, cuidamos do seu tratamento juntos, para que ele seja mantido da melhor forma possível.",
+  },
 ];
 
 const LABEL = "tracking-brand text-[0.6875rem] uppercase text-dark-base/70";
@@ -34,8 +64,8 @@ const LINK =
   "inline-flex min-h-11 items-center underline underline-offset-4 pointer-fine:min-h-8 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark-base";
 
 /**
- * Where the visitor learns how to arrive, what the first visit is and the one
- * question everybody asks. Static on purpose: after three scroll-driven
+ * Where the visitor learns how to arrive, what the first visit is and the
+ * questions patients ask most. Static on purpose: after three scroll-driven
  * moments this is where the page rests, like the footer below it.
  */
 export function ContactSection() {
@@ -114,12 +144,19 @@ export function ContactSection() {
                     <dt className={LABEL}>Horário</dt>
                     <dd className="m-0 mt-1">{HOURS}</dd>
                   </div>
+                  <div>
+                    <dt className={LABEL}>Acessibilidade</dt>
+                    <dd className="m-0 mt-1">{ACCESSIBILITY}</dd>
+                  </div>
                 </dl>
               </div>
 
               <div>
                 <h3 className={LABEL}>Primeira consulta</h3>
-                <ol className="m-0 mt-4 flex list-none flex-col gap-5 p-0">
+                <p className="m-0 mt-4 text-[1.0625rem] leading-[1.65] text-dark-base/85">
+                  Dura em média 90 minutos.
+                </p>
+                <ol className="m-0 mt-5 flex list-none flex-col gap-5 p-0">
                   {STEPS.map((step, index) => (
                     <li key={step.title} className="flex gap-4">
                       <span
@@ -158,7 +195,10 @@ export function ContactSection() {
                         −
                       </span>
                     </summary>
-                    <p className="m-0 pb-5 text-[1.0625rem] leading-[1.65] text-dark-base/85">
+                    {/* The answer fades in from just under the question when it opens,
+                        instead of popping in; with reduced motion it only fades. An
+                        ease-out cubic, gentler at the start than the quint. */}
+                    <p className="m-0 pb-5 text-[1.0625rem] leading-[1.65] text-dark-base/85 transition-[opacity,translate] duration-[450ms] ease-[cubic-bezier(0.33,1,0.68,1)] starting:opacity-0 motion-safe:starting:-translate-y-2">
                       {item.answer}
                     </p>
                   </details>
@@ -171,6 +211,12 @@ export function ContactSection() {
               <a href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" className={LINK}>
                 Chamar no WhatsApp
                 <span className="sr-only"> (abre em nova aba)</span>
+              </a>
+            </p>
+            <p className="mt-1 text-[1.0625rem] leading-[1.65]">
+              Ou escreva para{" "}
+              <a href={EMAIL_HREF} className={LINK}>
+                {EMAIL}
               </a>
             </p>
           </div>

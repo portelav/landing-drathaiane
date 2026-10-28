@@ -20,7 +20,7 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 
 - **Celular primeiro (D42).** Cada seção ganha uma versão própria para o celular, com movimento, em vez da versão empilhada e parada. Feito: linha do tempo do Sobre, com a "foto em foco" (`tasks/timeline-portrait.md`). Próximos: band e hero.
 - Seção Serviços (`docs/fdd/servicos.md`), quando o conteúdo chegar.
-- Seção Contato (`docs/fdd/contato.md`): feita em parte (`tasks/contact-section.md`), com endereço e rota, estacionamento, horário, primeira consulta e a pergunta de valor. Falta o que a doutora ainda não mandou: e-mail, duração da consulta, acessibilidade do prédio e as demais perguntas. O link das avaliações está fora até haver mais avaliações (PRD, D39).
+- Seção Contato (`docs/fdd/contato.md`): feita (`tasks/contact-section.md` e `tasks/contact-content.md`), com endereço e rota, estacionamento, horário, acessibilidade, primeira consulta com a duração, cinco perguntas frequentes e o e-mail. O link das avaliações está fora até haver mais avaliações (PRD, D39).
 - Revisão do site inteiro contra as regras de fora, com as respostas que tiverem chegado (PRD, D30); lista do que conferir nas notas privadas.
 - Aval dela no site completo; tirar o `noindex` e completar os metadados de busca: canonical, dados estruturados e sitemap (D22, D41).
 - Barra técnica conferida de novo com as seções novas.

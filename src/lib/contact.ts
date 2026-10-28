@@ -8,6 +8,8 @@ export const PHONE_HREF = "tel:+5582993871990";
 export const WHATSAPP_HREF = "https://wa.me/5582993871990";
 export const INSTAGRAM_HANDLE = "@thaiane_lessa";
 export const INSTAGRAM_HREF = "https://instagram.com/thaiane_lessa";
+export const EMAIL = "dra.thaianelessa@gmail.com";
+export const EMAIL_HREF = `mailto:${EMAIL}`;
 
 /**
  * Where the practice is and when it is open. The office address only, never a
@@ -20,6 +22,7 @@ export const ADDRESS_LINES = [
 export const PARKING =
   "Estacionamento no prédio anexo, com acesso pela lateral, em direção à ladeira do Jacintinho.";
 export const HOURS = "08h às 18h, de segunda a sexta.";
+export const ACCESSIBILITY = "O prédio tem elevador e acesso para cadeirante.";
 
 /** The office, as read off the map by hand: the geocoder does not find the building. */
 export const OFFICE_LATITUDE = -9.648999;
