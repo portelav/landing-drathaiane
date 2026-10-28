@@ -1,6 +1,6 @@
 # Conteúdo do Contato e "clínica geral" no Sobre
 
-**Branch:** `feat/contact-content` · **Status:** Planejado
+**Branch:** `feat/contact-content` · **Status:** Feito (PR #22)
 
 ## Objetivo
 - Pôr no site o que a doutora mandou em 2026-10-27 para o Contato e deixar "clínica geral" visível antes de qualquer área de atuação ou procedimento, também com `prefers-reduced-motion`.
