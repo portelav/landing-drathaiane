@@ -10,6 +10,7 @@ import { BrandMark, MARK_FLIGHT } from "./brand-mark";
 /** Only sections that exist on the page; one joins when its section lands. */
 const NAV_LINKS = [
   { label: "Sobre", href: "#sobre" },
+  { label: "Serviços", href: "#servicos" },
   { label: "Contato", href: "#contato" },
 ];
 
