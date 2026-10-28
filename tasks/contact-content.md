@@ -60,7 +60,7 @@
 
 ## Feito e verificado
 - Arquivos: os seis da lista acima. O comentário do `ContactSection` deixou de falar em "a pergunta".
-- Desvio: nenhum. O e-mail ficou numa linha própria, "Ou escreva para …", embaixo da chamada do WhatsApp.
+- Desvio: animação da resposta do FAQ (450 ms, só `opacity` e `translate`), pedida pelo Lucas; FDD atualizado. O e-mail ficou numa linha própria, "Ou escreva para …", embaixo da chamada do WhatsApp.
 - Critérios 1 a 4: conferidos pelo MCP em 390 px (toque), iPad retrato 810 px e computador 1440 px. 5 perguntas na ordem; duração, acessibilidade e e-mail presentes; `summary` e link do e-mail com 44 px em toque e 32 px com mouse; sem rolagem horizontal.
 - Critério 5: frase no início do Sobre, conferida em 390 px com movimento e no iPad com `prefers-reduced-motion` (texto inteiro, parado).
 - Critério 6: textos dela sem palavra vetada; tokens e cores iguais aos de antes.
