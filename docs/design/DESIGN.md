@@ -119,6 +119,8 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 | Sobre, linha do tempo no celular: foto em foco | scroll (rAF), palco preso por 320svh | proporcional ao scroll, smoothstep; nítida aos 90% | A versão do celular da roda (D42). O desfoque é uma cópia borrada uma vez que some por `opacity`; a rolagem nunca anima o `filter`. Rótulo de 11 px sobre degradê `dark-base/85`, medido em 4,8:1 ou mais com a foto já clara |
 | Vídeo do consultório (hero) | 40% na tela | loop; pausa fora da tela e pelo botão | O consultório vivo na primeira impressão |
 | Vídeo do kit | (fora do site desde 2026-10-12; guardado para reuso) | | |
+| Serviços, lista | toque | `<details name>`, um aberto por vez; o texto entra como as respostas do Contato (450 ms) e o + gira para × (300 ms) | Cinco textos longos cabem numa tela sem esconder os nomes |
+| Serviços, casos | arrastar ou setas | encaixe nativo (`scroll-snap`). No celular, o caso da vez fica aceso e os vizinhos a 50%, com a foto indo de 1,04 a 1 (400 e 700 ms, `ease-out-quint`). Com movimento reduzido, tudo em cor cheia e as setas saltam | O gesto lateral do celular, sem um quarto momento dirigido por scroll. A borda do caso seguinte mostra que há mais |
 | Contato | nenhum | título preso no topo a partir de `lg` (`position: sticky`, sem JS); `<details>` abre sem transição | Segura o título enquanto o texto passa, sem um quarto movimento calculado por scroll |
 | Rodapé: voltar ao topo | clique | 1,8 s, ease-out quart (Lenis); direto com movimento reduzido | A página é longa, e o salto seco desorienta. O resto do rodapé não anima (hover só de opacidade, 300 ms) |
 
@@ -139,6 +141,7 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 | `VideoToggle`, `useLoopWhileVisible` | `src/components/video-toggle.tsx` | botão: pausar ou reproduzir, foco, hover; ausente com movimento reduzido ou antes de o vídeo tocar |
 | `About`, `AboutText`, `AboutTimeline` | `src/components/about*.tsx` | `beside:` (lado a lado, por scroll) ou empilhado; movimento reduzido |
 | `SmoothScroll` | `src/components/smooth-scroll.tsx` | ligado no computador; desligado no toque e com movimento reduzido |
+| `ServicesSection`, `ServicesCases` | `src/components/services-*.tsx` | serviço aberto ou fechado; caso da vez aceso; seta desativada na ponta |
 | `ContactSection` | `src/components/contact-section.tsx` | estático; destino de `#contato`; pergunta aberta ou fechada (`<details>`) |
 | `Footer` | `src/components/footer.tsx` | estático; faixa baixa alinhada à seção Contato: identificação, telefone, Instagram, voltar ao topo e direitos |
 | `NotFound` | `src/app/not-found.tsx` | estático; tema claro; monograma, título na tipografia do hero e link de volta ao início |
