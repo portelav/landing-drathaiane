@@ -1,7 +1,7 @@
 # FDD: Seção Contato e rodapé
 
-Status: rodapé implementado (Fase 1); seção Contato implementada, aguardando conferência (Fase 2); faltam e-mail, duração, acessibilidade do prédio e demais perguntas
-PRD: seção 6, item Contato e rodapé; D26, D27 e D32 a D34 e D40; ADR 0005
+Status: rodapé implementado (Fase 1); seção Contato implementada (Fase 2), com o conteúdo completo desde 2026-10-27
+PRD: seção 6, item Contato e rodapé; D26, D27, D32 a D34, D40 e D43; ADR 0005
 Plano da seção: `tasks/contact-section.md`
 Plano do rodapé: `tasks/footer-and-menu-anchors.md`
 
@@ -79,12 +79,10 @@ Verificáveis em 390 px, iPad retrato e computador:
 
 O texto vem dela, sem mudança de sentido. Endereço, estacionamento, horário e rota ficam em `src/lib/contact.ts`; este doc descreve o campo, não repete o dado.
 
-- Como chegar: endereço do consultório, mapa estático do Mapbox com o pino (ADR 0005, D40) que abre a rota no Maps, estacionamento e horário. Sem token, cai no link de rota em texto.
-- Primeira consulta: quatro etapas numeradas (conversa e orientação de higiene oral, limpeza, avaliação, planejamento), em poucas linhas cada (D32).
-- Perguntas frequentes: por ora a de valor, com a resposta dela (D32). Sem número, faixa nem forma de pagamento (D29).
-- WhatsApp, o mesmo destino do header e do rodapé.
-
-> TODO: e-mail (sim ou não), duração da consulta, acessibilidade do prédio e as demais perguntas e respostas. A doutora ainda não mandou; não bloqueia a seção.
+- Como chegar: endereço do consultório, mapa estático do Mapbox com o pino (ADR 0005, D40) que abre a rota no Maps, estacionamento, horário e acessibilidade do prédio. Sem token, cai no link de rota em texto.
+- Primeira consulta: a duração média, e quatro etapas numeradas (conversa e orientação de higiene oral, limpeza, avaliação, planejamento), em poucas linhas cada (D32).
+- Perguntas frequentes: a de valor primeiro (D32), sem número, faixa nem forma de pagamento (D29); depois quatro dela, sobre limpeza, clareamento, restauração e duração dos tratamentos. A que ela mandou sobre a primeira consulta fica fora, porque repete as etapas (D43).
+- WhatsApp, o mesmo destino do header e do rodapé, e embaixo o e-mail, como link `mailto:`. O e-mail fica só aqui, fora do rodapé (D43).
 
 Fora por decisão do Lucas (2026-10-11): link do perfil e das avaliações do Google, até haver mais avaliações (D33 parada, D39).
 
@@ -93,7 +91,7 @@ Fora por decisão do Lucas (2026-10-11): link do perfil e das avaliações do Go
 - `<section id="contato">` depois da linha do tempo do Sobre, em `light-base`, com `data-header-theme="light"`. Server Component, sem JavaScript no cliente. Assume a âncora `#contato`; o rodapé deixa de ter `id` (D26).
 - `h2` "Contato" em Instrument Serif; três blocos com `h3` em rótulo de caixa-alta: Como chegar, Primeira consulta, Perguntas frequentes.
 - Primeira consulta é uma `<ol>`; cada etapa tem título curto e uma frase dela.
-- A pergunta é um `<details>`/`<summary>` nativo: teclado, foco e leitor de tela já vêm do navegador. Fechada por padrão.
+- Cada pergunta é um `<details>`/`<summary>` nativo: teclado, foco e leitor de tela já vêm do navegador. Fechadas por padrão.
 - Celular e iPad retrato: o título vem em cima e os blocos abaixo, em uma coluna (celular) ou duas lado a lado (a partir de `sm`). A partir de `lg`: título à esquerda, preso no topo da tela (`position: sticky`, sem JavaScript), e os blocos empilhados à direita; o título solta quando o texto acaba. Breakpoint em pixel, porque a seção não depende de foto nem de vídeo. No celular o título não prende: duas linhas grandes no topo comeriam a tela.
 - O mapa é um link: tocar abre o Maps, em nova aba (`rel="noopener noreferrer"`), na mesma coordenada do pino. A imagem passa pelo `next/image`, então o navegador não fala com o Mapbox. A chamada do WhatsApp abre em nova aba.
 
@@ -108,7 +106,7 @@ O título preso a partir de `lg` é posição, não animação: nada se move soz
 3. Endereço do consultório, nunca o de casa (D34).
 4. Nenhuma avaliação, nome ou foto de paciente na página (CEO art. 44, VI).
 5. Pergunta sobre valor sem número, faixa, "a partir de" ou forma de pagamento (D29, D32). Nada de "gratuito" ou "sem compromisso" (CEO art. 20, IX). A palavra "valor" só vale na pergunta que recusa o preço (DESIGN.md, seção 8).
-6. Primeira consulta e perguntas frequentes sem promessa de resultado (Res. CFO-196/2019, art. 2º, § 1º) e sem nomear área de atuação (CEO art. 43, § 1º, I).
+6. Primeira consulta e perguntas frequentes sem promessa de resultado (Res. CFO-196/2019, art. 2º, § 1º). As perguntas citam procedimentos, o que só vale depois de "clínica geral" enquanto não houver especialidade registrada (CEO art. 43, § 1º, I): a menção fixa está na primeira frase do Sobre, antes desta seção (D43).
 
 ### Acessibilidade
 
@@ -126,12 +124,12 @@ Mapa estático (ADR 0005, D40): sem script e sem cookie de terceiro no navegador
 
 Verificáveis em 390 px, iPad retrato e computador:
 
-- [ ] `#contato` mostra endereço, link de rota, estacionamento, horário, as 4 etapas e a pergunta de valor, sem texto cortado nem rolagem horizontal.
+- [ ] `#contato` mostra endereço, link de rota, estacionamento, horário, acessibilidade, a duração, as 4 etapas, as 5 perguntas e o e-mail, sem texto cortado nem rolagem horizontal.
 - [ ] O mapa mostra o pino no consultório e abre a rota no Maps, em nova aba. Sem o token, aparece o link de rota em texto.
 - [ ] A resposta sobre valor é idêntica ao texto dela; nenhum número, faixa, "a partir de" nem forma de pagamento.
 - [ ] "Contato" no menu leva à seção (computador com Lenis e celular) e o header inverte o tema certo.
 - [ ] O rodapé vem logo depois, com a identificação intacta e sem `id="contato"`.
-- [ ] A pergunta abre e fecha por teclado (Enter e espaço), com foco visível.
+- [ ] Cada pergunta abre e fecha por teclado (Enter e espaço), com foco visível.
 - [ ] Todo texto passa em 4,5:1; toque de 44 px.
 - [ ] Nada se move; com `prefers-reduced-motion` fica igual.
 
