@@ -12,8 +12,6 @@ const WHATSAPP_MESSAGE =
 export const WHATSAPP_HREF = `https://wa.me/5582996610348?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 export const INSTAGRAM_HANDLE = "@thaiane_lessa";
 export const INSTAGRAM_HREF = "https://instagram.com/thaiane_lessa";
-export const EMAIL = "dra.thaianelessa@gmail.com";
-export const EMAIL_HREF = `mailto:${EMAIL}`;
 
 /**
  * Where the practice is and when it is open. The office address only, never a
