@@ -3,6 +3,7 @@ import { About } from "@/components/about";
 import { AboutText } from "@/components/about-text";
 import { AboutTimeline } from "@/components/about-timeline";
 import { ContactSection } from "@/components/contact-section";
+import { ServicesSection } from "@/components/services-section";
 import { Hero } from "@/components/hero";
 import { Preloader } from "@/components/preloader";
 import { HERO_POSTER } from "@/lib/media";
@@ -20,6 +21,7 @@ export default function Home() {
         <About />
         <AboutText />
         <AboutTimeline />
+        <ServicesSection />
         <ContactSection />
       </main>
     </>
