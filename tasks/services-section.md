@@ -2,7 +2,7 @@
 
 **Branch:** `feat/services-section` · **Status:** Planejado
 
-> **Pergunta aberta (bloqueia o `/exec`):** forma e movimento no celular. Antes do código, 2 ou 3 protótipos lado a lado num artifact privado, em 390 px. Proposta de partida: lista dos 5 serviços que abre um por vez + casos num carrossel horizontal com encaixe nativo (`scroll-snap`), sem um quarto momento dirigido por scroll (FDD, "Movimento"). Alternativa: foto presa que troca conforme se rola pelos casos. O Lucas escolhe vendo.
+> **Decidido (2026-10-28):** opção A dos protótipos (11 opções em 3 rodadas): lista dos 5 serviços que abre um por vez (`<details name>`) + casos num carrossel horizontal com encaixe nativo (`scroll-snap`), caso da vez aceso e vizinhos a 50%, contagem "01 / 05", barrinhas e setas de 44 px. Sem um quarto momento dirigido por scroll. A Dra. Thaiane escolheu.
 
 ## Objetivo
 - O visitante entende o que ela trata, se reconhece em pelo menos um caso (estética ou restauradora) e chama no WhatsApp.
@@ -43,7 +43,7 @@
 - `docs/fdd/servicos.md`, `docs/PRD.md` (D44, tabela da seção 6), `docs/ROADMAP.md`, `docs/design/DESIGN.md` (seções 6 e 7).
 
 ## Checklist (até 10, em ordem)
-1. [ ] Protótipos de forma e movimento em 390 px num artifact privado; o Lucas escolhe.
+1. [x] Protótipos de forma e movimento em 390 px num artifact privado; escolhida a opção A.
 2. [ ] FDD `servicos.md`: comportamento, movimento, acessibilidade, desempenho e critérios, a partir da escolha.
 3. [ ] Gerar os 5 WebP: linha de nome e CRO gravada, metadado removido, tamanho conferido.
 4. [ ] `src/lib/services.ts` com o texto dela, literal.
@@ -57,4 +57,18 @@
 ---
 
 ## Feito e verificado
-<!-- Escrito pelo /exec. -->
+
+**Arquivos:** `src/lib/services.ts`, `src/components/services-section.tsx`, `src/components/services-cases.tsx` (cliente, só o carrossel), `src/app/page.tsx`, `src/components/header.tsx`, `public/images/servicos/caso-{1..5}.webp`, `docs/fdd/servicos.md`, `docs/PRD.md` (D44), `docs/ROADMAP.md`, `docs/design/DESIGN.md`.
+
+**Desvios:** a seção não tem rótulo acima do título, só "Serviços": a frase de título do Contato veio dela, e Serviços não tem uma. As fotos foram geradas por um script de `sharp` (texto em Arial sobre faixa `dark-base` a 78%), que ficou fora do repositório. O cartão ficou com 20rem a partir de `lg`, para a borda do terceiro aparecer no computador. O item 7 achou um bug: com movimento reduzido os vizinhos seguiam a 50%; foi corrigido com `motion-safe:`.
+
+**Critérios:**
+1. Em 390 × 844, 375 × 667, 820 × 1180 e 1440 × 900, pelo MCP: `scrollWidth` igual à largura, sem corte.
+2. Textos copiados da pauta para `services.ts` e conferidos no snapshot de acessibilidade.
+3. A faixa se lê em 390 px (print); `ffprobe` não mostra tag nenhuma.
+4. O link do menu leva a `#servicos` (topo da seção em 0). Header claro.
+5. A lista é exclusiva (abrir "Restaurações" fecha "Limpeza"); setas e resumo com 44 e 56 px; `alt` nas 5 fotos; lista com rótulo.
+6. Com movimento reduzido via CDP: opacidade 1 e `transform: none` em todos os casos.
+7. Legenda e serviços 13,82:1, rótulos 8,09:1.
+8. Nenhuma palavra vetada pelo CFO. Pelo tom, um ponto: o clareamento diz "o melhor método para o seu caso", texto dela, sobre a escolha do método e sem promessa de resultado. Ficou como veio.
+9. Lint e typecheck verdes. Build e Lighthouse ficam para antes do PR.
