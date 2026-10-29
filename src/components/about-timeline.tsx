@@ -330,6 +330,7 @@ export function AboutTimeline() {
     <section
       ref={wrapRef}
       data-header-theme="light"
+      data-header-hold
       className="relative bg-light-base text-dark-base beside:h-[380svh] motion-reduce:beside:h-auto"
     >
       {/* The phone stage: the photo fills the screen, out of focus and dim,
