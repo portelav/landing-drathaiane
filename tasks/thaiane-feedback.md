@@ -1,6 +1,6 @@
 # Ajustes da Thaiane (2026-10-28)
 
-**Branch:** `feat/thaiane-feedback` · **Status:** Em execução
+**Branch:** `feat/thaiane-feedback` · **Status:** Feito (PR #25)
 
 ## Objetivo
 - Aplicar a primeira rodada de considerações dela sobre o site: mensagem pronta no WhatsApp, chamadas, e-mail fora, travessões fora, texto novo do Sobre e número da clínica.
