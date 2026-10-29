@@ -132,7 +132,7 @@ Só depende do Lucas. O site continua com `noindex`.
 Depende do conteúdo e do aval dela (D24).
 
 - [x] Serviços e Contato com o conteúdo real dela. Contato completo em 2026-10-27 (D32, D34, D39, D43; PR #22) e Serviços em 2026-10-28 (D44; PR #23). Primeira leitura dela aplicada em 2026-10-28: número da clínica, mensagem pronta, e-mail fora e Sobre novo (D45; PR #25).
-- [ ] Site inteiro revisto de novo contra as regras de fora; o que não passou mudou ou saiu (D30).
+- [x] Site inteiro revisto de novo contra as regras de fora; o que não passou mudou ou saiu (D30). Feito em 2026-10-29.
 - [ ] Aval dela no site completo, com o texto do rodapé.
 - [ ] `noindex` fora, com canonical, dados estruturados e sitemap. A prévia de link já saiu na Fase 1 (D41).
 - [ ] Barra técnica da Fase 1 conferida de novo com as seções novas.
