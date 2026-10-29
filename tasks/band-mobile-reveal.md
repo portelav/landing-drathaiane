@@ -65,12 +65,12 @@
 - **Desvio:** a cortina única do plano foi trocada pela chegada que segue o dedo, depois do teste no iPhone (rápida demais e com um bloco creme depois do vídeo). A conferência por CDP abaixo foi feita na versão com cortina; a versão final foi conferida no iPhone do Lucas ("ficou bom"), porque o Chrome do MCP estava ocupado pelo outro chat.
 - **Conferido por CDP:**
   1. 390 × 844 e 375 × 667: parede sem emenda com o topo da foto (capturas), sem rolagem horizontal (`scrollWidth` igual à largura).
-  2. Versão com cortina: armava abaixo da tela e terminava no estado final. Versão final: conferida no iPhone.
+  2. Versão final, 390 × 844, topo da band a 100%, 70%, 40%, 0% e -30% da tela: rótulo 0 / 0,72 / 1, citação 0 / 0,41 / 1, foto 1,08 até 1; voltando a 70%, os mesmos valores (acompanha nos dois sentidos).
   3. Contraste do `dark-base` sobre a parede: 6,61:1 no ponto mais escuro e 7,26:1 no mais claro.
-  4. Movimento reduzido emulado (versão com cortina): estado final. Na versão final, o efeito sai antes de escrever estilo quando `prefers-reduced-motion` casa; reconferir por CDP antes do PR.
-  5. `/#sobre` (versão com cortina): band no topo, aberta. Reconferir na versão final antes do PR.
-  6. iPad 820 × 1180: bloco de 544 px (34rem), centralizado, 995 px de altura, menor que a tela. 1440 × 900: a band cresce e abre como antes (largura de 594 a 1369 px com o scroll).
+  4. Movimento reduzido emulado (versão final, 375 × 667): nenhum estilo inline, rótulo e citação em opacidade 1, foto sem escala, inclusive depois de rolar.
+  5. `/#sobre`: band no topo, no estado final.
+  6. iPad 820 × 1180: bloco de 544 px (34rem), centralizado, 995 px de altura, menor que a tela. 1440 × 900: a band cresce e abre como antes (largura de 594 a 1369 px com o scroll); a versão final não escreve estilo nenhum no rótulo, na citação nem na foto.
   7. Só `transform` e `opacity` mudam; o `sizes` ganhou `(min-width: 40rem) 34rem`.
   8. As duas frases sem travessão; o `grep` de "—" no texto visível só acha o `about-text.tsx` (outro chat).
-  9. Lint e typecheck verdes. Build e Lighthouse ficam para antes do PR.
-- **Falta:** reconferir por CDP a versão final (movimento reduzido, `/#sobre`, 1440) antes do PR; ela ver a band.
+  9. Lint, typecheck e build verdes (depois do merge da main).
+- **Falta:** Lighthouse no celular (critério 8), que fica para a barra técnica da Fase 2 com as seções novas; ela ver a band.
