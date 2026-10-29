@@ -43,7 +43,7 @@ export function ServicesSection() {
                   key={service.title}
                   name="services"
                   open={index === 0}
-                  className="group border-b border-dark-10"
+                  className="group border-b border-dark-10 open:details-content:animate-details-in motion-safe:[--details-in-y:-0.5rem]"
                 >
                   <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-3 font-display text-[1.5rem] leading-[1.15] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark-base [&::-webkit-details-marker]:hidden">
                     {service.title}
@@ -53,7 +53,7 @@ export function ServicesSection() {
                     />
                   </summary>
                   {/* Same entrance as the FAQ answers in Contato. */}
-                  <p className="m-0 pb-5 text-[1.0625rem] leading-[1.65] text-dark-base/85 transition-[opacity,translate] duration-[450ms] ease-[cubic-bezier(0.33,1,0.68,1)] starting:opacity-0 motion-safe:starting:-translate-y-2">
+                  <p className="m-0 pb-5 text-[1.0625rem] leading-[1.65] text-dark-base/85">
                     {service.text}
                   </p>
                 </details>

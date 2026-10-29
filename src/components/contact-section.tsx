@@ -177,7 +177,10 @@ export function ContactSection() {
               <h3 className={LABEL}>Perguntas frequentes</h3>
               <div className="mt-2 border-t border-dark-10">
                 {QUESTIONS.map((item) => (
-                  <details key={item.question} className="group border-b border-dark-10">
+                  <details
+                    key={item.question}
+                    className="group border-b border-dark-10 open:details-content:animate-details-in motion-safe:[--details-in-y:-0.5rem]"
+                  >
                     <summary className="flex min-h-11 cursor-pointer items-center justify-between gap-4 py-3 text-[1.0625rem] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark-base">
                       {item.question}
                       <span
@@ -196,7 +199,7 @@ export function ContactSection() {
                     {/* The answer fades in from just under the question when it opens,
                         instead of popping in; with reduced motion it only fades. An
                         ease-out cubic, gentler at the start than the quint. */}
-                    <p className="m-0 pb-5 text-[1.0625rem] leading-[1.65] text-dark-base/85 transition-[opacity,translate] duration-[450ms] ease-[cubic-bezier(0.33,1,0.68,1)] starting:opacity-0 motion-safe:starting:-translate-y-2">
+                    <p className="m-0 pb-5 text-[1.0625rem] leading-[1.65] text-dark-base/85">
                       {item.answer}
                     </p>
                   </details>
