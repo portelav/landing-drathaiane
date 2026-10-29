@@ -44,10 +44,9 @@ Tokens em `src/app/globals.css`, expostos ao Tailwind por `@theme inline`.
 | `dark-base` | `#1a1a18` | Texto principal, fundos escuros |
 | `dark-40`, `dark-10` | 40%, 10% | Traços, divisórias |
 | `light-15` | `#f4f2ee` a 15% | Traços sobre fundo escuro |
-| `forest-900` | `#163000` | Verde original da marca; monograma do rodapé |
+| `forest-900` | `#163000` | Verde original da marca; monograma do rodapé; fundo dos ícones de WhatsApp e Instagram no header (sobre seção escura, o par se inverte: `light-base` com o símbolo em `forest-900`) |
 | `forest-700`, `500`, `300` | `#2e4718`, `#4a6330`, `#5a7440` | Anos da linha do tempo, fundos de destaque |
 | `wine-700`, `500`, `300` | `#661028`, `#8e1a3c`, `#b02b58` | Acento da marca |
-| `whatsapp`, `instagram` | valores oficiais | Só nos ícones dessas marcas |
 | `background` | `#ffffff` | Fundo da página |
 
 ### Texto secundário
