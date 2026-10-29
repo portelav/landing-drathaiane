@@ -1,6 +1,6 @@
 # Band no celular: chegada com o scroll (e travessões)
 
-**Branch:** `feat/mobile-hero-band` · **Status:** Em execução
+**Branch:** `feat/mobile-hero-band` · **Status:** Feito (PR #26)
 
 ## Objetivo
 - Dar à band (Sobre, Tempo 1) uma versão própria no celular em pé (D42), no lugar da foto 3:4 com a frase embaixo, parada.

@@ -40,8 +40,8 @@ Seções em ordem na página.
 |---|---|---|---|
 | Preloader | Abrir com a marca: monograma desenhado que voa para o header | (anterior ao kickoff) | pronto |
 | Header | Navegação e contato direto (WhatsApp, Instagram) sempre à mão | (anterior ao kickoff) | pronto |
-| Hero | Primeira impressão: o consultório e o nome | [`docs/fdd/hero.md`](fdd/hero.md) | pronto |
-| Sobre | Quem ela é, como trabalha, credenciais com datas | [`docs/fdd/sobre.md`](fdd/sobre.md) | pronto; texto novo dela (2026-10-28, D45) |
+| Hero | Primeira impressão: o consultório e o nome | [`docs/fdd/hero.md`](fdd/hero.md) | pronto; versão do celular mantida como está (2026-10-28, D47; PR #26) |
+| Sobre | Quem ela é, como trabalha, credenciais com datas | [`docs/fdd/sobre.md`](fdd/sobre.md) | pronto; texto novo dela (2026-10-28, D45); band no celular com chegada que segue a rolagem (2026-10-28, D46; PR #26) |
 | Serviços | O que ela trata, para os dois públicos, e cinco casos dela com foto | [`docs/fdd/servicos.md`](fdd/servicos.md) | feito (2026-10-28, D44); botão "Agende aqui um horário" (D45) |
 | Depoimentos | Prova social | [`docs/fdd/depoimentos.md`](fdd/depoimentos.md) | fora por enquanto, sai do site e do menu (D25) |
 | Contato e rodapé | Como chegar (endereço do consultório e rota), horários, primeira consulta, perguntas frequentes, WhatsApp (D32 a D34; link das avaliações fora, D39); identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | pronto: rodapé com a identificação e os canais (D26); seção Contato completa (2026-10-27, D43); número da clínica, mensagem pronta no WhatsApp e e-mail fora (2026-10-28, D45) |
