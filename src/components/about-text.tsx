@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
+import { getLenis } from "./smooth-scroll";
 
 const STILLNESS = "(prefers-reduced-motion: reduce)";
 
@@ -140,10 +141,56 @@ function Word({ children, line }: { children: string; line: number }) {
   );
 }
 
+/**
+ * On a phone the column opens with the first paragraph only; the rest waits
+ * behind "Leia mais", which then sits under the text as "Leia menos". Closing
+ * pulls the text out from above the button, so the page is shifted back by
+ * the same amount: the button stays under the finger with the first paragraph
+ * right above it, instead of the reader landing in the middle of the next
+ * section. Browsers with scroll anchoring have often done this already, hence
+ * the measured correction rather than a fixed one.
+ */
+function useReadMore() {
+  const [expanded, setExpanded] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const restRef = useRef<HTMLParagraphElement>(null);
+  const toggleTop = useRef<number | null>(null);
+
+  const toggle = () => {
+    if (expanded) toggleTop.current = toggleRef.current?.getBoundingClientRect().top ?? null;
+    setExpanded(!expanded);
+  };
+
+  useLayoutEffect(() => {
+    if (expanded) {
+      // A screen reader continues from the text that just opened, not from
+      // the button that moved below it.
+      restRef.current?.focus({ preventScroll: true });
+      return;
+    }
+
+    const before = toggleTop.current;
+    toggleTop.current = null;
+    const button = toggleRef.current;
+    if (before === null || !button) return;
+
+    const shift = button.getBoundingClientRect().top - before;
+    if (Math.abs(shift) < 1) return;
+
+    const top = window.scrollY + shift;
+    const lenis = getLenis();
+    if (lenis) lenis.scrollTo(top, { immediate: true, force: true });
+    else window.scrollTo({ top, behavior: "instant" });
+  }, [expanded]);
+
+  return { expanded, toggle, toggleRef, restRef };
+}
+
 export function AboutText() {
   const reduce = useStillness();
   const columnRef = useRef<HTMLDivElement>(null);
   const lines = useLineIndices(columnRef, !reduce);
+  const { expanded, toggle, toggleRef, restRef } = useReadMore();
 
   // Running index across every block, so `lines` can stay one flat list. Each
   // block's delays count from its own first line, because each block waits for
@@ -203,7 +250,16 @@ export function AboutText() {
               here would compete with the large portrait directly above it. */}
           <div className="mt-10 flex max-w-[60ch] flex-col gap-6 text-[1.0625rem] leading-[1.65] text-dark-base/85 sm:mt-12 sm:gap-7">
             {paragraphs.map((words, index) => (
-              <motion.p key={index} {...reveal}>
+              <motion.p
+                key={index}
+                {...reveal}
+                id={index > 0 ? `about-more-${index}` : undefined}
+                ref={index === 1 ? restRef : undefined}
+                tabIndex={index === 1 ? -1 : undefined}
+                // Hidden paragraphs never meet the viewport, so their line
+                // reveal waits and plays the first time they open.
+                className={`focus:outline-none ${index > 0 && !expanded ? "max-sm:hidden" : ""}`}
+              >
                 {reduce
                   ? PARAGRAPHS[index]
                   : words.map((item) => (
@@ -213,6 +269,18 @@ export function AboutText() {
                     ))}
               </motion.p>
             ))}
+            <button
+              ref={toggleRef}
+              type="button"
+              onClick={toggle}
+              aria-expanded={expanded}
+              aria-controls={PARAGRAPHS.slice(1)
+                .map((_, index) => `about-more-${index + 1}`)
+                .join(" ")}
+              className="-mt-2 inline-flex min-h-11 cursor-pointer items-center self-start text-[0.9375rem] text-dark-base/70 underline decoration-dark-10 underline-offset-4 hover:text-dark-base hover:decoration-current focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark-base sm:hidden"
+            >
+              {expanded ? "Leia menos" : "Leia mais"}
+            </button>
           </div>
         </div>
       </div>

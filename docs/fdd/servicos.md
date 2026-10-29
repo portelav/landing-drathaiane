@@ -20,15 +20,16 @@ O visitante entende o que a doutora trata, se reconhece em pelo menos um dos cas
 
 - **Celular (primeiro):** título "Serviços"; lista dos serviços; "Casos" com a contagem "01 / 05"; carrossel; barrinhas e setas; link para o WhatsApp.
 - **Lista:** `<details name="services">`, um aberto por vez, o primeiro aberto na chegada. Toque de 56 px no nome.
-- **Carrossel:** `<ul>` com rolagem lateral e `scroll-snap`. Cartão de 84% da largura no celular, de 22rem a partir de `sm` e de 20rem a partir de `lg`, para a borda do seguinte sempre aparecer. O caso da vez é o mais perto da linha de encaixe; no fim da rolagem, o último, que não chega à linha. Setas de 44 px, desativadas nas pontas.
+- **Carrossel:** `<ul>` com rolagem lateral e `scroll-snap` no centro. Cartão de 84vw no celular, de 22rem a partir de `sm` e de 20rem a partir de `lg`, para as bordas dos vizinhos sempre aparecerem. O caso da vez fica no meio (D48). Antes o encaixe era no início, e no iPad e no computador os dois últimos nunca chegavam à linha: na última foto, a seta para trás não tinha para onde ir. Tocar num vizinho o traz para o meio.
+- **Em laço** (D48): a pista tem três sequências dos cinco casos e começa na do meio, então à esquerda do primeiro já está o último. Quando a rolagem para (140 ms sem evento) numa sequência de fora, a pista salta sem animação para o mesmo caso na do meio. Todas as cópias do caso da vez ficam acesas, então o salto não troca nada na tela. As cópias ficam fora do leitor de tela (`aria-hidden`, `alt` vazio). Setas de 44 px, sem ponta. Cada clique conta a partir de para onde a pista já está indo, não do caso mais perto: no meio do deslize o mais perto ainda é o de partida, e um segundo clique rápido se perdia.
 - **A partir de `lg`:** a mesma moldura do Contato: título preso à esquerda (`sticky`, sem JS), lista e carrossel à direita.
 
 ## Movimento
 
 Nenhum movimento dirigido por scroll: a seção não é o quarto momento depois de hero, band e roda.
 
-- Lista: o texto entra como as respostas do Contato (450 ms, de baixo, por `@starting-style`); o + gira para × (300 ms).
-- Carrossel: o gesto é do aparelho. No celular, o caso da vez fica aceso e os vizinhos a 50%, com a foto de 1,04 a 1 (400 e 700 ms, `ease-out-quint`). Só `opacity` e `transform`.
+- Lista: o texto entra como as respostas do Contato (450 ms, de baixo, a cada abertura, pelo `animate-details-in` no `::details-content`); o + gira para × (300 ms).
+- Carrossel: o gesto é do aparelho. Em todas as larguras, o caso da vez fica aceso e os vizinhos a 50%, com a foto de 1,04 a 1 (400 e 700 ms, `ease-out-quint`). Só `opacity` e `transform`.
 - Com `prefers-reduced-motion`: todos os casos em cor cheia, sem zoom, e as setas saltam em vez de deslizar. Nada se mexe sozinho.
 
 ## Regras
@@ -49,7 +50,7 @@ Nenhum movimento dirigido por scroll: a seção não é o quarto momento depois 
 ## Desempenho
 
 - Fotos por `next/image`, com carregamento preguiçoso e `sizes` por largura do cartão. Os WebP de origem têm de 26 a 83 KB.
-- O único JS novo é o do carrossel: um ouvinte de `scroll` passivo que acha o caso da vez.
+- O único JS novo é o do carrossel: um ouvinte de `scroll` passivo que acha o caso da vez e, depois de 140 ms sem rolagem (ou no `scrollend`, onde chega), faz o salto do laço; e um de `resize` que recentraliza o caso da vez.
 
 ## Fora de escopo
 

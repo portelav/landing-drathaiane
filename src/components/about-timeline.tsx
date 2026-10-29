@@ -61,10 +61,11 @@ const YEAR_FLOOR = 0.6;
 
 /**
  * The trajectory arrives at her: the photo opens as the wheel turns and is
- * whole by the time 2026 comes to rest. A slice already shows at 2019, so the
- * right side of the stage is never an empty panel.
+ * whole by the time 2026 comes to rest. It arrives fully covered and starts
+ * to open only once the years start turning: a slice showing at 2019 read as
+ * the top of her head waiting there before anything moved.
  */
-const PHOTO_SHOWN = 0.15;
+const PHOTO_SHOWN = 0;
 /** Progress at which the photo is fully open, just before 2026's plateau. */
 const PHOTO_FULL = 0.9;
 /** The photo settles from this zoom to 1 while it opens. */
@@ -330,6 +331,7 @@ export function AboutTimeline() {
     <section
       ref={wrapRef}
       data-header-theme="light"
+      data-header-hold
       className="relative bg-light-base text-dark-base beside:h-[380svh] motion-reduce:beside:h-auto"
     >
       {/* The phone stage: the photo fills the screen, out of focus and dim,

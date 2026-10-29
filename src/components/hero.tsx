@@ -224,6 +224,7 @@ export function Hero() {
     <section
       ref={wrapRef}
       data-header-theme={skin.headerTheme}
+      data-header-hold
       className={`relative ${skin.section} wide:h-[300svh] motion-reduce:wide:h-auto`}
     >
       <div className="flex min-h-[100svh] flex-col wide:sticky wide:top-0 wide:block wide:h-[100svh] wide:overflow-hidden">

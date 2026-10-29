@@ -6,8 +6,8 @@ import {
   MAP_SRC,
   PARKING,
   ROUTE_HREF,
-  WHATSAPP_HREF,
 } from "@/lib/contact";
+import { CallLink } from "./call-link";
 
 const STEPS = [
   {
@@ -85,12 +85,45 @@ export function ContactSection() {
               id="contact-title"
               className="mt-6 max-w-[16ch] font-display text-[clamp(2.25rem,4.6vw,3.75rem)] font-normal leading-[1.06]"
             >
-              Como chegar e o que esperar
+              O que esperar e como chegar
             </h2>
           </div>
 
           <div className="mt-12 lg:mt-0">
             <div className="grid gap-14 sm:grid-cols-2 sm:gap-12 lg:grid-cols-1">
+              <div>
+                <h3 className={LABEL}>Primeira consulta</h3>
+                {/* The kit she hands over at this visit. Edge to edge on a phone,
+                    like the cases; from `sm` held to a column a tall photo can
+                    share with the steps, and from `lg`, where the column is
+                    wide, set beside them like the band's photo and text. */}
+                <div className="mt-5 lg:grid lg:grid-cols-[18rem_minmax(0,1fr)] lg:items-start lg:gap-10">
+                  <Image
+                    src="/images/primeira-consulta.webp"
+                    alt="Sacolas da Dra. Thaiane Lessa com escova e itens de higiene, prontas para a primeira consulta."
+                    width={1200}
+                    height={1600}
+                    sizes="(min-width: 1024px) 18rem, (min-width: 640px) 22rem, 100vw"
+                    className="block h-auto w-[calc(100%+3rem)] max-w-none -mx-6 sm:mx-0 sm:w-full sm:max-w-[22rem] lg:max-w-none"
+                  />
+                  <ol className="m-0 mt-6 flex list-none flex-col gap-5 p-0 lg:mt-0">
+                    {STEPS.map((step, index) => (
+                      <li key={step.title} className="flex gap-4">
+                        <span
+                          aria-hidden
+                          className="w-6 shrink-0 font-display text-2xl leading-none tabular-nums text-forest-700"
+                        >
+                          {index + 1}
+                        </span>
+                        <p className="m-0 text-[1.0625rem] leading-[1.65] text-dark-base/85">
+                          <strong className="font-medium text-dark-base">{step.title}.</strong>{" "}
+                          {step.text}
+                        </p>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </div>
               <div>
                 <h3 className={LABEL}>Como chegar</h3>
                 <address className="mt-4 text-[1.0625rem] not-italic leading-[1.65] text-dark-base/85">
@@ -148,36 +181,16 @@ export function ContactSection() {
                   </div>
                 </dl>
               </div>
-
-              <div>
-                <h3 className={LABEL}>Primeira consulta</h3>
-                <p className="m-0 mt-4 text-[1.0625rem] leading-[1.65] text-dark-base/85">
-                  Dura em média 90 minutos.
-                </p>
-                <ol className="m-0 mt-5 flex list-none flex-col gap-5 p-0">
-                  {STEPS.map((step, index) => (
-                    <li key={step.title} className="flex gap-4">
-                      <span
-                        aria-hidden
-                        className="w-6 shrink-0 font-display text-2xl leading-none tabular-nums text-forest-700"
-                      >
-                        {index + 1}
-                      </span>
-                      <p className="m-0 text-[1.0625rem] leading-[1.65] text-dark-base/85">
-                        <strong className="font-medium text-dark-base">{step.title}.</strong>{" "}
-                        {step.text}
-                      </p>
-                    </li>
-                  ))}
-                </ol>
-              </div>
             </div>
 
             <div className="mt-14 max-w-[60ch]">
               <h3 className={LABEL}>Perguntas frequentes</h3>
               <div className="mt-2 border-t border-dark-10">
                 {QUESTIONS.map((item) => (
-                  <details key={item.question} className="group border-b border-dark-10">
+                  <details
+                    key={item.question}
+                    className="group border-b border-dark-10 open:details-content:animate-details-in motion-safe:[--details-in-y:-0.5rem]"
+                  >
                     <summary className="flex min-h-11 cursor-pointer items-center justify-between gap-4 py-3 text-[1.0625rem] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark-base">
                       {item.question}
                       <span
@@ -196,7 +209,7 @@ export function ContactSection() {
                     {/* The answer fades in from just under the question when it opens,
                         instead of popping in; with reduced motion it only fades. An
                         ease-out cubic, gentler at the start than the quint. */}
-                    <p className="m-0 pb-5 text-[1.0625rem] leading-[1.65] text-dark-base/85 transition-[opacity,translate] duration-[450ms] ease-[cubic-bezier(0.33,1,0.68,1)] starting:opacity-0 motion-safe:starting:-translate-y-2">
+                    <p className="m-0 pb-5 text-[1.0625rem] leading-[1.65] text-dark-base/85">
                       {item.answer}
                     </p>
                   </details>
@@ -204,13 +217,19 @@ export function ContactSection() {
               </div>
             </div>
 
-            <p className="mt-14 text-[1.0625rem] leading-[1.65]">
-              Quer conversar antes de marcar?{" "}
-              <a href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" className={LINK}>
-                Chamar no WhatsApp
-                <span className="sr-only"> (abre em nova aba)</span>
-              </a>
-            </p>
+            {/* Her face right where the visitor decides to write, so the chat
+                opens with someone they have already seen. */}
+            <div className="mt-14 flex flex-col gap-5 text-[1.0625rem] leading-[1.65] sm:max-w-[22rem]">
+              <Image
+                src="/images/dra-thaiane-retrato.webp"
+                alt="Retrato da Dra. Thaiane Lessa."
+                width={1080}
+                height={1350}
+                sizes="(min-width: 640px) 22rem, calc(100vw - 3rem)"
+                className="block h-auto w-full"
+              />
+              <CallLink fill>Chamar no WhatsApp</CallLink>
+            </div>
           </div>
         </div>
       </div>

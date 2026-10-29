@@ -25,6 +25,19 @@ const PROBE_Y = 40;
 const HIDE_AFTER = 140;
 /** Past the fold the header stops floating and takes a ground of its own. */
 const ANCHOR_AFTER = 60;
+/** A scroll that pauses this long brings a tucked header back. */
+const SETTLE_MS = 400;
+/**
+ * That return is slower and softer than the one on an upward scroll: nobody
+ * asked for it, so it eases in instead of snapping into place. Listed per
+ * property, in the order of the header's `transition-[…]` class, so only the
+ * transform changes; tone and ground keep their 500 ms.
+ */
+const SETTLE_DURATION = "900ms, 500ms, 500ms, 500ms, 500ms";
+const SETTLE_EASE = [
+  "cubic-bezier(0.33, 1, 0.68, 1)",
+  ...Array(4).fill("var(--ease-out-quint)"),
+].join(", ");
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -38,6 +51,7 @@ type Tone = "light" | "dark";
 function useSectionTone() {
   const [tone, setTone] = useState<Tone>("light");
   const [hidden, setHidden] = useState(false);
+  const [settled, setSettled] = useState(false);
   const [anchored, setAnchored] = useState(false);
 
   useEffect(() => {
@@ -48,7 +62,9 @@ function useSectionTone() {
       frame = 0;
       const y = window.scrollY;
 
-      setHidden(y > HIDE_AFTER && y > lastY);
+      const tuck = y > HIDE_AFTER && y > lastY;
+      setHidden(tuck);
+      if (tuck) setSettled(false);
       setAnchored(y > ANCHOR_AFTER);
       lastY = y;
 
@@ -62,8 +78,25 @@ function useSectionTone() {
       setTone(found);
     };
 
+    // Tucked away on the way down, the header (and its WhatsApp) comes back as
+    // soon as the reader stops to read, not only when they scroll up. Over a
+    // pinned stage (`data-header-hold`) it would cover the moment itself, so
+    // there it keeps waiting for an upward scroll.
+    let settle = 0;
+    const reveal = () => {
+      settle = 0;
+      for (const el of document.querySelectorAll<HTMLElement>("[data-header-hold]")) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= PROBE_Y && rect.bottom > PROBE_Y) return;
+      }
+      setSettled(true);
+      setHidden(false);
+    };
+
     const onScroll = () => {
       if (!frame) frame = requestAnimationFrame(measure);
+      window.clearTimeout(settle);
+      settle = window.setTimeout(reveal, SETTLE_MS);
     };
 
     measure();
@@ -71,17 +104,18 @@ function useSectionTone() {
     window.addEventListener("resize", onScroll);
     return () => {
       if (frame) cancelAnimationFrame(frame);
+      window.clearTimeout(settle);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
   }, []);
 
-  return { tone, hidden, anchored };
+  return { tone, hidden, settled, anchored };
 }
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const { tone, hidden, anchored } = useSectionTone();
+  const { tone, hidden, settled, anchored } = useSectionTone();
   const reducedMotion = useReducedMotion();
   // The sections live on the home page; anywhere else (the 404) the links
   // have to go back there first.
@@ -130,10 +164,13 @@ export function Header() {
   return (
     <header
       ref={headerRef}
-      className="pointer-events-none fixed inset-x-0 top-0 z-40 flex items-center justify-between px-6 py-5 transition-[transform,color,background-color,backdrop-filter,box-shadow] duration-500 ease-[var(--ease-out-quint)] max-sm:px-3.5 sm:px-10"
+      className="pointer-events-none fixed inset-x-0 top-0 z-40 flex items-center justify-between px-6 py-5 transition-[transform,color,background-color,backdrop-filter,box-shadow] duration-500 ease-[var(--ease-out-quint)] motion-reduce:transition-none max-sm:px-3.5 sm:px-10"
       style={{
         color: light ? "var(--c-light-base)" : "var(--c-dark-base)",
         transform: hidden && !open ? "translateY(-105%)" : "translateY(0)",
+        // Reduced motion still wins: its `transition-property: none` is untouched.
+        transitionDuration: settled && !hidden ? SETTLE_DURATION : undefined,
+        transitionTimingFunction: settled && !hidden ? SETTLE_EASE : undefined,
         backgroundColor: anchored ? veil : "transparent",
         backdropFilter: anchored ? "blur(12px)" : "none",
         WebkitBackdropFilter: anchored ? "blur(12px)" : "none",

@@ -242,6 +242,7 @@ export function About() {
     <section
       ref={wrapRef}
       id="sobre"
+      data-header-hold
       data-header-theme="light"
       className="relative bg-light-base text-dark-base beside:h-[250svh] motion-reduce:beside:h-auto"
     >
