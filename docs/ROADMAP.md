@@ -22,6 +22,7 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 - Seção Serviços (`docs/fdd/servicos.md`): feita (`tasks/services-section.md`), com os cinco serviços e os cinco casos dela (PRD, D44).
 - Seção Contato (`docs/fdd/contato.md`): feita (`tasks/contact-section.md` e `tasks/contact-content.md`), com endereço e rota, estacionamento, horário, acessibilidade, primeira consulta com a duração, cinco perguntas frequentes. O e-mail saiu na D45. O link das avaliações está fora até haver mais avaliações (PRD, D39).
 - Primeira leitura dela (PRD, D45): feita (`tasks/thaiane-feedback.md`, PR #25), com número da clínica, mensagem pronta no WhatsApp, e-mail fora, chamada de Serviços, texto novo do Sobre e travessões fora (os do hero e da linha do tempo saíram no PR #26).
+- Testes da análise comparativa de sites de cirurgiões-dentistas (2026-10-28): leitura no celular, calor humano e caminho até o WhatsApp. Em andamento (`tasks/mobile-reading-warmth.md`, D48): "Leia mais" no Sobre, Contato com a primeira consulta na frente, foto das sacolas e retrato dela no botão do WhatsApp, header que volta quando a rolagem para. Depois, o resto da lista nas notas privadas.
 - Revisão do site inteiro contra as regras de fora, com as respostas que tiverem chegado (PRD, D30); lista do que conferir nas notas privadas.
 - Aval dela no site completo; tirar o `noindex` e completar os metadados de busca: canonical, dados estruturados e sitemap (D22, D41).
 - Barra técnica conferida de novo com as seções novas.

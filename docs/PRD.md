@@ -41,10 +41,10 @@ Seções em ordem na página.
 | Preloader | Abrir com a marca: monograma desenhado que voa para o header | (anterior ao kickoff) | pronto |
 | Header | Navegação e contato direto (WhatsApp, Instagram) sempre à mão | (anterior ao kickoff) | pronto |
 | Hero | Primeira impressão: o consultório e o nome | [`docs/fdd/hero.md`](fdd/hero.md) | pronto; versão do celular mantida como está (2026-10-28, D47; PR #26) |
-| Sobre | Quem ela é, como trabalha, credenciais com datas | [`docs/fdd/sobre.md`](fdd/sobre.md) | pronto; texto novo dela (2026-10-28, D45); band no celular com chegada que segue a rolagem (2026-10-28, D46; PR #26) |
+| Sobre | Quem ela é, como trabalha, credenciais com datas | [`docs/fdd/sobre.md`](fdd/sobre.md) | pronto; texto novo dela (2026-10-28, D45); band no celular com chegada que segue a rolagem (2026-10-28, D46; PR #26); "Leia mais" no celular (2026-10-29, D48) |
 | Serviços | O que ela trata, para os dois públicos, e cinco casos dela com foto | [`docs/fdd/servicos.md`](fdd/servicos.md) | feito (2026-10-28, D44); botão "Agende aqui um horário" (D45) |
 | Depoimentos | Prova social | [`docs/fdd/depoimentos.md`](fdd/depoimentos.md) | fora por enquanto, sai do site e do menu (D25) |
-| Contato e rodapé | Como chegar (endereço do consultório e rota), horários, primeira consulta, perguntas frequentes, WhatsApp (D32 a D34; link das avaliações fora, D39); identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | pronto: rodapé com a identificação e os canais (D26); seção Contato completa (2026-10-27, D43); número da clínica, mensagem pronta no WhatsApp e e-mail fora (2026-10-28, D45) |
+| Contato e rodapé | Como chegar (endereço do consultório e rota), horários, primeira consulta, perguntas frequentes, WhatsApp (D32 a D34; link das avaliações fora, D39); identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | pronto: rodapé com a identificação e os canais (D26); seção Contato completa (2026-10-27, D43); número da clínica, mensagem pronta no WhatsApp e e-mail fora (2026-10-28, D45); primeira consulta na frente, com a foto das sacolas, e o retrato dela no botão do WhatsApp (2026-10-29, D48) |
 | Página 404 | Endereço errado cai numa página com a marca e o caminho de volta à home (D41) | (sem FDD) | pronto |
 
 ### Conteúdo pendente
@@ -270,3 +270,13 @@ Plano em `tasks/link-preview-404.md`.
   - A chegada segue o dedo: conforme a band sobe na tela, o rótulo e a citação sobem e aparecem, e a foto assenta (de 1,08 a 1). Nada prende a rolagem: a band fica como respiro entre o hero e a linha do tempo, que já prendem a tela. O protótipo era uma revelação única com cortina creme; no iPhone ela ficou rápida e mostrava um bloco creme depois do vídeo, e o Lucas trocou pela versão que segue o dedo (2026-10-28). Ela ainda vai ver.
   - No iPad em pé, o bloco fica numa coluna de até 34rem. No computador (`beside:`), a band continua como era.
 - **D47.** O hero do celular fica como está: o título em cima e, depois, o vídeo preso em tela cheia passando pelos três painéis, com "seu sorriso, no seu tempo" atravessando (Thaiane, 2026-10-28). Ela viu quatro protótipos em 390 px, entre eles a faixa com o tríptico inteiro crescendo até a tela cheia e o painel do meio se abrindo como no computador, e preferiu o atual. Com isso, o D42 fica cumprido para hero, band e linha do tempo.
+
+### Rodada 14 (2026-10-29): leitura no celular e calor humano
+
+- **D48.** Primeiro teste vindo de uma análise comparativa de sites de cirurgiões-dentistas (2026-10-28), feita com três critérios: calor humano, leitura no celular e caminho até o WhatsApp (Lucas, 2026-10-29). A forma saiu de um protótipo em 390 px; as fotos chegaram dela no mesmo dia.
+  - Sobre: no celular aparece só o primeiro parágrafo, com "Leia mais"; aberto, o botão fica no fim como "Leia menos". O texto não muda e não ganha foto nem frase em destaque.
+  - Contato: o título passa a "O que esperar e como chegar", e a Primeira consulta vem antes de Como chegar. A duração média sai (reverte essa parte da D43). A Primeira consulta abre com a foto das sacolas que ela entrega nessa consulta.
+  - Contato, fim: o retrato dela e o botão "Chamar no WhatsApp", no mesmo formato do de Serviços. A frase "Quer conversar antes de marcar?" sai. Reverte a parte da D45 que mantinha o link.
+  - Header: além de voltar ao rolar para cima, volta quando a rolagem para, menos sobre o hero, a band e a linha do tempo. Substitui o botão flutuante, descartado em 2026-10-28.
+  - Casos de Serviços: o caso da vez fica no meio, em todas as larguras, e tocar num vizinho o traz para lá. O carrossel é em laço: antes do primeiro já aparece o último. Corrige a seta para trás, que travava na última foto no iPad e no computador.
+  - Linha do tempo no computador: a foto ao lado da roda chega coberta e só começa a abrir quando os anos começam a girar. Antes, a faixa de cima já aparecia em 2019.
