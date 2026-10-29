@@ -51,7 +51,7 @@ Tokens em `src/app/globals.css`, expostos ao Tailwind por `@theme inline`.
 
 ### Texto secundário
 
-Rótulos, parágrafo de apoio e canais do rodapé usam o token-base a 70%: `dark-base/70` sobre fundo claro, `light-base/70` sobre fundo escuro. No header, onde a cor vem do tom da seção, é `opacity-70`. Sobre foto, ou sobre gradiente tirado de foto, o texto vai em cor cheia: o rótulo "A dentista" na band aberta é `dark-base`. Nenhum texto em repouso abaixo de 70%. A exceção é a roleta da linha do tempo, que apaga os anos fora de foco durante o scroll, mas nunca abaixo de 60% (PRD, D36), e com movimento reduzido fica toda em cor cheia.
+Rótulos, parágrafo de apoio e canais do rodapé usam o token-base a 70%: `dark-base/70` sobre fundo claro, `light-base/70` sobre fundo escuro. No header, onde a cor vem do tom da seção, é `opacity-70`. Sobre foto, ou sobre gradiente tirado de foto, o texto vai em cor cheia: o rótulo "A dentista" na band é `dark-base`, aberta ou empilhada (sobre a parede, 6,61:1 no ponto mais escuro). Nenhum texto em repouso abaixo de 70%. A exceção é a roleta da linha do tempo, que apaga os anos fora de foco durante o scroll, mas nunca abaixo de 60% (PRD, D36), e com movimento reduzido fica toda em cor cheia.
 
 `dark-55` e `light-40` saíram em 2026-10-10: em texto pequeno não passavam no AA (3,79 e 3,52).
 
@@ -113,6 +113,7 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 | Header: some ao descer, volta ao subir; inverte a cor pelo tom da seção | scroll | 500 ms, `ease-out-quint` | Sair do caminho sem sumir de vez |
 | Menu do header | toque | 350 ms, itens com 45 ms de intervalo | Lista que desce sob o botão, no canto esquerdo |
 | Sobre, band: retrato cresce, cenário abre | scroll (rAF) | proporcional ao scroll | Eixo horizontal, continuação do hero |
+| Sobre, band no celular e no iPad em pé: citação sobe, foto assenta | scroll (rAF), sem prender | proporcional ao scroll. Rótulo e citação sobem 24 px com `opacity` enquanto o topo do texto vai do pé da tela a 40% da altura (a citação começa um pouco depois do rótulo); a foto vai de 1,08 a 1 enquanto o topo dela vai do pé a 20%. Volta ao subir. Com movimento reduzido, estado final | A versão do celular da band (D46). Segue o dedo para nunca ficar rápida demais nem esconder nada; sem prender a rolagem entre os dois palcos presos (hero e linha do tempo) |
 | Sobre, texto: linhas sobem por máscara | entrada, uma vez | 70 ms entre linhas | Único momento que anima e para: o silêncio depois é o efeito |
 | Sobre, roleta de anos | scroll (rAF) | proporcional ao scroll | Eixo vertical, o contraste que hero e band não dão |
 | Sobre, foto ao lado da roda: painel desce, zoom de 1,08 a 1 | scroll (rAF), com a roda | proporcional ao scroll, smoothstep; inteira aos 90% | A trajetória chega nela: a foto parada ficava solta ao lado da roda |

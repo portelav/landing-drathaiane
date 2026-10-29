@@ -168,7 +168,7 @@ export function Hero() {
     const drawLoose = () => {
       const viewportWidth = window.innerWidth;
       const rect = track.getBoundingClientRect();
-      const held = rect.height - window.innerHeight;
+      const held = rect.height - frame.clientHeight;
       const progress = held > 0 ? clamp(-rect.top / held) : 0;
 
       // Spend the whole pan while the frame is held.
@@ -244,7 +244,7 @@ export function Hero() {
             className={`flex flex-col gap-8 border-t ${skin.rule} pt-8 sm:flex-row sm:items-end sm:justify-between wide:flex-col wide:items-start`}
           >
             <p className={`max-w-[34ch] text-[0.9375rem] leading-relaxed ${skin.muted}`}>
-              Cada plano de tratamento começa pela leitura do seu rosto —
+              Cada plano de tratamento começa pela leitura do seu rosto:
               proporção, luz e expressão antes de qualquer procedimento.
             </p>
             <span className={`tracking-brand shrink-0 text-[0.6875rem] uppercase ${skin.muted}`}>
@@ -256,10 +256,13 @@ export function Hero() {
         {/* Narrow: the runway the frame sticks in while the triptych pans. It
             drops out of the layout on `wide:`, where the stage above sticks. */}
         <div ref={runwayRef} className="h-[300svh] motion-reduce:h-auto wide:contents">
-          {/* Opens from one panel of the triptych to the full frame. */}
+          {/* Opens from one panel of the triptych to the full frame. As tall
+              as the screen with the browser bars collapsed (`lvh`): at `svh`
+              it stops short once Safari tucks its toolbar away mid-scroll,
+              and the section's cream shows in the gap. */}
           <div
             ref={frameRef}
-            className="sticky top-0 h-[100svh] w-full overflow-hidden wide:absolute wide:inset-y-0 wide:right-0 wide:h-auto wide:w-[min(59.31svh,50vw)]"
+            className="sticky top-0 h-[100lvh] w-full overflow-hidden wide:absolute wide:inset-y-0 wide:right-0 wide:h-auto wide:w-[min(59.31svh,50vw)]"
           >
             {/* Decorative: the browser otherwise offers picture-in-picture and
                 hover playback controls over any video this size, which is not a

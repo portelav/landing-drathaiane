@@ -21,6 +21,22 @@ O retrato cresce, o cenário abre para os lados, a frase chega pela direita. O r
 Dirigido por scroll, eixo horizontal. Roda em `src/components/about.tsx`, acima
 do teste `beside:`.
 
+Abaixo do `beside:` (celular e iPad em pé), a band empilha ao contrário: rótulo
+e citação em cima, sobre a parede, e a foto embaixo, de lado a lado (D46). A
+parede é a linha de cima da foto, medida em nove pontos (mais clara no meio
+que nos cantos), e os 2% de cima da foto se dissolvem nela; com 12% o cabelo
+clareava. A chegada segue o dedo, sem prender: enquanto o topo do texto vai do
+pé da tela a 40% da altura, o rótulo e depois a citação sobem 24 px e aparecem;
+enquanto o topo da foto vai do pé a 20%, ela assenta de 1,08 a 1. Subindo, volta.
+O servidor entrega o estado final, que é o que fica sem JS, com movimento
+reduzido e no `beside:`. No iPad em pé o bloco fica numa coluna de até 34rem,
+centralizada sobre o creme.
+
+A primeira versão era uma revelação única: uma cortina `light-base` descia
+quando 25% da band estavam à vista. No iPhone ela ficou rápida demais com o
+embalo da rolagem, e antes de começar mostrava um bloco creme logo depois do
+vídeo. Seguir o dedo resolve as duas coisas.
+
 As cinco credenciais que ficavam ao lado da foto saíram daqui e viraram o
 Tempo 3. A band ficou só com a frase.
 

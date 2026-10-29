@@ -40,8 +40,8 @@ Seções em ordem na página.
 |---|---|---|---|
 | Preloader | Abrir com a marca: monograma desenhado que voa para o header | (anterior ao kickoff) | pronto |
 | Header | Navegação e contato direto (WhatsApp, Instagram) sempre à mão | (anterior ao kickoff) | pronto |
-| Hero | Primeira impressão: o consultório e o nome | [`docs/fdd/hero.md`](fdd/hero.md) | pronto |
-| Sobre | Quem ela é, como trabalha, credenciais com datas | [`docs/fdd/sobre.md`](fdd/sobre.md) | pronto; texto novo dela (2026-10-28, D45) |
+| Hero | Primeira impressão: o consultório e o nome | [`docs/fdd/hero.md`](fdd/hero.md) | pronto; versão do celular mantida como está (2026-10-28, D47; PR #26) |
+| Sobre | Quem ela é, como trabalha, credenciais com datas | [`docs/fdd/sobre.md`](fdd/sobre.md) | pronto; texto novo dela (2026-10-28, D45); band no celular com chegada que segue a rolagem (2026-10-28, D46; PR #26) |
 | Serviços | O que ela trata, para os dois públicos, e cinco casos dela com foto | [`docs/fdd/servicos.md`](fdd/servicos.md) | feito (2026-10-28, D44); botão "Agende aqui um horário" (D45) |
 | Depoimentos | Prova social | [`docs/fdd/depoimentos.md`](fdd/depoimentos.md) | fora por enquanto, sai do site e do menu (D25) |
 | Contato e rodapé | Como chegar (endereço do consultório e rota), horários, primeira consulta, perguntas frequentes, WhatsApp (D32 a D34; link das avaliações fora, D39); identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | pronto: rodapé com a identificação e os canais (D26); seção Contato completa (2026-10-27, D43); número da clínica, mensagem pronta no WhatsApp e e-mail fora (2026-10-28, D45) |
@@ -262,3 +262,11 @@ Plano em `tasks/link-preview-404.md`.
   - A chamada embaixo dos casos, em Serviços, passa a ser "Agende aqui um horário", num bloco com contorno, sem raio, da largura do celular: como link sublinhado ela sumia embaixo do carrossel. A forma saiu de protótipos em 390 px. A do Contato continua "Chamar no WhatsApp", como link.
   - Sem travessão nos textos do site: no lugar, vírgula, ponto ou dois-pontos.
   - O Sobre recebe o texto novo dela, literal. "Clínica geral" sai da primeira frase e fica na terceira, ainda no primeiro parágrafo, antes de Serviços e das perguntas do Contato (CEO art. 43, § 1º, I). Reverte a parte da D43 que fixava a primeira frase.
+
+### Rodada 13 (2026-10-28): band e hero no celular
+
+- **D46.** A band ganha versão própria no celular em pé (D42), escolhida pelo Lucas entre três protótipos em 390 px (2026-10-28).
+  - A citação vem em cima, sobre a parede da própria foto, e a foto vem embaixo, de lado a lado. A parede repete a linha de cima da foto, medida no arquivo, para não haver emenda.
+  - A chegada segue o dedo: conforme a band sobe na tela, o rótulo e a citação sobem e aparecem, e a foto assenta (de 1,08 a 1). Nada prende a rolagem: a band fica como respiro entre o hero e a linha do tempo, que já prendem a tela. O protótipo era uma revelação única com cortina creme; no iPhone ela ficou rápida e mostrava um bloco creme depois do vídeo, e o Lucas trocou pela versão que segue o dedo (2026-10-28). Ela ainda vai ver.
+  - No iPad em pé, o bloco fica numa coluna de até 34rem. No computador (`beside:`), a band continua como era.
+- **D47.** O hero do celular fica como está: o título em cima e, depois, o vídeo preso em tela cheia passando pelos três painéis, com "seu sorriso, no seu tempo" atravessando (Thaiane, 2026-10-28). Ela viu quatro protótipos em 390 px, entre eles a faixa com o tríptico inteiro crescendo até a tela cheia e o painel do meio se abrindo como no computador, e preferiu o atual. Com isso, o D42 fica cumprido para hero, band e linha do tempo.

@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 const MILESTONES = [
   {
     year: "2019",
-    items: ["Início da graduação em Odontologia — Universidade Federal de Alagoas"],
+    items: ["Início da graduação em Odontologia, Universidade Federal de Alagoas"],
   },
   {
     year: "2024",
@@ -344,7 +344,7 @@ export function AboutTimeline() {
       >
         <div
           ref={phoneStageRef}
-          className="sticky top-0 h-[100svh] overflow-hidden bg-dark-base text-light-base"
+          className="sticky top-0 h-[100lvh] overflow-hidden bg-dark-base text-light-base"
         >
           <div ref={phonePictureRef} className="absolute inset-0 scale-[1.1] will-change-transform">
             <Image
@@ -414,8 +414,11 @@ export function AboutTimeline() {
           </div>
 
           {/* The years take turns at the foot of the screen: the one on the
-              seat fades out rising, the next fades in from below. */}
-          <div className="absolute inset-x-6 bottom-10 h-48 sm:inset-x-10">
+              seat fades out rising, the next fades in from below. The stage
+              is `lvh` tall so it fills the screen with the toolbar tucked
+              away; the offset keeps the years above the toolbar while it is
+              still out. */}
+          <div className="absolute inset-x-6 bottom-[calc(100lvh-100svh+2.5rem)] h-48 sm:inset-x-10">
             {MILESTONES.map((milestone, index) => (
               <div
                 key={milestone.year}
