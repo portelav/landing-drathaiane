@@ -2,9 +2,13 @@ import { WHATSAPP_HREF } from "@/lib/contact";
 import { SERVICES } from "@/lib/services";
 import { ServicesCases } from "./services-cases";
 
-/** 44 px for touch, 32 px with a mouse, like the contact section's links. */
-const LINK =
-  "inline-flex min-h-11 items-center underline underline-offset-4 pointer-fine:min-h-8 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark-base";
+/**
+ * The section's one call to book, so it reads as a button rather than another
+ * underlined link: an outlined block, square like the rest of the page, the
+ * full width of a phone and sized to its text from `sm`.
+ */
+const CALL =
+  "group flex min-h-14 w-full items-center justify-between gap-10 border border-dark-base px-5 font-medium no-underline hover:bg-dark-base hover:text-light-base focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark-base sm:w-fit";
 
 /**
  * What she treats, then the cases. The list opens one service at a time and the
@@ -61,9 +65,17 @@ export function ServicesSection() {
             </div>
 
             <p className="mt-12 text-[1.0625rem] leading-[1.65]">
-              <a href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" className={LINK}>
-                Chamar no WhatsApp
-                <span className="sr-only"> (abre em nova aba)</span>
+              <a href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" className={CALL}>
+                <span>
+                  Agende aqui um horário
+                  <span className="sr-only"> (abre em nova aba)</span>
+                </span>
+                <span
+                  aria-hidden
+                  className="transition-transform duration-200 ease-[var(--ease-out-quint)] motion-safe:group-hover:translate-x-1"
+                >
+                  →
+                </span>
               </a>
             </p>
           </div>

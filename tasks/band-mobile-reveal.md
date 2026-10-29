@@ -42,7 +42,7 @@
 - `src/components/about.tsx`: layout fora do `beside:`, parede, borda de 2%, cortina e o observador que a arma.
 - `src/components/hero.tsx` e `src/components/about-timeline.tsx`: as duas frases sem travessão.
 - `docs/fdd/hero.md`: a citação do parágrafo do hero, com a frase nova.
-- `docs/PRD.md`: D45 (a band no celular, opção B, com a data).
+- `docs/PRD.md`: D46 (a band no celular, opção B, com a data).
 - `docs/fdd/sobre.md`: Tempo 1 no celular.
 - `docs/design/DESIGN.md`: a linha da band no celular na tabela de movimento e a regra do rótulo sobre a parede.
 
@@ -55,13 +55,13 @@
 6. [ ] iPad retrato com o bloco limitado a 34rem; `sizes` ajustado.
 7. [ ] QA por CDP em 390, 375 × 667, iPad retrato e 1440, inclusive com movimento reduzido, e medição do contraste.
 8. [ ] Teste no iPhone dele pelo servidor no Wi-Fi.
-9. [ ] PRD (D45), FDD do Sobre e DESIGN.md.
+9. [ ] PRD (D46), FDD do Sobre e DESIGN.md.
 10. [ ] Lint e typecheck; parar para o Lucas conferir.
 
 ---
 
 ## Feito e verificado
-- **Arquivos:** `about.tsx` (parede, citação em cima, borda de 2% e a chegada com o scroll), `hero.tsx` e `about-timeline.tsx` (frases sem travessão), `docs/fdd/hero.md`, `docs/fdd/sobre.md`, `docs/PRD.md` (D45), `docs/design/DESIGN.md`.
+- **Arquivos:** `about.tsx` (parede, citação em cima, borda de 2% e a chegada com o scroll), `hero.tsx` e `about-timeline.tsx` (frases sem travessão), `docs/fdd/hero.md`, `docs/fdd/sobre.md`, `docs/PRD.md` (D46), `docs/design/DESIGN.md`.
 - **Desvio:** a cortina única do plano foi trocada pela chegada que segue o dedo, depois do teste no iPhone (rápida demais e com um bloco creme depois do vídeo). A conferência por CDP abaixo foi feita na versão com cortina; a versão final foi conferida no iPhone do Lucas ("ficou bom"), porque o Chrome do MCP estava ocupado pelo outro chat.
 - **Conferido por CDP:**
   1. 390 × 844 e 375 × 667: parede sem emenda com o topo da foto (capturas), sem rolagem horizontal (`scrollWidth` igual à largura).

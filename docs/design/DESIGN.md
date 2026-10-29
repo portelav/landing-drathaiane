@@ -99,6 +99,7 @@ Nada abaixo de 11 px, e 11 px só em rótulo de caixa-alta com contraste AA.
 
 - Quase sem raio: a página é feita de fotos, vídeos e texto, não de cartões. Exceções: os botões sociais do header (`rounded-[16px]`, 44 px, área de toque mínima) e os marcadores da linha do tempo (`rounded-full`).
 - O botão de pausa dos vídeos segue a regra: quadrado de 32 px, sem raio, dentro de uma área de toque de 44 px, no canto inferior direito do vídeo.
+- A chamada de Serviços ("Agende aqui um horário") é um bloco com contorno `dark-base`, sem raio, de 56 px de altura e largura toda no celular (do tamanho do texto a partir de `sm`). No hover as cores se invertem e a seta anda 4 px, só com `transform` (PRD, D45).
 - Sem sombra de cartão. A única "sombra" é a mistura de cor que continua a parede da foto na band do Sobre.
 - Espaçamento lateral: 24 px no celular, 40 px a partir de `sm`.
 
@@ -113,7 +114,7 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 | Header: some ao descer, volta ao subir; inverte a cor pelo tom da seção | scroll | 500 ms, `ease-out-quint` | Sair do caminho sem sumir de vez |
 | Menu do header | toque | 350 ms, itens com 45 ms de intervalo | Lista que desce sob o botão, no canto esquerdo |
 | Sobre, band: retrato cresce, cenário abre | scroll (rAF) | proporcional ao scroll | Eixo horizontal, continuação do hero |
-| Sobre, band no celular e no iPad em pé: citação sobe, foto assenta | scroll (rAF), sem prender | proporcional ao scroll. Rótulo e citação sobem 24 px com `opacity` enquanto o topo do texto vai do pé da tela a 40% da altura (a citação começa um pouco depois do rótulo); a foto vai de 1,08 a 1 enquanto o topo dela vai do pé a 20%. Volta ao subir. Com movimento reduzido, estado final | A versão do celular da band (D45). Segue o dedo para nunca ficar rápida demais nem esconder nada; sem prender a rolagem entre os dois palcos presos (hero e linha do tempo) |
+| Sobre, band no celular e no iPad em pé: citação sobe, foto assenta | scroll (rAF), sem prender | proporcional ao scroll. Rótulo e citação sobem 24 px com `opacity` enquanto o topo do texto vai do pé da tela a 40% da altura (a citação começa um pouco depois do rótulo); a foto vai de 1,08 a 1 enquanto o topo dela vai do pé a 20%. Volta ao subir. Com movimento reduzido, estado final | A versão do celular da band (D46). Segue o dedo para nunca ficar rápida demais nem esconder nada; sem prender a rolagem entre os dois palcos presos (hero e linha do tempo) |
 | Sobre, texto: linhas sobem por máscara | entrada, uma vez | 70 ms entre linhas | Único momento que anima e para: o silêncio depois é o efeito |
 | Sobre, roleta de anos | scroll (rAF) | proporcional ao scroll | Eixo vertical, o contraste que hero e band não dão |
 | Sobre, foto ao lado da roda: painel desce, zoom de 1,08 a 1 | scroll (rAF), com a roda | proporcional ao scroll, smoothstep; inteira aos 90% | A trajetória chega nela: a foto parada ficava solta ao lado da roda |

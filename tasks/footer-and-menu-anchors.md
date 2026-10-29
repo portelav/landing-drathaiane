@@ -43,8 +43,8 @@
 1. O rodapé mostra, sem cortar, exatamente "Dra. Thaiane Lessa · Cirurgiã-Dentista · CRO/AL-6418" em `light-base` sobre `forest-900`, em 390 px, iPad retrato e computador.
 2. O rodapé mostra "© 2026 Dra. Thaiane Lessa. Todos os direitos reservados."
 3. O rodapé tem três links:
-   - WhatsApp: `https://wa.me/5582993871990`, em nova aba.
-   - Telefone: `tel:+5582993871990`.
+   - WhatsApp: `https://wa.me/<número>`, em nova aba.
+   - Telefone: `tel:<número>`.
    - Instagram: `https://instagram.com/thaiane_lessa`, em nova aba.
    Cada link tem área de toque de pelo menos 44 px de altura, e o nome acessível contém o texto visível.
 4. Os dois menus (o que desdobra no computador e o compacto) listam só Sobre e Contato. Todo `href` do menu aponta para um `id` que existe na página: `document.querySelector(href)` não é nulo.
@@ -106,7 +106,7 @@ Guia do Next 16 lido: `01-app/01-getting-started/03-layouts-and-pages.md` e `05-
 - **Primeiro bloco:**
   - `BrandMark` estático, com `aria-hidden`. Fecha a página com a mesma marca que o preloader abriu.
   - Rótulo "Contato" (`h2`, `.tracking-brand`, caixa-alta).
-  - Os três canais como texto em Instrument Serif, como no menu compacto: "WhatsApp", "(82) 99387-1990", "@thaiane_lessa". Sem ícone: editorial, não institucional.
+  - Os três canais como texto em Instrument Serif, como no menu compacto: "WhatsApp", o telefone, "@thaiane_lessa". Sem ícone: editorial, não institucional.
 - **Traço `light-15`** separando os dois blocos.
 - **Segundo bloco:**
   - Identificação em `light-base` cheio, no mínimo 13 px.
@@ -223,7 +223,7 @@ O projeto não tem testes automatizados. Verificação no navegador, pelo MCP do
 | 6. Contraste ≥ 4,5:1, medido | Cor computada misturada sobre o fundo, no navegador. Identificação: 12,89. Canais: 9,69. Rótulo e direitos: 7,08 |
 | 7. Foco visível e ordem de leitura | Tab a partir do último foco do header caiu no WhatsApp do rodapé, com `:focus-visible` e contorno sólido de 2 px em `light-base`, afastado 4 px (print). Ordem no DOM: `h2` "Contato", canais, identificação, direitos |
 | 8. Nada se move; igual com movimento reduzido | Pelo código: o rodapé não tem animação; só transição de opacidade no hover. O MCP não emula `prefers-reduced-motion`, então não houve conferência no navegador |
-| 9. Header com os mesmos contatos | `tel:+5582993871990`, `https://wa.me/5582993871990` e `https://instagram.com/thaiane_lessa` lidos no header depois da troca para `src/lib/contact.ts` |
+| 9. Header com os mesmos contatos | `tel:<número>`, `https://wa.me/<número>` e `https://instagram.com/thaiane_lessa` lidos no header depois da troca para `src/lib/contact.ts` |
 | 10. Lint, typecheck e build | Stage 8 |
 
 ---

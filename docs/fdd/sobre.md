@@ -22,7 +22,7 @@ Dirigido por scroll, eixo horizontal. Roda em `src/components/about.tsx`, acima
 do teste `beside:`.
 
 Abaixo do `beside:` (celular e iPad em pé), a band empilha ao contrário: rótulo
-e citação em cima, sobre a parede, e a foto embaixo, de lado a lado (D45). A
+e citação em cima, sobre a parede, e a foto embaixo, de lado a lado (D46). A
 parede é a linha de cima da foto, medida em nove pontos (mais clara no meio
 que nos cantos), e os 2% de cima da foto se dissolvem nela; com 12% o cabelo
 clareava. A chegada segue o dedo, sem prender: enquanto o topo do texto vai do

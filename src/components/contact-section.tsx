@@ -2,8 +2,6 @@ import Image from "next/image";
 import {
   ACCESSIBILITY,
   ADDRESS_LINES,
-  EMAIL,
-  EMAIL_HREF,
   HOURS,
   MAP_SRC,
   PARKING,
@@ -211,12 +209,6 @@ export function ContactSection() {
               <a href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" className={LINK}>
                 Chamar no WhatsApp
                 <span className="sr-only"> (abre em nova aba)</span>
-              </a>
-            </p>
-            <p className="mt-1 text-[1.0625rem] leading-[1.65]">
-              Ou escreva para{" "}
-              <a href={EMAIL_HREF} className={LINK}>
-                {EMAIL}
               </a>
             </p>
           </div>
