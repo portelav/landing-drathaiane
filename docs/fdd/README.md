@@ -3,13 +3,14 @@
 Um arquivo por seção. Nome: `<nome>.md` em kebab-case.
 Escrito ANTES da implementação. É a spec que o código deve satisfazer.
 
-Regra: seção com comportamento que pode dar bug (layout por proporção, vídeo, scroll) tem FDD antes do código; seção simples fica numa entrada do PRD ou do ROADMAP. Preloader e header foram construídos antes desta regra e não têm FDD; ganham um quando forem revistos. O hero ganhou o seu na revisão da pausa do vídeo.
+Regra: seção com comportamento que pode dar bug (layout por proporção, vídeo, scroll) tem FDD antes do código; seção simples fica numa entrada do PRD ou do ROADMAP. O preloader foi construído antes desta regra e não tem FDD; ganha um quando for revisto. O hero ganhou o seu na revisão da pausa do vídeo, e o header na revisão do esconder e voltar.
 
 ## Índice
 
 | Seção | Status | Plano |
 |---|---|---|
 | [Hero](hero.md) | implementado | `tasks/video-pause-control.md` |
+| [Header](header.md) | implementado (só o comportamento com o scroll) | `tasks/mobile-reading-warmth.md` |
 | [Sobre](sobre.md) | implementado | (anterior ao kit) |
 | [Serviços](servicos.md) | rascunho (conteúdo pendente) | — |
 | [Depoimentos](depoimentos.md) | fora por enquanto (PRD, D25) | — |

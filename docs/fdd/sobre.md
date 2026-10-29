@@ -50,6 +50,18 @@ Medida de leitura 60ch, coluna deslocada e não centrada. Sem foto ao lado: o
 bloco existe para ser lido, e uma imagem ali disputa atenção com o retrato
 grande logo acima.
 
+**No celular, "Leia mais"** (D48). Abaixo do `sm`, só o primeiro parágrafo
+aparece, com um botão discreto (15 px, `dark-base` a 70%, sublinhado `dark-10`,
+toque de 44 px). Os outros dois saem do layout (`max-sm:hidden`), então o
+`whileInView` deles espera, e as linhas sobem na primeira vez que abrem. Aberto,
+o botão fica no fim do texto como "Leia menos", com `aria-expanded` e
+`aria-controls`, e o foco vai para o segundo parágrafo, para o leitor de tela
+seguir pelo texto que abriu. Fechar tira o texto de cima do botão; a página é
+deslocada na mesma medida (pelo Lenis quando ele roda), e o botão fica sob o
+dedo com o primeiro parágrafo logo acima, em vez de o leitor cair no meio da
+linha do tempo. A correção é medida, porque o Chrome já compensa parte disso
+sozinho. Do `sm` para cima o texto aparece inteiro, sem botão.
+
 O deslocamento usa `lg:`/`xl:`, e não `beside:`, porque um recuo horizontal
 depende só de largura disponível — é justamente a pergunta que um breakpoint de
 pixel responde certo. O aviso contra `lg:` no fim deste documento vale para
@@ -183,12 +195,14 @@ a foto mostra a profissional de hoje, e é isso que o kit não fazia.
   a roda.
 - **A trajetória chega nela.** Parada, a foto ficava igual por quatro telas de
   rolagem e parecia colada ao lado, como o kit. Agora ela abre com a roda, no
-  mesmo progresso: em 2019 só a faixa de cima (15%) aparece, um painel
-  `light-base` desce e a foto assenta de 1,08 para 1 de escala, inteira aos 90%
+  mesmo progresso: em 2019 ela chega coberta, e conforme os anos giram um
+  painel `light-base` desce e a foto assenta de 1,08 para 1 de escala, inteira aos 90%
   do progresso, antes do platô de 2026. Curva suave (smoothstep), para não
   andar como régua. Não é um quarto momento: é o mesmo, com o mesmo scroll.
   Só `transform`. Empilhado ou com movimento reduzido, o painel não existe e a
-  foto aparece inteira. Isso vale para o computador; no celular a mesma foto
+  foto aparece inteira. Até 2026-10-29 a faixa de cima (15%) já aparecia em
+  2019, para o painel não chegar vazio; lida como o alto da cabeça dela parado
+  antes de qualquer movimento, saiu (D48). Isso vale para o computador; no celular a mesma foto
   está na "foto em foco" (Tempo 3).
 - Altura limitada à do palco (`max-h-full`). Numa tela larga e baixa a foto
   recorta mais, em vez de passar do quadro preso. Conferido em 2560x1100.
