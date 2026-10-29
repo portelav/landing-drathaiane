@@ -1,6 +1,6 @@
 # Leitura no celular e calor humano
 
-**Branch:** `feat/mobile-reading-warmth` · **Status:** Planejado
+**Branch:** `feat/mobile-reading-warmth` · **Status:** Em execução
 
 ## Objetivo
 - Testar no site os itens da análise comparativa de sites de cirurgiões-dentistas (2026-10-28): leitura no celular, calor humano e caminho até o WhatsApp. A forma saiu de um protótipo em 390 px aprovado pelo Lucas (2026-10-29).
@@ -57,6 +57,24 @@
 9. [ ] Subir o servidor no Wi-Fi para o teste no celular dele. Parar sem commitar.
 
 ---
-
 ## Feito e verificado
-<!-- Escrito pelo /exec: arquivos tocados, desvios do plano, como cada critério foi conferido. -->
+- **Arquivos:**
+  - fotos `primeira-consulta.webp` (1200 × 1600, 56 KB) e `dra-thaiane-retrato.webp` (1080 × 1350, 29 KB);
+  - componentes `call-link.tsx` (novo), `services-section.tsx`, `contact-section.tsx`, `about-text.tsx`, `header.tsx`, `hero.tsx`, `about.tsx`, `about-timeline.tsx`;
+  - docs `fdd/header.md` (novo), `fdd/contato.md`, `fdd/sobre.md`, `fdd/servicos.md`, `fdd/README.md`, `DESIGN.md`, PRD (D48 e seção 6), ROADMAP.
+- **Desvios do plano:**
+  - O header perdeu a transição com movimento reduzido. Antes ele deslizava mesmo assim.
+  - O DESIGN.md e o FDD de Serviços citavam o `@starting-style`; agora citam a animação nova. O DESIGN.md também dizia que o Contato abria sem transição.
+- **Critérios** (conferidos pelo MCP, emulando 390 × 844, 820 × 1180 e 1440 × 900):
+  1. Em 390 px, um parágrafo e "Leia mais" (44 px, `aria-expanded`, `aria-controls`). Na primeira abertura as linhas sobem (`translateY` de 31 a 0 px em cerca de 0,6 s) e o foco vai para o segundo parágrafo. "Leia menos" fecha com o botão no mesmo lugar (400 px antes e depois) e o primeiro parágrafo à vista.
+  2. Em 820 e 1440 px, os três parágrafos aparecem e o botão fica oculto.
+  3. A ordem dos títulos conferida: "O que esperar e como chegar", Primeira consulta, Como chegar, Perguntas frequentes. Sem duração e sem a frase.
+  4. As duas fotos saem do `next/image` e são preguiçosas, sem EXIF, XMP, IPTC nem ICC (lido pelo sharp). No celular, as sacolas ocupam 390 px de largura (de lado a lado) e o retrato 342 px. No computador, as duas ficam com 352 px. Sem rolagem horizontal.
+  5. O header some ao descer e volta em 0,7 s em Serviços, no Contato e no texto do Sobre. Parado sobre o hero, a band ou a linha do tempo, continua escondido. Falta testar no celular dele, com o dedo.
+  6. Com movimento reduzido, o texto só aparece (sem máscara), a página não pula ao fechar e o header fica com `transition-property: none`.
+  7. Lint e typecheck verdes. O build fica para antes do PR.
+- **Depois do teste no celular** (pedidos do Lucas, fora do plano inicial, todos na D48):
+  - header: a volta ao parar leva 900 ms, com ease-out cúbico; a volta ao subir continua em 500 ms;
+  - Contato no computador: sacolas ao lado das etapas (288 e 408 px em 1440) e botão da largura do retrato (352 px), ideia C do protótipo;
+  - linha do tempo no computador: a foto chega coberta (`PHOTO_SHOWN` 0) e abre com os anos;
+  - casos: o caso da vez fica no centro, o toque num vizinho o traz para lá, e o carrossel é em laço (três sequências, salto para a do meio ao parar). Conferido: começa no caso 1 com a Profilaxia à esquerda, dá a volta nos dois sentidos e sempre para na sequência do meio, centrado.
