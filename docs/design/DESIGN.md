@@ -32,7 +32,7 @@ Arquivos em `public/logos/`:
 
 No código, o monograma é o componente `BrandMark` (`src/components/brand-mark.tsx`), um SVG que herda a cor do texto e é o mesmo `layoutId` do preloader ao header.
 
-A prévia de link e o ícone da Apple ficam em `src/app/` (PRD, D41). `opengraph-image.jpg` (1200 × 630): o retrato do Sobre à direita, a cor da parede da foto continuada à esquerda, o monograma em `forest-900`, o nome em Instrument Serif e "Cirurgiã-Dentista" e o CRO em Inter Tight, caixa-alta. `apple-icon.png` (180 × 180): monograma `light-base` sobre `forest-900`. A composição e o script que gera os dois ficam em `media/og/`, fora do git.
+A prévia de link e o ícone da Apple ficam em `src/app/` (PRD, D41). `opengraph-image.jpg` (1200 × 630): o retrato do Sobre à direita, a cor da parede da foto continuada à esquerda, o monograma em `forest-900`, o nome em Instrument Serif e "Cirurgiã-Dentista" e o CRO em Inter Tight, caixa-alta. `apple-icon.png` (180 × 180): monograma `forest-900` sobre `light-base`. O ícone da aba é só o monograma, sem fundo: `icon.svg` em `forest-900` no tema claro e em `light-base` no escuro (`prefers-color-scheme`); `favicon.ico`, para navegador sem ícone SVG, é o monograma `forest-900` num círculo `light-base`. A composição e os scripts que geram esses arquivos ficam em `media/og/`, fora do git.
 
 ## 3. Paleta
 
