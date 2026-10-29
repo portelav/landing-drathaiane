@@ -68,9 +68,9 @@ const EYEBROW = "Sobre";
 const NAME = "Dra. Thaiane Lessa";
 
 const PARAGRAPHS = [
-  "Atuo na clínica geral, com foco em dentística estética e restauradora. Escolhi dentística ainda na faculdade. Sempre gostei de detalhes e de trabalho manual, de desenhar — e dentística é onde isso vira resultado na boca de alguém. Um caso que conduzi na graduação chamou a atenção da liga de dentística, e foi ali que entendi que era esse o caminho.",
-  "A primeira consulta é sem pressa. Faço uma anamnese detalhada e procuro entender seus hábitos, porque é deles que a boca costuma falar. Faço fotografias intraorais para te mostrar o que estou vendo, com as suas imagens. Limpeza, profilaxia e a higienização explicada passo a passo: qual escova, qual creme dental, para o seu caso. O básico precisa ser dito. Só depois disso a gente planeja.",
-  "Concluí a especialização em dentística e emendei o mestrado — uma para voltar o olhar à clínica, o outro para entender o porquê de cada coisa que eu já fazia. Desde 2025 integro o grupo de creators da Ivoclar. Estética e saúde não existem uma sem a outra, e caso que dura é caso planejado e acompanhado. Trabalho melhor com tempo, sem relógio apitando para o próximo paciente. Quando você sair daqui, quero que se sinta cuidada nos detalhes que muitos dentistas consideram óbvios, e segura do planejamento que fizemos juntos.",
+  "Meu olhar é para os detalhes. Foi isso que me levou à dentística, porque é ali que eles se transformam em resultado no sorriso de alguém. Hoje atuo na clínica geral, com foco em dentística estética e restauradora.",
+  "Reservo a primeira consulta para ouvir você com calma. Começo com uma anamnese detalhada e com a conversa sobre os seus hábitos, porque é deles que a boca costuma falar. Faço fotografias intraorais para te mostrar o que estou vendo. Explico a higienização passo a passo, inclusive qual escova e qual creme dental são indicados para o seu caso. O cuidado deve ser individualizado.",
+  "Concluí a especialização em dentística e faço mestrado na área, para me aperfeiçoar cada vez mais. Desde 2025 faço parte do Ivoclar Creators, programa da Ivoclar, fabricante de materiais odontológicos, que reúne dentistas para produzir e compartilhar conteúdo educativo com colegas de profissão. Para mim, estética e saúde andam juntas, e caso que dura é caso planejado e acompanhado. Quero que a sua experiência aqui seja de cuidado em cada detalhe e de confiança no planejamento que fizemos juntos.",
 ];
 
 /**

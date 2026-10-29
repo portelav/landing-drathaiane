@@ -41,10 +41,10 @@ Seções em ordem na página.
 | Preloader | Abrir com a marca: monograma desenhado que voa para o header | (anterior ao kickoff) | pronto |
 | Header | Navegação e contato direto (WhatsApp, Instagram) sempre à mão | (anterior ao kickoff) | pronto |
 | Hero | Primeira impressão: o consultório e o nome | [`docs/fdd/hero.md`](fdd/hero.md) | pronto |
-| Sobre | Quem ela é, como trabalha, credenciais com datas | [`docs/fdd/sobre.md`](fdd/sobre.md) | pronto |
-| Serviços | O que ela trata, para os dois públicos, e cinco casos dela com foto | [`docs/fdd/servicos.md`](fdd/servicos.md) | feito (2026-10-28, D44) |
+| Sobre | Quem ela é, como trabalha, credenciais com datas | [`docs/fdd/sobre.md`](fdd/sobre.md) | pronto; texto novo dela (2026-10-28, D45) |
+| Serviços | O que ela trata, para os dois públicos, e cinco casos dela com foto | [`docs/fdd/servicos.md`](fdd/servicos.md) | feito (2026-10-28, D44); botão "Agende aqui um horário" (D45) |
 | Depoimentos | Prova social | [`docs/fdd/depoimentos.md`](fdd/depoimentos.md) | fora por enquanto, sai do site e do menu (D25) |
-| Contato e rodapé | Como chegar (endereço do consultório e rota), horários, primeira consulta, perguntas frequentes, WhatsApp (D32 a D34; link das avaliações fora, D39); identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | pronto: rodapé com a identificação e os canais (D26); seção Contato completa (2026-10-27, D43) |
+| Contato e rodapé | Como chegar (endereço do consultório e rota), horários, primeira consulta, perguntas frequentes, WhatsApp (D32 a D34; link das avaliações fora, D39); identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | pronto: rodapé com a identificação e os canais (D26); seção Contato completa (2026-10-27, D43); número da clínica, mensagem pronta no WhatsApp e e-mail fora (2026-10-28, D45) |
 | Página 404 | Endereço errado cai numa página com a marca e o caminho de volta à home (D41) | (sem FDD) | pronto |
 
 ### Conteúdo pendente
@@ -131,7 +131,7 @@ Só depende do Lucas. O site continua com `noindex`.
 
 Depende do conteúdo e do aval dela (D24).
 
-- [x] Serviços e Contato com o conteúdo real dela. Contato completo em 2026-10-27 (D32, D34, D39, D43; PR #22) e Serviços em 2026-10-28 (D44; PR #23).
+- [x] Serviços e Contato com o conteúdo real dela. Contato completo em 2026-10-27 (D32, D34, D39, D43; PR #22) e Serviços em 2026-10-28 (D44; PR #23). Primeira leitura dela aplicada em 2026-10-28: número da clínica, mensagem pronta, e-mail fora e Sobre novo (D45; PR #25).
 - [ ] Site inteiro revisto de novo contra as regras de fora; o que não passou mudou ou saiu (D30).
 - [ ] Aval dela no site completo, com o texto do rodapé.
 - [ ] `noindex` fora, com canonical, dados estruturados e sitemap. A prévia de link já saiu na Fase 1 (D41).
@@ -253,3 +253,12 @@ Plano em `tasks/link-preview-404.md`.
   - Os cinco casos entram com foto e a legenda dela, num carrossel lateral com encaixe nativo. A seção não tem movimento dirigido por scroll, para não virar o quarto momento depois de hero, band e roda.
   - As fotos entram como quadros inteiros, com as duas metades. Cada uma leva "Dra. Thaiane Lessa · CRO/AL-6418" gravado no arquivo (Res. CFO-196/2019, art. 4º): é obrigatório nos antes e depois e se repete nas outras para ficarem iguais. Ela tem o TCLE de todos os casos.
   - O caso da reabilitação de 27 dentes (D5) fica fora até haver foto.
+
+### Rodada 12 (2026-10-28): primeira leitura dela
+
+- **D45.** Primeira rodada de ajustes dela sobre o site (Lucas, 2026-10-28).
+  - Telefone e WhatsApp passam a ser o número da clínica, (82) 99661-0348. Todo link de WhatsApp abre com a mensagem pronta "Olá, gostaria de mais informações sobre uma consulta com a Dra. Thaiane Lessa.".
+  - O e-mail sai do Contato: o WhatsApp é o único canal escrito. Reverte a parte da D43 sobre o e-mail; telefone e Instagram continuam no rodapé.
+  - A chamada embaixo dos casos, em Serviços, passa a ser "Agende aqui um horário", num bloco com contorno, sem raio, da largura do celular: como link sublinhado ela sumia embaixo do carrossel. A forma saiu de protótipos em 390 px. A do Contato continua "Chamar no WhatsApp", como link.
+  - Sem travessão nos textos do site: no lugar, vírgula, ponto ou dois-pontos.
+  - O Sobre recebe o texto novo dela, literal. "Clínica geral" sai da primeira frase e fica na terceira, ainda no primeiro parágrafo, antes de Serviços e das perguntas do Contato (CEO art. 43, § 1º, I). Reverte a parte da D43 que fixava a primeira frase.

@@ -34,7 +34,7 @@ Nenhum movimento dirigido por scroll: a seção não é o quarto momento depois 
 ## Regras
 
 1. Nenhum preço, forma de pagamento ou "grátis" (Código de Ética, art. 44, I; PRD, D29), nem "popular" (art. 44, VII). "Promoção", "desconto" e "oferta" ficam fora pela cartilha do CRO-AL (interpretação).
-2. "Especialista" só se a especialidade estiver registrada no CRO-AL (Código de Ética, art. 44, II). Área de atuação, procedimento e técnica só depois do título dessa especialidade ou de "clínico geral" (art. 43, § 1º, I): a frase "Atuo na clínica geral…" fica fixa no Sobre, antes desta seção (D43).
+2. "Especialista" só se a especialidade estiver registrada no CRO-AL (Código de Ética, art. 44, II). Área de atuação, procedimento e técnica só depois do título dessa especialidade ou de "clínico geral" (art. 43, § 1º, I): a frase "Hoje atuo na clínica geral…" fica fixa no primeiro parágrafo do Sobre, antes desta seção (D43, D45).
 3. Nenhuma promessa de resultado (Res. CFO-196/2019, art. 2º, § 1º). Superlativo fica fora por tom de voz (DESIGN.md, seção 8), não por regra do CFO.
 4. Só procedimentos odontológicos (Res. CFO-230/2020, art. 2º).
 5. Antes e depois só com TCLE e com nome e CRO na imagem (Res. CFO-196/2019, arts. 2º e 4º), publicados em nome dela, nunca da clínica ("CFO Esclarece", interpretação).

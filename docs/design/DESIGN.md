@@ -99,6 +99,7 @@ Nada abaixo de 11 px, e 11 px só em rótulo de caixa-alta com contraste AA.
 
 - Quase sem raio: a página é feita de fotos, vídeos e texto, não de cartões. Exceções: os botões sociais do header (`rounded-[16px]`, 44 px, área de toque mínima) e os marcadores da linha do tempo (`rounded-full`).
 - O botão de pausa dos vídeos segue a regra: quadrado de 32 px, sem raio, dentro de uma área de toque de 44 px, no canto inferior direito do vídeo.
+- A chamada de Serviços ("Agende aqui um horário") é um bloco com contorno `dark-base`, sem raio, de 56 px de altura e largura toda no celular (do tamanho do texto a partir de `sm`). No hover as cores se invertem e a seta anda 4 px, só com `transform` (PRD, D45).
 - Sem sombra de cartão. A única "sombra" é a mistura de cor que continua a parede da foto na band do Sobre.
 - Espaçamento lateral: 24 px no celular, 40 px a partir de `sm`.
 
