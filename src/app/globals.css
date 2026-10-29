@@ -38,17 +38,6 @@
   --c-wine-500: #8e1a3c;
   --c-wine-700: #661028;
 
-  /* Third-party brands, kept at their official values so the marks stay themselves */
-  --c-whatsapp: #25d366;
-  --g-instagram: radial-gradient(
-    circle at 30% 107%,
-    #fdf497 0%,
-    #fdf497 5%,
-    #fd5949 45%,
-    #d6249f 60%,
-    #285aeb 90%
-  );
-
   --background: #ffffff;
   --foreground: var(--c-dark-base);
 
