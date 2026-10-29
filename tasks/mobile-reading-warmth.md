@@ -1,6 +1,6 @@
 # Leitura no celular e calor humano
 
-**Branch:** `feat/mobile-reading-warmth` · **Status:** Em execução
+**Branch:** `feat/mobile-reading-warmth` · **Status:** Feito (PR #28)
 
 ## Objetivo
 - Testar no site os itens da análise comparativa de sites de cirurgiões-dentistas (2026-10-28): leitura no celular, calor humano e caminho até o WhatsApp. A forma saiu de um protótipo em 390 px aprovado pelo Lucas (2026-10-29).
