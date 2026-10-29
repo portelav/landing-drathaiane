@@ -14,9 +14,10 @@ const NAV_LINKS = [
   { label: "Contato", href: "#contato" },
 ];
 
-/** One shape for every social tile, so the row reads as a set. */
+/** One shape for every social tile, so the row reads as a set. Colours follow
+    the bar's tone, in step with the header's own colour change. */
 const SOCIAL_TILE =
-  "pointer-events-auto flex h-11 w-11 items-center justify-center rounded-[16px] no-underline transition-transform duration-[420ms] ease-[var(--ease-soft-pop)] hover:scale-[1.2] focus-visible:scale-[1.2] motion-reduce:transition-none motion-reduce:hover:scale-100";
+  "pointer-events-auto flex h-11 w-11 items-center justify-center rounded-[16px] no-underline [transition:transform_420ms_var(--ease-soft-pop),background-color_500ms_var(--ease-out-quint),color_500ms_var(--ease-out-quint)] hover:scale-[1.2] focus-visible:scale-[1.2] motion-reduce:transition-none motion-reduce:hover:scale-100";
 
 /** Vertical point the header samples to decide which section sits behind it. */
 const PROBE_Y = 40;
@@ -120,6 +121,11 @@ export function Header() {
   // The dropdown always needs a ground of its own — unlike the bar, it can be
   // open while the header is still floating over the top of the page.
   const drop = light ? "rgba(22, 48, 0, 0.95)" : "rgba(244, 242, 238, 0.95)";
+  // The social marks wear the site's own green instead of their brand colours,
+  // and turn light over the dark sections so they never sink into the ground.
+  const tile = light
+    ? { background: "var(--c-light-base)", color: "var(--c-forest-900)" }
+    : { background: "var(--c-forest-900)", color: "var(--c-light-base)" };
 
   return (
     <header
@@ -187,7 +193,7 @@ export function Header() {
             aria-label="Falar no WhatsApp"
             title="Falar no WhatsApp"
             className={SOCIAL_TILE}
-            style={{ background: "var(--c-whatsapp)", color: "var(--c-light-base)" }}
+            style={tile}
           >
             <WhatsAppIcon />
           </a>
@@ -200,7 +206,7 @@ export function Header() {
             aria-label="Instagram da Dra. Thaiane Lessa"
             title="Instagram"
             className={SOCIAL_TILE}
-            style={{ background: "var(--g-instagram)", color: "var(--c-light-base)" }}
+            style={tile}
           >
             <InstagramIcon />
           </a>
@@ -292,7 +298,7 @@ function BurgerIcon({ open }: { open: boolean }) {
   );
 }
 
-/** Official WhatsApp mark: white glyph, brand-green disc supplied by the link. */
+/** Official WhatsApp glyph; the tile around it is supplied by the link. */
 function WhatsAppIcon() {
   return (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden focusable="false">
@@ -301,7 +307,7 @@ function WhatsAppIcon() {
   );
 }
 
-/** Official Instagram mark: white glyph, gradient supplied by the link. */
+/** Official Instagram glyph; the tile around it is supplied by the link. */
 function InstagramIcon() {
   return (
     <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden focusable="false">
