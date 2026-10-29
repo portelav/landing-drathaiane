@@ -244,7 +244,7 @@ export function Hero() {
             className={`flex flex-col gap-8 border-t ${skin.rule} pt-8 sm:flex-row sm:items-end sm:justify-between wide:flex-col wide:items-start`}
           >
             <p className={`max-w-[34ch] text-[0.9375rem] leading-relaxed ${skin.muted}`}>
-              Cada plano de tratamento começa pela leitura do seu rosto —
+              Cada plano de tratamento começa pela leitura do seu rosto:
               proporção, luz e expressão antes de qualquer procedimento.
             </p>
             <span className={`tracking-brand shrink-0 text-[0.6875rem] uppercase ${skin.muted}`}>

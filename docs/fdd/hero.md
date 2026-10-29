@@ -14,7 +14,7 @@ Tudo já no ar desde antes do kickoff, sem conteúdo novo neste documento. A rev
 
 - Rótulo: "Odontologia estética e restauradora".
 - Título (`h1`, o único da página): "sorrir é sempre *uma boa ideia*", com o fim em itálico.
-- Parágrafo: "Cada plano de tratamento começa pela leitura do seu rosto — proporção, luz e expressão antes de qualquer procedimento."
+- Parágrafo: "Cada plano de tratamento começa pela leitura do seu rosto: proporção, luz e expressão antes de qualquer procedimento."
 - Convite: "Role para conhecer".
 - Linha de exibição que cruza o vídeo: "seu sorriso, no seu tempo".
 - Vídeo: o consultório (recepção e salas), em três clipes verticais lado a lado num quadro 16:9 (tríptico).

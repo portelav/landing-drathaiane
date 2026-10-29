@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 const MILESTONES = [
   {
     year: "2019",
-    items: ["Início da graduação em Odontologia — Universidade Federal de Alagoas"],
+    items: ["Início da graduação em Odontologia, Universidade Federal de Alagoas"],
   },
   {
     year: "2024",
