@@ -50,7 +50,7 @@ Nenhum movimento dirigido por scroll: a seção não é o quarto momento depois 
 ## Desempenho
 
 - Fotos por `next/image`, com carregamento preguiçoso e `sizes` por largura do cartão. Os WebP de origem têm de 26 a 83 KB.
-- O único JS novo é o do carrossel: um ouvinte de `scroll` passivo que acha o caso da vez.
+- O único JS novo é o do carrossel: um ouvinte de `scroll` passivo que acha o caso da vez e, depois de 140 ms sem rolagem (ou no `scrollend`, onde chega), faz o salto do laço; e um de `resize` que recentraliza o caso da vez.
 
 ## Fora de escopo
 
