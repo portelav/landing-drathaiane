@@ -104,25 +104,26 @@ Nada abaixo de 11 px, e 11 px só em rótulo de caixa-alta com contraste AA.
 
 ## 6. Movimento
 
-Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-pop` (passa um fio do alvo e assenta), `--ease-menu`, `--default-ease`.
+Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-pop` (passa um fio do alvo e assenta), `--ease-menu`, `--default-ease`. Animação em `globals.css`: `animate-details-in`, a entrada do texto de um `<details>` (450 ms, `cubic-bezier(0.33, 1, 0.68, 1)`, sobe `--details-in-y`), aplicada no `::details-content` para tocar a cada abertura.
 
 | O quê | Gatilho | Duração e curva | Por quê |
 |---|---|---|---|
 | Preloader: monograma desenhado e preenchido | carregamento | ~2,9 s; monograma voa para o header via `layoutId` | Abrir com a marca, e entregar a marca ao header sem corte |
 | Hero: janela abre de um painel para a tela cheia | scroll (rAF) | proporcional ao scroll | O tríptico do vídeo se revela painel a painel |
-| Header: some ao descer, volta ao subir; inverte a cor pelo tom da seção | scroll | 500 ms, `ease-out-quint` | Sair do caminho sem sumir de vez |
+| Header: some ao descer, volta ao subir e quando a rolagem para; inverte a cor pelo tom da seção | scroll; parada de 400 ms | 500 ms, `ease-out-quint`; a volta ao parar em 900 ms, ease-out cúbico; sem transição com movimento reduzido. Sobre o hero, a band e a linha do tempo (`data-header-hold`) não volta ao parar | Sair do caminho sem sumir de vez, e devolver o WhatsApp a quem parou para ler (D48) |
 | Menu do header | toque | 350 ms, itens com 45 ms de intervalo | Lista que desce sob o botão, no canto esquerdo |
 | Sobre, band: retrato cresce, cenário abre | scroll (rAF) | proporcional ao scroll | Eixo horizontal, continuação do hero |
 | Sobre, band no celular e no iPad em pé: citação sobe, foto assenta | scroll (rAF), sem prender | proporcional ao scroll. Rótulo e citação sobem 24 px com `opacity` enquanto o topo do texto vai do pé da tela a 40% da altura (a citação começa um pouco depois do rótulo); a foto vai de 1,08 a 1 enquanto o topo dela vai do pé a 20%. Volta ao subir. Com movimento reduzido, estado final | A versão do celular da band (D46). Segue o dedo para nunca ficar rápida demais nem esconder nada; sem prender a rolagem entre os dois palcos presos (hero e linha do tempo) |
 | Sobre, texto: linhas sobem por máscara | entrada, uma vez | 70 ms entre linhas | Único momento que anima e para: o silêncio depois é o efeito |
+| Sobre, texto no celular: "Leia mais" | toque | os parágrafos que abrem sobem como os outros, na primeira abertura; fechar é instantâneo e devolve a página ao botão | Um parágrafo por tela em vez de uma parede de texto (D48) |
 | Sobre, roleta de anos | scroll (rAF) | proporcional ao scroll | Eixo vertical, o contraste que hero e band não dão |
 | Sobre, foto ao lado da roda: painel desce, zoom de 1,08 a 1 | scroll (rAF), com a roda | proporcional ao scroll, smoothstep; inteira aos 90% | A trajetória chega nela: a foto parada ficava solta ao lado da roda |
 | Sobre, linha do tempo no celular: foto em foco | scroll (rAF), palco preso por 320svh | proporcional ao scroll, smoothstep; nítida aos 90% | A versão do celular da roda (D42). O desfoque é uma cópia borrada uma vez que some por `opacity`; a rolagem nunca anima o `filter`. Rótulo de 11 px sobre degradê `dark-base/85`, medido em 4,8:1 ou mais com a foto já clara |
 | Vídeo do consultório (hero) | 40% na tela | loop; pausa fora da tela e pelo botão | O consultório vivo na primeira impressão |
 | Vídeo do kit | (fora do site desde 2026-10-12; guardado para reuso) | | |
 | Serviços, lista | toque | `<details name>`, um aberto por vez; o texto entra como as respostas do Contato (450 ms) e o + gira para × (300 ms) | Cinco textos longos cabem numa tela sem esconder os nomes |
-| Serviços, casos | arrastar ou setas | encaixe nativo (`scroll-snap`). No celular, o caso da vez fica aceso e os vizinhos a 50%, com a foto indo de 1,04 a 1 (400 e 700 ms, `ease-out-quint`). Com movimento reduzido, tudo em cor cheia e as setas saltam | O gesto lateral do celular, sem um quarto momento dirigido por scroll. A borda do caso seguinte mostra que há mais |
-| Contato | nenhum | título preso no topo a partir de `lg` (`position: sticky`, sem JS); `<details>` abre sem transição | Segura o título enquanto o texto passa, sem um quarto movimento calculado por scroll |
+| Serviços, casos | arrastar, setas ou toque num vizinho | encaixe nativo no centro (`scroll-snap`). O caso da vez fica no meio, aceso, e os vizinhos a 50%, com a foto indo de 1,04 a 1 (400 e 700 ms, `ease-out-quint`). Com movimento reduzido, tudo em cor cheia e as setas saltam | O gesto lateral do celular, sem um quarto momento dirigido por scroll. A borda do caso seguinte mostra que há mais |
+| Contato | nenhum | título preso no topo a partir de `lg` (`position: sticky`, sem JS); a resposta entra a cada abertura (`animate-details-in`) e fecha sem transição | Segura o título enquanto o texto passa, sem um quarto movimento calculado por scroll |
 | Rodapé: voltar ao topo | clique | 1,8 s, ease-out quart (Lenis); direto com movimento reduzido | A página é longa, e o salto seco desorienta. O resto do rodapé não anima (hover só de opacidade, 300 ms) |
 
 - Animar `transform` e `opacity`. **Exceção registrada:** a roleta aplica `blur` de até 2,5 px nas frases em trânsito, para fundir a passagem entre duas linhas vizinhas. Nada de `mix-blend-mode` em elemento que se move.
