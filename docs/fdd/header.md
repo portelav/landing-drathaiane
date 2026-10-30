@@ -14,9 +14,9 @@ Sair do caminho de quem rola a página sem levar junto o WhatsApp: quem para par
 `src/components/header.tsx`, `useSectionTone`. Tudo sai de um listener de `scroll` passivo, medido uma vez por quadro.
 
 - **Ancorado:** passados 60 px (`ANCHOR_AFTER`), o header ganha fundo próprio com desfoque.
-- **Esconde:** passados 140 px (`HIDE_AFTER`), uma rolagem para baixo sobe o header para fora da tela (`translateY(-105%)`).
+- **Esconde:** passados 140 px (`HIDE_AFTER`), 24 px seguidos de rolagem para baixo (`TUCK_DISTANCE`) sobem o header para fora da tela (`translateY(-105%)`). A conta recomeça a cada rolagem para cima e quando ele volta ao parar.
 - **Volta ao subir:** qualquer rolagem para cima o traz de volta.
-- **Volta ao parar** (D48): 400 ms (`SETTLE_MS`) depois do último evento de `scroll`, ele volta. A espera recomeça a cada evento, então a inércia do dedo e a do Lenis contam como rolagem até pararem de fato.
+- **Volta ao parar** (D48): 400 ms (`SETTLE_MS`) depois do último evento de `scroll`, ele volta. A espera recomeça a cada evento, então a inércia do dedo e a do Lenis contam como rolagem até pararem de fato. Os últimos pixels de inércia que chegam depois da volta ficam abaixo dos 24 px e não o escondem de novo; antes, ele descia um pouco e subia em seguida (corrigido em 2026-10-29).
 - **Exceção:** se o elemento sob o ponto de leitura do header (`PROBE_Y`, 40 px) tem `data-header-hold`, ele não volta ao parar, só ao subir. Levam a marca o hero (`hero.tsx`), a band (`about.tsx`) e a linha do tempo (`about-timeline.tsx`): são os palcos dirigidos por scroll, e um header parado por cima cobriria o momento.
 - Com o menu aberto, o header nunca se esconde.
 
@@ -40,5 +40,6 @@ Verificáveis em 390 px, iPad retrato e computador:
 
 - [x] Rolar para baixo em Serviços, no Contato ou no texto do Sobre esconde o header, que volta cerca de 0,4 s depois de parar.
 - [x] Parado sobre o hero, a band ou a linha do tempo, ele continua escondido e volta ao rolar para cima.
+- [x] Já voltando ao parar, alguns pixels de inércia para baixo não o escondem; uma rolagem de verdade, sim.
 - [x] Com `prefers-reduced-motion`, some e volta sem transição.
 - [ ] Testado no celular com o dedo (inércia nativa) e no computador com o Lenis.
