@@ -1,6 +1,6 @@
 # Rolagem animada mesmo com movimento reduzido
 
-**Branch:** `feat/scroll-motion-always` · **Status:** Em execução
+**Branch:** `feat/scroll-motion-always` · **Status:** Feito (PR #31)
 
 ## Objetivo
 - As animações de rolagem (hero, band, texto do Sobre, linha do tempo) passam a rodar mesmo quando o sistema pede menos movimento. Num Windows em modo desempenho, o Chrome e o Firefox mostravam o site parado (Lucas, 2026-10-30).
