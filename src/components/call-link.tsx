@@ -25,7 +25,7 @@ export function CallLink({ children, fill = false }: { children: ReactNode; fill
       </span>
       <span
         aria-hidden
-        className="transition-transform duration-200 ease-[var(--ease-out-quint)] motion-safe:group-hover:translate-x-1"
+        className="transition-transform duration-200 ease-[var(--ease-out-quint)] group-hover:translate-x-1"
       >
         →
       </span>

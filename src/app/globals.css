@@ -76,7 +76,7 @@
 
 @theme {
   /* The text of a <details> as it opens, set on its `::details-content`: fades
-     in and, where motion is allowed, drops into place (`--details-in-y`). Not
+     in and drops into place (`--details-in-y`). Not
      @starting-style on the text, which fires only on the first opening: Chrome
      skips styling hidden content, so the text never leaves its open style. */
   --animate-details-in: details-in 450ms cubic-bezier(0.33, 1, 0.68, 1);

@@ -189,7 +189,7 @@ export function ContactSection() {
                 {QUESTIONS.map((item) => (
                   <details
                     key={item.question}
-                    className="group border-b border-dark-10 open:details-content:animate-details-in motion-safe:[--details-in-y:-0.5rem]"
+                    className="group border-b border-dark-10 open:details-content:animate-details-in [--details-in-y:-0.5rem]"
                   >
                     <summary className="flex min-h-11 cursor-pointer items-center justify-between gap-4 py-3 text-[1.0625rem] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark-base">
                       {item.question}
@@ -207,8 +207,8 @@ export function ContactSection() {
                       </span>
                     </summary>
                     {/* The answer fades in from just under the question when it opens,
-                        instead of popping in; with reduced motion it only fades. An
-                        ease-out cubic, gentler at the start than the quint. */}
+                        instead of popping in. An ease-out cubic, gentler at the start
+                        than the quint. */}
                     <p className="m-0 pb-5 text-[1.0625rem] leading-[1.65] text-dark-base/85">
                       {item.answer}
                     </p>

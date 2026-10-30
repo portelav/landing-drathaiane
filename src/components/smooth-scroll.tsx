@@ -5,7 +5,8 @@ import { useEffect } from "react";
 
 /**
  * The running Lenis, so a link can ask it to scroll instead of jumping. Null
- * before mount, on touch devices and whenever motion is reduced.
+ * before mount. On by design even when the system asks for less motion (PRD,
+ * D52): without it the scroll-driven moments step instead of glide.
  */
 let current: Lenis | null = null;
 
@@ -23,12 +24,11 @@ export function getLenis() {
  */
 export function SmoothScroll() {
   useEffect(() => {
-    const stillness = window.matchMedia("(prefers-reduced-motion: reduce)");
     let lenis: Lenis | null = null;
     let frame = 0;
 
     const start = () => {
-      if (lenis || stillness.matches) return;
+      if (lenis) return;
 
       lenis = current = new Lenis({
         // Catch-up factor per frame: enough to smooth the steps, high enough
@@ -37,6 +37,9 @@ export function SmoothScroll() {
         wheelMultiplier: 1,
         // Touch devices already ease their own scrolling; doubling it feels wrong.
         syncTouch: false,
+        // Lenis would turn its own easing off (lerp 1, every notch a jump) when
+        // the system asks for less motion. The site glides either way (D52).
+        respectReducedMotion: false,
       });
 
       const raf = (time: number) => {
@@ -53,17 +56,8 @@ export function SmoothScroll() {
       lenis = current = null;
     };
 
-    const sync = () => {
-      if (stillness.matches) stop();
-      else start();
-    };
-
-    sync();
-    stillness.addEventListener("change", sync);
-    return () => {
-      stillness.removeEventListener("change", sync);
-      stop();
-    };
+    start();
+    return stop;
   }, []);
 
   return null;
