@@ -3,6 +3,7 @@ import { Instrument_Serif, Inter_Tight } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -24,8 +25,8 @@ const DESCRIPTION =
   "Cirurgiã-dentista em Maceió, CRO/AL-6418. Conheça a Dra. Thaiane Lessa, veja como é a primeira consulta e como chegar ao consultório.";
 
 export const metadata: Metadata = {
-  // Link previews need absolute URLs. Moves with the domain (PRD, D10).
-  metadataBase: new URL("https://www.drathaianelessa.com.br"),
+  // Link previews and the canonical need absolute URLs (PRD, D49).
+  metadataBase: new URL(SITE_URL),
   title: TITLE,
   description: DESCRIPTION,
   // The preview image (opengraph-image.jpg, beside this file) carries name,
@@ -39,9 +40,8 @@ export const metadata: Metadata = {
     url: "/",
   },
   twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
-  // Not indexed until she signs off on the finished site (PRD, D22). The link
-  // preview does not wait for that (D41).
-  robots: { index: false, follow: false },
+  // Indexed since her sign-off on the finished site (PRD, D51). The 404 keeps
+  // the noindex Next.js gives every not-found page.
 };
 
 export const viewport: Viewport = {
