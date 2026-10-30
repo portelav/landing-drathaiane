@@ -24,6 +24,12 @@ export const ADDRESS_LINES = [
 export const PARKING =
   "Estacionamento no prédio anexo, com acesso pela lateral, em direção à ladeira do Jacintinho.";
 export const HOURS = "08h às 18h, de segunda a sexta.";
+/** HOURS again, in the form search engines read. Change both together. */
+export const OPENING_HOURS = {
+  days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+  opens: "08:00",
+  closes: "18:00",
+};
 export const ACCESSIBILITY = "O prédio tem elevador e acesso para cadeirante.";
 
 /** The office, as read off the map by hand: the geocoder does not find the building. */
