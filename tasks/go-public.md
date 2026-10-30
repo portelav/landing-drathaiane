@@ -1,6 +1,6 @@
 # Site público: noindex fora
 
-**Branch:** `feat/go-public` · **Status:** Planejado
+**Branch:** `feat/go-public` · **Status:** Em execução
 
 ## Objetivo
 - Liberar o site para os buscadores, com o aval dela dado (PRD, D22 e D51), e dizer ao Google qual é o endereço oficial e o que o site é.
@@ -34,20 +34,29 @@
 - `src/lib/structured-data.ts`: o objeto do JSON-LD, montado a partir de `contact.ts`.
 - `src/app/sitemap.ts`, `src/app/robots.ts`: novos.
 - `next.config.ts`: o redirecionamento do `vercel.app`.
-- `docs/PRD.md` (D52 e seção 10), `docs/ROADMAP.md`, `README.md`, `CLAUDE.md`.
+- `docs/PRD.md` (D53 e seção 10), `docs/ROADMAP.md`, `README.md`, `CLAUDE.md`.
 
 ## Checklist (até 10, em ordem)
-1. [ ] Ler `json-ld.md`, `robots.md`, `sitemap.md` e `redirects.md` em `node_modules/next/dist/docs/`.
-2. [ ] `layout.tsx`: tirar o `robots`, pôr o canonical, atualizar o comentário.
-3. [ ] `structured-data.ts` e o `<script>` na home, com `<` escapado como manda o guia.
-4. [ ] `robots.ts` e `sitemap.ts`.
-5. [ ] Redirecionamento do `vercel.app` no `next.config.ts`.
-6. [ ] Build local: conferir os critérios 1 a 4 no HTML e nas rotas.
-7. [ ] PRD (D52), ROADMAP (feito e o "Depois" das buscas), README e CLAUDE.md.
-8. [ ] Lint e typecheck. Parar para o Lucas conferir.
+1. [x] Ler `json-ld.md`, `robots.md`, `sitemap.md` e `redirects.md` em `node_modules/next/dist/docs/`.
+2. [x] `layout.tsx`: tirar o `robots`, pôr o canonical, atualizar o comentário.
+3. [x] `structured-data.ts` e o `<script>` na home, com `<` escapado como manda o guia.
+4. [x] `robots.ts` e `sitemap.ts`.
+5. [x] Redirecionamento do `vercel.app` no `next.config.ts`.
+6. [x] Build local: conferir os critérios 1 a 4 no HTML e nas rotas.
+7. [x] PRD (D53), ROADMAP (feito e o "Depois" das buscas), README e CLAUDE.md.
+8. [x] Lint e typecheck. Parar para o Lucas conferir.
 9. [ ] Depois do merge: critério 5 na produção.
 
 ---
 
 ## Feito e verificado
-<!-- Escrito pelo /exec. -->
+- **Arquivos:** `layout.tsx` (sem `robots`, `metadataBase` de `site.ts`), `page.tsx` (canonical e JSON-LD), `robots.ts` e `sitemap.ts` novos, `next.config.ts` (redirecionamento), `src/lib/site.ts` e `structured-data.ts` novos, `contact.ts` (`OPENING_HOURS`, o horário na forma que o Google lê). Docs: PRD (D53), ROADMAP, README, CLAUDE.md.
+- **Desvios:** o canonical foi para a `page.tsx`, não para o `layout.tsx`, para a 404 não apontar para a home. `src/lib/site.ts` entrou para o endereço oficial ter um lugar só (layout, robots, sitemap, JSON-LD e redirecionamento).
+- **Critérios, no build local (`next start`):**
+  1. Home sem `noindex` e com `<link rel="canonical" href="https://www.drathaianelessa.com.br">`.
+  2. `/nao-existe` com `<meta name="robots" content="noindex">`.
+  3. `/robots.txt` com `Allow: /` e o sitemap; `/sitemap.xml` com a home.
+  4. JSON-LD lido e conferido: tipo `Dentist`, telefone da clínica, sem o celular pessoal, sem preço. Validador do schema.org fica para a URL de produção, depois do merge.
+  5. Com `Host: drathaianelessa.vercel.app`, 308 para o `www` com o caminho; com outro host da Vercel, 200. Na produção, depois do merge.
+  6. Lint, typecheck e build verdes.
+- **Interface:** nada visível mudou; sem conferência em 390 px, iPad e computador além do HTML.
