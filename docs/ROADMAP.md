@@ -25,8 +25,8 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 - Testes da análise comparativa de sites de cirurgiões-dentistas (2026-10-28): leitura no celular, calor humano e caminho até o WhatsApp. Primeira rodada feita (`tasks/mobile-reading-warmth.md`, D48, PR #28): "Leia mais" no Sobre, Contato com a primeira consulta na frente, foto das sacolas e retrato dela no botão do WhatsApp, header que volta quando a rolagem para, casos em laço com o escolhido no meio. Depois, o resto da lista nas notas privadas.
 - Revisão do site inteiro contra as regras de fora, com as respostas que tiverem chegado (PRD, D30): feita em 2026-10-29 (PR #29).
 - Domínio próprio `www.drathaianelessa.com.br` (PRD, D49): no ar desde 2026-10-29 (PR #29), ainda com `noindex`.
-- Aval dela no site completo: dado em 2026-10-29 (PRD, D51). Tirar o `noindex` e completar os metadados de busca: canonical, dados estruturados e sitemap (D22, D41).
-- Barra técnica conferida de novo com as seções novas: feita em 2026-10-29, com 88 no celular, 94 no iPad, 100 no computador e acessibilidade 100 nos três (PRD, D50).
+- Aval dela no site completo: dado em 2026-10-29 (PRD, D51; PR #30). Tirar o `noindex` e completar os metadados de busca: canonical, dados estruturados e sitemap (D22, D41).
+- Barra técnica conferida de novo com as seções novas: feita em 2026-10-29, com 88 no celular, 94 no iPad, 100 no computador e acessibilidade 100 nos três (PRD, D50; PR #30).
 
 ## Depois
 

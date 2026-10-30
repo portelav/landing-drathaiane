@@ -42,7 +42,7 @@ Seções em ordem na página.
 | Header | Navegação e contato direto (WhatsApp, Instagram) sempre à mão | [`docs/fdd/header.md`](fdd/header.md) | pronto; sem o tranco da inércia ao parar (2026-10-29; PR #29) |
 | Hero | Primeira impressão: o consultório e o nome | [`docs/fdd/hero.md`](fdd/hero.md) | pronto; versão do celular mantida como está (2026-10-28, D47; PR #26); parágrafo novo dela (2026-10-29; PR #29) |
 | Sobre | Quem ela é, como trabalha, credenciais com datas | [`docs/fdd/sobre.md`](fdd/sobre.md) | pronto; texto novo dela (2026-10-28, D45); band no celular com chegada que segue a rolagem (2026-10-28, D46; PR #26); "Leia mais" no celular (2026-10-29, D48; PR #28) |
-| Serviços | O que ela trata, para os dois públicos, e cinco casos dela com foto | [`docs/fdd/servicos.md`](fdd/servicos.md) | feito (2026-10-28, D44); botão "Agende aqui um horário" (D45) |
+| Serviços | O que ela trata, para os dois públicos, e cinco casos dela com foto | [`docs/fdd/servicos.md`](fdd/servicos.md) | feito (2026-10-28, D44); botão "Agende aqui um horário" (D45); texto dos casos vizinhos legível (2026-10-29, D50; PR #30) |
 | Depoimentos | Prova social | [`docs/fdd/depoimentos.md`](fdd/depoimentos.md) | fora por enquanto, sai do site e do menu (D25) |
 | Contato e rodapé | Como chegar (endereço do consultório e rota), horários, primeira consulta, perguntas frequentes, WhatsApp (D32 a D34; link das avaliações fora, D39); identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | pronto: rodapé com a identificação e os canais (D26); seção Contato completa (2026-10-27, D43); número da clínica, mensagem pronta no WhatsApp e e-mail fora (2026-10-28, D45); primeira consulta na frente, com a foto das sacolas, e o retrato dela no botão do WhatsApp (2026-10-29, D48; PR #28) |
 | Página 404 | Endereço errado cai numa página com a marca e o caminho de volta à home (D41) | (sem FDD) | pronto |
@@ -132,9 +132,9 @@ Depende do conteúdo e do aval dela (D24).
 
 - [x] Serviços e Contato com o conteúdo real dela. Contato completo em 2026-10-27 (D32, D34, D39, D43; PR #22) e Serviços em 2026-10-28 (D44; PR #23). Primeira leitura dela aplicada em 2026-10-28: número da clínica, mensagem pronta, e-mail fora e Sobre novo (D45; PR #25).
 - [x] Site inteiro revisto de novo contra as regras de fora; o que não passou mudou ou saiu (D30). Feito em 2026-10-29 (PR #29).
-- [x] Aval dela no site completo, com o texto do rodapé. Dado em 2026-10-29 (D51).
+- [x] Aval dela no site completo, com o texto do rodapé. Dado em 2026-10-29 (D51; PR #30).
 - [ ] `noindex` fora, com canonical, dados estruturados e sitemap. A prévia de link já saiu na Fase 1 (D41).
-- [x] Barra técnica da Fase 1 conferida de novo com as seções novas. Nota de desempenho na produção em 2026-10-29: 88 no celular, 94 no iPad, 100 no computador. Acessibilidade: 100 nos três, depois da correção do contraste dos casos (D50). LCP no celular: 3,0 s.
+- [x] Barra técnica da Fase 1 conferida de novo com as seções novas. Nota de desempenho na produção em 2026-10-29: 88 no celular, 94 no iPad, 100 no computador. Acessibilidade: 100 nos três, depois da correção do contraste dos casos (D50). LCP no celular: 3,0 s (PR #30).
 
 Fora dos critérios: Depoimentos (D25).
 
