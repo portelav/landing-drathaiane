@@ -23,13 +23,13 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 - Seção Contato (`docs/fdd/contato.md`): feita (`tasks/contact-section.md` e `tasks/contact-content.md`), com endereço e rota, estacionamento, horário, acessibilidade, primeira consulta com a duração, cinco perguntas frequentes. O e-mail saiu na D45. O link das avaliações está fora até haver mais avaliações (PRD, D39).
 - Primeira leitura dela (PRD, D45): feita (`tasks/thaiane-feedback.md`, PR #25), com número da clínica, mensagem pronta no WhatsApp, e-mail fora, chamada de Serviços, texto novo do Sobre e travessões fora (os do hero e da linha do tempo saíram no PR #26).
 - Testes da análise comparativa de sites de cirurgiões-dentistas (2026-10-28): leitura no celular, calor humano e caminho até o WhatsApp. Primeira rodada feita (`tasks/mobile-reading-warmth.md`, D48, PR #28): "Leia mais" no Sobre, Contato com a primeira consulta na frente, foto das sacolas e retrato dela no botão do WhatsApp, header que volta quando a rolagem para, casos em laço com o escolhido no meio. Depois, o resto da lista nas notas privadas.
-- Revisão do site inteiro contra as regras de fora, com as respostas que tiverem chegado (PRD, D30); lista do que conferir nas notas privadas.
+- Revisão do site inteiro contra as regras de fora, com as respostas que tiverem chegado (PRD, D30): feita em 2026-10-29 (PR #29).
+- Domínio próprio `www.drathaianelessa.com.br` (PRD, D49): no ar desde 2026-10-29 (PR #29), ainda com `noindex`.
 - Aval dela no site completo; tirar o `noindex` e completar os metadados de busca: canonical, dados estruturados e sitemap (D22, D41).
 - Barra técnica conferida de novo com as seções novas.
 
 ## Depois
 
-- Domínio próprio (D10).
 - LCP no celular abaixo de 2,5 s; hoje dá 2,9 s (D37). Caminho: diminuir o JS da primeira tela (ADR 0002) e entender o atraso do Chrome em torno da imagem do hero (`tasks/technical-bar.md`, "Medição na produção").
 - Rever o visual do rodapé: o colofão claro (`tasks/footer-colophon.md`) melhorou o primeiro rodapé, mas ainda não convence o Lucas.
 

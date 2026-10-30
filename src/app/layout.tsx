@@ -25,7 +25,7 @@ const DESCRIPTION =
 
 export const metadata: Metadata = {
   // Link previews need absolute URLs. Moves with the domain (PRD, D10).
-  metadataBase: new URL("https://drathaianelessa.vercel.app"),
+  metadataBase: new URL("https://www.drathaianelessa.com.br"),
   title: TITLE,
   description: DESCRIPTION,
   // The preview image (opengraph-image.jpg, beside this file) carries name,

@@ -23,6 +23,12 @@ const SOCIAL_TILE =
 const PROBE_Y = 40;
 /** Scrolled past this and a downward scroll tucks the header away. */
 const HIDE_AFTER = 140;
+/**
+ * How far a downward scroll has to travel before it tucks the header. The
+ * last pixels of a flick's momentum can land after the pause that brought the
+ * header back; without this they would send it straight up again.
+ */
+const TUCK_DISTANCE = 24;
 /** Past the fold the header stops floating and takes a ground of its own. */
 const ANCHOR_AFTER = 60;
 /** A scroll that pauses this long brings a tucked header back. */
@@ -57,14 +63,21 @@ function useSectionTone() {
   useEffect(() => {
     let frame = 0;
     let lastY = window.scrollY;
+    // Where the current downward run started, or where the header last came
+    // back on its own.
+    let downFrom = lastY;
 
     const measure = () => {
       frame = 0;
       const y = window.scrollY;
 
-      const tuck = y > HIDE_AFTER && y > lastY;
-      setHidden(tuck);
-      if (tuck) setSettled(false);
+      if (y < lastY || y <= HIDE_AFTER) {
+        downFrom = y;
+        setHidden(false);
+      } else if (y - downFrom > TUCK_DISTANCE) {
+        setHidden(true);
+        setSettled(false);
+      }
       setAnchored(y > ANCHOR_AFTER);
       lastY = y;
 
@@ -89,6 +102,7 @@ function useSectionTone() {
         const rect = el.getBoundingClientRect();
         if (rect.top <= PROBE_Y && rect.bottom > PROBE_Y) return;
       }
+      downFrom = window.scrollY;
       setSettled(true);
       setHidden(false);
     };
