@@ -164,13 +164,13 @@ export function AboutTimeline() {
     )
       return;
 
+    // Scroll-driven even when the system asks for less motion (PRD, D52).
     const turning = window.matchMedia(OPENS_BESIDE);
-    const stillness = window.matchMedia("(prefers-reduced-motion: reduce)");
     let queued = 0;
     let frame: (() => void) | null = null;
 
-    /** Hands the layout back to the stylesheet, which parks it as a list: stacked
-     *  on narrow screens, and on `beside:` through the `motion-reduce:` classes. */
+    /** Clears what the last layout drew, so a switch between the wheel and
+     *  the phone stage starts clean. */
     const rest = () => {
       [...years.current, ...seats.current, ...slots.current].forEach((element) => {
         if (!element) return;
@@ -306,22 +306,18 @@ export function AboutTimeline() {
       window.removeEventListener("scroll", onScroll);
       rest();
 
-      frame = stillness.matches ? null : turning.matches ? draw : drawPhone;
-      if (!frame) return;
-
+      frame = turning.matches ? draw : drawPhone;
       frame();
       window.addEventListener("scroll", onScroll, { passive: true });
     };
 
     apply();
     turning.addEventListener("change", apply);
-    stillness.addEventListener("change", apply);
     window.addEventListener("resize", apply);
 
     return () => {
       if (queued) cancelAnimationFrame(queued);
       turning.removeEventListener("change", apply);
-      stillness.removeEventListener("change", apply);
       window.removeEventListener("resize", apply);
       window.removeEventListener("scroll", onScroll);
     };
@@ -332,17 +328,16 @@ export function AboutTimeline() {
       ref={wrapRef}
       data-header-theme="light"
       data-header-hold
-      className="relative bg-light-base text-dark-base beside:h-[380svh] motion-reduce:beside:h-auto"
+      className="relative bg-light-base text-dark-base beside:h-[380svh]"
     >
       {/* The phone stage: the photo fills the screen, out of focus and dim,
           and comes into focus as the years go by over it. Pinned for a short
-          run of scroll. Gone on `beside:`, where the wheel takes over, and
-          with reduced motion, where the plain list below stands in for it.
-          Dark under the header, so the bar inverts over the photo. */}
+          run of scroll. Gone on `beside:`, where the wheel takes over. Dark
+          under the header, so the bar inverts over the photo. */}
       <div
         ref={phoneRunwayRef}
         data-header-theme="dark"
-        className="relative h-[320svh] beside:hidden motion-reduce:hidden"
+        className="relative h-[320svh] beside:hidden"
       >
         <div
           ref={phoneStageRef}
@@ -449,7 +444,7 @@ export function AboutTimeline() {
 
       <div
         ref={stageRef}
-        className="hidden flex-col gap-14 px-6 pb-28 motion-reduce:flex beside:flex sm:px-10 sm:pb-36 beside:sticky beside:top-0 beside:h-[100svh] beside:flex-row beside:items-center beside:gap-16 beside:overflow-hidden beside:px-10 beside:py-24 motion-reduce:beside:static motion-reduce:beside:h-auto motion-reduce:beside:overflow-visible"
+        className="hidden flex-col gap-14 px-6 pb-28 beside:flex sm:px-10 sm:pb-36 beside:sticky beside:top-0 beside:h-[100svh] beside:flex-row beside:items-center beside:gap-16 beside:overflow-hidden beside:px-10 beside:py-24"
       >
         {/* The vertical axis is the contrast neither earlier piece can give:
             the hero and the band both open sideways, and the site has never
@@ -457,7 +452,7 @@ export function AboutTimeline() {
         <div ref={columnRef} className="beside:relative beside:flex-1 beside:self-stretch">
           <h3
             ref={labelRef}
-            className="tracking-brand text-[0.6875rem] uppercase text-dark-base/70 beside:absolute beside:top-0 beside:z-10 motion-reduce:beside:static"
+            className="tracking-brand text-[0.6875rem] uppercase text-dark-base/70 beside:absolute beside:top-0 beside:z-10"
           >
             Formação e trajetória
           </h3>
@@ -466,11 +461,11 @@ export function AboutTimeline() {
               dissolve at the top and bottom instead of being cut off by the
               stage edge, and the arc stops before it can run across the label
               or trail off as a stray line. */}
-          <div className="mt-2 beside:absolute beside:inset-0 beside:mt-0 beside:[mask-image:linear-gradient(to_bottom,transparent_0%,#000_20%,#000_80%,transparent_100%)] motion-reduce:beside:static motion-reduce:beside:mt-2 motion-reduce:beside:[mask-image:none]">
+          <div className="mt-2 beside:absolute beside:inset-0 beside:mt-0 beside:[mask-image:linear-gradient(to_bottom,transparent_0%,#000_20%,#000_80%,transparent_100%)]">
             <div
               ref={arcRef}
               aria-hidden
-              className="hidden rounded-full border border-dark-10 beside:absolute beside:block motion-reduce:beside:hidden"
+              className="hidden rounded-full border border-dark-10 beside:absolute beside:block"
             />
 
             {MILESTONES.map((milestone, index) => (
@@ -479,7 +474,7 @@ export function AboutTimeline() {
                   ref={(node) => {
                     years.current[index] = node;
                   }}
-                  className="mt-10 block origin-left font-display text-[clamp(2.5rem,5.2vw,4rem)] leading-none tabular-nums text-forest-700 whitespace-nowrap beside:absolute beside:left-0 beside:top-0 beside:mt-0 beside:will-change-[transform,opacity] motion-reduce:beside:static motion-reduce:beside:mt-10"
+                  className="mt-10 block origin-left font-display text-[clamp(2.5rem,5.2vw,4rem)] leading-none tabular-nums text-forest-700 whitespace-nowrap beside:absolute beside:left-0 beside:top-0 beside:mt-0 beside:will-change-[transform,opacity]"
                 >
                   {milestone.year}
                 </span>
@@ -489,18 +484,18 @@ export function AboutTimeline() {
                     seats.current[index] = node;
                   }}
                   aria-hidden
-                  className="hidden h-[5px] w-[5px] rounded-full bg-forest-700 beside:absolute beside:left-0 beside:top-0 beside:-ml-[2.5px] beside:-mt-[2.5px] beside:block beside:will-change-[transform,opacity] motion-reduce:beside:hidden"
+                  className="hidden h-[5px] w-[5px] rounded-full bg-forest-700 beside:absolute beside:left-0 beside:top-0 beside:-ml-[2.5px] beside:-mt-[2.5px] beside:block beside:will-change-[transform,opacity]"
                 />
 
                 <div
                   ref={(node) => {
                     slots.current[index] = node;
                   }}
-                  className="mt-3 flex flex-col gap-2 beside:pointer-events-none beside:absolute beside:left-0 beside:top-0 beside:mt-0 beside:will-change-[transform,opacity] motion-reduce:beside:pointer-events-auto motion-reduce:beside:static motion-reduce:beside:mt-3"
+                  className="mt-3 flex flex-col gap-2 beside:pointer-events-none beside:absolute beside:left-0 beside:top-0 beside:mt-0 beside:will-change-[transform,opacity]"
                 >
                   <div
                     aria-hidden
-                    className="mb-0.5 hidden h-px w-10 bg-dark-10 beside:block motion-reduce:beside:hidden"
+                    className="mb-0.5 hidden h-px w-10 bg-dark-10 beside:block"
                   />
                   {milestone.items.map((item) => (
                     <p
@@ -519,7 +514,7 @@ export function AboutTimeline() {
             <span
               ref={markerRef}
               aria-hidden
-              className="hidden h-px bg-forest-700 opacity-45 beside:absolute beside:block motion-reduce:beside:hidden"
+              className="hidden h-px bg-forest-700 opacity-45 beside:absolute beside:block"
             />
           </div>
         </div>
@@ -538,8 +533,8 @@ export function AboutTimeline() {
             />
           </div>
 
-          {/* Only the turning wheel shows it; stacked, or with reduced motion,
-              the photo is whole from the start. */}
+          {/* Only the turning wheel shows it; elsewhere the photo is whole
+              from the start. */}
           <div
             ref={veilRef}
             aria-hidden

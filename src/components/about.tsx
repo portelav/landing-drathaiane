@@ -73,8 +73,8 @@ export function About() {
     const copy = copyRef.current;
     if (!wrap || !band || !photo || !copy) return;
 
+    // Scroll-driven even when the system asks for less motion (PRD, D52).
     const pinned = window.matchMedia(OPENS_BESIDE);
-    const stillness = window.matchMedia("(prefers-reduced-motion: reduce)");
     let queued = 0;
 
     /** Hands the band back to the stylesheet, which stacks it as on a phone. */
@@ -139,26 +139,17 @@ export function About() {
 
       if (!pinned.matches) return;
 
-      // Without motion there is nothing to scrub, and on this layout the
-      // stylesheet gives the band no size at all: park it fully open.
-      if (stillness.matches) {
-        place(1);
-        return;
-      }
-
       draw();
       window.addEventListener("scroll", onScroll, { passive: true });
     };
 
     apply();
     pinned.addEventListener("change", apply);
-    stillness.addEventListener("change", apply);
     window.addEventListener("resize", apply);
 
     return () => {
       if (queued) cancelAnimationFrame(queued);
       pinned.removeEventListener("change", apply);
-      stillness.removeEventListener("change", apply);
       window.removeEventListener("resize", apply);
       window.removeEventListener("scroll", onScroll);
     };
@@ -166,8 +157,9 @@ export function About() {
 
   // Stacked, the band arrives with the scroll: the label and the quote rise
   // in, and the photo settles from 1.08. Nothing pins, so it moves at the
-  // finger's pace and plays back on the way up. The server renders the
-  // finished state, which is also what reduced motion and `beside:` keep.
+  // finger's pace and plays back on the way up, with or without the system's
+  // ask for less motion (PRD, D52). The server renders the finished state,
+  // which is also what `beside:` keeps.
   useEffect(() => {
     const photo = photoRef.current;
     const copy = copyRef.current;
@@ -177,7 +169,6 @@ export function About() {
     if (!label || !quote) return;
 
     const pinned = window.matchMedia(OPENS_BESIDE);
-    const stillness = window.matchMedia("(prefers-reduced-motion: reduce)");
     let queued = 0;
 
     /** 0 while `el`'s top is below the screen, 1 once it reaches `settled`. */
@@ -218,20 +209,18 @@ export function About() {
       }
       window.removeEventListener("scroll", onScroll);
       rest();
-      if (pinned.matches || stillness.matches) return;
+      if (pinned.matches) return;
       draw();
       window.addEventListener("scroll", onScroll, { passive: true });
     };
 
     apply();
     pinned.addEventListener("change", apply);
-    stillness.addEventListener("change", apply);
     window.addEventListener("resize", apply);
 
     return () => {
       if (queued) cancelAnimationFrame(queued);
       pinned.removeEventListener("change", apply);
-      stillness.removeEventListener("change", apply);
       window.removeEventListener("resize", apply);
       window.removeEventListener("scroll", onScroll);
       rest();
@@ -244,7 +233,7 @@ export function About() {
       id="sobre"
       data-header-hold
       data-header-theme="light"
-      className="relative bg-light-base text-dark-base beside:h-[250svh] motion-reduce:beside:h-auto"
+      className="relative bg-light-base text-dark-base beside:h-[250svh]"
     >
       <div className="flex justify-center overflow-hidden sm:px-10 sm:py-24 beside:sticky beside:top-0 beside:h-[100svh] beside:items-center beside:px-0 beside:py-0">
         {/* On a phone the band runs edge to edge. Wider but still upright
