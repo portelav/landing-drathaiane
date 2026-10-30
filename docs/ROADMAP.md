@@ -29,7 +29,6 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 
 ## Depois
 
-- Domínio próprio (D10).
 - LCP no celular abaixo de 2,5 s; hoje dá 2,9 s (D37). Caminho: diminuir o JS da primeira tela (ADR 0002) e entender o atraso do Chrome em torno da imagem do hero (`tasks/technical-bar.md`, "Medição na produção").
 - Rever o visual do rodapé: o colofão claro (`tasks/footer-colophon.md`) melhorou o primeiro rodapé, mas ainda não convence o Lucas.
 

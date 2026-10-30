@@ -56,7 +56,6 @@ A doutora já tem o conteúdo das seções que faltam e ainda não mandou (D9). 
 - Agendamento online, formulário, área do paciente: o contato é pelo WhatsApp. Se entrar, rodar `/kickoff` de novo (entra ADD).
 - Blog e páginas de conteúdo educativo. A primeira consulta e as perguntas frequentes não são blog: entram na seção Contato (D32).
 - Versão em outro idioma.
-- Domínio pago: fica para o fim, depois do MVP.
 - Depoimentos, por enquanto: a seção sai do site e do menu e fica para decisão futura (D25). O link para as avaliações externas não é a seção e entra em Contato (D33).
 - Mapa interativo embutido (Mapbox GL, Google): fica fora. O mapa de Contato é uma imagem estática do Mapbox, servida pelo `next/image` (D40, ADR 0005).
 - Preços e condições de pagamento: nunca, a pedido dela (D29); o Código de Ética também veda (art. 44, I).
@@ -137,7 +136,7 @@ Depende do conteúdo e do aval dela (D24).
 - [ ] `noindex` fora, com canonical, dados estruturados e sitemap. A prévia de link já saiu na Fase 1 (D41).
 - [ ] Barra técnica da Fase 1 conferida de novo com as seções novas.
 
-Fora dos critérios: Depoimentos (D25) e domínio pago (D10).
+Fora dos critérios: Depoimentos (D25).
 
 ## 12. Registro de decisões
 
@@ -159,7 +158,7 @@ Decisões que já estavam no código e no plano do Sobre.
 - **D7.** A doutora aprova conteúdo e visual. O projeto é do Lucas, sozinho.
 - **D8.** Objetivo: terminar para entrar no portfólio e no currículo. Prazo e meta do MVP saem da revisão do site (Rodada 2).
 - **D9.** O conteúdo das seções que faltam existe e ainda não chegou: fica marcado como pendente.
-- **D10.** Domínio pago só no fim. Até lá, `drathaianelessa.vercel.app`.
+- **D10.** Domínio pago só no fim. Até lá, `drathaianelessa.vercel.app`. Substituída pela D49.
 - **D11.** Repositório privado; fica público no fim. Fotos e dados dela só com o aval dela.
 - **D12.** Regras do CFO e do CRO-AL pesquisadas e registradas aqui (seção "Regras de fora").
 - **D13.** Skills de terceiros saem do repositório: as repetidas são apagadas, as 6 únicas vão para o `claude-kit`.
@@ -280,3 +279,4 @@ Plano em `tasks/link-preview-404.md`.
   - Header: além de voltar ao rolar para cima, volta quando a rolagem para, menos sobre o hero, a band e a linha do tempo. Substitui o botão flutuante, descartado em 2026-10-28.
   - Casos de Serviços: o caso da vez fica no meio, em todas as larguras, e tocar num vizinho o traz para lá. O carrossel é em laço: antes do primeiro já aparece o último. Corrige a seta para trás, que travava na última foto no iPad e no computador.
   - Linha do tempo no computador: a foto ao lado da roda chega coberta e só começa a abrir quando os anos começam a girar. Antes, a faixa de cima já aparecia em 2019.
+- **D49.** Domínio próprio `www.drathaianelessa.com.br`, comprado antes do fim previsto na D10 (Lucas, 2026-10-29). O endereço sem `www` leva ao com `www`. O `noindex` continua até o aval dela (D22).

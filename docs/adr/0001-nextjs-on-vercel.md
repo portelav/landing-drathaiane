@@ -22,4 +22,4 @@ Next.js 16 (App Router, TypeScript) com Tailwind CSS 4, publicado na Vercel pela
 - O Next 16 tem mudanças que fogem do treinamento dos modelos: ler `node_modules/next/dist/docs/` antes de escrever código (bloco do `AGENTS.md`).
 - Tokens de cor, fonte e curva vivem em `src/app/globals.css` (`@theme inline`), não num arquivo de config.
 - A página é estática; se entrar formulário ou agendamento, o servidor do Next resolve sem trocar de stack, mas exige ADD e novo `/kickoff`.
-- O domínio `drathaianelessa.vercel.app` vale até a compra de um domínio próprio.
+- O domínio `drathaianelessa.vercel.app` vale até a compra de um domínio próprio. Em 2026-10-29 entrou `www.drathaianelessa.com.br` (PRD, D49).

@@ -12,7 +12,7 @@ O site, o repositório e os docs nunca podem causar problema à Dra. Thaiane em 
 
 O Lucas (`portelav`, sozinho) confirma tudo e faz o merge. A Dra. Thaiane opina sobre estética, design e seções, dando opções, sem aprovação formal, e dá o olhar final no site completo antes de sair o `noindex` (PRD, D22 e D28). Texto, foto e dado dela vêm dela, nunca inventados. Pergunta técnica, de git ou de segurança não vai para ela.
 
-Repositório público `portelav/landing-drathaiane` (PRD, D18 e D19). Notas internas em `portelav/landing-drathaiane-notes` (privado), clonado em `private/`. Deploy na Vercel: produção a partir da `main` em https://drathaianelessa.vercel.app (com `noindex`), preview por branch.
+Repositório público `portelav/landing-drathaiane` (PRD, D18 e D19). Notas internas em `portelav/landing-drathaiane-notes` (privado), clonado em `private/`. Deploy na Vercel: produção a partir da `main` em https://www.drathaianelessa.com.br (com `noindex`; PRD, D49), preview por branch.
 
 Onde está cada coisa:
 
