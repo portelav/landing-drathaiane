@@ -35,13 +35,13 @@ export function ServicesSection() {
                   key={service.title}
                   name="services"
                   open={index === 0}
-                  className="group border-b border-dark-10 open:details-content:animate-details-in motion-safe:[--details-in-y:-0.5rem]"
+                  className="group border-b border-dark-10 open:details-content:animate-details-in [--details-in-y:-0.5rem]"
                 >
                   <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-3 font-display text-[1.5rem] leading-[1.15] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-dark-base [&::-webkit-details-marker]:hidden">
                     {service.title}
                     <span
                       aria-hidden
-                      className="relative h-3.5 w-3.5 shrink-0 transition-transform duration-300 ease-[var(--ease-out-quint)] before:absolute before:inset-x-0 before:top-1/2 before:h-px before:-translate-y-1/2 before:bg-dark-base after:absolute after:inset-y-0 after:left-1/2 after:w-px after:-translate-x-1/2 after:bg-dark-base group-open:rotate-45 motion-reduce:transition-none"
+                      className="relative h-3.5 w-3.5 shrink-0 transition-transform duration-300 ease-[var(--ease-out-quint)] before:absolute before:inset-x-0 before:top-1/2 before:h-px before:-translate-y-1/2 before:bg-dark-base after:absolute after:inset-y-0 after:left-1/2 after:w-px after:-translate-x-1/2 after:bg-dark-base group-open:rotate-45"
                     />
                   </summary>
                   {/* Same entrance as the FAQ answers in Contato. */}

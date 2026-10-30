@@ -7,7 +7,7 @@ import { CASES } from "@/lib/services";
 const ARROW =
   "flex h-11 w-11 items-center justify-center border border-dark-10 text-lg text-dark-base transition-opacity duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dark-base";
 
-const FADE = "transition-opacity duration-[400ms] ease-[var(--ease-out-quint)] motion-reduce:transition-none";
+const FADE = "transition-opacity duration-[400ms] ease-[var(--ease-out-quint)]";
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
@@ -58,8 +58,8 @@ const jump = (track: HTMLElement, slot: number) => {
  *
  * It loops: once the track settles on a case in an outer run, it jumps,
  * without animation, to the same case in the middle run. Every copy of the
- * chosen case is lit, so the jump swaps nothing on screen. With reduced
- * motion nothing fades or zooms and the arrows jump instead of gliding.
+ * chosen case is lit, so the jump swaps nothing on screen. All of it runs
+ * the same when the system asks for less motion (PRD, D52).
  */
 export function ServicesCases() {
   const trackRef = useRef<HTMLUListElement>(null);
@@ -121,8 +121,7 @@ export function ServicesCases() {
     const card = track && cardsOf(track)[to];
     if (!track || !card) return;
     heading.current = to;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    track.scrollTo({ left: centreOf(track, card), behavior: reduce ? "auto" : "smooth" });
+    track.scrollTo({ left: centreOf(track, card), behavior: "smooth" });
   };
 
   /** One case along from wherever the track is headed. */
@@ -162,17 +161,17 @@ export function ServicesCases() {
               onClick={slot === active ? undefined : () => go(slot)}
               className={`flex w-[84vw] shrink-0 snap-center flex-col gap-4 sm:w-[22rem] lg:w-[20rem] ${lit ? "" : "cursor-pointer"}`}
             >
-              <div className={`${FADE} overflow-hidden bg-dark-10 ${lit ? "" : "motion-safe:opacity-50"}`}>
+              <div className={`${FADE} overflow-hidden bg-dark-10 ${lit ? "" : "opacity-50"}`}>
                 <Image
                   src={item.src}
                   alt={copy ? "" : item.alt}
                   width={1080}
                   height={1350}
                   sizes="(min-width: 1024px) 20rem, (min-width: 640px) 22rem, 84vw"
-                  className={`block h-auto w-full transition-transform duration-700 ease-[var(--ease-out-quint)] motion-reduce:transition-none ${lit ? "" : "motion-safe:scale-[1.04]"}`}
+                  className={`block h-auto w-full transition-transform duration-700 ease-[var(--ease-out-quint)] ${lit ? "" : "scale-[1.04]"}`}
                 />
               </div>
-              <div className={`${FADE} ${lit ? "" : "motion-safe:opacity-75"}`}>
+              <div className={`${FADE} ${lit ? "" : "opacity-75"}`}>
                 <h4 className="m-0 font-display text-[1.5rem] font-normal leading-[1.15]">{item.title}</h4>
                 <p className="m-0 mt-2 text-[1rem] leading-[1.6] text-dark-base/85">{item.text}</p>
               </div>

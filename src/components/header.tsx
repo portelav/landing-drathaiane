@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { INSTAGRAM_HREF, PHONE_DISPLAY, PHONE_HREF, WHATSAPP_HREF } from "@/lib/contact";
 import { BrandMark, MARK_FLIGHT } from "./brand-mark";
@@ -17,7 +17,7 @@ const NAV_LINKS = [
 /** One shape for every social tile, so the row reads as a set. Colours follow
     the bar's tone, in step with the header's own colour change. */
 const SOCIAL_TILE =
-  "pointer-events-auto flex h-11 w-11 items-center justify-center rounded-[16px] no-underline [transition:transform_420ms_var(--ease-soft-pop),background-color_500ms_var(--ease-out-quint),color_500ms_var(--ease-out-quint)] hover:scale-[1.2] focus-visible:scale-[1.2] motion-reduce:transition-none motion-reduce:hover:scale-100";
+  "pointer-events-auto flex h-11 w-11 items-center justify-center rounded-[16px] no-underline [transition:transform_420ms_var(--ease-soft-pop),background-color_500ms_var(--ease-out-quint),color_500ms_var(--ease-out-quint)] hover:scale-[1.2] focus-visible:scale-[1.2]";
 
 /** Vertical point the header samples to decide which section sits behind it. */
 const PROBE_Y = 40;
@@ -130,7 +130,6 @@ function useSectionTone() {
 export function Header() {
   const [open, setOpen] = useState(false);
   const { tone, hidden, settled, anchored } = useSectionTone();
-  const reducedMotion = useReducedMotion();
   // The sections live on the home page; anywhere else (the 404) the links
   // have to go back there first.
   const sectionBase = usePathname() === "/" ? "" : "/";
@@ -178,11 +177,10 @@ export function Header() {
   return (
     <header
       ref={headerRef}
-      className="pointer-events-none fixed inset-x-0 top-0 z-40 flex items-center justify-between px-6 py-5 transition-[transform,color,background-color,backdrop-filter,box-shadow] duration-500 ease-[var(--ease-out-quint)] motion-reduce:transition-none max-sm:px-3.5 sm:px-10"
+      className="pointer-events-none fixed inset-x-0 top-0 z-40 flex items-center justify-between px-6 py-5 transition-[transform,color,background-color,backdrop-filter,box-shadow] duration-500 ease-[var(--ease-out-quint)] max-sm:px-3.5 sm:px-10"
       style={{
         color: light ? "var(--c-light-base)" : "var(--c-dark-base)",
         transform: hidden && !open ? "translateY(-105%)" : "translateY(0)",
-        // Reduced motion still wins: its `transition-property: none` is untouched.
         transitionDuration: settled && !hidden ? SETTLE_DURATION : undefined,
         transitionTimingFunction: settled && !hidden ? SETTLE_EASE : undefined,
         backgroundColor: anchored ? veil : "transparent",
@@ -216,7 +214,7 @@ export function Header() {
           <motion.span
             layoutId="brand-mark"
             className="block"
-            transition={{ duration: reducedMotion ? 0 : MARK_FLIGHT, ease: [0.77, 0, 0.175, 1] }}
+            transition={{ duration: MARK_FLIGHT, ease: [0.77, 0, 0.175, 1] }}
           >
             <BrandMark height={34} />
           </motion.span>
@@ -275,7 +273,7 @@ export function Header() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: reducedMotion ? 0 : 0.35, ease: EASE }}
+            transition={{ duration: 0.35, ease: EASE }}
             style={{
               backgroundColor: drop,
               backdropFilter: "blur(12px)",
@@ -294,8 +292,8 @@ export function Header() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{
-                    duration: reducedMotion ? 0 : 0.3,
-                    delay: reducedMotion ? 0 : 0.06 + index * 0.045,
+                    duration: 0.3,
+                    delay: 0.06 + index * 0.045,
                   }}
                 >
                   <a

@@ -51,7 +51,7 @@ Tokens em `src/app/globals.css`, expostos ao Tailwind por `@theme inline`.
 
 ### Texto secundário
 
-Rótulos, parágrafo de apoio e canais do rodapé usam o token-base a 70%: `dark-base/70` sobre fundo claro, `light-base/70` sobre fundo escuro. No header, onde a cor vem do tom da seção, é `opacity-70`. Sobre foto, ou sobre gradiente tirado de foto, o texto vai em cor cheia: o rótulo "A dentista" na band é `dark-base`, aberta ou empilhada (sobre a parede, 6,61:1 no ponto mais escuro). Nenhum texto em repouso abaixo de 70%. A exceção é a roleta da linha do tempo, que apaga os anos fora de foco durante o scroll, mas nunca abaixo de 60% (PRD, D36), e com movimento reduzido fica toda em cor cheia.
+Rótulos, parágrafo de apoio e canais do rodapé usam o token-base a 70%: `dark-base/70` sobre fundo claro, `light-base/70` sobre fundo escuro. No header, onde a cor vem do tom da seção, é `opacity-70`. Sobre foto, ou sobre gradiente tirado de foto, o texto vai em cor cheia: o rótulo "A dentista" na band é `dark-base`, aberta ou empilhada (sobre a parede, 6,61:1 no ponto mais escuro). Nenhum texto em repouso abaixo de 70%. A exceção é a roleta da linha do tempo, que apaga os anos fora de foco durante o scroll, mas nunca abaixo de 60% (PRD, D36), também com movimento reduzido (D52).
 
 `dark-55` e `light-40` saíram em 2026-10-10: em texto pequeno não passavam no AA (3,79 e 3,52).
 
@@ -110,10 +110,10 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 |---|---|---|---|
 | Preloader: monograma desenhado e preenchido | carregamento | ~2,9 s; monograma voa para o header via `layoutId` | Abrir com a marca, e entregar a marca ao header sem corte |
 | Hero: janela abre de um painel para a tela cheia | scroll (rAF) | proporcional ao scroll | O tríptico do vídeo se revela painel a painel |
-| Header: some ao descer, volta ao subir e quando a rolagem para; inverte a cor pelo tom da seção | scroll; parada de 400 ms | 500 ms, `ease-out-quint`; a volta ao parar em 900 ms, ease-out cúbico; sem transição com movimento reduzido. Sobre o hero, a band e a linha do tempo (`data-header-hold`) não volta ao parar | Sair do caminho sem sumir de vez, e devolver o WhatsApp a quem parou para ler (D48) |
+| Header: some ao descer, volta ao subir e quando a rolagem para; inverte a cor pelo tom da seção | scroll; parada de 400 ms | 500 ms, `ease-out-quint`; a volta ao parar em 900 ms, ease-out cúbico; igual com movimento reduzido (D52). Sobre o hero, a band e a linha do tempo (`data-header-hold`) não volta ao parar | Sair do caminho sem sumir de vez, e devolver o WhatsApp a quem parou para ler (D48) |
 | Menu do header | toque | 350 ms, itens com 45 ms de intervalo | Lista que desce sob o botão, no canto esquerdo |
 | Sobre, band: retrato cresce, cenário abre | scroll (rAF) | proporcional ao scroll | Eixo horizontal, continuação do hero |
-| Sobre, band no celular e no iPad em pé: citação sobe, foto assenta | scroll (rAF), sem prender | proporcional ao scroll. Rótulo e citação sobem 24 px com `opacity` enquanto o topo do texto vai do pé da tela a 40% da altura (a citação começa um pouco depois do rótulo); a foto vai de 1,08 a 1 enquanto o topo dela vai do pé a 20%. Volta ao subir. Com movimento reduzido, estado final | A versão do celular da band (D46). Segue o dedo para nunca ficar rápida demais nem esconder nada; sem prender a rolagem entre os dois palcos presos (hero e linha do tempo) |
+| Sobre, band no celular e no iPad em pé: citação sobe, foto assenta | scroll (rAF), sem prender | proporcional ao scroll. Rótulo e citação sobem 24 px com `opacity` enquanto o topo do texto vai do pé da tela a 40% da altura (a citação começa um pouco depois do rótulo); a foto vai de 1,08 a 1 enquanto o topo dela vai do pé a 20%. Volta ao subir. Roda também com movimento reduzido (D52) | A versão do celular da band (D46). Segue o dedo para nunca ficar rápida demais nem esconder nada; sem prender a rolagem entre os dois palcos presos (hero e linha do tempo) |
 | Sobre, texto: linhas sobem por máscara | entrada, uma vez | 70 ms entre linhas | Único momento que anima e para: o silêncio depois é o efeito |
 | Sobre, texto no celular: "Leia mais" | toque | os parágrafos que abrem sobem como os outros, na primeira abertura; fechar é instantâneo e devolve a página ao botão | Um parágrafo por tela em vez de uma parede de texto (D48) |
 | Sobre, roleta de anos | scroll (rAF) | proporcional ao scroll | Eixo vertical, o contraste que hero e band não dão |
@@ -122,13 +122,13 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 | Vídeo do consultório (hero) | 40% na tela | loop; pausa fora da tela e pelo botão | O consultório vivo na primeira impressão |
 | Vídeo do kit | (fora do site desde 2026-10-12; guardado para reuso) | | |
 | Serviços, lista | toque | `<details name>`, um aberto por vez; o texto entra como as respostas do Contato (450 ms) e o + gira para × (300 ms) | Cinco textos longos cabem numa tela sem esconder os nomes |
-| Serviços, casos | arrastar, setas ou toque num vizinho | encaixe nativo no centro (`scroll-snap`). O caso da vez fica no meio, aceso; nos vizinhos, a foto fica a 50% e o texto a 75% (o mínimo que passa no contraste de 4,5:1), com a foto indo de 1,04 a 1 (400 e 700 ms, `ease-out-quint`). Com movimento reduzido, tudo em cor cheia e as setas saltam | O gesto lateral do celular, sem um quarto momento dirigido por scroll. A borda do caso seguinte mostra que há mais |
+| Serviços, casos | arrastar, setas ou toque num vizinho | encaixe nativo no centro (`scroll-snap`). O caso da vez fica no meio, aceso; nos vizinhos, a foto fica a 50% e o texto a 75% (o mínimo que passa no contraste de 4,5:1), com a foto indo de 1,04 a 1 (400 e 700 ms, `ease-out-quint`). Igual com movimento reduzido (D52) | O gesto lateral do celular, sem um quarto momento dirigido por scroll. A borda do caso seguinte mostra que há mais |
 | Contato | nenhum | título preso no topo a partir de `lg` (`position: sticky`, sem JS); a resposta entra a cada abertura (`animate-details-in`) e fecha sem transição | Segura o título enquanto o texto passa, sem um quarto movimento calculado por scroll |
-| Rodapé: voltar ao topo | clique | 1,8 s, ease-out quart (Lenis); direto com movimento reduzido | A página é longa, e o salto seco desorienta. O resto do rodapé não anima (hover só de opacidade, 300 ms) |
+| Rodapé: voltar ao topo | clique | 1,8 s, ease-out quart (Lenis), também com movimento reduzido (D52) | A página é longa, e o salto seco desorienta. O resto do rodapé não anima (hover só de opacidade, 300 ms) |
 
 - Animar `transform` e `opacity`. **Exceção registrada:** a roleta aplica `blur` de até 2,5 px nas frases em trânsito, para fundir a passagem entre duas linhas vizinhas. Nada de `mix-blend-mode` em elemento que se move.
 - O que se mexe sozinho por mais de 5 s tem como pausar (WCAG 2.2.2). Os dois vídeos em loop têm o botão `VideoToggle`. A pausa da pessoa vale até ela tocar em reproduzir, mesmo que role para longe e volte (PRD, D31).
-- `prefers-reduced-motion`: **respeitado**, decisão já tomada no código. Cada peça vai ao estado final legível: hero e band abertos e sem palco travado, texto sem máscara, roleta inteira desenhada, vídeos parados no poster, Lenis desligado, preloader encurtado para 300 ms.
+- `prefers-reduced-motion`: **só nos vídeos e no preloader** (PRD, D52). Com a preferência, os vídeos ficam parados no poster e o preloader cai para 300 ms. Todo o resto roda igual: rolagem suave (Lenis), hero com palco e abertura, band, texto do Sobre por linhas, roleta, header, menu, casos de Serviços, perguntas e voltar ao topo.
 - Lenis só no computador; no toque o aparelho já suaviza.
 - O que já foi decidido não fazer está em `docs/fdd/sobre.md` ("O que foi decidido não fazer"): palavras acendendo com o scroll, parallax no retrato, contagem crescente nos anos, letra a letra em parágrafo.
 
@@ -141,8 +141,8 @@ Curvas em `globals.css`: `--ease-out-quint` (padrão de entrada), `--ease-soft-p
 | `BrandMark` | `src/components/brand-mark.tsx` | herda a cor do texto |
 | `Hero` | `src/components/hero.tsx` | `wide:` (abre por scroll) ou estreito (quadro inteiro); vídeo tocando, pausado ou no poster |
 | `VideoToggle`, `useLoopWhileVisible` | `src/components/video-toggle.tsx` | botão: pausar ou reproduzir, foco, hover; ausente com movimento reduzido ou antes de o vídeo tocar |
-| `About`, `AboutText`, `AboutTimeline` | `src/components/about*.tsx` | `beside:` (lado a lado, por scroll) ou empilhado; movimento reduzido |
-| `SmoothScroll` | `src/components/smooth-scroll.tsx` | ligado no computador; desligado no toque e com movimento reduzido |
+| `About`, `AboutText`, `AboutTimeline` | `src/components/about*.tsx` | `beside:` (lado a lado, por scroll) ou empilhado; a rolagem roda também com movimento reduzido (D52) |
+| `SmoothScroll` | `src/components/smooth-scroll.tsx` | ligado no computador, também com movimento reduzido (D52); desligado no toque |
 | `ServicesSection`, `ServicesCases` | `src/components/services-*.tsx` | serviço aberto ou fechado; caso da vez aceso; seta desativada na ponta |
 | `ContactSection` | `src/components/contact-section.tsx` | estático; destino de `#contato`; pergunta aberta ou fechada (`<details>`) |
 | `Footer` | `src/components/footer.tsx` | estático; faixa baixa alinhada à seção Contato: identificação, telefone, Instagram, voltar ao topo e direitos |

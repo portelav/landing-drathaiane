@@ -100,11 +100,12 @@ export function Hero() {
     const video = videoRef.current;
     if (!wrap || !frame || !track || !intro || !banner || !mobileBanner || !veil || !video) return;
 
+    // Scroll-driven even when the system asks for less motion (PRD, D52):
+    // only the footage itself stays still, in useLoopWhileVisible.
     const pinned = window.matchMedia(OPENS_ABOVE);
-    const stillness = window.matchMedia("(prefers-reduced-motion: reduce)");
     let queued = 0;
 
-    /** Parks every animated element where it reads correctly without motion. */
+    /** Clears what the last layout drew, so a switch between them starts clean. */
     const rest = () => {
       frame.style.width = "";
       intro.style.opacity = "";
@@ -199,22 +200,17 @@ export function Hero() {
 
       window.removeEventListener("scroll", onScroll);
       rest();
-
-      if (stillness.matches) return;
-
       draw();
       window.addEventListener("scroll", onScroll, { passive: true });
     };
 
     apply();
     pinned.addEventListener("change", apply);
-    stillness.addEventListener("change", apply);
     window.addEventListener("resize", apply);
 
     return () => {
       if (queued) cancelAnimationFrame(queued);
       pinned.removeEventListener("change", apply);
-      stillness.removeEventListener("change", apply);
       window.removeEventListener("resize", apply);
       window.removeEventListener("scroll", onScroll);
     };
@@ -225,7 +221,7 @@ export function Hero() {
       ref={wrapRef}
       data-header-theme={skin.headerTheme}
       data-header-hold
-      className={`relative ${skin.section} wide:h-[300svh] motion-reduce:wide:h-auto`}
+      className={`relative ${skin.section} wide:h-[300svh]`}
     >
       <div className="flex min-h-[100svh] flex-col wide:sticky wide:top-0 wide:block wide:h-[100svh] wide:overflow-hidden">
         <div
@@ -256,7 +252,7 @@ export function Hero() {
 
         {/* Narrow: the runway the frame sticks in while the triptych pans. It
             drops out of the layout on `wide:`, where the stage above sticks. */}
-        <div ref={runwayRef} className="h-[300svh] motion-reduce:h-auto wide:contents">
+        <div ref={runwayRef} className="h-[300svh] wide:contents">
           {/* Opens from one panel of the triptych to the full frame. As tall
               as the screen with the browser bars collapsed (`lvh`): at `svh`
               it stops short once Safari tucks its toolbar away mid-scroll,

@@ -22,7 +22,7 @@ Sair do caminho de quem rola a página sem levar junto o WhatsApp: quem para par
 
 ## Movimento
 
-`transform` em 500 ms, `ease-out-quint`. A volta ao parar é mais lenta e mais macia, 900 ms com ease-out cúbico (`cubic-bezier(0.33, 1, 0.68, 1)`): ninguém pediu por ela, então ela chega devagar em vez de saltar (Lucas, 2026-10-29). Com `prefers-reduced-motion`, sem transição: o header some e volta direto, e as trocas de cor e fundo também são diretas.
+`transform` em 500 ms, `ease-out-quint`. A volta ao parar é mais lenta e mais macia, 900 ms com ease-out cúbico (`cubic-bezier(0.33, 1, 0.68, 1)`): ninguém pediu por ela, então ela chega devagar em vez de saltar (Lucas, 2026-10-29). Com `prefers-reduced-motion`, igual (PRD, D52).
 
 ## Regras
 
@@ -41,5 +41,5 @@ Verificáveis em 390 px, iPad retrato e computador:
 - [x] Rolar para baixo em Serviços, no Contato ou no texto do Sobre esconde o header, que volta cerca de 0,4 s depois de parar.
 - [x] Parado sobre o hero, a band ou a linha do tempo, ele continua escondido e volta ao rolar para cima.
 - [x] Já voltando ao parar, alguns pixels de inércia para baixo não o escondem; uma rolagem de verdade, sim.
-- [x] Com `prefers-reduced-motion`, some e volta sem transição.
+- [x] Com `prefers-reduced-motion`, some e volta com a mesma transição (D52).
 - [ ] Testado no celular com o dedo (inércia nativa) e no computador com o Lenis.

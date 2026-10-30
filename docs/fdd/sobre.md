@@ -28,8 +28,8 @@ que nos cantos), e os 2% de cima da foto se dissolvem nela; com 12% o cabelo
 clareava. A chegada segue o dedo, sem prender: enquanto o topo do texto vai do
 pé da tela a 40% da altura, o rótulo e depois a citação sobem 24 px e aparecem;
 enquanto o topo da foto vai do pé a 20%, ela assenta de 1,08 a 1. Subindo, volta.
-O servidor entrega o estado final, que é o que fica sem JS, com movimento
-reduzido e no `beside:`. No iPad em pé o bloco fica numa coluna de até 34rem,
+O servidor entrega o estado final, que é o que fica sem JS e no `beside:`.
+Com movimento reduzido, a chegada segue a rolagem do mesmo jeito (PRD, D52). No iPad em pé o bloco fica numa coluna de até 34rem,
 centralizada sobre o creme.
 
 A primeira versão era uma revelação única: uma cortina `light-base` descia
@@ -162,8 +162,8 @@ Só `transform`, `opacity` e `filter` são tocados — nada que force layout.
 
 **A roleta só existe onde há espaço.** Abaixo do teste `beside:` não cabem a
 roda e a foto retrato lado a lado. É o mesmo teste que a band usa, pelo mesmo
-motivo. Ali o Tempo 3 tem uma versão própria, a "foto em foco" (abaixo); com
-movimento reduzido, vira uma lista empilhada comum com a foto embaixo.
+motivo. Ali o Tempo 3 tem uma versão própria, a "foto em foco" (abaixo), que
+roda também com movimento reduzido (PRD, D52).
 
 **No celular: a foto em foco** (PRD, D42; escolhida pelo Lucas entre quatro
 rascunhos em 2026-10-27). A foto ocupa a tela inteira, presa por 320svh de
@@ -199,8 +199,7 @@ a foto mostra a profissional de hoje, e é isso que o kit não fazia.
   painel `light-base` desce e a foto assenta de 1,08 para 1 de escala, inteira aos 90%
   do progresso, antes do platô de 2026. Curva suave (smoothstep), para não
   andar como régua. Não é um quarto momento: é o mesmo, com o mesmo scroll.
-  Só `transform`. Empilhado ou com movimento reduzido, o painel não existe e a
-  foto aparece inteira. Até 2026-10-29 a faixa de cima (15%) já aparecia em
+  Só `transform`. Empilhado, o painel não existe e a foto aparece inteira. Até 2026-10-29 a faixa de cima (15%) já aparecia em
   2019, para o painel não chegar vazio; lida como o alto da cabeça dela parado
   antes de qualquer movimento, saiu (D48). Isso vale para o computador; no celular a mesma foto
   está na "foto em foco" (Tempo 3).
@@ -282,10 +281,10 @@ aberto filmado do outro lado da sala não serve em proporção nenhuma.
   especialização e mestrado dois anos depois da formatura leem como densidade,
   e porque sem os anos o Tempo 3 perde a razão de existir e vira lista.
 
-Tudo com `prefers-reduced-motion` levando ao estado final visível, como hero e
-band já fazem (a band abre inteira, retrato e frase lado a lado). No Tempo 2 isso significa texto puro, sem as máscaras por
-palavra; no Tempo 3, lista simples no lugar da roda: anos e marcos à esquerda e a foto
-ao lado.
+Com `prefers-reduced-motion`, desde 2026-10-30, os três tempos rodam como sem a
+preferência: a band abre com a rolagem, o Tempo 2 entra por linhas e o Tempo 3
+gira (PRD, D52). Só o vídeo do kit fica no poster. Até então, cada tempo ia
+direto ao estado final (band aberta, texto puro, lista no lugar da roda).
 
 ---
 

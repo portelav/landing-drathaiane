@@ -27,6 +27,7 @@ Forma leve: projeto solo. O MVP sai em duas fases (PRD, D21 a D25): a Fase 1 só
 - Domínio próprio `www.drathaianelessa.com.br` (PRD, D49): no ar desde 2026-10-29 (PR #29), ainda com `noindex`.
 - Aval dela no site completo: dado em 2026-10-29 (PRD, D51; PR #30). Tirar o `noindex` e completar os metadados de busca: canonical, dados estruturados e sitemap (D22, D41).
 - Barra técnica conferida de novo com as seções novas: feita em 2026-10-29, com 88 no celular, 94 no iPad, 100 no computador e acessibilidade 100 nos três (PRD, D50; PR #30).
+- Movimento igual com o Windows em modo desempenho (PRD, D52): feito em 2026-10-30 (`tasks/scroll-motion-always.md`, PR #31). Só os vídeos ficam parados e o preloader é curto.
 
 ## Depois
 

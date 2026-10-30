@@ -1,29 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { getLenis } from "./smooth-scroll";
-
-const STILLNESS = "(prefers-reduced-motion: reduce)";
-
-/**
- * Whether the visitor asked for no motion. Here the markup depends on it —
- * words wrapped for the reveal or plain text — so the server has to render the
- * same thing the first client render does. `useReducedMotion` reads the
- * media query on the client's first render and fails hydration; the server
- * snapshot below keeps both renders equal and the real value lands right after.
- */
-function useStillness() {
-  return useSyncExternalStore(
-    (notify) => {
-      const query = window.matchMedia(STILLNESS);
-      query.addEventListener("change", notify);
-      return () => query.removeEventListener("change", notify);
-    },
-    () => window.matchMedia(STILLNESS).matches,
-    () => false,
-  );
-}
 
 /**
  * Entry-triggered, once, and then still.
@@ -40,7 +19,8 @@ function useStillness() {
  * something that already finished.
  *
  * `whileInView` runs on IntersectionObserver, so no scroll listener is
- * registered here at all.
+ * registered here at all. It plays even when the system asks for less motion
+ * (PRD, D52).
  */
 const VIEWPORT = { once: true, amount: 0.25 } as const;
 
@@ -81,12 +61,12 @@ const PARAGRAPHS = [
  * `offsetTop` share a line. Re-measured once the webfonts land, since they
  * change where the text breaks, and on resize for the same reason.
  */
-function useLineIndices(container: React.RefObject<HTMLElement | null>, enabled: boolean) {
+function useLineIndices(container: React.RefObject<HTMLElement | null>) {
   const [lines, setLines] = useState<number[]>([]);
 
   useEffect(() => {
     const element = container.current;
-    if (!element || !enabled) return;
+    if (!element) return;
 
     let current = "";
 
@@ -118,7 +98,7 @@ function useLineIndices(container: React.RefObject<HTMLElement | null>, enabled:
     const observer = new ResizeObserver(measure);
     observer.observe(element);
     return () => observer.disconnect();
-  }, [container, enabled]);
+  }, [container]);
 
   return lines;
 }
@@ -187,9 +167,8 @@ function useReadMore() {
 }
 
 export function AboutText() {
-  const reduce = useStillness();
   const columnRef = useRef<HTMLDivElement>(null);
-  const lines = useLineIndices(columnRef, !reduce);
+  const lines = useLineIndices(columnRef);
   const { expanded, toggle, toggleRef, restRef } = useReadMore();
 
   // Running index across every block, so `lines` can stay one flat list. Each
@@ -209,9 +188,7 @@ export function AboutText() {
   const name = take(NAME);
   const paragraphs = PARAGRAPHS.map(take);
 
-  const reveal = reduce
-    ? {}
-    : { initial: "hidden" as const, whileInView: "shown" as const, viewport: VIEWPORT };
+  const reveal = { initial: "hidden" as const, whileInView: "shown" as const, viewport: VIEWPORT };
 
   return (
     <section data-header-theme="light" className="bg-light-base text-dark-base">
@@ -225,24 +202,20 @@ export function AboutText() {
               anyway. */}
           <motion.div {...reveal}>
             <p className="tracking-brand text-[0.6875rem] uppercase text-dark-base/70">
-              {reduce
-                ? EYEBROW
-                : eyebrow.map((item) => (
-                    <Word key={item.key} line={item.line}>
-                      {item.word}
-                    </Word>
-                  ))}
+              {eyebrow.map((item) => (
+                <Word key={item.key} line={item.line}>
+                  {item.word}
+                </Word>
+              ))}
             </p>
 
             {/* The page's only other heading is the hero's `h1`. */}
             <h2 className="mt-6 max-w-[16ch] font-display text-[clamp(2.25rem,4.6vw,3.75rem)] font-normal leading-[1.06]">
-              {reduce
-                ? NAME
-                : name.map((item) => (
-                    <Word key={item.key} line={item.line}>
-                      {item.word}
-                    </Word>
-                  ))}
+              {name.map((item) => (
+                <Word key={item.key} line={item.line}>
+                  {item.word}
+                </Word>
+              ))}
             </h2>
           </motion.div>
 
@@ -260,13 +233,11 @@ export function AboutText() {
                 // reveal waits and plays the first time they open.
                 className={`focus:outline-none ${index > 0 && !expanded ? "max-sm:hidden" : ""}`}
               >
-                {reduce
-                  ? PARAGRAPHS[index]
-                  : words.map((item) => (
-                      <Word key={item.key} line={item.line}>
-                        {item.word}
-                      </Word>
-                    ))}
+                {words.map((item) => (
+                  <Word key={item.key} line={item.line}>
+                    {item.word}
+                  </Word>
+                ))}
               </motion.p>
             ))}
             <button

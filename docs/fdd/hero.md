@@ -54,11 +54,10 @@ Duas peles de cor no código (`PALETTE`), escolhidas pela constante `TONE`. No a
 
 Só `transform`, `opacity`, `width` do quadro (que está em posição absoluta e não força layout do resto da página) e `objectPosition`. O botão não anima: o hover é só de opacidade, 300 ms.
 
-**`prefers-reduced-motion`:**
-- Sem palco travado: nas duas proporções a pista de `300svh` some. No `wide:` a janela fica no tamanho de um painel e o texto fica parado; no estreito o quadro fica na tela cheia, sem panorâmica.
-- A linha de exibição fica centralizada no estreito. No `wide:`, ela não aparece, porque só entra com a abertura.
+**`prefers-reduced-motion`** (PRD, D52, desde 2026-10-30):
+- O palco travado, a abertura da janela e a panorâmica seguem a rolagem do mesmo jeito. Antes, com a preferência ligada, a pista sumia e o hero ficava parado; num Windows em modo desempenho, isso deixava o site inteiro parado no Chrome e no Firefox.
 - O vídeo fica no poster e o botão não aparece.
-- Se a preferência mudar com a página aberta, tudo acompanha. Ligar a preferência desfaz a pausa pedida pela pessoa: ao desligar, o vídeo volta ao loop, com o botão.
+- Se a preferência mudar com a página aberta, o vídeo acompanha. Ligar a preferência desfaz a pausa pedida pela pessoa: ao desligar, o vídeo volta ao loop, com o botão.
 
 ## Regras
 
@@ -95,5 +94,5 @@ Verificáveis em 390 px, iPad retrato e computador.
 - [x] O vídeo toca em loop na tela e pausa fora dela.
 - [x] O botão fica no canto inferior direito do quadro, com 44 × 44 px de toque, e alterna pausar e reproduzir por clique, toque, Enter e Espaço.
 - [x] Pausado pelo botão, o vídeo não volta a tocar sozinho depois de rolar para longe e voltar.
-- [ ] Com movimento reduzido, fica o poster, sem botão e sem palco travado. Conferido no código; falta o teste num aparelho com "reduzir movimento" ligado.
+- [x] Com movimento reduzido, o vídeo fica no poster, sem botão, e o palco segue a rolagem (D52). Conferido pelo CDP em 1920, iPad retrato e 390 px em 2026-10-30.
 - [x] A abertura pelo scroll e a linha de exibição continuam como descritas em "Movimento", e o botão não cobre texto, linha de exibição nem header.

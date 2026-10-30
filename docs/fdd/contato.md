@@ -40,7 +40,7 @@ Os dados de contato vêm de `src/lib/contact.ts`, a mesma fonte do header.
 
 ### Movimento
 
-Nada anima sozinho. O rodapé é o ponto de repouso depois de três momentos seguidos dirigidos por scroll (hero, band, roleta). O hover dos links é só de opacidade, como no header. Exceção, por clique: "Voltar ao topo" sobe a página em 1,8 s, com `ease-out` (Lenis onde ele roda, scroll suave do navegador no resto), e sobe direto com `prefers-reduced-motion`.
+Nada anima sozinho. O rodapé é o ponto de repouso depois de três momentos seguidos dirigidos por scroll (hero, band, roleta). O hover dos links é só de opacidade, como no header. Exceção, por clique: "Voltar ao topo" sobe a página em 1,8 s, com `ease-out` (Lenis onde ele roda, scroll suave do navegador no resto), também com `prefers-reduced-motion` (PRD, D52).
 
 ### Regras
 
@@ -100,7 +100,7 @@ Fora por decisão do Lucas (2026-10-11): link do perfil e das avaliações do Go
 
 ### Movimento
 
-O título preso a partir de `lg` é posição, não animação: nada se move sozinho nem acompanha o scroll com cálculo. Ao abrir uma pergunta, a resposta aparece em 450 ms, com um ease-out cúbico (`cubic-bezier(0.33, 1, 0.68, 1)`): sobe 8 px e vai de transparente a visível, a cada abertura (`animate-details-in` no `::details-content`, só `opacity` e `translate`). O `@starting-style` de antes só tocava na primeira: o Chrome não recalcula o estilo do conteúdo de um `<details>` fechado. Fechar é instantâneo. Com `prefers-reduced-motion` fica só a passagem de transparente a visível, sem subir.
+O título preso a partir de `lg` é posição, não animação: nada se move sozinho nem acompanha o scroll com cálculo. Ao abrir uma pergunta, a resposta aparece em 450 ms, com um ease-out cúbico (`cubic-bezier(0.33, 1, 0.68, 1)`): sobe 8 px e vai de transparente a visível, a cada abertura (`animate-details-in` no `::details-content`, só `opacity` e `translate`). O `@starting-style` de antes só tocava na primeira: o Chrome não recalcula o estilo do conteúdo de um `<details>` fechado. Fechar é instantâneo. Com `prefers-reduced-motion` é igual (PRD, D52).
 
 ### Regras
 
@@ -134,7 +134,7 @@ Verificáveis em 390 px, iPad retrato e computador:
 - [ ] O rodapé vem logo depois, com a identificação intacta e sem `id="contato"`.
 - [ ] Cada pergunta abre e fecha por teclado (Enter e espaço), com foco visível.
 - [ ] Todo texto passa em 4,5:1; toque de 44 px.
-- [ ] Nada se move sozinho; com `prefers-reduced-motion` a resposta só aparece, sem subir.
+- [ ] Nada se move sozinho; com `prefers-reduced-motion` a resposta entra igual (D52).
 
 ## Fora de escopo
 

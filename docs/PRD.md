@@ -63,7 +63,7 @@ A doutora já tem o conteúdo das seções que faltam e ainda não mandou (D9). 
 ## 8. Requisitos não funcionais
 
 - Desempenho: nota de desempenho do Lighthouse de 85 ou mais no celular e de 90 ou mais no computador (D37). O LCP é medido e registrado; a meta de 2,5 s no celular fica para depois. Vídeo do hero com poster como primeira pintura; os vídeos só baixam depois da primeira tela (ADR 0004).
-- Acessibilidade: WCAG 2.2 AA (contraste, foco, `prefers-reduced-motion`, pausa do que se mexe sozinho por mais de 5 s).
+- Acessibilidade: WCAG 2.2 AA (contraste, foco, pausa do que se mexe sozinho por mais de 5 s). Com `prefers-reduced-motion`, os vídeos ficam no poster e o preloader é curto; o resto do movimento continua igual (D52).
 - Dispositivos: celular (390 px), iPad retrato e computador. Layouts dependentes de mídia testados por proporção. **O celular é o alvo principal** (D42): cada seção é pensada primeiro em tela de celular em pé, e o computador adapta a partir dela.
 - SEO e compartilhamento: prévia de link (Open Graph, com nome, profissão e CRO na imagem), ícone da Apple e cor do tema desde 2026-10-23 (D41). `noindex` até o aval dela (D22); depois, canonical, dados estruturados, sitemap e indexação.
 
@@ -282,3 +282,4 @@ Plano em `tasks/link-preview-404.md`.
 - **D49.** Domínio próprio `www.drathaianelessa.com.br`, comprado antes do fim previsto na D10 (Lucas, 2026-10-29). O endereço sem `www` leva ao com `www`. O `noindex` continua até o aval dela (D22).
 - **D50.** Nos casos de Serviços, os vizinhos deixam de ficar inteiros a 50%: a foto fica a 50% e o texto a 75%, o mínimo que ainda passa no contraste de 4,5:1 (Lucas, 2026-10-29). O texto a 50% reprovava no Lighthouse do computador. O texto não some nos vizinhos.
 - **D51.** Aval dela no site completo, com o rodapé (Lucas, 2026-10-29). Falta só tirar o `noindex`, com canonical, dados estruturados e sitemap (D22, D41).
+- **D52.** O movimento do site roda igual com `prefers-reduced-motion` ligado, inclusive a rolagem suave (Lenis), as animações de rolagem (hero, band, texto do Sobre, linha do tempo) e as transições de clique (Lucas, 2026-10-30). Num Windows em modo desempenho, com os efeitos de animação desligados, o Chrome e o Firefox pedem menos movimento, e o site aparecia inteiro parado para quem nem sabia da configuração. Sem a suavização, a roda do mouse anda aos saltos e as animações pareciam travadas; o Lenis também tem a própria regra de movimento reduzido, desligada (`respectReducedMotion: false`). Com a preferência, só os vídeos ficam no poster e o preloader cai para 300 ms. Quem precisa de menos movimento perde a opção de evitá-lo: é critério AAA (WCAG 2.3.3), e o site segue AA. PR #31.

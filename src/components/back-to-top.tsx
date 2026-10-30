@@ -9,8 +9,8 @@ const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4);
 /**
  * Takes the visitor back to the top with a glide instead of a jump. Lenis does
  * it where it runs (desktop), the browser's own smooth scroll does it elsewhere,
- * and with reduced motion the page just arrives. Without JavaScript the link is
- * still `#`, which jumps.
+ * also when the system asks for less motion (PRD, D52). Without JavaScript the
+ * link is still `#`, which jumps.
  */
 export function BackToTop({
   className,
@@ -21,11 +21,6 @@ export function BackToTop({
 }) {
   const onClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      window.scrollTo(0, 0);
-      return;
-    }
 
     const lenis = getLenis();
     if (lenis) {
