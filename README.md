@@ -2,7 +2,7 @@
 
 Landing page de uma cirurgiã-dentista em Maceió: uma página editorial, com movimento dirigido por scroll, que apresenta a profissional e leva o visitante ao WhatsApp.
 
-Em construção. Prévia (fora dos buscadores): https://www.drathaianelessa.com.br
+No ar: https://www.drathaianelessa.com.br
 
 ## O que já está no ar
 

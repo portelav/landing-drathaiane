@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { SITE_URL } from "./src/lib/site";
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
@@ -19,6 +20,19 @@ const nextConfig: NextConfig = {
           },
         ]
       : [],
+  },
+  // The old production address leads to the domain, so search engines see one
+  // site (PRD, D53). Matched by exact host: preview deployments have their own
+  // and keep working.
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "drathaianelessa\\.vercel\\.app" }],
+        destination: `${SITE_URL}/:path*`,
+        permanent: true,
+      },
+    ];
   },
 };
 

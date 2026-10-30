@@ -12,7 +12,7 @@ O site, o repositório e os docs nunca podem causar problema à Dra. Thaiane em 
 
 O Lucas (`portelav`, sozinho) confirma tudo e faz o merge. A Dra. Thaiane opina sobre estética, design e seções, dando opções, sem aprovação formal, e dá o olhar final no site completo antes de sair o `noindex` (PRD, D22 e D28). Texto, foto e dado dela vêm dela, nunca inventados. Pergunta técnica, de git ou de segurança não vai para ela.
 
-Repositório público `portelav/landing-drathaiane` (PRD, D18 e D19). Notas internas em `portelav/landing-drathaiane-notes` (privado), clonado em `private/`. Deploy na Vercel: produção a partir da `main` em https://www.drathaianelessa.com.br (com `noindex`; PRD, D49), preview por branch.
+Repositório público `portelav/landing-drathaiane` (PRD, D18 e D19). Notas internas em `portelav/landing-drathaiane-notes` (privado), clonado em `private/`. Deploy na Vercel: produção a partir da `main` em https://www.drathaianelessa.com.br (PRD, D49; nos buscadores desde a D53), preview por branch.
 
 Onde está cada coisa:
 
@@ -103,9 +103,9 @@ Durante o trabalho basta lint e typecheck; o build roda uma vez antes de abrir o
 
 ```
 src/
-  app/          layout.tsx (metadados, fontes, noindex), page.tsx (ordem das seções), globals.css (tokens, variantes wide: e beside:)
+  app/          layout.tsx (metadados, fontes), page.tsx (ordem das seções, canonical e dados estruturados), robots.ts e sitemap.ts, globals.css (tokens, variantes wide: e beside:)
   components/   uma seção ou peça por arquivo
-  lib/          dados sem componente: contact.ts, media.ts
+  lib/          dados sem componente: contact.ts, media.ts, site.ts (endereço oficial), structured-data.ts
 public/         images/ logos/ video/ (já transcodificados)
 docs/           PRD, ADRs, FDDs, ROADMAP, DESIGN, research
 tasks/          um arquivo por entrega que passou pelo /plan
