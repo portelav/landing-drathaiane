@@ -39,8 +39,8 @@ Seções em ordem na página.
 | Item | Objetivo | FDD | Estado |
 |---|---|---|---|
 | Preloader | Abrir com a marca: monograma desenhado que voa para o header | (anterior ao kickoff) | pronto |
-| Header | Navegação e contato direto (WhatsApp, Instagram) sempre à mão | (anterior ao kickoff) | pronto |
-| Hero | Primeira impressão: o consultório e o nome | [`docs/fdd/hero.md`](fdd/hero.md) | pronto; versão do celular mantida como está (2026-10-28, D47; PR #26) |
+| Header | Navegação e contato direto (WhatsApp, Instagram) sempre à mão | [`docs/fdd/header.md`](fdd/header.md) | pronto; sem o tranco da inércia ao parar (2026-10-29; PR #29) |
+| Hero | Primeira impressão: o consultório e o nome | [`docs/fdd/hero.md`](fdd/hero.md) | pronto; versão do celular mantida como está (2026-10-28, D47; PR #26); parágrafo novo dela (2026-10-29; PR #29) |
 | Sobre | Quem ela é, como trabalha, credenciais com datas | [`docs/fdd/sobre.md`](fdd/sobre.md) | pronto; texto novo dela (2026-10-28, D45); band no celular com chegada que segue a rolagem (2026-10-28, D46; PR #26); "Leia mais" no celular (2026-10-29, D48; PR #28) |
 | Serviços | O que ela trata, para os dois públicos, e cinco casos dela com foto | [`docs/fdd/servicos.md`](fdd/servicos.md) | feito (2026-10-28, D44); botão "Agende aqui um horário" (D45) |
 | Depoimentos | Prova social | [`docs/fdd/depoimentos.md`](fdd/depoimentos.md) | fora por enquanto, sai do site e do menu (D25) |
@@ -131,7 +131,7 @@ Só depende do Lucas. O site continua com `noindex`.
 Depende do conteúdo e do aval dela (D24).
 
 - [x] Serviços e Contato com o conteúdo real dela. Contato completo em 2026-10-27 (D32, D34, D39, D43; PR #22) e Serviços em 2026-10-28 (D44; PR #23). Primeira leitura dela aplicada em 2026-10-28: número da clínica, mensagem pronta, e-mail fora e Sobre novo (D45; PR #25).
-- [x] Site inteiro revisto de novo contra as regras de fora; o que não passou mudou ou saiu (D30). Feito em 2026-10-29.
+- [x] Site inteiro revisto de novo contra as regras de fora; o que não passou mudou ou saiu (D30). Feito em 2026-10-29 (PR #29).
 - [ ] Aval dela no site completo, com o texto do rodapé.
 - [ ] `noindex` fora, com canonical, dados estruturados e sitemap. A prévia de link já saiu na Fase 1 (D41).
 - [ ] Barra técnica da Fase 1 conferida de novo com as seções novas.
