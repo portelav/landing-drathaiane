@@ -29,7 +29,7 @@ O visitante entende o que a doutora trata, se reconhece em pelo menos um dos cas
 Nenhum movimento dirigido por scroll: a seção não é o quarto momento depois de hero, band e roda.
 
 - Lista: o texto entra como as respostas do Contato (450 ms, de baixo, a cada abertura, pelo `animate-details-in` no `::details-content`); o + gira para × (300 ms).
-- Carrossel: o gesto é do aparelho. Em todas as larguras, o caso da vez fica aceso e os vizinhos a 50%, com a foto de 1,04 a 1 (400 e 700 ms, `ease-out-quint`). Só `opacity` e `transform`.
+- Carrossel: o gesto é do aparelho. Em todas as larguras, o caso da vez fica aceso e, nos vizinhos, a foto fica a 50% e o texto a 75%, o mínimo que ainda passa no contraste de 4,5:1; a foto vai de 1,04 a 1 (400 e 700 ms, `ease-out-quint`). Só `opacity` e `transform`.
 - Com `prefers-reduced-motion`: todos os casos em cor cheia, sem zoom, e as setas saltam em vez de deslizar. Nada se mexe sozinho.
 
 ## Regras

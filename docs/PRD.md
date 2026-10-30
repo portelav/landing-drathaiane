@@ -42,7 +42,7 @@ Seções em ordem na página.
 | Header | Navegação e contato direto (WhatsApp, Instagram) sempre à mão | [`docs/fdd/header.md`](fdd/header.md) | pronto; sem o tranco da inércia ao parar (2026-10-29; PR #29) |
 | Hero | Primeira impressão: o consultório e o nome | [`docs/fdd/hero.md`](fdd/hero.md) | pronto; versão do celular mantida como está (2026-10-28, D47; PR #26); parágrafo novo dela (2026-10-29; PR #29) |
 | Sobre | Quem ela é, como trabalha, credenciais com datas | [`docs/fdd/sobre.md`](fdd/sobre.md) | pronto; texto novo dela (2026-10-28, D45); band no celular com chegada que segue a rolagem (2026-10-28, D46; PR #26); "Leia mais" no celular (2026-10-29, D48; PR #28) |
-| Serviços | O que ela trata, para os dois públicos, e cinco casos dela com foto | [`docs/fdd/servicos.md`](fdd/servicos.md) | feito (2026-10-28, D44); botão "Agende aqui um horário" (D45) |
+| Serviços | O que ela trata, para os dois públicos, e cinco casos dela com foto | [`docs/fdd/servicos.md`](fdd/servicos.md) | feito (2026-10-28, D44); botão "Agende aqui um horário" (D45); texto dos casos vizinhos legível (2026-10-29, D50; PR #30) |
 | Depoimentos | Prova social | [`docs/fdd/depoimentos.md`](fdd/depoimentos.md) | fora por enquanto, sai do site e do menu (D25) |
 | Contato e rodapé | Como chegar (endereço do consultório e rota), horários, primeira consulta, perguntas frequentes, WhatsApp (D32 a D34; link das avaliações fora, D39); identificação obrigatória (nome, CRO) | [`docs/fdd/contato.md`](fdd/contato.md) | pronto: rodapé com a identificação e os canais (D26); seção Contato completa (2026-10-27, D43); número da clínica, mensagem pronta no WhatsApp e e-mail fora (2026-10-28, D45); primeira consulta na frente, com a foto das sacolas, e o retrato dela no botão do WhatsApp (2026-10-29, D48; PR #28) |
 | Página 404 | Endereço errado cai numa página com a marca e o caminho de volta à home (D41) | (sem FDD) | pronto |
@@ -132,9 +132,9 @@ Depende do conteúdo e do aval dela (D24).
 
 - [x] Serviços e Contato com o conteúdo real dela. Contato completo em 2026-10-27 (D32, D34, D39, D43; PR #22) e Serviços em 2026-10-28 (D44; PR #23). Primeira leitura dela aplicada em 2026-10-28: número da clínica, mensagem pronta, e-mail fora e Sobre novo (D45; PR #25).
 - [x] Site inteiro revisto de novo contra as regras de fora; o que não passou mudou ou saiu (D30). Feito em 2026-10-29 (PR #29).
-- [ ] Aval dela no site completo, com o texto do rodapé.
+- [x] Aval dela no site completo, com o texto do rodapé. Dado em 2026-10-29 (D51; PR #30).
 - [ ] `noindex` fora, com canonical, dados estruturados e sitemap. A prévia de link já saiu na Fase 1 (D41).
-- [ ] Barra técnica da Fase 1 conferida de novo com as seções novas.
+- [x] Barra técnica da Fase 1 conferida de novo com as seções novas. Nota de desempenho na produção em 2026-10-29: 88 no celular, 94 no iPad, 100 no computador. Acessibilidade: 100 nos três, depois da correção do contraste dos casos (D50). LCP no celular: 3,0 s (PR #30).
 
 Fora dos critérios: Depoimentos (D25).
 
@@ -280,3 +280,5 @@ Plano em `tasks/link-preview-404.md`.
   - Casos de Serviços: o caso da vez fica no meio, em todas as larguras, e tocar num vizinho o traz para lá. O carrossel é em laço: antes do primeiro já aparece o último. Corrige a seta para trás, que travava na última foto no iPad e no computador.
   - Linha do tempo no computador: a foto ao lado da roda chega coberta e só começa a abrir quando os anos começam a girar. Antes, a faixa de cima já aparecia em 2019.
 - **D49.** Domínio próprio `www.drathaianelessa.com.br`, comprado antes do fim previsto na D10 (Lucas, 2026-10-29). O endereço sem `www` leva ao com `www`. O `noindex` continua até o aval dela (D22).
+- **D50.** Nos casos de Serviços, os vizinhos deixam de ficar inteiros a 50%: a foto fica a 50% e o texto a 75%, o mínimo que ainda passa no contraste de 4,5:1 (Lucas, 2026-10-29). O texto a 50% reprovava no Lighthouse do computador. O texto não some nos vizinhos.
+- **D51.** Aval dela no site completo, com o rodapé (Lucas, 2026-10-29). Falta só tirar o `noindex`, com canonical, dados estruturados e sitemap (D22, D41).
