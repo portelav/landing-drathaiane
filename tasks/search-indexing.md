@@ -1,6 +1,6 @@
 # Site público: noindex fora
 
-**Branch:** `feat/go-public` · **Status:** Em execução
+**Branch:** `feat/go-public` · **Status:** Feito (PR #32)
 
 ## Objetivo
 - Liberar o site para os buscadores, com o aval dela dado (PRD, D22 e D51), e dizer ao Google qual é o endereço oficial e o que o site é.
