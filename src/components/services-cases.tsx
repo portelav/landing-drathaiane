@@ -7,6 +7,8 @@ import { CASES } from "@/lib/services";
 const ARROW =
   "flex h-11 w-11 items-center justify-center border border-dark-10 text-lg text-dark-base transition-opacity duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dark-base";
 
+const FADE = "transition-opacity duration-[400ms] ease-[var(--ease-out-quint)] motion-reduce:transition-none";
+
 const pad = (n: number) => String(n).padStart(2, "0");
 
 const COUNT = CASES.length;
@@ -49,8 +51,10 @@ const jump = (track: HTMLElement, slot: number) => {
 /**
  * The cases slide sideways under the thumb and stop on each photo (native
  * scroll snap: no scroll-driven moment of our own). The chosen case sits in
- * the middle, lit, with its neighbours at half opacity on either side, so the
- * edges say there is more. Tapping a neighbour brings it to the middle.
+ * the middle, lit, with its neighbours dimmed on either side, so the edges
+ * say there is more: the photo to 50%, the text only to 75%, the most it can
+ * fade and still read (4.5:1 on the cream). Tapping a neighbour brings it to
+ * the middle.
  *
  * It loops: once the track settles on a case in an outer run, it jumps,
  * without animation, to the same case in the middle run. Every copy of the
@@ -156,9 +160,9 @@ export function ServicesCases() {
               aria-hidden={copy || undefined}
               aria-label={copy ? undefined : `Caso ${index + 1} de ${COUNT}`}
               onClick={slot === active ? undefined : () => go(slot)}
-              className={`flex w-[84vw] shrink-0 snap-center flex-col gap-4 transition-opacity duration-[400ms] ease-[var(--ease-out-quint)] motion-reduce:transition-none sm:w-[22rem] lg:w-[20rem] ${lit ? "" : "cursor-pointer motion-safe:opacity-50"}`}
+              className={`flex w-[84vw] shrink-0 snap-center flex-col gap-4 sm:w-[22rem] lg:w-[20rem] ${lit ? "" : "cursor-pointer"}`}
             >
-              <div className="overflow-hidden bg-dark-10">
+              <div className={`${FADE} overflow-hidden bg-dark-10 ${lit ? "" : "motion-safe:opacity-50"}`}>
                 <Image
                   src={item.src}
                   alt={copy ? "" : item.alt}
@@ -168,7 +172,7 @@ export function ServicesCases() {
                   className={`block h-auto w-full transition-transform duration-700 ease-[var(--ease-out-quint)] motion-reduce:transition-none ${lit ? "" : "motion-safe:scale-[1.04]"}`}
                 />
               </div>
-              <div>
+              <div className={`${FADE} ${lit ? "" : "motion-safe:opacity-75"}`}>
                 <h4 className="m-0 font-display text-[1.5rem] font-normal leading-[1.15]">{item.title}</h4>
                 <p className="m-0 mt-2 text-[1rem] leading-[1.6] text-dark-base/85">{item.text}</p>
               </div>
