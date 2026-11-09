@@ -63,8 +63,12 @@ const WINDOW_START = PANEL_WIDTH * FRAME_ASPECT;
  * room to spare while a tall phone never does, however many pixels across it
  * is. 427/720 is WINDOW_START as an exact fraction; the `wide:` variant in
  * `globals.css` carries the same number for the layout that follows it.
+ *
+ * The width floor is for phones the ratio lets through: the browser's bars take
+ * height, so an upright phone can pass it while half its width is too little to
+ * hold the copy. The `wide:` variant carries the floor too.
  */
-const OPENS_ABOVE = "(min-aspect-ratio: 427/720)";
+const OPENS_ABOVE = "(min-width: 40rem) and (min-aspect-ratio: 427/720)";
 
 const clamp = (value: number) => Math.min(1, Math.max(0, value));
 const lerp = (from: number, to: number, t: number) => from + (to - from) * t;
