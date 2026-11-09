@@ -40,7 +40,7 @@ Seções em ordem na página.
 |---|---|---|---|
 | Preloader | Abrir com a marca: monograma desenhado que voa para o header | (anterior ao kickoff) | pronto |
 | Header | Navegação e contato direto (WhatsApp, Instagram) sempre à mão | [`docs/fdd/header.md`](fdd/header.md) | pronto; sem o tranco da inércia ao parar (2026-10-29; PR #29) |
-| Hero | Primeira impressão: o consultório e o nome | [`docs/fdd/hero.md`](fdd/hero.md) | pronto; versão do celular mantida como está (2026-10-28, D47; PR #26); parágrafo novo dela (2026-10-29; PR #29) |
+| Hero | Primeira impressão: o consultório e o nome | [`docs/fdd/hero.md`](fdd/hero.md) | pronto; versão do celular mantida como está (2026-10-28, D47; PR #26); parágrafo novo dela (2026-10-29; PR #29); celular em pé sempre no layout estreito e panorâmica sem travar no iPhone (2026-11-08; PR #33) |
 | Sobre | Quem ela é, como trabalha, credenciais com datas | [`docs/fdd/sobre.md`](fdd/sobre.md) | pronto; texto novo dela (2026-10-28, D45); band no celular com chegada que segue a rolagem (2026-10-28, D46; PR #26); "Leia mais" no celular (2026-10-29, D48; PR #28) |
 | Serviços | O que ela trata, para os dois públicos, e cinco casos dela com foto | [`docs/fdd/servicos.md`](fdd/servicos.md) | feito (2026-10-28, D44); botão "Agende aqui um horário" (D45); texto dos casos vizinhos legível (2026-10-29, D50; PR #30) |
 | Depoimentos | Prova social | [`docs/fdd/depoimentos.md`](fdd/depoimentos.md) | fora por enquanto, sai do site e do menu (D25) |

@@ -6,8 +6,13 @@
  * therefore a question of ratio, not of pixel count: a 900×700 window has room
  * to spare, while a tall phone never does however many pixels across it is.
  * 427/720 is that ratio exactly — see WINDOW_START in `hero.tsx`.
+ *
+ * The ratio alone is not enough on a phone: the browser's own bars take height,
+ * so a phone held upright can pass it, more so inside an in-app browser. Half
+ * of a phone's width has no room for the copy, hence the width floor. Keep it in
+ * step with OPENS_ABOVE in `hero.tsx`.
  */
-@custom-variant wide (@media (min-aspect-ratio: 427/720));
+@custom-variant wide (@media (min-width: 40rem) and (min-aspect-ratio: 427/720));
 
 /**
  * The about band sets the photo beside the copy, and the photo is 3:4 — its

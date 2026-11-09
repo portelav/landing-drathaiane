@@ -25,16 +25,16 @@ Tudo já no ar desde antes do kickoff, sem conteúdo novo neste documento. A rev
 
 Duas peles de cor no código (`PALETTE`), escolhidas pela constante `TONE`. No ar está a clara: fundo `light-base` e header claro. A escura (`forest-900`) está guardada e passa no mesmo contraste (DESIGN.md, seção 3).
 
-**Estreito** (proporção abaixo de 427/720, o teste `wide:`; quase todo celular em pé):
+**Estreito** (fora do teste `wide:`; todo celular em pé, mesmo com as barras do navegador tirando altura):
 - O texto vem primeiro, e o vídeo desce para um quadro de tela inteira (`100svh`) logo abaixo.
 - O quadro do vídeo trava (`sticky`) numa pista de `300svh` enquanto a panorâmica passa pelos três painéis, como no `wide:`. Depois da pista, a página segue.
 
-**`wide:`** (proporção de 427/720 ou mais; tablet, computador):
+**`wide:`** (proporção de 427/720 ou mais e largura de 40rem ou mais; tablet, computador, celular deitado). Só a proporção não basta: com as barras do navegador, um celular em pé passa de 427/720, e metade da largura dele não comporta o texto.
 - O texto ocupa a metade esquerda, e o vídeo começa como uma janela na direita, do tamanho de um painel do tríptico.
 - A seção tem `300svh` de pista, com o palco travado (`sticky`) enquanto a janela abre.
 
 **O vídeo:**
-1. **Na tela, toca em loop.** Conta como na tela quando 40% do vídeo está visível.
+1. **Na tela, toca em loop.** Conta como na tela quando 40% do quadro está visível.
 2. **Fora da tela, pausa.** Ao voltar, retoma de onde parou.
 3. **Botão de pausa** no canto inferior direito do quadro: um quadrado claro de 32 px, sem raio, com ícone escuro (duas barras para pausar, triângulo para reproduzir), e área de toque de 44 × 44 px. O nome para leitor de tela é "Pausar o vídeo do consultório" ou "Reproduzir o vídeo do consultório".
 4. **A pausa pedida pela pessoa vale até ela tocar em reproduzir,** mesmo que role para longe e volte. Vale só durante a visita.
@@ -48,11 +48,11 @@ Duas peles de cor no código (`PALETTE`), escolhidas pela constante `TONE`. No a
 | Véu sobre o vídeo (`wide:`) | scroll | Opacidade até 0,56 na pele clara (0,34 na escura), proporcional à abertura | Paredes claras em tela cheia atrás da linha de exibição pedem um pouco de sombra |
 | Texto sai (`wide:`) | scroll | Opacidade e deslocamento para a esquerda, de 5% a 40% da pista | O texto sai bem antes de o vídeo tomar a tela |
 | Linha "seu sorriso, no seu tempo" (`wide:`) | scroll | Entra pela direita a partir de 22% e assenta centralizada no fim | Linha de exibição grande que vaza as duas bordas |
-| Panorâmica no tríptico (estreito) | scroll | `objectPosition` de 0% a 100% enquanto o quadro fica travado na pista de `300svh` | Em tela de celular o recorte é mais estreito que um painel; os três painéis chegam um depois do outro, com a tela parada |
+| Panorâmica no tríptico (estreito) | scroll | `transform` no vídeo, com a largura inteira de 16:9, do início ao fim do recorte enquanto o quadro fica travado na pista de `300svh` | Em tela de celular o recorte é mais estreito que um painel; os três painéis chegam um depois do outro, com a tela parada |
 | Linha de exibição (estreito) | scroll | Atravessa da direita para a esquerda durante a pista | Contraponto ao movimento da panorâmica |
 | Vídeo | sozinho, na tela | Loop, com pausa pelo botão e fora da tela | O consultório vivo na primeira impressão |
 
-Só `transform`, `opacity`, `width` do quadro (que está em posição absoluta e não força layout do resto da página) e `objectPosition`. O botão não anima: o hover é só de opacidade, 300 ms.
+Só `transform`, `opacity` e `width` do quadro (que está em posição absoluta e não força layout do resto da página). Com `objectPosition`, a panorâmica travava no iPhone com o vídeo parado no poster. O botão não anima: o hover é só de opacidade, 300 ms.
 
 **`prefers-reduced-motion`** (PRD, D52, desde 2026-10-30):
 - O palco travado, a abertura da janela e a panorâmica seguem a rolagem do mesmo jeito. Antes, com a preferência ligada, a pista sumia e o hero ficava parado; num Windows em modo desempenho, isso deixava o site inteiro parado no Chrome e no Firefox.
@@ -96,3 +96,4 @@ Verificáveis em 390 px, iPad retrato e computador.
 - [x] Pausado pelo botão, o vídeo não volta a tocar sozinho depois de rolar para longe e voltar.
 - [x] Com movimento reduzido, o vídeo fica no poster, sem botão, e o palco segue a rolagem (D52). Conferido pelo CDP em 1920, iPad retrato e 390 px em 2026-10-30.
 - [x] A abertura pelo scroll e a linha de exibição continuam como descritas em "Movimento", e o botão não cobre texto, linha de exibição nem header.
+- [x] Celular em pé fica no estreito em qualquer altura de janela: conferido por emulação em larguras de 390 a 440 px e alturas de 659 a 956 px.
