@@ -89,7 +89,7 @@ export function Hero() {
 
   // Decorative playback: the poster carries the first paint, and the video
   // loops only while it is on screen and the visitor has not stopped it.
-  const playback = useLoopWhileVisible(videoRef);
+  const playback = useLoopWhileVisible(videoRef, frameRef);
 
   // Scroll-driven reveal. Everything animated here is absolutely positioned, so
   // resizing the window costs no reflow of the page around it.
@@ -117,7 +117,7 @@ export function Hero() {
       banner.style.opacity = "";
       banner.style.transform = "";
       veil.style.opacity = "";
-      video.style.objectPosition = "";
+      video.style.transform = "";
       mobileBanner.style.transform = `translate3d(${
         (window.innerWidth - mobileBanner.offsetWidth) / 2
       }px, -50%, 0)`;
@@ -169,6 +169,10 @@ export function Hero() {
      * which is narrower than a single panel. So instead of opening outwards the
      * crop pans across the triptych: the three panels arrive one after another
      * rather than all at once, and the line drifts against them.
+     *
+     * The crop moves as a transform: the video is laid out at its full 16:9
+     * width and slides inside the frame. With `object-position`, an iPhone
+     * resting on the poster (reduced motion) stuttered through the pan.
      */
     const drawLoose = () => {
       const viewportWidth = window.innerWidth;
@@ -177,7 +181,8 @@ export function Hero() {
       const progress = held > 0 ? clamp(-rect.top / held) : 0;
 
       // Spend the whole pan while the frame is held.
-      video.style.objectPosition = `${stage(progress, 0.05, 0.95) * 100}% 50%`;
+      const travel = Math.max(0, video.offsetWidth - frame.clientWidth);
+      video.style.transform = `translate3d(${-stage(progress, 0.05, 0.95) * travel}px, 0, 0)`;
 
       mobileBanner.style.transform = `translate3d(${lerp(
         viewportWidth,
@@ -280,7 +285,7 @@ export function Hero() {
               disablePictureInPicture
               disableRemotePlayback
               controlsList="nodownload noplaybackrate noremoteplayback"
-              className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+              className="pointer-events-none absolute inset-y-0 left-0 aspect-video h-full min-w-full max-w-none object-cover will-change-transform wide:inset-x-0 wide:aspect-auto wide:w-full wide:will-change-auto"
             >
               {SOURCES.map((source) => (
                 <source key={source.src} src={source.src} type={source.type} />

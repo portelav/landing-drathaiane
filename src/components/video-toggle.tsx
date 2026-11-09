@@ -18,8 +18,14 @@ const VISIBLE = 0.4;
  * The videos are `preload="none"`, so `play()` is what fetches them, and it
  * waits for the page's own load event: the first screen gets the line to
  * itself, and the footage follows (ADR 0004).
+ *
+ * Pass `frameRef` when the video is wider than the box clipping it: measured
+ * against its own width, it could never reach the visible share.
  */
-export function useLoopWhileVisible(videoRef: RefObject<HTMLVideoElement | null>) {
+export function useLoopWhileVisible(
+  videoRef: RefObject<HTMLVideoElement | null>,
+  frameRef?: RefObject<HTMLElement | null>,
+) {
   const [playable, setPlayable] = useState(false);
   const [paused, setPaused] = useState(false);
   const pausedRef = useRef(false);
@@ -82,7 +88,7 @@ export function useLoopWhileVisible(videoRef: RefObject<HTMLVideoElement | null>
     video.addEventListener("playing", onPlaying);
     stillness.addEventListener("change", sync);
     if (!loaded) window.addEventListener("load", onLoad, { once: true });
-    observer.observe(video);
+    observer.observe(frameRef?.current ?? video);
 
     return () => {
       observer.disconnect();
@@ -91,7 +97,7 @@ export function useLoopWhileVisible(videoRef: RefObject<HTMLVideoElement | null>
       video.removeEventListener("playing", onPlaying);
       video.removeEventListener("canplay", attempt);
     };
-  }, [videoRef]);
+  }, [videoRef, frameRef]);
 
   const toggle = useCallback(() => {
     pausedRef.current = !pausedRef.current;
